@@ -1,1 +1,46 @@
-# tibia-web
+# tibia-web realizado por Adam Everson
+
+* Game Web semelhante ao Tibia
+
+* Motivação: realizar um tibia web
+
+# DEPLOY
+
+http://magiclevel.ml/SO/test/jogos/login.php
+
+# FEATURES
+
+* Implementação de funcionalidades semelhantes ao do Tibia
+
+* Mais integração com o back-end
+
+# Tibia
+#### O desafio:
+Implementação de funcionalidades semelhantes ao do Tibia
+#### Características :
+  - Diferencial Web
+  - Animações
+  - Usuários
+ 
+#### Tecnologias:
+  - PHP
+  - Mysql
+  - Ajax
+  - JSON
+  - HTML
+  - Javascript
+  - CSS
+
+### Considerações
+O conhecimento adquirido pode ser utilizado para novas aplicações
+
+Período indeterminado
+
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Server PHP
