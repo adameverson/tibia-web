@@ -425,7 +425,7 @@
                 dados.append('hp', hp);
 
                 $.ajax({
-                    url: 'indexJogo1_3.php',
+                    url: 'Tibia1_3.php',
                     method: 'POST',
                     data: dados,
                     processData: false,
