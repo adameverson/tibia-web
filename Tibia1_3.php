@@ -79,11 +79,27 @@
             var quadrosDeAnimacao = 10;
             var esperaPorQuadro = 50;
 
-            // [INICIO] AJAX
-        
-            var dados = new FormData();
-
-            // [FIM] AJAX
+            //Variaveis Animacao Snake Atacando
+            var posicaoLinhaCima = 0;
+            var posicaoColunaCima = 0;
+            var posicaoLinhaEsquerda = 0;
+            var posicaoColunaEsquerda = 0;
+            var posicaoLinhaDireita = 0;
+            var posicaoColunaDireita = 0;
+            var posicaoLinhaBaixo = 0;
+            var posicaoColunaBaixo = 0;
+            var esperaRessCima = 3;
+            var esperaRessEsquerda = 3;
+            var esperaRessDireita = 3;
+            var esperaRessBaixo = 3;
+            var esperaRessCimaContador = 0;
+            var esperaRessEsquerdaContador = 0;
+            var esperaRessDireitaContador = 0;
+            var esperaRessBaixoContador = 0;
+            var flagCima = false;
+            var flagEsquerda = false;
+            var flagDireita = false;
+            var flagBaixo = false;
 
             function preencherImagens(){
                 var caminhoImagem = "";
@@ -301,6 +317,118 @@
                 }
             }
 
+            function animacaoSnake(){
+
+                //Animacao Snake Atacando de Cima
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10){
+                    posicaoLinhaCima = posicaoDoPersonagemNaMatriz[0]-1;
+                    posicaoColunaCima = posicaoDoPersonagemNaMatriz[1];
+                    flagCima = true;
+                    if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 8){
+                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 9;
+                    }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10 && esperaRessCima == esperaRessCimaContador){
+                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 9;
+                        esperaRessCimaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10 && esperaRessCima > esperaRessCimaContador){
+                        esperaRessCimaContador++;
+                    }
+                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 9){
+                        hp -= 1;
+                    }else if(hp - 1 < 0){
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 9 || matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10) && flagCima){
+                    matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 8;
+                    flagCima = false;
+                }
+
+                //Animacao Snake Atacando da Esquerda
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10){
+                    posicaoLinhaEsquerda = posicaoDoPersonagemNaMatriz[0];
+                    posicaoColunaEsquerda = posicaoDoPersonagemNaMatriz[1]-1;
+                    flagEsquerda = true;
+                    if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 8){
+                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 9;
+                    }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10 && esperaRessEsquerda == esperaRessEsquerdaContador){
+                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 9;
+                        esperaRessEsquerdaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10 && esperaRessEsquerda > esperaRessEsquerdaContador){
+                        esperaRessEsquerdaContador++;
+                    }
+                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 9){
+                        hp -= 1;
+                    }else if(hp - 1 < 0){
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 9 || matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10) && flagEsquerda){
+                    matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 8;
+                    flagEsquerda = false;
+                }
+
+                //Animacao Snake Atacando da Direita
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10){
+                    posicaoLinhaDireita = posicaoDoPersonagemNaMatriz[0];
+                    posicaoColunaDireita = posicaoDoPersonagemNaMatriz[1]+1;
+                    flagDireita = true;
+                    if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 8){
+                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 9;
+                    }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10 && esperaRessDireita == esperaRessDireitaContador){
+                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 9;
+                        esperaRessDireitaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10 && esperaRessDireita > esperaRessDireitaContador){
+                        esperaRessDireitaContador++;
+                    }
+                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 9){
+                        hp -= 1;
+                    }else if(hp - 1 < 0){
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 9 || matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10) && flagDireita){
+                    matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 8;
+                    flagDireita = false;
+                }
+
+                //Animacao Snake Atacando de Baixo
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10){
+                    posicaoLinhaBaixo = posicaoDoPersonagemNaMatriz[0]+1;
+                    posicaoColunaBaixo = posicaoDoPersonagemNaMatriz[1];
+                    flagBaixo = true;
+                    if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 8){
+                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 9;
+                    }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10 && esperaRessBaixo == esperaRessBaixoContador){
+                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 9;
+                        esperaRessBaixoContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10 && esperaRessBaixo > esperaRessBaixoContador){
+                        esperaRessBaixoContador++;
+                    }
+                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 9){
+                        hp -= 1;
+                    }else if(hp - 1 < 0){
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 9 || matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10) && flagBaixo){
+                    matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 8;
+                    flagBaixo = false;
+                }
+
+                document.getElementById('nivelvalor').innerHTML = nivel;
+                document.getElementById('hpvalor').innerHTML = hp;
+                document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
+
+                if(identificadorDoChat == 0){
+                    document.getElementById('textareaChat').value = mensagensDoChatDefault;
+                } else if(identificadorDoChat == 1){
+                    document.getElementById('textareaChat').value = mensagensDoChatNpc;
+                }
+
+                preencherImagens();
+            }
+
+            function loop(){
+                animacaoSnake();
+            }
+
             function pressKey(key){
                 var conjurarExura = false;
                 var tecla = key.which;
@@ -419,6 +547,8 @@
 
                 // [INICIO] AJAX
 
+                var dados = new FormData();
+
                 dados.append('username', username);
                 dados.append('password', password);
                 dados.append('nivel', nivel);
@@ -441,7 +571,7 @@
 
         </script>
     </head>
-    <body onKeyPress="pressKey(event)">
+    <body onload="setInterval('loop()', 1000)" onKeyPress="pressKey(event)">
         <div id='mapa1'style='position:fixed; top: 0; left: 0'>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
@@ -754,143 +884,6 @@
         -->
 
         <script>
-            //Variaveis Animacao Snake Atacando
-            var posicaoLinhaCima = 0;
-            var posicaoColunaCima = 0;
-            var posicaoLinhaEsquerda = 0;
-            var posicaoColunaEsquerda = 0;
-            var posicaoLinhaDireita = 0;
-            var posicaoColunaDireita = 0;
-            var posicaoLinhaBaixo = 0;
-            var posicaoColunaBaixo = 0;
-            var esperaRessCima = 3;
-            var esperaRessEsquerda = 3;
-            var esperaRessDireita = 3;
-            var esperaRessBaixo = 3;
-            var esperaRessCimaContador = 0;
-            var esperaRessEsquerdaContador = 0;
-            var esperaRessDireitaContador = 0;
-            var esperaRessBaixoContador = 0;
-            var flagCima = false;
-            var flagEsquerda = false;
-            var flagDireita = false;
-            var flagBaixo = false;
-            
-            var i = 0;
-            var j = 100000;
-
-            while(i < j){
-
-                setTimeout(function(){
-
-                    //Animacao Snake Atacando de Cima
-                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10){
-                        posicaoLinhaCima = posicaoDoPersonagemNaMatriz[0]-1;
-                        posicaoColunaCima = posicaoDoPersonagemNaMatriz[1];
-                        flagCima = true;
-                        if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 8){
-                            matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 9;
-                        }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10 && esperaRessCima == esperaRessCimaContador){
-                            matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 9;
-                            esperaRessCimaContador = 0;
-                        }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10 && esperaRessCima > esperaRessCimaContador){
-                            esperaRessCimaContador++;
-                        }
-                        if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 9){
-                            hp -= 1;
-                        }else if(hp - 1 < 0){
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                        }
-                    } else if((matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 9 || matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10) && flagCima){
-                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 8;
-                        flagCima = false;
-                    }
-
-                    //Animacao Snake Atacando da Esquerda
-                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10){
-                        posicaoLinhaEsquerda = posicaoDoPersonagemNaMatriz[0];
-                        posicaoColunaEsquerda = posicaoDoPersonagemNaMatriz[1]-1;
-                        flagEsquerda = true;
-                        if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 8){
-                            matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 9;
-                        }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10 && esperaRessEsquerda == esperaRessEsquerdaContador){
-                            matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 9;
-                            esperaRessEsquerdaContador = 0;
-                        }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10 && esperaRessEsquerda > esperaRessEsquerdaContador){
-                            esperaRessEsquerdaContador++;
-                        }
-                        if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 9){
-                            hp -= 1;
-                        }else if(hp - 1 < 0){
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                        }
-                    } else if((matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 9 || matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10) && flagEsquerda){
-                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 8;
-                        flagEsquerda = false;
-                    }
-
-                    //Animacao Snake Atacando da Direita
-                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10){
-                        posicaoLinhaDireita = posicaoDoPersonagemNaMatriz[0];
-                        posicaoColunaDireita = posicaoDoPersonagemNaMatriz[1]+1;
-                        flagDireita = true;
-                        if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 8){
-                            matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 9;
-                        }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10 && esperaRessDireita == esperaRessDireitaContador){
-                            matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 9;
-                            esperaRessDireitaContador = 0;
-                        }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10 && esperaRessDireita > esperaRessDireitaContador){
-                            esperaRessDireitaContador++;
-                        }
-                        if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 9){
-                            hp -= 1;
-                        }else if(hp - 1 < 0){
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                        }
-                    } else if((matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 9 || matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10) && flagDireita){
-                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 8;
-                        flagDireita = false;
-                    }
-
-                    //Animacao Snake Atacando de Baixo
-                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10){
-                        posicaoLinhaBaixo = posicaoDoPersonagemNaMatriz[0]+1;
-                        posicaoColunaBaixo = posicaoDoPersonagemNaMatriz[1];
-                        flagBaixo = true;
-                        if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 8){
-                            matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 9;
-                        }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10 && esperaRessBaixo == esperaRessBaixoContador){
-                            matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 9;
-                            esperaRessBaixoContador = 0;
-                        }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10 && esperaRessBaixo > esperaRessBaixoContador){
-                            esperaRessBaixoContador++;
-                        }
-                        if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 9){
-                            hp -= 1;
-                        }else if(hp - 1 < 0){
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                        }
-                    } else if((matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 9 || matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10) && flagBaixo){
-                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 8;
-                        flagBaixo = false;
-                    }
-
-                    document.getElementById('nivelvalor').innerHTML = nivel;
-                    document.getElementById('hpvalor').innerHTML = hp;
-                    document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                    if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
-
-                    if(identificadorDoChat == 0){
-                        document.getElementById('textareaChat').value = mensagensDoChatDefault;
-                    } else if(identificadorDoChat == 1){
-                        document.getElementById('textareaChat').value = mensagensDoChatNpc;
-                    }
-
-                    preencherImagens();
-                }, i*1000);
-
-                i++;
-            }
 
             <?php
 
