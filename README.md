@@ -2,7 +2,7 @@
 
 * Game Web semelhante ao Tibia
 
-* Motivação: realizar um tibia web
+* Motivação: realizar um Tibia Web
 
 # DEPLOY
 
