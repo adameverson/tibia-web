@@ -40,6 +40,11 @@
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
+    // Check connection
+    if ($conn->connect_error) {
+        die("Banco de Dados temporariamente desabilitado!");
+    }
+
     $username = $_POST['usernameRegister'];
     $password = $_POST['passwordRegister'];
     $usuarioexistente = false;
