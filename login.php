@@ -11,11 +11,11 @@
                 text-align: left;
             }
             #t01 {
-                width: 100%;    
+                width: 50%;    
                 background-color: #f1f1c1;
-            }
-            h1{
+                margin: 15px;
                 font-family: "Lucida Console", "Courier New", monospace;
+                font-weight: bold;
             }
         </style>
     </head>
@@ -104,12 +104,10 @@
         
     $result = $conn->query($sql);
 
-    echo "<h1>Ranking</h1>";
-
     echo "<table id=\"t01\">";
 
     echo "<tr>";
-    echo "<th>#</th>";
+    echo "<th>Ranking</th>";
     echo "<th>Username</th>";
     echo "<th>Nivel</th>";
     echo "</tr>";
