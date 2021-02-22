@@ -1,6 +1,23 @@
 <html>
     <head>
         <title>Login</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            #t01 {
+                width: 100%;    
+                background-color: #f1f1c1;
+            }
+            h1{
+                font-family: "Lucida Console", "Courier New", monospace;
+            }
+        </style>
     </head>
     <body style="background-color: lightgray;">
 
@@ -78,6 +95,38 @@
     } else {
         echo "Usuario e Senha devem ser preenchidos.";
     }
+
+    $sql = "SET @n = 0";
+
+    $conn->query($sql);
+
+    $sql = "SELECT @n := @n+1 AS `ordem`, `username`, `nivel` FROM `ottibia` WHERE 1 ORDER BY `nivel` DESC LIMIT 5";
+        
+    $result = $conn->query($sql);
+
+    echo "<h1>Ranking</h1>";
+
+    echo "<table id=\"t01\">";
+
+    echo "<tr>";
+    echo "<th>#</th>";
+    echo "<th>Username</th>";
+    echo "<th>Nivel</th>";
+    echo "</tr>";
+
+    while($obj = $result->fetch_object()){
+
+        echo "<tr>";
+        echo "<td>" . $obj->ordem . "º</td>";
+        echo "<td>" . $obj->username . "</td>";
+        echo "<td>" . $obj->nivel . "</td>";
+        echo "</tr>";
+
+    }
+
+    echo "</table>";
+
+    $result->close();
     
     $conn->close();
     
