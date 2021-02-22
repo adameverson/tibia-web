@@ -5,6 +5,7 @@
         <script>
             var username = "";
             var password = "";
+
             var matrizDoMapa = 
             [
                 [1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -61,6 +62,64 @@
                 [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                 [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
             ];
+
+            var matrizDoMapaOriginal = 
+            [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,1,0,0,0,1,0,0,0,1],
+                [1,0,0,0,1,0,0,2,1,0,0,0,1],
+                [1,0,0,0,1,4,0,0,1,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,1,0,1,1,1,0,0,0,1],
+                [1,0,0,0,1,0,7,8,1,0,0,0,1],
+                [1,0,0,0,1,5,4,1,1,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,1,8,7,8,1,0,0,0,1],
+                [1,0,0,0,1,1,0,7,1,0,0,0,1],
+                [1,0,0,0,1,1,5,4,1,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,1,1,8,1,1,0,0,0,1],
+                [1,0,0,0,1,8,7,4,1,0,0,0,1],
+                [1,0,0,0,1,1,8,5,1,0,0,0,1],
+                [1,0,0,0,1,1,1,1,1,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,1],
+                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,11, 0, 6, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 8, 7, 8, 7, 8, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 8, 1, 8, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            ];
+
             var posicaoDoPersonagemNaMatriz = [5,6];
             var direcaoDoPersonagem = 2;
             var nivelDeSolo = 1;
@@ -101,6 +160,9 @@
             var flagDireita = false;
             var flagBaixo = false;
 
+            //Variaveis JSON
+            var dadosResposta = "vazio";
+
             function preencherImagens(){
                 var caminhoImagem = "";
 
@@ -133,134 +195,1024 @@
                             caminhoImagem = "imagens/imagemSnakeMorta.png";
                         }else if(matrizDoMapa[i][j] == 11){
                             caminhoImagem = "imagens/imagemNpcDeDireitaCampo.png";
+                        }else if(matrizDoMapa[i][j] == 12){
+                            caminhoImagem = "imagens/imagemPersonagemDeCostasComPiso.png";
+                        }else if(matrizDoMapa[i][j] == 13){
+                            caminhoImagem = "imagens/imagemPersonagemDeDireitaComPiso.png";
+                        }else if(matrizDoMapa[i][j] == 14){
+                            caminhoImagem = "imagens/imagemPersonagemDeFrenteComPiso.png";
+                        }else if(matrizDoMapa[i][j] == 15){
+                            caminhoImagem = "imagens/imagemPersonagemDeEsquerdaComPiso.png";
                         }
                         
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-4)
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo1').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo1').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo1').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo2').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo2').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo2').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo3').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo3').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo3').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo4').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo4').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo4').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo5').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo5').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo5').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo6').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo6').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo6').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo7').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo7').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo7').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo8').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo8').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo8').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo9').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-4)
+                            document.getElementById('campo9').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo9').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo10').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo10').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo10').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo11').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo11').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo11').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo12').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo12').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo12').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo13').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo13').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo13').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo14').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo14').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo14').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo15').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo15').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo15').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo16').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo16').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo16').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo17').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo17').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo17').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo18').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-4)
+                            document.getElementById('campo18').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo18').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo19').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo19').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo19').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo20').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo20').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo20').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo21').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo21').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo21').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo22').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo22').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo22').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo23').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo23').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo23').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo24').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo24').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo24').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo25').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo25').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo25').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo26').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo26').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo26').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo27').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-4)
+                            document.getElementById('campo27').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo27').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo28').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo28').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo28').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo29').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo29').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo29').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo30').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo30').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo30').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo31').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo31').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo31').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo32').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo32').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo32').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo33').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo33').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo33').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo34').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo34').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo34').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo35').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo35').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo35').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo36').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-4)
+                            document.getElementById('campo36').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo36').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo37').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo37').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo37').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo38').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo38').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo38').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo39').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo39').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo39').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo40').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo40').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo40').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo41').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo41').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo41').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo42').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo42').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo42').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo43').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo43').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo43').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo44').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo44').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo44').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo45').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-4)
+                            document.getElementById('campo45').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo45').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo46').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo46').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo46').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo47').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo47').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo47').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo48').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo48').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo48').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo49').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo49').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo49').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo50').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo50').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo50').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo51').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo51').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo51').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo52').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo52').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo52').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo53').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo53').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo53').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo54').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-4)
+                            document.getElementById('campo54').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo54').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             document.getElementById('campo55').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-3)
+                            document.getElementById('campo55').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo55').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-3){
                             document.getElementById('campo56').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-2)
+                            document.getElementById('campo56').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo56').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-2){
                             document.getElementById('campo57').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-1)
+                            document.getElementById('campo57').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo57').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-1){
                             document.getElementById('campo58').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1])
+                            document.getElementById('campo58').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo58').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]){
                             document.getElementById('campo59').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+1)
+                            document.getElementById('campo59').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo59').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+1){
                             document.getElementById('campo60').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+2)
+                            document.getElementById('campo60').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo60').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+2){
                             document.getElementById('campo61').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+3)
+                            document.getElementById('campo61').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo61').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+3){
                             document.getElementById('campo62').src = caminhoImagem;
-                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+4)
+                            document.getElementById('campo62').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo62').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             document.getElementById('campo63').src = caminhoImagem;
+                            document.getElementById('campo63').title = "campo";
+                            if(
+                                matrizDoMapa[i][j] == 12 ||
+                                matrizDoMapa[i][j] == 13 ||
+                                matrizDoMapa[i][j] == 14 ||
+                                matrizDoMapa[i][j] == 15
+                            ){
+                                for(let k = 0; k < dadosResposta.players.length; k++){
+                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                                        document.getElementById('campo63').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -427,6 +1379,8 @@
 
             function loop(){
                 animacaoSnake();
+
+                document.getElementById('personagem1').title = username + " nivel: " + nivel.toString() + " hp: " + hp.toString();
             }
 
             function pressKey(key){
@@ -551,19 +1505,68 @@
 
                 dados.append('username', username);
                 dados.append('password', password);
+                dados.append('x', posicaoDoPersonagemNaMatriz[0]);
+                dados.append('y', posicaoDoPersonagemNaMatriz[1]);
+                dados.append('direcao', direcaoDoPersonagem);
                 dados.append('nivel', nivel);
                 dados.append('hp', hp);
 
                 $.ajax({
-                    url: 'Tibia1_3.php',
+                    url: 'TibiaGET1_3.php',
                     method: 'POST',
                     data: dados,
                     processData: false,
                     contentType: false
-                }).done(function(){
-                    //}).done(function(resposta){
-                        //window.alert(resposta);
-                    //})
+                }).done(function(resposta){
+
+                    if(dadosResposta != "vazio"){
+                        for(let i = 0; i < dadosResposta.players.length; i++){
+                            switch(matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y]){
+                                case 0:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
+                                    break;
+                                case 4:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 4;
+                                    break;
+                                case 5:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 5;
+                                    break;
+                                case 6:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 6;
+                                    break;
+                                case 7:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 7;
+                                    break;
+                            }
+                        }
+                    }
+
+                    dadosResposta = JSON.parse(resposta);
+                    
+                    for(let i = 0; i < dadosResposta.players.length; i++){
+                        if(
+                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
+                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
+                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
+                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7
+                        ){
+                            switch(dadosResposta.players[i].direcao){
+                                case 0:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 12;
+                                    break;
+                                case 1:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 13;
+                                    break;
+                                case 2:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 14;
+                                    break;
+                                case 3:
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 15;
+                                    break;
+                            }
+                        }
+                    }
+
                 })
                 
                 // [FIM] AJAX
@@ -645,7 +1648,7 @@
                     <img id='campo22' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 0; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; run_ajax();"></img>
+                    <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 0; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo24' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
@@ -671,13 +1674,13 @@
                     <img id='campo30' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; run_ajax();"></img>
+                    <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 3; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo32' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; run_ajax();"></img>
+                    <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 1; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo34' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
@@ -703,7 +1706,7 @@
                     <img id='campo40' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();"></img>
+                    <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo42' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
@@ -907,6 +1910,11 @@
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Banco de Dados temporariamente desabilitado!");
+                }
+
                 echo "run_ajax();";
 
                 $username = $_POST['username'];
@@ -933,7 +1941,7 @@
 
                 $result->close();
 
-                $sql = "UPDATE `ottibia` SET `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+                $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
 
                 $conn->query($sql);
                 
@@ -945,6 +1953,7 @@
             document.getElementById('hpvalor').innerHTML = hp;
             document.getElementById('nivel').innerHTML = 'Nivel';
             document.getElementById('nivelvalor').innerHTML = nivel;
+
             document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
             setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
 
