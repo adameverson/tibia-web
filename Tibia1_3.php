@@ -1853,8 +1853,13 @@
                     <img id='itemCampoDoParcel4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
+            <form action="http://magiclevel.ml/SO/test/jogos/login.php">
+                <button type="submit" id='logout' title='sair' style='position: absolute; top: 150; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: visible;'>
+                    Logout
+                </button>
+            </form>
         </div>
-        <div id='chat' title='chat' style='position: fixed; top: 0; left: 718; width: 178; height:414; background-color: lightgray; border-style: solid; border-color: gray;'>
+        <div id='chat' title='chat' style='position: fixed; top: 0; left: 720; width: 178; height:414; background-color: lightgray; border-style: solid; border-color: gray;'>
             <div id='default' title='default' style='position: absolute; top: 0; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
                 <div id='nomeDoChatDefault' title='default' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 45; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="identificadorDoChat = 0; document.getElementById('textareaChat').value = mensagensDoChatDefault; document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; document.getElementById('campoDeEscritaInput').focus(); document.getElementById('nomeDoChatNpc').style.color = 'black'; document.getElementById('nomeDoChatDefault').style.color = 'white';">
                     Default
@@ -1865,7 +1870,7 @@
                 <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 370; background-color: gray;'>
                     <textarea id="textareaChat" name="textareaChat" title='default' rows="24" cols="22" style="resize: none;" disabled></textarea>
                 </div>
-                <div id='campoDeEscrita' title='chat' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 22; background-color: gray;'>
+                <div id='campoDeEscrita' title='chat' style='float: left; top: 0; left: 0; margin: 1; width: 176; height: 22; background-color: gray;'>
                     <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' style="opacity: 0.6;" autofocus></input>
                 </div>
             </div>
@@ -1940,10 +1945,6 @@
                 }
 
                 $result->close();
-
-                $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
-
-                $conn->query($sql);
                 
                 $conn->close();
                 
