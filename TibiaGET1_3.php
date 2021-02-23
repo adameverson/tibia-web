@@ -5,8 +5,15 @@
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
+    // Check connection
+    if ($conn->connect_error) {
+        die("Banco de Dados temporariamente desabilitado!");
+    }
+
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $nivel_atual = $_POST['nivel'];
+    $nivel_antigo = 1;
     $first = true;
 
     $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp` FROM `ottibia` WHERE `username`<>'" . $username . "'";
@@ -30,9 +37,23 @@
 
     $result->close();
 
-    $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+    $sql = "SELECT `username`, `password` ,`nivel`, `hp` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+                
+    $result = $conn->query($sql);
 
-    $conn->query($sql);
+    while($obj = $result->fetch_object()){
+        $nivel_antigo = $obj->nivel;
+    }
+
+    $result->close();
+
+    if($nivel_atual >= $nivel_antigo){
+
+        $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+
+        $conn->query($sql);
+
+    }
     
     $conn->close();
     
