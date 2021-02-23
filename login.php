@@ -68,7 +68,7 @@
 
     if($username != "" && $password != ""){
 
-        $sql = "SELECT `username`, `password` ,`nivel`, `hp` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+        $sql = "SELECT `username`, `password` ,`nivel`, `hp` FROM `ottibia` WHERE `username`='" . $username . "'";
         
         $result = $conn->query($sql);
 
