@@ -23,12 +23,12 @@
 
         <form action="login.php" method="post">
             Usuario: <input name="usernameRegister" type='text'></input>
-            Senha: <input name="passwordRegister" type='text'></input>
+            Senha: <input type="password" name="passwordRegister" type='text'></input>
             <button type='submit'>Registrar</button>
         </form>
         <form action="Tibia1_3.php" method="post">
             Usuario: <input name="username" type='text'></input>
-            Senha: <input name="password" type='text'></input>
+            Senha: <input type="password" name="password" type='text'></input>
             <button type='submit'>Entrar</button>
         </form>
 
