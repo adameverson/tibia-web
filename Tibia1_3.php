@@ -48,19 +48,25 @@
                 [1,0,0,0,1,1,1,1,1,0,0,0,1],
                 [1,0,0,0,0,0,0,0,0,0,0,0,1],
                 [1,0,0,0,0,0,0,0,0,0,0,0,1],
-                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1,11, 0, 6, 0, 0, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 8, 7, 8, 7, 8, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 8, 1, 8, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,19, 7,19, 7,19, 7,16, 7,16, 7,16, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
             ];
 
             var matrizDoMapaOriginal = 
@@ -105,19 +111,25 @@
                 [1,0,0,0,1,1,1,1,1,0,0,0,1],
                 [1,0,0,0,0,0,0,0,0,0,0,0,1],
                 [1,0,0,0,0,0,0,0,0,0,0,0,1],
-                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1,11, 0, 6, 0, 0, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 8, 7, 8, 7, 8, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 8, 1, 8, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1,19, 7,19, 7,19, 7,16, 7,16, 7,16, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
             ];
 
             var posicaoDoPersonagemNaMatriz = [5,6];
@@ -128,6 +140,7 @@
             var hp = 44;
             var mochila = ["","","",""];
             var exura = false;
+            var exuraGran = false;
 
             var identificadorDoChat = 0;
             var mensagensDoChatDefault = "Bem Vindo!";
@@ -138,7 +151,7 @@
             var quadrosDeAnimacao = 10;
             var esperaPorQuadro = 50;
 
-            //Variaveis Animacao Snake Atacando
+            //Variaveis Animacao Monster Atacando
             var posicaoLinhaCima = 0;
             var posicaoColunaCima = 0;
             var posicaoLinhaEsquerda = 0;
@@ -203,6 +216,18 @@
                             caminhoImagem = "imagens/imagemPersonagemDeFrenteComPiso.png";
                         }else if(matrizDoMapa[i][j] == 15){
                             caminhoImagem = "imagens/imagemPersonagemDeEsquerdaComPiso.png";
+                        }else if(matrizDoMapa[i][j] == 16){
+                            caminhoImagem = "imagens/imagemDragon.png";
+                        }else if(matrizDoMapa[i][j] == 17){
+                            caminhoImagem = "imagens/imagemDragonAtacando.png";
+                        }else if(matrizDoMapa[i][j] == 18){
+                            caminhoImagem = "imagens/imagemCaveira.png";
+                        }else if(matrizDoMapa[i][j] == 19){
+                            caminhoImagem = "imagens/imagemMammoth.png";
+                        }else if(matrizDoMapa[i][j] == 20){
+                            caminhoImagem = "imagens/imagemMammothAtacando.png";
+                        }else if(matrizDoMapa[i][j] == 21){
+                            caminhoImagem = "imagens/imagemCaveira.png";
                         }
                         
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -1269,97 +1294,101 @@
                 }
             }
 
-            function animacaoSnake(){
+            function animacaoMonster(normal,atacando,morto,hit){
 
-                //Animacao Snake Atacando de Cima
-                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10){
+                //Animacao Monster Atacando de Cima
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == morto){
                     posicaoLinhaCima = posicaoDoPersonagemNaMatriz[0]-1;
                     posicaoColunaCima = posicaoDoPersonagemNaMatriz[1];
                     flagCima = true;
-                    if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 8){
-                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 9;
-                    }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10 && esperaRessCima == esperaRessCimaContador){
-                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 9;
+                    if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == normal){
+                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == morto && esperaRessCima == esperaRessCimaContador){
+                        matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = atacando;
                         esperaRessCimaContador = 0;
-                    }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10 && esperaRessCima > esperaRessCimaContador){
+                    }else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == morto && esperaRessCima > esperaRessCimaContador){
                         esperaRessCimaContador++;
                     }
-                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 9){
-                        hp -= 1;
-                    }else if(hp - 1 < 0){
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == atacando){
+                        hp -= hit;
+                    }else if(hp - hit <= 0){
+                        hp = 0;
                         document.getElementById('mensagem1').style.visibility = 'visible';
                     }
-                } else if((matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 9 || matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == 10) && flagCima){
-                    matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = 8;
+                } else if((matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == atacando || matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == morto) && flagCima){
+                    matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = normal;
                     flagCima = false;
                 }
 
-                //Animacao Snake Atacando da Esquerda
-                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10){
+                //Animacao Monster Atacando da Esquerda
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == morto){
                     posicaoLinhaEsquerda = posicaoDoPersonagemNaMatriz[0];
                     posicaoColunaEsquerda = posicaoDoPersonagemNaMatriz[1]-1;
                     flagEsquerda = true;
-                    if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 8){
-                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 9;
-                    }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10 && esperaRessEsquerda == esperaRessEsquerdaContador){
-                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 9;
+                    if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == normal){
+                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == morto && esperaRessEsquerda == esperaRessEsquerdaContador){
+                        matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = atacando;
                         esperaRessEsquerdaContador = 0;
-                    }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10 && esperaRessEsquerda > esperaRessEsquerdaContador){
+                    }else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == morto && esperaRessEsquerda > esperaRessEsquerdaContador){
                         esperaRessEsquerdaContador++;
                     }
-                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 9){
-                        hp -= 1;
-                    }else if(hp - 1 < 0){
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == atacando){
+                        hp -= hit;
+                    }else if(hp - hit <= 0){
+                        hp = 0;
                         document.getElementById('mensagem1').style.visibility = 'visible';
                     }
-                } else if((matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 9 || matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == 10) && flagEsquerda){
-                    matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = 8;
+                } else if((matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == atacando || matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == morto) && flagEsquerda){
+                    matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = normal;
                     flagEsquerda = false;
                 }
 
-                //Animacao Snake Atacando da Direita
-                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10){
+                //Animacao Monster Atacando da Direita
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == morto){
                     posicaoLinhaDireita = posicaoDoPersonagemNaMatriz[0];
                     posicaoColunaDireita = posicaoDoPersonagemNaMatriz[1]+1;
                     flagDireita = true;
-                    if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 8){
-                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 9;
-                    }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10 && esperaRessDireita == esperaRessDireitaContador){
-                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 9;
+                    if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == normal){
+                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == morto && esperaRessDireita == esperaRessDireitaContador){
+                        matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = atacando;
                         esperaRessDireitaContador = 0;
-                    }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10 && esperaRessDireita > esperaRessDireitaContador){
+                    }else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == morto && esperaRessDireita > esperaRessDireitaContador){
                         esperaRessDireitaContador++;
                     }
-                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 9){
-                        hp -= 1;
-                    }else if(hp - 1 < 0){
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == atacando){
+                        hp -= hit;
+                    }else if(hp - hit <= 0){
+                        hp = 0;
                         document.getElementById('mensagem1').style.visibility = 'visible';
                     }
-                } else if((matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 9 || matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == 10) && flagDireita){
-                    matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = 8;
+                } else if((matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == atacando || matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == morto) && flagDireita){
+                    matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = normal;
                     flagDireita = false;
                 }
 
-                //Animacao Snake Atacando de Baixo
-                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10){
+                //Animacao Monster Atacando de Baixo
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == morto){
                     posicaoLinhaBaixo = posicaoDoPersonagemNaMatriz[0]+1;
                     posicaoColunaBaixo = posicaoDoPersonagemNaMatriz[1];
                     flagBaixo = true;
-                    if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 8){
-                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 9;
-                    }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10 && esperaRessBaixo == esperaRessBaixoContador){
-                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 9;
+                    if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == normal){
+                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == morto && esperaRessBaixo == esperaRessBaixoContador){
+                        matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = atacando;
                         esperaRessBaixoContador = 0;
-                    }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10 && esperaRessBaixo > esperaRessBaixoContador){
+                    }else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == morto && esperaRessBaixo > esperaRessBaixoContador){
                         esperaRessBaixoContador++;
                     }
-                    if(hp - 1 >= 0 && matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 9){
-                        hp -= 1;
-                    }else if(hp - 1 < 0){
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == atacando){
+                        hp -= hit;
+                    }else if(hp - hit <= 0){
+                        hp = 0;
                         document.getElementById('mensagem1').style.visibility = 'visible';
                     }
-                } else if((matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 9 || matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == 10) && flagBaixo){
-                    matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = 8;
+                } else if((matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == atacando || matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == morto) && flagBaixo){
+                    matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = normal;
                     flagBaixo = false;
                 }
 
@@ -1368,23 +1397,26 @@
                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
                 if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
 
+                preencherImagens();
+            }
+
+            function loop(){
+                animacaoMonster(8,9,10,175); //Snake(normal,atacando,morto,hit)
+                animacaoMonster(16,17,18,30000); //Dragon(normal,atacando,morto,hit)
+                animacaoMonster(19,20,21,60000); //Mammoth(normal,atacando,morto,hit)
+
                 if(identificadorDoChat == 0){
                     document.getElementById('textareaChat').value = mensagensDoChatDefault;
                 } else if(identificadorDoChat == 1){
                     document.getElementById('textareaChat').value = mensagensDoChatNpc;
                 }
 
-                preencherImagens();
-            }
-
-            function loop(){
-                animacaoSnake();
-
                 document.getElementById('personagem1').title = username + " nivel: " + nivel.toString() + " hp: " + hp.toString();
             }
 
             function pressKey(key){
                 var conjurarExura = false;
+                var conjurarExuraGran = false;
                 var tecla = key.which;
                 if(tecla != 13){
                     tecla = String.fromCharCode(tecla);
@@ -1392,11 +1424,15 @@
                     if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' && exura){
                         conjurarExura = true; 
                     }
+                    if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && exuraGran){
+                        conjurarExuraGran = true; 
+                    }
                     if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'hi' || 
                     document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'oi' || 
                     document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'yes' || 
                     document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'sim' ||
                     document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' || 
+                    document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' || 
                     document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'no' || 
                     document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'nao'){
                         if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
@@ -1422,6 +1458,11 @@
                             if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' && nivelDeConversaNpc == 2){
                                 nivelDeConversaNpc = 3;
                             }
+                            if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && nivelDeConversaNpc == 2 && nivel >= 1000){
+                                nivelDeConversaNpc = 3;
+                            }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && nivelDeConversaNpc == 2 && nivel < 1000){
+                                nivelDeConversaNpc = 5;
+                            }
                             if((document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'no' && (nivelDeConversaNpc == 1 || nivelDeConversaNpc == 2)) || 
                             (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'nao' && (nivelDeConversaNpc == 1 || nivelDeConversaNpc == 2))){
                                 nivelDeConversaNpc = 4;
@@ -1429,7 +1470,10 @@
                         }
                     }
                     if(identificadorDoChat == 0){
-                        if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura){
+                        if(
+                            (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura) ||
+                            (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran)
+                        ){
                             mensagensDoChatDefault += "\nSistema: Voce ainda nao sabe esta magia.";
                         }else{
                             mensagensDoChatDefault += "\n" + document.getElementById('campoDeEscritaInput').value;
@@ -1438,14 +1482,17 @@
                         document.getElementById('textareaChat').value = mensagensDoChatDefault;
                         document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
                     } else if(identificadorDoChat == 1){
-                        if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura && nivelDeConversaNpc != 3){
+                        if(
+                            (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura && nivelDeConversaNpc != 3) ||
+                            (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran && nivelDeConversaNpc != 3)
+                        ){
                             mensagensDoChatNpc += "\nSistema: Voce ainda nao sabe esta magia.";
                         } else{
                             mensagensDoChatNpc += "\n" + document.getElementById('campoDeEscritaInput').value;
                         }
                         switch(nivelDeConversaNpc){
                             case 1:
-                                if(!exura){
+                                if(!exura || !exuraGran){
                                     mensagensDoChatNpc += "\nNpc: Oi aventureiro, voce quer aprender uma magia?";
                                 } else {
                                     mensagensDoChatNpc += "\nNpc: Oi aventureiro, nao temos nenhuma magia para ensinar.";
@@ -1453,15 +1500,24 @@
                                 }
                                 break;
                             case 2:
-                                mensagensDoChatNpc += "\nNpc: Temos a(s) seguinte(s) magia(s): 'exura'. Digite o nome da magia para aprender...";
+                                mensagensDoChatNpc += "\nNpc: Temos a(s) seguinte(s) magia(s): 'exura' e 'exura gran'. Digite o nome da magia para aprender...";
                                 break;
                             case 3:
-                                mensagensDoChatNpc += "\nNpc: Parabens, voce ja pode utilizar a magia 'exura'. Tchau!";
-                                exura = true;
+                                mensagensDoChatNpc += "\nNpc: Parabens, voce ja pode utilizar a magia. Tchau!";
+                                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura'){
+                                    exura = true;
+                                }
+                                else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran'){
+                                    exuraGran = true;
+                                }
                                 nivelDeConversaNpc = 0;
                                 break;
                             case 4:
                                 mensagensDoChatNpc += "\nNpc: Ate mais!";
+                                nivelDeConversaNpc = 0;
+                                break;
+                            case 5:
+                                mensagensDoChatNpc += "\nNpc: Voce precisa de nivel 1000+ para aprender esta magia!";
                                 nivelDeConversaNpc = 0;
                                 break;
                         }
@@ -1476,9 +1532,31 @@
                         document.getElementById('fala1').src = 'imagens/imagemFalaExura.png';
                         setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                     }
+                    if(conjurarExuraGran){
+                        document.getElementById('fala1').src = 'imagens/imagemFalaExuraGran.png';
+                        setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                    }
                     if(conjurarExura && hp < hpmax){
                         if(hp + 1000 < hpmax){
                             hp = hp + 1000;
+                            document.getElementById('hpvalor').innerHTML = hp;
+                            document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                        } else {
+                            hp = hpmax;
+                            document.getElementById('hpvalor').innerHTML = hp;
+                            document.getElementById('hp').style.width = 176;
+                        }
+                        if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
+                            document.getElementById('hp').style.background = 'tomato';
+                        } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
+                            document.getElementById('hp').style.background = 'orange';
+                        } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
+                            document.getElementById('hp').style.background = 'mediumseagreen';
+                        }
+                    }
+                    if(conjurarExuraGran && hp < hpmax){
+                        if(hp + 10000 < hpmax){
+                            hp = hp + 10000;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = (176 * hp) / hpmax;
                         } else {
@@ -1648,7 +1726,7 @@
                     <img id='campo22' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 0; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; run_ajax();"></img>
+                    <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 1900){nivel += 2;}else if(nivel <= 2000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 18; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 3000){nivel += 2;}else if(nivel > 3000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 0; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo24' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
@@ -1674,13 +1752,13 @@
                     <img id='campo30' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 3; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; run_ajax();"></img>
+                    <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 1900){nivel += 2;}else if(nivel <= 2000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 18; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 3000){nivel += 2;}else if(nivel > 3000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 3; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo32' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 1; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; run_ajax();"></img>
+                    <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 1900){nivel += 2;}else if(nivel <= 2000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 18; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 3000){nivel += 2;}else if(nivel > 3000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 1; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo34' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
@@ -1706,7 +1784,7 @@
                     <img id='campo40' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 1000){nivel += 2;}else if(nivel > 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();"></img>
+                    <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 1900){nivel += 2;}else if(nivel <= 2000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 18; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 3000){nivel += 2;}else if(nivel > 3000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();"></img>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo42' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
@@ -1784,10 +1862,10 @@
         <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 185; left: 245; width: 50; height: 50;'></img>
         <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' title='fala' style='position:fixed; top: 185; left: 245;'></img>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemMorto.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
-        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivel - 1 > 0) nivel--; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
+        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();">
         
         </div>
-        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivel - 1 > 0) nivel--; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
+        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();">
         
         </div>
 
