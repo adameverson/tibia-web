@@ -1926,51 +1926,55 @@
                 </div>
                 <div id='campoDaMagia1' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='magiaExura' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
-                    if(exura){
-                        document.getElementById('fala1').src = 'imagens/imagemFalaExura.png';
-                        setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
-                    }
-                    if(exura && hp < hpmax){
-                        if(hp + 1000 < hpmax){
-                            hp = hp + 1000;
-                            document.getElementById('hpvalor').innerHTML = hp;
-                            document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                        } else {
-                            hp = hpmax;
-                            document.getElementById('hpvalor').innerHTML = hp;
-                            document.getElementById('hp').style.width = 176;
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
+                        if(exura){
+                            document.getElementById('fala1').src = 'imagens/imagemFalaExura.png';
+                            setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                         }
-                        if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
-                            document.getElementById('hp').style.background = 'tomato';
-                        } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
-                            document.getElementById('hp').style.background = 'orange';
-                        } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
-                            document.getElementById('hp').style.background = 'mediumseagreen';
+                        if(exura && hp < hpmax){
+                            if(hp + 1000 < hpmax){
+                                hp = hp + 1000;
+                                document.getElementById('hpvalor').innerHTML = hp;
+                                document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                            } else {
+                                hp = hpmax;
+                                document.getElementById('hpvalor').innerHTML = hp;
+                                document.getElementById('hp').style.width = 176;
+                            }
+                            if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
+                                document.getElementById('hp').style.background = 'tomato';
+                            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
+                                document.getElementById('hp').style.background = 'orange';
+                            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
+                                document.getElementById('hp').style.background = 'mediumseagreen';
+                            }
                         }
                     }"></img>
                 </div>
                 <div id='campoDaMagia2' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='magiaExuraGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
-                    if(exuraGran){
-                        document.getElementById('fala1').src = 'imagens/imagemFalaExuraGran.png';
-                        setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
-                    }
-                    if(exuraGran && hp < hpmax){
-                        if(hp + 10000 < hpmax){
-                            hp = hp + 10000;
-                            document.getElementById('hpvalor').innerHTML = hp;
-                            document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                        } else {
-                            hp = hpmax;
-                            document.getElementById('hpvalor').innerHTML = hp;
-                            document.getElementById('hp').style.width = 176;
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
+                        if(exuraGran){
+                            document.getElementById('fala1').src = 'imagens/imagemFalaExuraGran.png';
+                            setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                         }
-                        if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
-                            document.getElementById('hp').style.background = 'tomato';
-                        } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
-                            document.getElementById('hp').style.background = 'orange';
-                        } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
-                            document.getElementById('hp').style.background = 'mediumseagreen';
+                        if(exuraGran && hp < hpmax){
+                            if(hp + 10000 < hpmax){
+                                hp = hp + 10000;
+                                document.getElementById('hpvalor').innerHTML = hp;
+                                document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                            } else {
+                                hp = hpmax;
+                                document.getElementById('hpvalor').innerHTML = hp;
+                                document.getElementById('hp').style.width = 176;
+                            }
+                            if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
+                                document.getElementById('hp').style.background = 'tomato';
+                            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
+                                document.getElementById('hp').style.background = 'orange';
+                            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
+                                document.getElementById('hp').style.background = 'mediumseagreen';
+                            }
                         }
                     }"></img>
                 </div>
