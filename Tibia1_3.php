@@ -1444,17 +1444,18 @@
                     flagBaixo = false;
                 }
 
-                document.getElementById('nivelvalor').innerHTML = nivel;
-                document.getElementById('hpvalor').innerHTML = hp;
-                document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
-
             }
 
             function loop(){
                 animacaoMonster(8,9,10,175); //Snake(normal,atacando,morto,hit)
                 animacaoMonster(16,17,18,30000); //Dragon(normal,atacando,morto,hit)
                 animacaoMonster(19,20,21,60000); //Mammoth(normal,atacando,morto,hit)
+
+                document.getElementById('nivelvalor').innerHTML = nivel;
+                document.getElementById('speedvalor').innerHTML = (nivel*0.01 < 490)?Math.round(nivel*0.01):'max';
+                document.getElementById('hpvalor').innerHTML = hp;
+                document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
 
                 preencherImagens();
 
@@ -1947,10 +1948,16 @@
                     Skills
                 </div>
                 <div id='campoDasSkills1' title='skills' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 42; background-color: gray;'>
-                    <div id='nivel' title='nivel' style='position: fixed; top: 49; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='nivel' title='nivel' style='position: fixed; top: 50; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='nivelvalor' title='nivel' style='position: fixed; top: 49; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='nivelvalor' title='nivel' style='position: fixed; top: 50; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+
+                    </div>
+                    <div id='speed' title='speed' style='position: fixed; top: 65; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+
+                    </div>
+                    <div id='speedvalor' title='speed' style='position: fixed; top: 65; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
                     <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick=""></img>
@@ -2156,6 +2163,8 @@
             document.getElementById('hpvalor').innerHTML = hp;
             document.getElementById('nivel').innerHTML = 'Nivel';
             document.getElementById('nivelvalor').innerHTML = nivel;
+            document.getElementById('speed').innerHTML = 'Speed';
+            document.getElementById('speedvalor').innerHTML = (nivel*0.01 < 490)?Math.round(nivel*0.01):'max';
 
             document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
             setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
