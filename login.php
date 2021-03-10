@@ -24,6 +24,10 @@
         <form action="login.php" method="post">
             Usuario: <input name="usernameRegister" type='text'></input>
             Senha: <input type="password" name="passwordRegister" type='text'></input>
+            <input type="radio" id="male" name="gender" value="M" checked>
+            <label for="male">Masculino</label>
+            <input type="radio" id="female" name="gender" value="F">
+            <label for="female">Feminino</label>
             <button type='submit'>Registrar</button>
         </form>
         <form action="Tibia1_3.php" method="post">
@@ -64,6 +68,7 @@
 
     $username = $_POST['usernameRegister'];
     $password = $_POST['passwordRegister'];
+    $outfit = $_POST['gender'];
     $usuarioexistente = false;
 
     if($username != "" && $password != ""){
@@ -84,7 +89,7 @@
             echo "Usuario ja existente.";
         }else{
 
-            $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`) VALUES ('" . $username . "', '" . $password . "', 0, 176)";
+            $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`, `outfit`) VALUES ('" . $username . "', '" . $password . "', 0, 176, '" . $outfit . "')";
             
             $conn->query($sql);
 
