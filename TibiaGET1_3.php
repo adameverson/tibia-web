@@ -16,7 +16,7 @@
     $nivel_antigo = 1;
     $first = true;
 
-    $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp` FROM `ottibia` WHERE `username`<>'" . $username . "'";
+    $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit` FROM `ottibia` WHERE `username`<>'" . $username . "'";
     
     $result = $conn->query($sql);
 
@@ -25,10 +25,10 @@
     while($obj = $result->fetch_object()){
 
         if($first){
-            echo "{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . "}";
+            echo "{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\"}";
             $first = false;
         } else {
-            echo ",{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . "}";
+            echo ",{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\"}";
         }
 
     }
