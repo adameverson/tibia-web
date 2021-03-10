@@ -242,9 +242,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo1').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo1').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo1').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -258,9 +267,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo2').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo2').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo2').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -274,9 +292,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo3').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo3').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo3').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -290,9 +317,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo4').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo4').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo4').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]){
@@ -306,9 +342,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo5').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo5').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo5').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -322,9 +367,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo6').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo6').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo6').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -338,9 +392,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo7').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo7').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo7').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -354,9 +417,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo8').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo8').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo8').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -370,9 +442,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo9').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo9').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo9').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -386,9 +467,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo10').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo10').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo10').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -402,9 +492,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo11').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo11').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo11').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -418,9 +517,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo12').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo12').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo12').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -434,9 +542,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo13').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo13').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo13').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]){
@@ -450,9 +567,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo14').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo14').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo14').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -466,9 +592,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo15').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo15').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo15').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -482,9 +617,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo16').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo16').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo16').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -498,9 +642,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo17').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo17').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo17').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -514,9 +667,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo18').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo18').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo18').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -530,9 +692,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo19').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo19').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo19').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -546,9 +717,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo20').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo20').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo20').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -562,9 +742,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo21').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo21').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo21').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -578,9 +767,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo22').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo22').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo22').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]){
@@ -594,9 +792,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo23').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo23').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo23').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -610,9 +817,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo24').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo24').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo24').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -626,9 +842,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo25').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo25').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo25').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -642,9 +867,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo26').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo26').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo26').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -658,9 +892,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo27').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo27').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo27').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -674,9 +917,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo28').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo28').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo28').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -690,9 +942,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo29').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo29').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo29').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -706,9 +967,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo30').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo30').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo30').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -722,9 +992,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo31').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo31').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo31').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]){
@@ -738,9 +1017,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo32').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo32').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo32').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -754,9 +1042,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo33').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo33').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo33').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -770,9 +1067,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo34').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo34').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo34').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -786,9 +1092,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo35').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo35').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo35').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -802,9 +1117,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo36').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo36').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo36').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -818,9 +1142,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo37').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo37').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo37').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -834,9 +1167,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo38').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo38').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo38').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -850,9 +1192,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo39').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo39').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo39').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -866,9 +1217,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo40').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo40').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo40').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]){
@@ -882,9 +1242,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo41').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo41').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo41').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -898,9 +1267,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo42').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo42').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo42').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -914,9 +1292,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo43').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo43').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo43').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -930,9 +1317,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo44').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo44').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo44').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -946,9 +1342,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo45').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo45').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo45').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -962,9 +1367,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo46').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo46').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo46').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -978,9 +1392,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo47').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo47').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo47').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -994,9 +1417,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo48').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo48').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo48').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -1010,9 +1442,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo49').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo49').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo49').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]){
@@ -1026,9 +1467,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo50').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo50').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo50').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -1042,9 +1492,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo51').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo51').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo51').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -1058,9 +1517,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo52').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo52').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo52').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -1074,9 +1542,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo53').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo53').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo53').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -1090,9 +1567,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo54').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo54').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo54').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-4){
@@ -1106,9 +1592,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo55').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo55').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo55').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-3){
@@ -1122,9 +1617,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo56').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo56').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo56').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-2){
@@ -1138,9 +1642,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo57').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo57').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo57').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-1){
@@ -1154,9 +1667,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo58').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo58').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo58').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]){
@@ -1170,9 +1692,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo59').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo59').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo59').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+1){
@@ -1186,9 +1717,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo60').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo60').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo60').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+2){
@@ -1202,9 +1742,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo61').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo61').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo61').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+3){
@@ -1218,9 +1767,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo62').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo62').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo62').title = "npc";
                             }
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+4){
@@ -1234,9 +1792,18 @@
                             ){
                                 for(let k = 0; k < dadosResposta.players.length; k++){
                                     if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        document.getElementById('campo63').title = dadosResposta.players[k].username + " nivel: " + dadosResposta.players[k].nivel.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                                        let expaux = dadosResposta.players[k].nivel;
+                                        let lvl=0;
+                                        for(lvl=1; expaux >= 0; lvl++){
+                                            expaux = expaux - lvl;
+                                        }
+                                        lvl--;
+                                        document.getElementById('campo63').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                                     }
                                 }
+                            }
+                            if(matrizDoMapa[i][j] == 11){
+                                document.getElementById('campo63').title = "npc";
                             }
                         }
                     }
@@ -1296,19 +1863,19 @@
             }
 
             function moverCima(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 2000){nivel += 2;}else if(nivel <= 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 21; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 10000){nivel += 2;}else if(nivel > 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 0; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; nivel += 1; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 18; nivel += 2; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 21; nivel += 3; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();} direcaoDoPersonagem = 0; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; run_ajax();}
             }
 
             function moverEsquerda(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 2000){nivel += 2;}else if(nivel <= 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 21; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 10000){nivel += 2;}else if(nivel > 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 3; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; nivel += 1; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 18; nivel += 2; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 21; nivel += 3; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();} direcaoDoPersonagem = 3; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; run_ajax();}
             }
 
             function moverDireita(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 2000){nivel += 2;}else if(nivel <= 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 21; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 10000){nivel += 2;}else if(nivel > 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 1; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; nivel += 1; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 18; nivel += 2; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 21; nivel += 3; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();} direcaoDoPersonagem = 1; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; run_ajax();}
             }
 
             function moverBaixo(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; if(nivel <= 100){ nivel += 10;}else if(nivel <= 200){nivel += 9;}else if(nivel <= 300){nivel += 8;}else if(nivel <= 400){nivel += 7;}else if(nivel <= 500){nivel += 6;}else if(nivel <= 600){nivel += 5;}else if(nivel <= 700){nivel += 4;}else if(nivel <= 800){nivel += 3;}else if(nivel <= 900){nivel += 2;}else if(nivel <= 1000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 18; if(nivel <= 1100){ nivel += 10;}else if(nivel <= 1200){nivel += 9;}else if(nivel <= 1300){nivel += 8;}else if(nivel <= 1400){nivel += 7;}else if(nivel <= 1500){nivel += 6;}else if(nivel <= 1600){nivel += 5;}else if(nivel <= 1700){nivel += 4;}else if(nivel <= 1800){nivel += 3;}else if(nivel <= 2000){nivel += 2;}else if(nivel <= 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 21; if(nivel <= 2100){ nivel += 10;}else if(nivel <= 2200){nivel += 9;}else if(nivel <= 2300){nivel += 8;}else if(nivel <= 2400){nivel += 7;}else if(nivel <= 2500){nivel += 6;}else if(nivel <= 2600){nivel += 5;}else if(nivel <= 2700){nivel += 4;}else if(nivel <= 2800){nivel += 3;}else if(nivel <= 10000){nivel += 2;}else if(nivel > 10000){nivel += 1;} hpmax = ((nivel-1) * 30) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; nivel += 1; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 18; nivel += 2; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20){matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 21; nivel += 3; let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens();} direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();}
             }
 
             function funcMoverPersonagem(){
@@ -1447,12 +2014,26 @@
             }
 
             function loop(){
-                animacaoMonster(8,9,10,175); //Snake(normal,atacando,morto,hit)
-                animacaoMonster(16,17,18,30000); //Dragon(normal,atacando,morto,hit)
-                animacaoMonster(19,20,21,60000); //Mammoth(normal,atacando,morto,hit)
+                animacaoMonster(8,9,10,50); //Snake(normal,atacando,morto,hit)
+                animacaoMonster(16,17,18,150); //Dragon(normal,atacando,morto,hit)
+                animacaoMonster(19,20,21,450); //Mammoth(normal,atacando,morto,hit)
+
+                let expaux = nivel;
+                let lvl=0;
+                for(lvl=1; expaux >= 0; lvl++){
+                    expaux = expaux - lvl;
+                }
+                lvl--;
+                let expmin = nivel - (lvl + expaux);
+                let expmax = nivel - expaux -1;
+                let exptotal = 0;
+                (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1;
+
+                document.getElementById('levelvalor').innerHTML = lvl;
 
                 document.getElementById('nivelvalor').innerHTML = nivel;
-                document.getElementById('speedvalor').innerHTML = (nivel*0.01 < 490)?Math.round(nivel*0.01):'max';
+                document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal;
+                document.getElementById('speedvalor').innerHTML = (lvl < 490)?(109+lvl):'max';
                 document.getElementById('hpvalor').innerHTML = hp;
                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
                 if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
@@ -1465,7 +2046,7 @@
                     document.getElementById('textareaChat').value = mensagensDoChatNpc;
                 }
 
-                document.getElementById('personagem1').title = username + " nivel: " + nivel.toString() + " hp: " + hp.toString();
+                document.getElementById('personagem1').title = username + " level: " + lvl.toString() + " hp: " + hp.toString();
             }
 
             function pressKey(key){
@@ -1512,9 +2093,14 @@
                             if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' && nivelDeConversaNpc == 2){
                                 nivelDeConversaNpc = 3;
                             }
-                            if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && nivelDeConversaNpc == 2 && nivel >= 1000){
+                            let expaux = nivel;
+                            let lvl=0;
+                            for(lvl=1; expaux >= 0; lvl++){
+                                expaux = expaux - lvl;
+                            }
+                            if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && nivelDeConversaNpc == 2 && lvl >= 50){
                                 nivelDeConversaNpc = 3;
-                            }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && nivelDeConversaNpc == 2 && nivel < 1000){
+                            }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && nivelDeConversaNpc == 2 && lvl < 50){
                                 nivelDeConversaNpc = 5;
                             }
                             if((document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'no' && (nivelDeConversaNpc == 1 || nivelDeConversaNpc == 2)) || 
@@ -1577,7 +2163,7 @@
                                 nivelDeConversaNpc = 0;
                                 break;
                             case 5:
-                                mensagensDoChatNpc += "\nNpc: Voce precisa de nivel 1000+ para aprender esta magia!";
+                                mensagensDoChatNpc += "\nNpc: Voce precisa de level 50+ para aprender esta magia!";
                                 nivelDeConversaNpc = 0;
                                 break;
                         }
@@ -1597,8 +2183,8 @@
                         setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                     }
                     if(conjurarExura && hp < hpmax){
-                        if(hp + 1000 < hpmax){
-                            hp = hp + 1000;
+                        if(hp + 60 < hpmax){
+                            hp = hp + 60;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = (176 * hp) / hpmax;
                         } else {
@@ -1615,8 +2201,8 @@
                         }
                     }
                     if(conjurarExuraGran && hp < hpmax){
-                        if(hp + 10000 < hpmax){
-                            hp = hp + 10000;
+                        if(hp + 120 < hpmax){
+                            hp = hp + 120;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = (176 * hp) / hpmax;
                         } else {
@@ -1712,7 +2298,7 @@
 
         </script>
     </head>
-    <body onload="setInterval('loop()', 1000); setInterval('funcMoverPersonagem()', (nivel*0,01 < 490)?(500 - (nivel*0,01)):10);" onKeyPress="pressKey(event)">
+    <body onload="setInterval('loop()', 1000);" onKeyPress="pressKey(event)">
         <div id='mapa1'style='position:fixed; top: 0; left: 0'>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
@@ -1943,27 +2529,39 @@
             <div id='hpvalor' title='hp' style='position: fixed; top: 9; left: 540; width: 178; height: 20; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 
             </div>
-            <div id='skills' title='skills' style='position: absolute; top: 20; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
+            <div id='skills' title='skills' style='position: absolute; top: 20; left: 0; margin: 1; width: 176; height: 74; background-color: lightgray;'>
                 <div id='nomeDasSkills' title='skills' style='top: 0; left: 10; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Skills
                 </div>
-                <div id='campoDasSkills1' title='skills' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 42; background-color: gray;'>
-                    <div id='nivel' title='nivel' style='position: fixed; top: 50; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                <div id='campoDasSkills1' title='skills' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 62; background-color: gray;'>
+                    <div id='level' title='level' style='position: fixed; top: 50; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='nivelvalor' title='nivel' style='position: fixed; top: 50; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='levelvalor' title='level' style='position: fixed; top: 50; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='speed' title='speed' style='position: fixed; top: 65; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='barraxp' title='xp' style='position: fixed; top: 65; left: 551; width: 100; height: 2; background-color: red;'>
+                
+                    </div>
+                    <div id='barraxpvazia' title='xp' style='position: fixed; top: 64; left: 550; width: 165; height: 2; background-color: red; border: 1px solid white; opacity: 0.3;'>
+                
+                    </div>
+                    <div id='nivel' title='xp' style='position: fixed; top: 70; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='speedvalor' title='speed' style='position: fixed; top: 65; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='nivelvalor' title='xp' style='position: fixed; top: 70; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+
+                    </div>
+                    <div id='speed' title='speed' style='position: fixed; top: 85; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+
+                    </div>
+                    <div id='speedvalor' title='speed' style='position: fixed; top: 85; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
                     <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick=""></img>
                 </div>
             </div>
-            <div id='mochila' title='mochila' style='position: absolute; top: 80; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
+            <div id='mochila' title='mochila' style='position: absolute; top: 100; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
                 <div id='nomeDaMochila1' title='mochila' style='top: 0; left: 10; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Mochila
                 </div>
@@ -1980,7 +2578,7 @@
                     <img id='itemCampoDaMochila4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
-            <div id='magias' title='magias' style='position: absolute; top: 140; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
+            <div id='magias' title='magias' style='position: absolute; top: 160; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
                 <div id='nomeDoLivroDeMagias1' title='magias' style='top: 0; left: 10; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Magias
                 </div>
@@ -1992,8 +2590,8 @@
                             setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                         }
                         if(exura && hp < hpmax){
-                            if(hp + 1000 < hpmax){
-                                hp = hp + 1000;
+                            if(hp + 60 < hpmax){
+                                hp = hp + 60;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
                             } else {
@@ -2019,8 +2617,8 @@
                             setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                         }
                         if(exuraGran && hp < hpmax){
-                            if(hp + 10000 < hpmax){
-                                hp = hp + 10000;
+                            if(hp + 120 < hpmax){
+                                hp = hp + 120;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
                             } else {
@@ -2063,7 +2661,7 @@
                 </div>
             </div>
             <form action="http://magiclevel.ml/SO/test/jogos/login.php">
-                <button type="submit" id='logout' title='sair' style='position: absolute; top: 210; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: visible;'>
+                <button type="submit" id='logout' title='sair' style='position: absolute; top: 230; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: visible;'>
                     Logout
                 </button>
             </form>
@@ -2159,12 +2757,23 @@
                 
             ?>
 
-            hpmax = ((nivel-1) * 30) + 176;
+            document.getElementById('level').innerHTML = 'Level';
+            let expaux = nivel;
+            let lvl=0;
+            for(lvl=1; expaux >= 0; lvl++){
+                expaux = expaux - lvl;
+            }
+            lvl--;
+            document.getElementById('levelvalor').innerHTML = lvl;
+
+            setInterval('funcMoverPersonagem()', (lvl < 490)?(500 - lvl):10);
+
+            hpmax = ((lvl-1) * 15) + 176;
             document.getElementById('hpvalor').innerHTML = hp;
-            document.getElementById('nivel').innerHTML = 'Nivel';
+            document.getElementById('nivel').innerHTML = 'Xp';
             document.getElementById('nivelvalor').innerHTML = nivel;
             document.getElementById('speed').innerHTML = 'Speed';
-            document.getElementById('speedvalor').innerHTML = (nivel*0.01 < 490)?Math.round(nivel*0.01):'max';
+            document.getElementById('speedvalor').innerHTML = (lvl < 490)?(109+lvl):'max';
 
             document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
             setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
