@@ -84,7 +84,7 @@
             echo "Usuario ja existente.";
         }else{
 
-            $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`) VALUES ('" . $username . "', '" . $password . "', 1, 44)";
+            $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`) VALUES ('" . $username . "', '" . $password . "', 0, 176)";
             
             $conn->query($sql);
 
@@ -109,15 +109,22 @@
     echo "<tr>";
     echo "<th>Ranking</th>";
     echo "<th>Username</th>";
-    echo "<th>Nivel</th>";
+    echo "<th>Level</th>";
     echo "</tr>";
 
     while($obj = $result->fetch_object()){
 
+        $expaux = $obj->nivel;
+        $lvl=0;
+        for($lvl=1; $expaux >= 0; $lvl++){
+            $expaux = $expaux - $lvl;
+        }
+        $lvl--;
+
         echo "<tr>";
         echo "<td>" . $obj->ordem . "º</td>";
         echo "<td>" . $obj->username . "</td>";
-        echo "<td>" . $obj->nivel . "</td>";
+        echo "<td>" . $lvl . "</td>";
         echo "</tr>";
 
     }
