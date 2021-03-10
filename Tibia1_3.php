@@ -136,9 +136,9 @@
             var moverPersonagem = [0,0];
             var direcaoDoPersonagem = 2;
             var nivelDeSolo = 1;
-            var nivel = 1;
+            var nivel = 0;
             var hpmax = 176;
-            var hp = 44;
+            var hp = 176;
             var mochila = ["","","",""];
             var exura = false;
             var exuraGran = false;
