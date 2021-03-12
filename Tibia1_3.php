@@ -178,6 +178,97 @@
             //Variaveis JSON
             var dadosResposta = "vazio";
 
+            function auxPreencherImagens(i, j, caminhoImagem, campo){
+                let baseCampo = "campo" + campo;
+                let nomeCampo = "nomeCampo" + campo;
+                let barraHpCampo = "barraHpCampo" + campo;
+                let barraHpVaziaCampo = "barraHpVaziaCampo" + campo;
+                
+                document.getElementById(baseCampo).src = caminhoImagem;
+                document.getElementById(baseCampo).title = "campo";
+                document.getElementById(nomeCampo).style.visibility = "hidden";
+                document.getElementById(barraHpCampo).style.visibility = "hidden";
+                document.getElementById(barraHpVaziaCampo).style.visibility = "hidden";
+                if(
+                    matrizDoMapa[i][j] == 12 ||
+                    matrizDoMapa[i][j] == 13 ||
+                    matrizDoMapa[i][j] == 14 ||
+                    matrizDoMapa[i][j] == 15 ||
+                    matrizDoMapa[i][j] == 22 ||
+                    matrizDoMapa[i][j] == 23 ||
+                    matrizDoMapa[i][j] == 24 ||
+                    matrizDoMapa[i][j] == 25
+                ){
+                    for(let k = 0; k < dadosResposta.players.length; k++){
+                        if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                            let expaux = dadosResposta.players[k].nivel;
+                            let lvl=0;
+                            for(lvl=1; expaux >= 0; lvl++){
+                                expaux = expaux - lvl;
+                            }
+                            lvl--;
+                            document.getElementById(baseCampo).title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                            document.getElementById(nomeCampo).innerHTML = dadosResposta.players[k].username;
+
+                            let xpercent = ( dadosResposta.players[k].hp * 100 / (((lvl-1)* 15) + 176) );
+                            if( xpercent <= 25){ 
+                                document.getElementById(nomeCampo).style.color = 'tomato';
+                                document.getElementById(barraHpCampo).style.background = 'tomato';
+                            } else if( xpercent <= 50){ 
+                                document.getElementById(nomeCampo).style.color = 'orange';
+                                document.getElementById(barraHpCampo).style.background = 'orange';
+                            } else if( xpercent > 50){ 
+                                document.getElementById(nomeCampo).style.color = 'mediumseagreen';
+                                document.getElementById(barraHpCampo).style.background = 'mediumseagreen';
+                            }
+
+                            document.getElementById(barraHpCampo).style.width = 50 * xpercent / 100;
+
+                            document.getElementById(nomeCampo).style.visibility = "visible";
+                            document.getElementById(barraHpCampo).style.visibility = "visible";
+                            document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
+                        }
+                    }
+                }
+                if(matrizDoMapa[i][j] == 8 || matrizDoMapa[i][j] == 9){
+                    document.getElementById(nomeCampo).innerHTML = "Snake";
+                    document.getElementById(barraHpCampo).style.width = 10;
+                    document.getElementById(nomeCampo).style.color = 'tomato';
+                    document.getElementById(barraHpCampo).style.background = 'tomato';
+                    document.getElementById(nomeCampo).style.visibility = "visible";
+                    document.getElementById(barraHpCampo).style.visibility = "visible";
+                    document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
+                    document.getElementById(baseCampo).title = "snake";
+                    
+                }
+                if(matrizDoMapa[i][j] == 11){
+                    document.getElementById(nomeCampo).innerHTML = "NPC";
+                    document.getElementById(nomeCampo).style.color = 'white';
+                    document.getElementById(nomeCampo).style.visibility = "visible";
+                    document.getElementById(baseCampo).title = "npc";
+                }
+                if(matrizDoMapa[i][j] == 16 || matrizDoMapa[i][j] == 17){
+                    document.getElementById(nomeCampo).innerHTML = "Dragon";
+                    document.getElementById(barraHpCampo).style.width = 10;
+                    document.getElementById(nomeCampo).style.color = 'tomato';
+                    document.getElementById(barraHpCampo).style.background = 'tomato';
+                    document.getElementById(nomeCampo).style.visibility = "visible";
+                    document.getElementById(barraHpCampo).style.visibility = "visible";
+                    document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
+                    document.getElementById(baseCampo).title = "dragon";
+                }
+                if(matrizDoMapa[i][j] == 19 || matrizDoMapa[i][j] == 20){
+                    document.getElementById(nomeCampo).innerHTML = "Mammoth";
+                    document.getElementById(barraHpCampo).style.width = 10;
+                    document.getElementById(nomeCampo).style.color = 'tomato';
+                    document.getElementById(barraHpCampo).style.background = 'tomato';
+                    document.getElementById(nomeCampo).style.visibility = "visible";
+                    document.getElementById(barraHpCampo).style.visibility = "visible";
+                    document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
+                    document.getElementById(baseCampo).title = "mammoth";
+                }
+            }
+
             function preencherImagens(){
                 var caminhoImagem = "";
 
@@ -241,1579 +332,193 @@
                         }
                         
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo1').src = caminhoImagem;
-                            document.getElementById('campo1').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo1').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo1').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo2').src = caminhoImagem;
-                            document.getElementById('campo2').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo2').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo2').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo3').src = caminhoImagem;
-                            document.getElementById('campo3').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo3').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo3').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo4').src = caminhoImagem;
-                            document.getElementById('campo4').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo4').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo4').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo5').src = caminhoImagem;
-                            document.getElementById('campo5').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo5').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo5').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo6').src = caminhoImagem;
-                            document.getElementById('campo6').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo6').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo6').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo7').src = caminhoImagem;
-                            document.getElementById('campo7').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo7').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo7').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo8').src = caminhoImagem;
-                            document.getElementById('campo8').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo8').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo8').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo9').src = caminhoImagem;
-                            document.getElementById('campo9').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo9').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo9').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo10').src = caminhoImagem;
-                            document.getElementById('campo10').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo10').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo10').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo11').src = caminhoImagem;
-                            document.getElementById('campo11').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo11').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo11').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "11");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo12').src = caminhoImagem;
-                            document.getElementById('campo12').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo12').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo12').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "12");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo13').src = caminhoImagem;
-                            document.getElementById('campo13').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo13').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo13').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "13");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo14').src = caminhoImagem;
-                            document.getElementById('campo14').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo14').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo14').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "14");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo15').src = caminhoImagem;
-                            document.getElementById('campo15').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo15').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo15').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "15");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo16').src = caminhoImagem;
-                            document.getElementById('campo16').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo16').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo16').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "16");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo17').src = caminhoImagem;
-                            document.getElementById('campo17').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo17').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo17').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "17");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo18').src = caminhoImagem;
-                            document.getElementById('campo18').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo18').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo18').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "18");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo19').src = caminhoImagem;
-                            document.getElementById('campo19').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo19').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo19').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "19");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo20').src = caminhoImagem;
-                            document.getElementById('campo20').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo20').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo20').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "20");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo21').src = caminhoImagem;
-                            document.getElementById('campo21').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo21').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo21').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "21");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo22').src = caminhoImagem;
-                            document.getElementById('campo22').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo22').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo22').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "22");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo23').src = caminhoImagem;
-                            document.getElementById('campo23').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo23').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo23').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "23");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo24').src = caminhoImagem;
-                            document.getElementById('campo24').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo24').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo24').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "24");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo25').src = caminhoImagem;
-                            document.getElementById('campo25').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo25').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo25').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "25");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo26').src = caminhoImagem;
-                            document.getElementById('campo26').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo26').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo26').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "26");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo27').src = caminhoImagem;
-                            document.getElementById('campo27').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo27').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo27').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "27");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo28').src = caminhoImagem;
-                            document.getElementById('campo28').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo28').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo28').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "28");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo29').src = caminhoImagem;
-                            document.getElementById('campo29').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo29').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo29').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "29");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo30').src = caminhoImagem;
-                            document.getElementById('campo30').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo30').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo30').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "30");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo31').src = caminhoImagem;
-                            document.getElementById('campo31').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo31').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo31').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "31");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo32').src = caminhoImagem;
-                            document.getElementById('campo32').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo32').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo32').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "32");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo33').src = caminhoImagem;
-                            document.getElementById('campo33').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo33').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo33').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "33");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo34').src = caminhoImagem;
-                            document.getElementById('campo34').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo34').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo34').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "34");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo35').src = caminhoImagem;
-                            document.getElementById('campo35').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo35').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo35').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "35");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo36').src = caminhoImagem;
-                            document.getElementById('campo36').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo36').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo36').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "36");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo37').src = caminhoImagem;
-                            document.getElementById('campo37').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo37').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo37').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "37");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo38').src = caminhoImagem;
-                            document.getElementById('campo38').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo38').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo38').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "38");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo39').src = caminhoImagem;
-                            document.getElementById('campo39').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo39').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo39').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "39");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo40').src = caminhoImagem;
-                            document.getElementById('campo40').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo40').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo40').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "40");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo41').src = caminhoImagem;
-                            document.getElementById('campo41').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo41').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo41').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "41");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo42').src = caminhoImagem;
-                            document.getElementById('campo42').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo42').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo42').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "42");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo43').src = caminhoImagem;
-                            document.getElementById('campo43').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo43').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo43').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "43");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo44').src = caminhoImagem;
-                            document.getElementById('campo44').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo44').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo44').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "44");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo45').src = caminhoImagem;
-                            document.getElementById('campo45').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo45').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo45').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "45");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo46').src = caminhoImagem;
-                            document.getElementById('campo46').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo46').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo46').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "46");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo47').src = caminhoImagem;
-                            document.getElementById('campo47').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo47').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo47').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "47");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo48').src = caminhoImagem;
-                            document.getElementById('campo48').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo48').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo48').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "48");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo49').src = caminhoImagem;
-                            document.getElementById('campo49').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo49').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo49').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "49");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo50').src = caminhoImagem;
-                            document.getElementById('campo50').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo50').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo50').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "50");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo51').src = caminhoImagem;
-                            document.getElementById('campo51').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo51').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo51').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "51");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo52').src = caminhoImagem;
-                            document.getElementById('campo52').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo52').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo52').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "52");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo53').src = caminhoImagem;
-                            document.getElementById('campo53').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo53').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo53').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "53");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo54').src = caminhoImagem;
-                            document.getElementById('campo54').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo54').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo54').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "54");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            document.getElementById('campo55').src = caminhoImagem;
-                            document.getElementById('campo55').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo55').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo55').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "55");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            document.getElementById('campo56').src = caminhoImagem;
-                            document.getElementById('campo56').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo56').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo56').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "56");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            document.getElementById('campo57').src = caminhoImagem;
-                            document.getElementById('campo57').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo57').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo57').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "57");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            document.getElementById('campo58').src = caminhoImagem;
-                            document.getElementById('campo58').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo58').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo58').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "58");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]){
-                            document.getElementById('campo59').src = caminhoImagem;
-                            document.getElementById('campo59').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo59').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo59').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "59");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            document.getElementById('campo60').src = caminhoImagem;
-                            document.getElementById('campo60').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo60').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo60').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "60");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            document.getElementById('campo61').src = caminhoImagem;
-                            document.getElementById('campo61').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo61').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo61').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "61");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            document.getElementById('campo62').src = caminhoImagem;
-                            document.getElementById('campo62').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo62').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo62').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "62");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            document.getElementById('campo63').src = caminhoImagem;
-                            document.getElementById('campo63').title = "campo";
-                            if(
-                                matrizDoMapa[i][j] == 12 ||
-                                matrizDoMapa[i][j] == 13 ||
-                                matrizDoMapa[i][j] == 14 ||
-                                matrizDoMapa[i][j] == 15
-                            ){
-                                for(let k = 0; k < dadosResposta.players.length; k++){
-                                    if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
-                                        let expaux = dadosResposta.players[k].nivel;
-                                        let lvl=0;
-                                        for(lvl=1; expaux >= 0; lvl++){
-                                            expaux = expaux - lvl;
-                                        }
-                                        lvl--;
-                                        document.getElementById('campo63').title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                                    }
-                                }
-                            }
-                            if(matrizDoMapa[i][j] == 11){
-                                document.getElementById('campo63').title = "npc";
-                            }
+                            auxPreencherImagens(i, j, caminhoImagem, "63");
                         }
                     }
                 }
@@ -2044,8 +749,11 @@
                 document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal;
                 document.getElementById('speedvalor').innerHTML = (lvl < 490)?(109+lvl):'max';
                 document.getElementById('hpvalor').innerHTML = hp;
+                hpmax = ((lvl-1) * 15) + 176;
                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';}
+                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato'; }else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange'; }else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';  document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen'; }
+
+                document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
 
                 preencherImagens();
 
@@ -2196,17 +904,25 @@
                             hp = hp + 60;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                            document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                         } else {
                             hp = hpmax;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = 176;
+                            document.getElementById('barraHpPersonagem1').style.width = 50;
                         }
                         if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
                             document.getElementById('hp').style.background = 'tomato';
+                            document.getElementById('nomePersonagem1').style.color = 'tomato';
+                            document.getElementById('barraHpPersonagem1').style.background = 'tomato';
                         } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
                             document.getElementById('hp').style.background = 'orange';
+                            document.getElementById('nomePersonagem1').style.color = 'orange';
+                            document.getElementById('barraHpPersonagem1').style.background = 'orange';
                         } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
                             document.getElementById('hp').style.background = 'mediumseagreen';
+                            document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                            document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
                         }
                     }
                     if(conjurarExuraGran && hp < hpmax){
@@ -2214,17 +930,25 @@
                             hp = hp + 120;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                            document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                         } else {
                             hp = hpmax;
                             document.getElementById('hpvalor').innerHTML = hp;
                             document.getElementById('hp').style.width = 176;
+                            document.getElementById('barraHpPersonagem1').style.width = 50;
                         }
                         if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
                             document.getElementById('hp').style.background = 'tomato';
+                            document.getElementById('nomePersonagem1').style.color = 'tomato';
+                            document.getElementById('barraHpPersonagem1').style.background = 'tomato';
                         } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
                             document.getElementById('hp').style.background = 'orange';
+                            document.getElementById('nomePersonagem1').style.color = 'orange';
+                            document.getElementById('barraHpPersonagem1').style.background = 'orange';
                         } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
                             document.getElementById('hp').style.background = 'mediumseagreen';
+                            document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                            document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
                         }
                     }
                 }
@@ -2329,210 +1053,786 @@
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo1' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-4];"></img>
+                    <div id='nomeCampo1' style='position:fixed; top: 5; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo1' title='hp' style='position:fixed; top: 1; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo1' title='hp' style='position:fixed; top: 1; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo2' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-3];"></img>
+                    <div id='nomeCampo2' style='position:fixed; top: 5; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo2' title='hp' style='position:fixed; top: 1; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo2' title='hp' style='position:fixed; top: 1; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo3' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-2];"></img>
+                    <div id='nomeCampo3' style='position:fixed; top: 5; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo3' title='hp' style='position:fixed; top: 1; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo3' title='hp' style='position:fixed; top: 1; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo4' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-1];"></img>
+                    <div id='nomeCampo4' style='position:fixed; top: 5; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo4' title='hp' style='position:fixed; top: 1; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo4' title='hp' style='position:fixed; top: 1; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo5' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,0];"></img>
+                    <div id='nomeCampo5' style='position:fixed; top: 5; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo5' title='hp' style='position:fixed; top: 1; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo5' title='hp' style='position:fixed; top: 1; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo6' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,1];"></img>
+                    <div id='nomeCampo6' style='position:fixed; top: 5; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo6' title='hp' style='position:fixed; top: 1; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo6' title='hp' style='position:fixed; top: 1; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo7' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,2];"></img>
+                    <div id='nomeCampo7' style='position:fixed; top: 5; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo7' title='hp' style='position:fixed; top: 1; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo7' title='hp' style='position:fixed; top: 1; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo8' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,3];"></img>
+                    <div id='nomeCampo8' style='position:fixed; top: 5; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo8' title='hp' style='position:fixed; top: 1; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo8' title='hp' style='position:fixed; top: 1; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo9' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,4];"></img>
+                    <div id='nomeCampo9' style='position:fixed; top: 5; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo9' title='hp' style='position:fixed; top: 1; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo9' title='hp' style='position:fixed; top: 1; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo10' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-4];"></img>
+                    <div id='nomeCampo10' style='position:fixed; top: 65; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo10' title='hp' style='position:fixed; top: 61; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo10' title='hp' style='position:fixed; top: 61; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo11' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-3];"></img>
+                    <div id='nomeCampo11' style='position:fixed; top: 65; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo11' title='hp' style='position:fixed; top: 61; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo11' title='hp' style='position:fixed; top: 61; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo12' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-2];"></img>
+                    <div id='nomeCampo12' style='position:fixed; top: 65; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo12' title='hp' style='position:fixed; top: 61; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo12' title='hp' style='position:fixed; top: 61; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo13' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-1];"></img>
+                    <div id='nomeCampo13' style='position:fixed; top: 65; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo13' title='hp' style='position:fixed; top: 61; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo13' title='hp' style='position:fixed; top: 61; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo14' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,0];"></img>
+                    <div id='nomeCampo14' style='position:fixed; top: 65; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo14' title='hp' style='position:fixed; top: 61; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo14' title='hp' style='position:fixed; top: 61; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo15' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,1];"></img>
+                    <div id='nomeCampo15' style='position:fixed; top: 65; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo15' title='hp' style='position:fixed; top: 61; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo15' title='hp' style='position:fixed; top: 61; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo16' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,2];"></img>
+                    <div id='nomeCampo16' style='position:fixed; top: 65; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo16' title='hp' style='position:fixed; top: 61; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo16' title='hp' style='position:fixed; top: 61; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo17' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,3];"></img>
+                    <div id='nomeCampo17' style='position:fixed; top: 65; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo17' title='hp' style='position:fixed; top: 61; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo17' title='hp' style='position:fixed; top: 61; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo18' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,4];"></img>
+                    <div id='nomeCampo18' style='position:fixed; top: 65; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo18' title='hp' style='position:fixed; top: 61; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo18' title='hp' style='position:fixed; top: 61; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo19' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-4];"></img>
+                    <div id='nomeCampo19' style='position:fixed; top: 125; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo19' title='hp' style='position:fixed; top: 121; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo19' title='hp' style='position:fixed; top: 121; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo20' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-3];"></img>
+                    <div id='nomeCampo20' style='position:fixed; top: 125; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo20' title='hp' style='position:fixed; top: 121; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo20' title='hp' style='position:fixed; top: 121; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo21' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-2];"></img>
+                    <div id='nomeCampo21' style='position:fixed; top: 125; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo21' title='hp' style='position:fixed; top: 121; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo21' title='hp' style='position:fixed; top: 121; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo22' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-1];"></img>
+                    <div id='nomeCampo22' style='position:fixed; top: 125; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo22' title='hp' style='position:fixed; top: 121; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo22' title='hp' style='position:fixed; top: 121; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,0];"></img>
+                    <div id='nomeCampo23' style='position:fixed; top: 125; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo23' title='hp' style='position:fixed; top: 121; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo23' title='hp' style='position:fixed; top: 121; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo24' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,1];"></img>
+                    <div id='nomeCampo24' style='position:fixed; top: 125; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo24' title='hp' style='position:fixed; top: 121; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo24' title='hp' style='position:fixed; top: 121; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo25' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,2];"></img>
+                    <div id='nomeCampo25' style='position:fixed; top: 125; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo25' title='hp' style='position:fixed; top: 121; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo25' title='hp' style='position:fixed; top: 121; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo26' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,3];"></img>
+                    <div id='nomeCampo26' style='position:fixed; top: 125; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo26' title='hp' style='position:fixed; top: 121; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo26' title='hp' style='position:fixed; top: 121; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo27' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,4];"></img>
+                    <div id='nomeCampo27' style='position:fixed; top: 125; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo27' title='hp' style='position:fixed; top: 121; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo27' title='hp' style='position:fixed; top: 121; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo28' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-4];"></img>
+                    <div id='nomeCampo28' style='position:fixed; top: 185; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo28' title='hp' style='position:fixed; top: 181; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo28' title='hp' style='position:fixed; top: 181; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo29' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-3];"></img>
+                    <div id='nomeCampo29' style='position:fixed; top: 185; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo29' title='hp' style='position:fixed; top: 181; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo29' title='hp' style='position:fixed; top: 181; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo30' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-2];"></img>
+                    <div id='nomeCampo30' style='position:fixed; top: 185; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo30' title='hp' style='position:fixed; top: 181; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo30' title='hp' style='position:fixed; top: 181; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-1];"></img>
+                    <div id='nomeCampo31' style='position:fixed; top: 185; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo31' title='hp' style='position:fixed; top: 181; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo31' title='hp' style='position:fixed; top: 181; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo32' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
+                    <div id='nomeCampo32' style='position:fixed; top: 185; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo32' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo32' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,1];"></img>
+                    <div id='nomeCampo33' style='position:fixed; top: 185; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo33' title='hp' style='position:fixed; top: 181; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo33' title='hp' style='position:fixed; top: 181; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo34' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,2];"></img>
+                    <div id='nomeCampo34' style='position:fixed; top: 185; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo34' title='hp' style='position:fixed; top: 181; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo34' title='hp' style='position:fixed; top: 181; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo35' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,3];"></img>
+                    <div id='nomeCampo35' style='position:fixed; top: 185; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo35' title='hp' style='position:fixed; top: 181; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo35' title='hp' style='position:fixed; top: 181; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo36' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,4];"></img>
+                    <div id='nomeCampo36' style='position:fixed; top: 185; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo36' title='hp' style='position:fixed; top: 181; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo36' title='hp' style='position:fixed; top: 181; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo37' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-4];"></img>
+                    <div id='nomeCampo37' style='position:fixed; top: 245; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo37' title='hp' style='position:fixed; top: 241; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo37' title='hp' style='position:fixed; top: 241; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo38' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-3];"></img>
+                    <div id='nomeCampo38' style='position:fixed; top: 245; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo38' title='hp' style='position:fixed; top: 241; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo38' title='hp' style='position:fixed; top: 241; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo39' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-2];"></img>
+                    <div id='nomeCampo39' style='position:fixed; top: 245; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo39' title='hp' style='position:fixed; top: 241; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo39' title='hp' style='position:fixed; top: 241; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo40' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-1];"></img>
+                    <div id='nomeCampo40' style='position:fixed; top: 245; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo40' title='hp' style='position:fixed; top: 241; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo40' title='hp' style='position:fixed; top: 241; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,0];"></img>
+                    <div id='nomeCampo41' style='position:fixed; top: 245; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo41' title='hp' style='position:fixed; top: 241; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo41' title='hp' style='position:fixed; top: 241; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo42' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,1];"></img>
+                    <div id='nomeCampo42' style='position:fixed; top: 245; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo42' title='hp' style='position:fixed; top: 241; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo42' title='hp' style='position:fixed; top: 241; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo43' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,2];"></img>
+                    <div id='nomeCampo43' style='position:fixed; top: 245; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo43' title='hp' style='position:fixed; top: 241; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo43' title='hp' style='position:fixed; top: 241; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo44' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,3];"></img>
+                    <div id='nomeCampo44' style='position:fixed; top: 245; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo44' title='hp' style='position:fixed; top: 241; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo44' title='hp' style='position:fixed; top: 241; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo45' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,4];"></img>
+                    <div id='nomeCampo45' style='position:fixed; top: 245; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo45' title='hp' style='position:fixed; top: 241; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo45' title='hp' style='position:fixed; top: 241; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo46' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-4];"></img>
+                    <div id='nomeCampo46' style='position:fixed; top: 305; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo46' title='hp' style='position:fixed; top: 301; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo46' title='hp' style='position:fixed; top: 301; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo47' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-3];"></img>
+                    <div id='nomeCampo47' style='position:fixed; top: 305; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo47' title='hp' style='position:fixed; top: 301; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo47' title='hp' style='position:fixed; top: 301; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo48' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-2];"></img>
+                    <div id='nomeCampo48' style='position:fixed; top: 305; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo48' title='hp' style='position:fixed; top: 301; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo48' title='hp' style='position:fixed; top: 301; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo49' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-1];"></img>
+                    <div id='nomeCampo49' style='position:fixed; top: 305; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo49' title='hp' style='position:fixed; top: 301; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo49' title='hp' style='position:fixed; top: 301; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo50' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,0];"></img>
+                    <div id='nomeCampo50' style='position:fixed; top: 305; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo50' title='hp' style='position:fixed; top: 301; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo50' title='hp' style='position:fixed; top: 301; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo51' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,1];"></img>
+                    <div id='nomeCampo51' style='position:fixed; top: 305; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo51' title='hp' style='position:fixed; top: 301; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo51' title='hp' style='position:fixed; top: 301; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo52' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,2];"></img>
+                    <div id='nomeCampo52' style='position:fixed; top: 305; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo52' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo52' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo53' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,3];"></img>
+                    <div id='nomeCampo53' style='position:fixed; top: 305; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo53' title='hp' style='position:fixed; top: 301; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo53' title='hp' style='position:fixed; top: 301; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo54' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,4];"></img>
+                    <div id='nomeCampo54' style='position:fixed; top: 305; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo54' title='hp' style='position:fixed; top: 301; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo54' title='hp' style='position:fixed; top: 301; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo55' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-4];"></img>
+                    <div id='nomeCampo55' style='position:fixed; top: 365; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo55' title='hp' style='position:fixed; top: 361; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo55' title='hp' style='position:fixed; top: 361; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo56' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-3];"></img>
+                    <div id='nomeCampo56' style='position:fixed; top: 365; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo56' title='hp' style='position:fixed; top: 361; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo56' title='hp' style='position:fixed; top: 361; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo57' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-2];"></img>
+                    <div id='nomeCampo57' style='position:fixed; top: 365; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo57' title='hp' style='position:fixed; top: 361; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo57' title='hp' style='position:fixed; top: 361; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo58' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-1];"></img>
+                    <div id='nomeCampo58' style='position:fixed; top: 365; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo58' title='hp' style='position:fixed; top: 361; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo58' title='hp' style='position:fixed; top: 361; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo59' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,0];"></img>
+                    <div id='nomeCampo59' style='position:fixed; top: 365; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo59' title='hp' style='position:fixed; top: 361; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo59' title='hp' style='position:fixed; top: 361; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo60' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,1];"></img>
+                    <div id='nomeCampo60' style='position:fixed; top: 365; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo60' title='hp' style='position:fixed; top: 361; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo60' title='hp' style='position:fixed; top: 361; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo61' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,2];"></img>
+                    <div id='nomeCampo61' style='position:fixed; top: 365; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo61' title='hp' style='position:fixed; top: 361; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo61' title='hp' style='position:fixed; top: 361; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo62' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,3];"></img>
+                    <div id='nomeCampo62' style='position:fixed; top: 365; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo62' title='hp' style='position:fixed; top: 361; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo62' title='hp' style='position:fixed; top: 361; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo63' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,4];"></img>
+                    <div id='nomeCampo63' style='position:fixed; top: 365; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
                 </div>
             </div>
         </div>
-
+        
         <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 185; left: 245; width: 50; height: 50;'></img>
-        <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' title='fala' style='position:fixed; top: 185; left: 245;'></img>
+        <div id='nomePersonagem1' style='position:fixed; top: 185; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+        </div>
+        <div id='barraHpVaziaPersonagem1' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: black;'>
+                
+        </div>
+        <div id='barraHpPersonagem1' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: mediumseagreen;'>
+    
+        </div>
+        <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' style='position:fixed; top: 185; left: 245;'></img>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemMorto.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
         <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();}">
         
@@ -2592,7 +1892,7 @@
                     Mochila
                 </div>
                 <div id='campoDaMochila1' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[0] == 'PocaoHP'){document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; if(hp < hpmax){if(hp + 40 < hpmax){hp = hp + 40; document.getElementById('hp').style.width = (176 * hp) / hpmax;}else{hp = hpmax; document.getElementById('hp').style.width = 176;}} if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';} document.getElementById('hpvalor').innerHTML = hp; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}}"></img>
+                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[0] == 'PocaoHP'){document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; if(hp < hpmax){if(hp + 40 < hpmax){hp = hp + 40; document.getElementById('hp').style.width = (176 * hp) / hpmax; document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;}else{hp = hpmax; document.getElementById('hp').style.width = 176; document.getElementById('barraHpPersonagem1').style.width = 50;}} if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen'; document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';} document.getElementById('hpvalor').innerHTML = hp; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}}"></img>
                 </div>
                 <div id='campoDaMochila2' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='itemCampoDaMochila2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[1] == 'Corda' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 4){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}}"></img>
@@ -2620,17 +1920,25 @@
                                 hp = hp + 60;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                                document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                             } else {
                                 hp = hpmax;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = 176;
+                                document.getElementById('barraHpPersonagem1').style.width = 50;
                             }
                             if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
                                 document.getElementById('hp').style.background = 'tomato';
+                                document.getElementById('nomePersonagem1').style.color = 'tomato';
+                                document.getElementById('barraHpPersonagem1').style.background = 'tomato';
                             } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
                                 document.getElementById('hp').style.background = 'orange';
+                                document.getElementById('nomePersonagem1').style.color = 'orange';
+                                document.getElementById('barraHpPersonagem1').style.background = 'orange';
                             } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
                                 document.getElementById('hp').style.background = 'mediumseagreen';
+                                document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                                document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
                             }
                         }
                     }"></img>
@@ -2647,17 +1955,25 @@
                                 hp = hp + 120;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                                document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                             } else {
                                 hp = hpmax;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = 176;
+                                document.getElementById('barraHpPersonagem1').style.width = 50;
                             }
                             if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
                                 document.getElementById('hp').style.background = 'tomato';
+                                document.getElementById('nomePersonagem1').style.color = 'tomato';
+                                document.getElementById('barraHpPersonagem1').style.background = 'tomato';
                             } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
                                 document.getElementById('hp').style.background = 'orange';
+                                document.getElementById('nomePersonagem1').style.color = 'orange';
+                                document.getElementById('barraHpPersonagem1').style.background = 'orange';
                             } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
                                 document.getElementById('hp').style.background = 'mediumseagreen';
+                                document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                                document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
                             }
                         }
                     }"></img>
@@ -2784,6 +2100,8 @@
                 
             ?>
 
+            document.getElementById('nomePersonagem1').innerHTML = username;
+
             document.getElementById('level').innerHTML = 'Level';
             let expaux = nivel;
             let lvl=0;
@@ -2796,6 +2114,7 @@
             setInterval('funcMoverPersonagem()', (lvl < 490)?(500 - lvl):10);
 
             hpmax = ((lvl-1) * 15) + 176;
+            document.getElementById('hp').style.width = (176 * hp) / hpmax;
             document.getElementById('hpvalor').innerHTML = hp;
             document.getElementById('nivel').innerHTML = 'Xp';
             document.getElementById('nivelvalor').innerHTML = nivel;
@@ -2810,6 +2129,22 @@
             }else if(outfit == "F"){
                 document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';
             }
+
+            if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
+                document.getElementById('hp').style.background = 'tomato';
+                document.getElementById('nomePersonagem1').style.color = 'tomato';
+                document.getElementById('barraHpPersonagem1').style.background = 'tomato';
+            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
+                document.getElementById('hp').style.background = 'orange';
+                document.getElementById('nomePersonagem1').style.color = 'orange';
+                document.getElementById('barraHpPersonagem1').style.background = 'orange';
+            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
+                document.getElementById('hp').style.background = 'mediumseagreen';
+                document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
+            }
+
+            document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
             
         </script>
 
