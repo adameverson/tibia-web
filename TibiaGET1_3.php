@@ -47,7 +47,7 @@
 
     $result->close();
 
-    if($nivel_atual >= $nivel_antigo && $nivel_atual <= ($nivel_antigo + 3)){
+    if($nivel_atual >= $nivel_antigo){
 
         $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
 
