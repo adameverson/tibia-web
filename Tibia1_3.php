@@ -315,7 +315,7 @@
             function preencherImagens(){
                 var caminhoImagem = "";
 
-                run_ajax();
+                /*run_ajax();*/
 
                 for(var i = posicaoDoPersonagemNaMatriz[0]-3; i < posicaoDoPersonagemNaMatriz[0]+4; i++){
                     for(var j = posicaoDoPersonagemNaMatriz[1]-4; j < posicaoDoPersonagemNaMatriz[1]+5; j++){
@@ -798,6 +798,7 @@
 
                 document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
 
+                run_ajax();
                 preencherImagens();
 
                 if(identificadorDoChat == 0){
