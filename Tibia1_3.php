@@ -150,8 +150,8 @@
             var nivelDeConversaNpc = 0;
 
             var mover = 60;
-            var quadrosDeAnimacao = 10;
-            var esperaPorQuadro = 50;
+            var quadrosDeAnimacao = 9;
+            var esperaPorQuadro = 5;
 
             //Variaveis Animacao Monster Atacando
             var posicaoLinhaCima = 0;
@@ -374,6 +374,42 @@
                             caminhoImagem = "imagens/imagemPersonagemDeEsquerdaFComPiso.png";
                         }
                         
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "00");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-4){
+                            auxPreencherImagens(i, j, caminhoImagem, "01");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-3){
+                            auxPreencherImagens(i, j, caminhoImagem, "02");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-2){
+                            auxPreencherImagens(i, j, caminhoImagem, "03");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-1){
+                            auxPreencherImagens(i, j, caminhoImagem, "04");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]){
+                            auxPreencherImagens(i, j, caminhoImagem, "05");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+1){
+                            auxPreencherImagens(i, j, caminhoImagem, "06");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+2){
+                            auxPreencherImagens(i, j, caminhoImagem, "07");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+3){
+                            auxPreencherImagens(i, j, caminhoImagem, "08");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+4){
+                            auxPreencherImagens(i, j, caminhoImagem, "09");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "010");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "001");
+                        }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "1");
                         }
@@ -400,6 +436,12 @@
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "9");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "110");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "002");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "10");
@@ -428,6 +470,12 @@
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "18");
                         }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "210");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "003");
+                        }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "19");
                         }
@@ -454,6 +502,12 @@
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "27");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "310");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "004");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "28");
@@ -482,6 +536,12 @@
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "36");
                         }
+                        if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "410");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "005");
+                        }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "37");
                         }
@@ -508,6 +568,12 @@
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "45");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "510");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "006");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "46");
@@ -536,6 +602,12 @@
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "54");
                         }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "610");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "007");
+                        }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-4){
                             auxPreencherImagens(i, j, caminhoImagem, "55");
                         }
@@ -563,6 +635,42 @@
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+4){
                             auxPreencherImagens(i, j, caminhoImagem, "63");
                         }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "710");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-5){
+                            auxPreencherImagens(i, j, caminhoImagem, "008");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-4){
+                            auxPreencherImagens(i, j, caminhoImagem, "81");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-3){
+                            auxPreencherImagens(i, j, caminhoImagem, "82");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-2){
+                            auxPreencherImagens(i, j, caminhoImagem, "83");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-1){
+                            auxPreencherImagens(i, j, caminhoImagem, "84");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]){
+                            auxPreencherImagens(i, j, caminhoImagem, "85");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+1){
+                            auxPreencherImagens(i, j, caminhoImagem, "86");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+2){
+                            auxPreencherImagens(i, j, caminhoImagem, "87");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+3){
+                            auxPreencherImagens(i, j, caminhoImagem, "88");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+4){
+                            auxPreencherImagens(i, j, caminhoImagem, "89");
+                        }
+                        if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+5){
+                            auxPreencherImagens(i, j, caminhoImagem, "810");
+                        }
                     }
                 }
             }
@@ -578,6 +686,8 @@
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
+
+                setTimeout(function(){ document.getElementById('mapa1').style.left = -60; preencherImagens(); }, esperaPorQuadroInterno);
             }
 
             function cima(){
@@ -591,6 +701,8 @@
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
+
+                setTimeout(function(){ document.getElementById('mapa1').style.top = -60; preencherImagens(); }, esperaPorQuadroInterno);
             }
 
             function baixo(){
@@ -604,6 +716,8 @@
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
+
+                setTimeout(function(){ document.getElementById('mapa1').style.top = -60; preencherImagens(); }, esperaPorQuadroInterno);
             }
 
             function direita(){
@@ -617,22 +731,24 @@
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
+
+                setTimeout(function(){ document.getElementById('mapa1').style.left = -60; preencherImagens(); }, esperaPorQuadroInterno);
             }
 
             function moverCima(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo23').style.width = parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo23').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo23').style.width = parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo23').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo23').style.width = parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo23').style.width = 50;}} direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo23').style.width = parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo23').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo23').style.width = parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo23').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo23').style.width = parseInt(document.getElementById('barraHpCampo23').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo23').style.width = 50;}} direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } run_ajax();}
             }
 
             function moverEsquerda(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo31').style.width = parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo31').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo31').style.width = parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo31').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo31').style.width = parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo31').style.width = 50;}} direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo31').style.width = parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo31').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo31').style.width = parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo31').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo31').style.width = parseInt(document.getElementById('barraHpCampo31').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo31').style.width = 50;}} direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } run_ajax();}
             }
 
             function moverDireita(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo33').style.width = parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo33').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo33').style.width = parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo33').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo33').style.width = parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo33').style.width = 50;}} direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo33').style.width = parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo33').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo33').style.width = parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo33').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo33').style.width = parseInt(document.getElementById('barraHpCampo33').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo33').style.width = 50;}} direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } run_ajax();}
             }
 
             function moverBaixo(){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens(); if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo41').style.width = parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo41').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo41').style.width = parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo41').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo41').style.width = parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo41').style.width = 50;}} direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } run_ajax();}
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){ mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png'; document.getElementById('itemCampoDaMochila1').alt = 'pocao hp'; document.getElementById('itemCampoDaMochila1').title = 'pocao hp'; mochila[1] = 'Corda'; document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png'; document.getElementById('itemCampoDaMochila2').alt = 'corda'; document.getElementById('itemCampoDaMochila2').title = 'corda'; mochila[2] = 'Pa'; document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png'; document.getElementById('itemCampoDaMochila3').alt = 'pa'; document.getElementById('itemCampoDaMochila3').title = 'pa'; document.getElementById('fala1').src = 'imagens/imagemFalaDeposit.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000); matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 3;}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*1.0)) > 0 ){ document.getElementById('barraHpCampo41').style.width = parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*1.0);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 10; nivel += 1; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo41').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.5)) > 0 ){ document.getElementById('barraHpCampo41').style.width = parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.5);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 18; nivel += 2; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo41').style.width = 50;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20){let expaux = nivel; let lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; if( (parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.1)) > 0 ){ document.getElementById('barraHpCampo41').style.width = parseInt(document.getElementById('barraHpCampo41').style.width.split('p')[0]) - (lvl*0.1);}else{matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] = 21; nivel += 3; expaux = nivel; lvl=0; for(lvl=1; expaux >= 0; lvl++){ expaux = expaux - lvl;} lvl--; let expmin = nivel - (lvl + expaux); let expmax = nivel - expaux -1; let exptotal = 0; (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; document.getElementById('nivelvalor').innerHTML = nivel; document.getElementById('levelvalor').innerHTML = lvl; hpmax = ((lvl-1) * 15) + 176; preencherImagens(); document.getElementById('barraHpCampo41').style.width = 50;}} direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } run_ajax();}
             }
 
             function funcMoverPersonagem(){
@@ -808,6 +924,8 @@
                 }
 
                 document.getElementById('personagem1').title = username + " level: " + lvl.toString() + " hp: " + hp.toString();
+
+                (lvl < 490)?( esperaPorQuadro = 5 - (lvl*0.01) ):(esperaPorQuadro = 0.1);
             }
 
             function pressKey(key){
@@ -1093,8 +1211,154 @@
         </script>
     </head>
     <body onload="setInterval('loop()', 1000);" onKeyPress="pressKey(event)">
-        <div id='mapa1'style='position:fixed; top: 0; left: 0'>
+        <div id='mapa1'style='position:fixed; top: -60; left: -60'>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo00' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-5];"></img>
+                    <div id='nomeCampo00' style='position:fixed; top: -55; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo00' title='hp' style='position:fixed; top: -59; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo00' title='hp' style='position:fixed; top: -59; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo01' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-4];"></img>
+                    <div id='nomeCampo01' style='position:fixed; top: -55; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo01' title='hp' style='position:fixed; top: -59; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo01' title='hp' style='position:fixed; top: -59; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
+                    <img id='campo02' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-3];"></img>
+                    <div id='nomeCampo02' style='position:fixed; top: -55; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo02' title='hp' style='position:fixed; top: -59; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo02' title='hp' style='position:fixed; top: -59; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
+                    <img id='campo03' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-2];"></img>
+                    <div id='nomeCampo03' style='position:fixed; top: -55; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo03' title='hp' style='position:fixed; top: -59; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo03' title='hp' style='position:fixed; top: -59; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
+                    <img id='campo04' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-1];"></img>
+                    <div id='nomeCampo04' style='position:fixed; top: -55; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo04' title='hp' style='position:fixed; top: -59; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo04' title='hp' style='position:fixed; top: -59; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo05' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,0];"></img>
+                    <div id='nomeCampo05' style='position:fixed; top: -55; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo05' title='hp' style='position:fixed; top: -59; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo05' title='hp' style='position:fixed; top: -59; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo06' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,1];"></img>
+                    <div id='nomeCampo06' style='position:fixed; top: -55; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo06' title='hp' style='position:fixed; top: -59; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo06' title='hp' style='position:fixed; top: -59; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo07' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,2];"></img>
+                    <div id='nomeCampo07' style='position:fixed; top: -55; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo07' title='hp' style='position:fixed; top: -59; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo07' title='hp' style='position:fixed; top: -59; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo08' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,3];"></img>
+                    <div id='nomeCampo08' style='position:fixed; top: -55; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo08' title='hp' style='position:fixed; top: -59; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo08' title='hp' style='position:fixed; top: -59; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo09' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,4];"></img>
+                    <div id='nomeCampo09' style='position:fixed; top: -55; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo09' title='hp' style='position:fixed; top: -59; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo09' title='hp' style='position:fixed; top: -59; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo010' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,5];"></img>
+                    <div id='nomeCampo010' style='position:fixed; top: -55; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo010' title='hp' style='position:fixed; top: -59; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo010' title='hp' style='position:fixed; top: 59; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+            </div>
+            <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo001' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-5];"></img>
+                    <div id='nomeCampo001' style='position:fixed; top: 5; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo001' title='hp' style='position:fixed; top: 1; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo001' title='hp' style='position:fixed; top: 1; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo1' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-4];"></img>
                     <div id='nomeCampo1' style='position:fixed; top: 5; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1203,8 +1467,32 @@
                 
                     </div>
                 </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo110' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,5];"></img>
+                    <div id='nomeCampo110' style='position:fixed; top: 5; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo110' title='hp' style='position:fixed; top: 1; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo110' title='hp' style='position:fixed; top: 1; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
             </div>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo002' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-5];"></img>
+                    <div id='nomeCampo002' style='position:fixed; top: 65; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo002' title='hp' style='position:fixed; top: 61; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo002' title='hp' style='position:fixed; top: 61; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo10' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-4];"></img>
                     <div id='nomeCampo10' style='position:fixed; top: 65; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1313,8 +1601,32 @@
                 
                     </div>
                 </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo210' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,5];"></img>
+                    <div id='nomeCampo210' style='position:fixed; top: 65; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo210' title='hp' style='position:fixed; top: 61; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo210' title='hp' style='position:fixed; top: 61; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
             </div>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo003' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-5];"></img>
+                    <div id='nomeCampo003' style='position:fixed; top: 125; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo003' title='hp' style='position:fixed; top: 121; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo003' title='hp' style='position:fixed; top: 121; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo19' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-4];"></img>
                     <div id='nomeCampo19' style='position:fixed; top: 125; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1423,8 +1735,32 @@
                 
                     </div>
                 </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo310' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,5];"></img>
+                    <div id='nomeCampo310' style='position:fixed; top: 125; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo310' title='hp' style='position:fixed; top: 121; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo310' title='hp' style='position:fixed; top: 121; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
             </div>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo004' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-5];"></img>
+                    <div id='nomeCampo004' style='position:fixed; top: 185; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo004' title='hp' style='position:fixed; top: 181; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo004' title='hp' style='position:fixed; top: 181; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo28' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-4];"></img>
                     <div id='nomeCampo28' style='position:fixed; top: 185; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1533,8 +1869,32 @@
                 
                     </div>
                 </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo410' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,5];"></img>
+                    <div id='nomeCampo410' style='position:fixed; top: 185; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo410' title='hp' style='position:fixed; top: 181; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo410' title='hp' style='position:fixed; top: 181; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
             </div>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo005' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-5];"></img>
+                    <div id='nomeCampo005' style='position:fixed; top: 245; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo005' title='hp' style='position:fixed; top: 241; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo005' title='hp' style='position:fixed; top: 241; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo37' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-4];"></img>
                     <div id='nomeCampo37' style='position:fixed; top: 245; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1643,8 +2003,32 @@
                 
                     </div>
                 </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo510' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,5];"></img>
+                    <div id='nomeCampo510' style='position:fixed; top: 245; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo510' title='hp' style='position:fixed; top: 241; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo510' title='hp' style='position:fixed; top: 241; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
             </div>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo006' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-5];"></img>
+                    <div id='nomeCampo006' style='position:fixed; top: 305; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo006' title='hp' style='position:fixed; top: 301; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo006' title='hp' style='position:fixed; top: 301; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo46' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-4];"></img>
                     <div id='nomeCampo46' style='position:fixed; top: 305; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1753,8 +2137,32 @@
                 
                     </div>
                 </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo610' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,5];"></img>
+                    <div id='nomeCampo610' style='position:fixed; top: 305; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo610' title='hp' style='position:fixed; top: 301; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo610' title='hp' style='position:fixed; top: 301; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
             </div>
             <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo007' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-5];"></img>
+                    <div id='nomeCampo007' style='position:fixed; top: 365; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo007' title='hp' style='position:fixed; top: 361; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo007' title='hp' style='position:fixed; top: 361; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo55' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-4];"></img>
                     <div id='nomeCampo55' style='position:fixed; top: 365; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -1860,6 +2268,152 @@
                 
                     </div>
                     <div id='barraHpCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo710' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,5];"></img>
+                    <div id='nomeCampo710' style='position:fixed; top: 365; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo710' title='hp' style='position:fixed; top: 361; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo710' title='hp' style='position:fixed; top: 361; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+            </div>
+            <div id='m1r1'style='top: 0'>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo008' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-5];"></img>
+                    <div id='nomeCampo008' style='position:fixed; top: 425; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo008' title='hp' style='position:fixed; top: 421; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo008' title='hp' style='position:fixed; top: 421; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
+                    <img id='campo81' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-4];"></img>
+                    <div id='nomeCampo81' style='position:fixed; top: 425; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo81' title='hp' style='position:fixed; top: 421; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo81' title='hp' style='position:fixed; top: 421; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
+                    <img id='campo82' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-3];"></img>
+                    <div id='nomeCampo82' style='position:fixed; top: 425; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo82' title='hp' style='position:fixed; top: 421; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo82' title='hp' style='position:fixed; top: 421; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
+                    <img id='campo83' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-2];"></img>
+                    <div id='nomeCampo83' style='position:fixed; top: 425; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo83' title='hp' style='position:fixed; top: 421; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo83' title='hp' style='position:fixed; top: 421; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
+                    <img id='campo84' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-1];"></img>
+                    <div id='nomeCampo84' style='position:fixed; top: 425; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo84' title='hp' style='position:fixed; top: 421; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo84' title='hp' style='position:fixed; top: 421; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo85' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,0];"></img>
+                    <div id='nomeCampo85' style='position:fixed; top: 425; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo85' title='hp' style='position:fixed; top: 421; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo85' title='hp' style='position:fixed; top: 421; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo86' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,1];"></img>
+                    <div id='nomeCampo86' style='position:fixed; top: 425; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo86' title='hp' style='position:fixed; top: 421; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo86' title='hp' style='position:fixed; top: 421; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo87' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,2];"></img>
+                    <div id='nomeCampo87' style='position:fixed; top: 425; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo87' title='hp' style='position:fixed; top: 421; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo87' title='hp' style='position:fixed; top: 421; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo88' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,3];"></img>
+                    <div id='nomeCampo88' style='position:fixed; top: 425; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo88' title='hp' style='position:fixed; top: 421; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo88' title='hp' style='position:fixed; top: 421; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo89' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,4];"></img>
+                    <div id='nomeCampo89' style='position:fixed; top: 425; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo89' title='hp' style='position:fixed; top: 421; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo89' title='hp' style='position:fixed; top: 421; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
+                
+                    </div>
+                </div>
+                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
+                    <img id='campo810' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,5];"></img>
+                    <div id='nomeCampo810' style='position:fixed; top: 425; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    
+                    </div>
+                    <div id='barraHpVaziaCampo810' title='hp' style='position:fixed; top: 421; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
+                
+                    </div>
+                    <div id='barraHpCampo810' title='hp' style='position:fixed; top: 421; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
                 </div>
