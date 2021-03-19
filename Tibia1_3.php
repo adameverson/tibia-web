@@ -230,6 +230,9 @@
                         }
                     }
                 }else if(matrizDoMapa[i][j] == 8 || matrizDoMapa[i][j] == 9){
+                    if(document.getElementById(nomeCampo).innerHTML != "Snake"){
+                        document.getElementById(barraHpCampo).style.width = 50;
+                    }
                     document.getElementById(nomeCampo).innerHTML = "Snake";
                     if( 
                         ( (i-1) != posicaoDoPersonagemNaMatriz[0] && j != posicaoDoPersonagemNaMatriz[1] ) &&
@@ -260,6 +263,9 @@
                     document.getElementById(nomeCampo).style.visibility = "visible";
                     document.getElementById(baseCampo).title = "npc";
                 }else if(matrizDoMapa[i][j] == 16 || matrizDoMapa[i][j] == 17){
+                    if(document.getElementById(nomeCampo).innerHTML != "Dragon"){
+                        document.getElementById(barraHpCampo).style.width = 50;
+                    }
                     document.getElementById(nomeCampo).innerHTML = "Dragon";
                     if( 
                         ( (i-1) != posicaoDoPersonagemNaMatriz[0] && j != posicaoDoPersonagemNaMatriz[1] ) &&
@@ -284,6 +290,9 @@
                     document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
                     document.getElementById(baseCampo).title = "dragon";
                 }else if(matrizDoMapa[i][j] == 19 || matrizDoMapa[i][j] == 20){
+                    if(document.getElementById(nomeCampo).innerHTML != "Mammoth"){
+                        document.getElementById(barraHpCampo).style.width = 50;
+                    }
                     document.getElementById(nomeCampo).innerHTML = "Mammoth";
                     if( 
                         ( (i-1) != posicaoDoPersonagemNaMatriz[0] && j != posicaoDoPersonagemNaMatriz[1] ) &&
