@@ -726,7 +726,7 @@
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.left = -60; preencherImagens(); }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.left = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             function cima(){
@@ -741,7 +741,7 @@
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.top = -60; preencherImagens(); }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.top = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             function baixo(){
@@ -756,7 +756,7 @@
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.top = -60; preencherImagens(); }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.top = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             function direita(){
@@ -771,7 +771,7 @@
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.left = -60; preencherImagens(); }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.left = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             function moverCima(){
@@ -1250,7 +1250,7 @@
         </script>
     </head>
     <body onload="setInterval('loop()', 1000);" onKeyPress="pressKey(event)">
-        <div id='mapa1'style='position:fixed; top: -60; left: -60'>
+        <div id='mapa1'style='position:fixed; top: -60; left: -60;'>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo00' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-5];"></img>
