@@ -1023,20 +1023,25 @@
                             if( (
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura') ||
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl >= 50) ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task' && document.getElementById('task').style.visibility == 'hidden') ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task' && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100) ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task' && document.getElementById('task').style.visibility == 'hidden') ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task' && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100) ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task' && document.getElementById('task').style.visibility == 'hidden') ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task' && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100)
+                                (   (
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
+                                    ) && document.getElementById('task').style.visibility == 'hidden') ||
+                                (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100)
                                 ) && nivelDeConversaNpc == 2
                             ){
                                 nivelDeConversaNpc = 3;
                             }else if( (
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) || 
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task' && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) < 100) || 
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task' && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) < 100) || 
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task' && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) < 100)
+                                (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) < 100) ||
+                                (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() != document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' &&
+                                (
+                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
+                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
+                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
+                                )
+                                )
                                 ) && nivelDeConversaNpc == 2
                             ){
                                 nivelDeConversaNpc = 5;
@@ -1112,15 +1117,15 @@
                                     document.getElementById('task').style.visibility = 'visible';
                                     document.getElementById('taskvalor').style.visibility = 'visible';
                                 }
-                                else if(document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100){
-                                    switch(document.getElementById('campoDeEscritaInput').value.toLowerCase()){
-                                        case 'snake task':
+                                else if(document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100){
+                                    switch(document.getElementById('task').innerHTML.toLowerCase()){
+                                        case 'snake':
                                             nivel += 100;
                                             break;
-                                        case 'dragon task':
+                                        case 'dragon':
                                             nivel += 200;
                                             break;
-                                        case 'mammoth task':
+                                        case 'mammoth':
                                             nivel += 300;
                                             break;
                                     }
@@ -2708,7 +2713,7 @@
                     <img id='itemCampoDoParcel4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
-            <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 220; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: hidden;'>
+            <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 220; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
                 <div id='tasks' title='tasks' style='position: fixed; top: 230; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                 </div>
