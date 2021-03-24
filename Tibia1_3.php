@@ -1023,24 +1023,32 @@
                             if( (
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura') ||
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl >= 50) ||
-                                (   (
+                                (   
+                                    (
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
-                                    ) && document.getElementById('task').style.visibility == 'hidden') ||
-                                (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100)
+                                    ) && 
+                                    (
+                                        (document.getElementById('task').style.visibility == 'hidden') ||
+                                        (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) == 100)
+                                    )
+                                )
                                 ) && nivelDeConversaNpc == 2
                             ){
                                 nivelDeConversaNpc = 3;
                             }else if( (
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) || 
-                                (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) < 100) ||
-                                (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() != document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' &&
+                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) ||
                                 (
-                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
-                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
-                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
-                                )
+                                    (
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
+                                    ) &&
+                                    (
+                                        (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && parseInt(document.getElementById('taskvalor').innerHTML) < 100) ||
+                                        (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() != document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible')
+                                    )
                                 )
                                 ) && nivelDeConversaNpc == 2
                             ){
