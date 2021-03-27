@@ -1139,7 +1139,8 @@
                             break;
                         case 2:
                             if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'task' ||
-                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'tarefa'){
+                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'tarefa' ||
+                                document.getElementById('opcao1').title == "Snake Task"){
                                 mensagensDoChatNpc += "\n\nNpc: Temos as seguintes tasks: 'Snake Task', 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar...";
 
                                 document.getElementById('opcao1').innerHTML = "Snake Task";
@@ -1159,7 +1160,8 @@
                                 document.getElementById('opcao4').style.height = 44;
                                 document.getElementById('opcao4').style.visibility = 'visible';
                             }else if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magic' ||
-                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia'){
+                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia' ||
+                                document.getElementById('opcao1').title == "Exura"){
                                 mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s): 'exura' e 'exura gran'. Digite o nome da magia para aprender...";
 
                                 document.getElementById('opcao1').innerHTML = "Exura";
