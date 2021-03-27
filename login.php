@@ -146,3 +146,7 @@
   <source src="musicas/2cPoC.mp3" type="audio/mpeg">
   Your browser does not support the audio tag.
 </audio>
+
+<div style='text-align: center;'>
+    ©2021 magiclevel.ml. All rights reserved. v1.0.0
+</div>
