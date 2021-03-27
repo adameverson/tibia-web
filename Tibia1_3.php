@@ -136,6 +136,7 @@
             var moverPersonagem = [0,0];
             var direcaoDoPersonagem = 2;
             var nivelDeSolo = 1;
+            var lvlantigo = 0;
             var nivel = 0;
             var hpmax = 176;
             var hp = 176;
@@ -143,6 +144,8 @@
             var exura = false;
             var exuraGran = false;
             var outfit = "M";
+            var mensagem = "";
+            var ultimamensagem = "";
 
             var identificadorDoChat = 0;
             var mensagensDoChatDefault = "Bem Vindo!";
@@ -201,8 +204,10 @@
                 ){
                     for(let k = 0; k < dadosResposta.players.length; k++){
                         if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+
                             let expaux = dadosResposta.players[k].nivel;
                             let lvl=0;
+
                             for(lvl=1; expaux >= 0; lvl++){
                                 expaux = expaux - lvl;
                             }
@@ -227,6 +232,16 @@
                             document.getElementById(nomeCampo).style.visibility = "visible";
                             document.getElementById(barraHpCampo).style.visibility = "visible";
                             document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
+
+                            if(dadosResposta.players[k].mensagem != ultimamensagem){
+                                if(dadosResposta.players[k].mensagem != ""){
+                                    let data = new Date();
+                                    mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
+                                    document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].mensagem;
+                                    setTimeout(function(){document.getElementById("mensagemDivCampo" + campo).innerHTML = "";}, 5000);
+                                    ultimamensagem = dadosResposta.players[k].mensagem;
+                                }
+                            }
                         }
                     }
                 }else if(matrizDoMapa[i][j] == 8 || matrizDoMapa[i][j] == 9){
@@ -318,6 +333,9 @@
                     document.getElementById(baseCampo).title = "mammoth";
                 }else{
                     document.getElementById(barraHpCampo).style.width = 50;
+                    if(document.getElementById("mensagemDivCampo" + campo).innerHTML != ""){
+                        document.getElementById("mensagemDivCampo" + campo).innerHTML = "";
+                    }
                 }
             }
 
@@ -972,15 +990,24 @@
                 run_ajax();
                 preencherImagens();
 
+                document.getElementById('personagem1').title = username + " level: " + lvl.toString() + " hp: " + hp.toString();
+
+                (lvl < 490)?( esperaPorQuadro = 5 - (lvl*0.01) ):(esperaPorQuadro = 0.1);
+
+                if(lvlantigo && lvlantigo < lvl){
+                    mensagensDoChatDefault += "\n\nYou advanced from Level " + lvlantigo + " to Level " + lvl;
+                    document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvl;
+                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = "";}, 10000);
+                }
+
+                lvlantigo = lvl;
+
                 if(identificadorDoChat == 0){
                     document.getElementById('textareaChat').value = mensagensDoChatDefault;
                 } else if(identificadorDoChat == 1){
                     document.getElementById('textareaChat').value = mensagensDoChatNpc;
                 }
-
-                document.getElementById('personagem1').title = username + " level: " + lvl.toString() + " hp: " + hp.toString();
-
-                (lvl < 490)?( esperaPorQuadro = 5 - (lvl*0.01) ):(esperaPorQuadro = 0.1);
+                document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
             }
 
             function dialogo(){
@@ -1086,8 +1113,21 @@
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran)
                     ){
                         mensagensDoChatDefault += "\n\nSistema: Voce ainda nao sabe esta magia.";
+                        document.getElementById('mensagemDiv2').innerHTML = "Voce ainda nao sabe esta magia.";
+                        setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }else{
-                        mensagensDoChatDefault += "\n\n" + document.getElementById('campoDeEscritaInput').value;
+                        let data = new Date();
+                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlantigo + "]: " + document.getElementById('campoDeEscritaInput').value;
+                        if(document.getElementById('campoDeEscritaInput').value.length < 32){
+                            document.getElementById('mensagemDiv3').style.textAlign = 'left';
+                            document.getElementById('mensagemDiv3').style.left = 245;
+                        } else {
+                            document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                            document.getElementById('mensagemDiv3').style.left = 200;
+                        }
+                        mensagem = username + " says: " + document.getElementById('campoDeEscritaInput').value;
+                        document.getElementById('mensagemDiv3').innerHTML = mensagem;
+                        setTimeout(function(){mensagem = ""; document.getElementById('mensagemDiv3').innerHTML = "";}, 5000);
                     }
                     document.getElementById('campoDeEscritaInput').value = "";
                     document.getElementById('textareaChat').value = mensagensDoChatDefault;
@@ -1098,6 +1138,8 @@
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5))
                     ){
                         mensagensDoChatNpc += "\n\nSistema: Voce ainda nao sabe esta magia.";
+                        document.getElementById('mensagemDiv2').innerHTML = "Voce ainda nao sabe esta magia.";
+                        setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     } else{
                         if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "nao"){
                             mensagensDoChatNpc += "\n\nAgora " + document.getElementById('campoDeEscritaInput').value.toLowerCase() + "!";
@@ -1393,6 +1435,7 @@
                 dados.append('direcao', direcaoDoPersonagem);
                 dados.append('nivel', nivel);
                 dados.append('hp', hp);
+                dados.append('mensagem', mensagem);
 
                 $.ajax({
                     url: 'TibiaGET1_3.php',
@@ -1479,7 +1522,7 @@
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo00' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-5];"></img>
-                    <div id='nomeCampo00' style='position:fixed; top: -55; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo00' style='position:fixed; top: -55; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo00' title='hp' style='position:fixed; top: -59; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1488,10 +1531,13 @@
                     <div id='barraHpCampo00' title='hp' style='position:fixed; top: -59; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo00' style='position:fixed; top: -45; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo01' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-4];"></img>
-                    <div id='nomeCampo01' style='position:fixed; top: -55; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo01' style='position:fixed; top: -55; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo01' title='hp' style='position:fixed; top: -59; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1500,10 +1546,13 @@
                     <div id='barraHpCampo01' title='hp' style='position:fixed; top: -59; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo01' style='position:fixed; top: -45; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo02' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-3];"></img>
-                    <div id='nomeCampo02' style='position:fixed; top: -55; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo02' style='position:fixed; top: -55; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo02' title='hp' style='position:fixed; top: -59; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1512,10 +1561,13 @@
                     <div id='barraHpCampo02' title='hp' style='position:fixed; top: -59; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo02' style='position:fixed; top: -45; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo03' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-2];"></img>
-                    <div id='nomeCampo03' style='position:fixed; top: -55; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo03' style='position:fixed; top: -55; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo03' title='hp' style='position:fixed; top: -59; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1524,10 +1576,13 @@
                     <div id='barraHpCampo03' title='hp' style='position:fixed; top: -59; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo03' style='position:fixed; top: -45; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo04' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-1];"></img>
-                    <div id='nomeCampo04' style='position:fixed; top: -55; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo04' style='position:fixed; top: -55; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo04' title='hp' style='position:fixed; top: -59; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1536,10 +1591,13 @@
                     <div id='barraHpCampo04' title='hp' style='position:fixed; top: -59; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo04' style='position:fixed; top: -45; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo05' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,0];"></img>
-                    <div id='nomeCampo05' style='position:fixed; top: -55; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo05' style='position:fixed; top: -55; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo05' title='hp' style='position:fixed; top: -59; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1548,10 +1606,13 @@
                     <div id='barraHpCampo05' title='hp' style='position:fixed; top: -59; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo05' style='position:fixed; top: -45; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo06' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,1];"></img>
-                    <div id='nomeCampo06' style='position:fixed; top: -55; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo06' style='position:fixed; top: -55; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo06' title='hp' style='position:fixed; top: -59; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1560,10 +1621,13 @@
                     <div id='barraHpCampo06' title='hp' style='position:fixed; top: -59; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo06' style='position:fixed; top: -45; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo07' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,2];"></img>
-                    <div id='nomeCampo07' style='position:fixed; top: -55; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo07' style='position:fixed; top: -55; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo07' title='hp' style='position:fixed; top: -59; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1572,10 +1636,13 @@
                     <div id='barraHpCampo07' title='hp' style='position:fixed; top: -59; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo07' style='position:fixed; top: -45; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo08' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,3];"></img>
-                    <div id='nomeCampo08' style='position:fixed; top: -55; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo08' style='position:fixed; top: -55; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo08' title='hp' style='position:fixed; top: -59; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1584,10 +1651,13 @@
                     <div id='barraHpCampo08' title='hp' style='position:fixed; top: -59; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo08' style='position:fixed; top: -45; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo09' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,4];"></img>
-                    <div id='nomeCampo09' style='position:fixed; top: -55; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo09' style='position:fixed; top: -55; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo09' title='hp' style='position:fixed; top: -59; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1596,10 +1666,13 @@
                     <div id='barraHpCampo09' title='hp' style='position:fixed; top: -59; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo09' style='position:fixed; top: -45; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo010' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,5];"></img>
-                    <div id='nomeCampo010' style='position:fixed; top: -55; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo010' style='position:fixed; top: -55; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo010' title='hp' style='position:fixed; top: -59; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1608,12 +1681,15 @@
                     <div id='barraHpCampo010' title='hp' style='position:fixed; top: 59; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo010' style='position:fixed; top: -45; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo001' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-5];"></img>
-                    <div id='nomeCampo001' style='position:fixed; top: 5; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo001' style='position:fixed; top: 5; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo001' title='hp' style='position:fixed; top: 1; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1622,10 +1698,13 @@
                     <div id='barraHpCampo001' title='hp' style='position:fixed; top: 1; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo001' style='position:fixed; top: 15; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo1' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-4];"></img>
-                    <div id='nomeCampo1' style='position:fixed; top: 5; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo1' style='position:fixed; top: 5; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo1' title='hp' style='position:fixed; top: 1; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1634,10 +1713,13 @@
                     <div id='barraHpCampo1' title='hp' style='position:fixed; top: 1; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo1' style='position:fixed; top: 15; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo2' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-3];"></img>
-                    <div id='nomeCampo2' style='position:fixed; top: 5; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo2' style='position:fixed; top: 5; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo2' title='hp' style='position:fixed; top: 1; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1646,10 +1728,13 @@
                     <div id='barraHpCampo2' title='hp' style='position:fixed; top: 1; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo2' style='position:fixed; top: 15; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo3' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-2];"></img>
-                    <div id='nomeCampo3' style='position:fixed; top: 5; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo3' style='position:fixed; top: 5; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo3' title='hp' style='position:fixed; top: 1; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1658,10 +1743,13 @@
                     <div id='barraHpCampo3' title='hp' style='position:fixed; top: 1; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo3' style='position:fixed; top: 15; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo4' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-1];"></img>
-                    <div id='nomeCampo4' style='position:fixed; top: 5; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo4' style='position:fixed; top: 5; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo4' title='hp' style='position:fixed; top: 1; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1670,10 +1758,13 @@
                     <div id='barraHpCampo4' title='hp' style='position:fixed; top: 1; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo4' style='position:fixed; top: 15; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo5' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,0];"></img>
-                    <div id='nomeCampo5' style='position:fixed; top: 5; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo5' style='position:fixed; top: 5; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo5' title='hp' style='position:fixed; top: 1; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1682,10 +1773,13 @@
                     <div id='barraHpCampo5' title='hp' style='position:fixed; top: 1; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo5' style='position:fixed; top: 15; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo6' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,1];"></img>
-                    <div id='nomeCampo6' style='position:fixed; top: 5; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo6' style='position:fixed; top: 5; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo6' title='hp' style='position:fixed; top: 1; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1694,10 +1788,13 @@
                     <div id='barraHpCampo6' title='hp' style='position:fixed; top: 1; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo6' style='position:fixed; top: 15; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo7' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,2];"></img>
-                    <div id='nomeCampo7' style='position:fixed; top: 5; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo7' style='position:fixed; top: 5; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo7' title='hp' style='position:fixed; top: 1; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1706,10 +1803,13 @@
                     <div id='barraHpCampo7' title='hp' style='position:fixed; top: 1; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo7' style='position:fixed; top: 15; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo8' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,3];"></img>
-                    <div id='nomeCampo8' style='position:fixed; top: 5; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo8' style='position:fixed; top: 5; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo8' title='hp' style='position:fixed; top: 1; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1718,10 +1818,13 @@
                     <div id='barraHpCampo8' title='hp' style='position:fixed; top: 1; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo8' style='position:fixed; top: 15; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo9' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,4];"></img>
-                    <div id='nomeCampo9' style='position:fixed; top: 5; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo9' style='position:fixed; top: 5; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo9' title='hp' style='position:fixed; top: 1; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1730,10 +1833,13 @@
                     <div id='barraHpCampo9' title='hp' style='position:fixed; top: 1; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo9' style='position:fixed; top: 15; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo110' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,5];"></img>
-                    <div id='nomeCampo110' style='position:fixed; top: 5; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo110' style='position:fixed; top: 5; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo110' title='hp' style='position:fixed; top: 1; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1742,12 +1848,15 @@
                     <div id='barraHpCampo110' title='hp' style='position:fixed; top: 1; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo110' style='position:fixed; top: 15; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo002' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-5];"></img>
-                    <div id='nomeCampo002' style='position:fixed; top: 65; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo002' style='position:fixed; top: 65; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo002' title='hp' style='position:fixed; top: 61; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1756,10 +1865,13 @@
                     <div id='barraHpCampo002' title='hp' style='position:fixed; top: 61; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo002' style='position:fixed; top: 75; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo10' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-4];"></img>
-                    <div id='nomeCampo10' style='position:fixed; top: 65; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo10' style='position:fixed; top: 65; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo10' title='hp' style='position:fixed; top: 61; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1768,10 +1880,13 @@
                     <div id='barraHpCampo10' title='hp' style='position:fixed; top: 61; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo10' style='position:fixed; top: 75; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo11' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-3];"></img>
-                    <div id='nomeCampo11' style='position:fixed; top: 65; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo11' style='position:fixed; top: 65; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo11' title='hp' style='position:fixed; top: 61; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1780,10 +1895,13 @@
                     <div id='barraHpCampo11' title='hp' style='position:fixed; top: 61; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo11' style='position:fixed; top: 75; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo12' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-2];"></img>
-                    <div id='nomeCampo12' style='position:fixed; top: 65; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo12' style='position:fixed; top: 65; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo12' title='hp' style='position:fixed; top: 61; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1792,10 +1910,13 @@
                     <div id='barraHpCampo12' title='hp' style='position:fixed; top: 61; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo12' style='position:fixed; top: 75; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo13' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-1];"></img>
-                    <div id='nomeCampo13' style='position:fixed; top: 65; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo13' style='position:fixed; top: 65; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo13' title='hp' style='position:fixed; top: 61; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1804,10 +1925,13 @@
                     <div id='barraHpCampo13' title='hp' style='position:fixed; top: 61; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo13' style='position:fixed; top: 75; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo14' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,0];"></img>
-                    <div id='nomeCampo14' style='position:fixed; top: 65; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo14' style='position:fixed; top: 65; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo14' title='hp' style='position:fixed; top: 61; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1816,10 +1940,13 @@
                     <div id='barraHpCampo14' title='hp' style='position:fixed; top: 61; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo14' style='position:fixed; top: 75; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo15' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,1];"></img>
-                    <div id='nomeCampo15' style='position:fixed; top: 65; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo15' style='position:fixed; top: 65; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo15' title='hp' style='position:fixed; top: 61; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1828,10 +1955,13 @@
                     <div id='barraHpCampo15' title='hp' style='position:fixed; top: 61; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo15' style='position:fixed; top: 75; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo16' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,2];"></img>
-                    <div id='nomeCampo16' style='position:fixed; top: 65; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo16' style='position:fixed; top: 65; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo16' title='hp' style='position:fixed; top: 61; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1840,10 +1970,13 @@
                     <div id='barraHpCampo16' title='hp' style='position:fixed; top: 61; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo16' style='position:fixed; top: 75; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo17' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,3];"></img>
-                    <div id='nomeCampo17' style='position:fixed; top: 65; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo17' style='position:fixed; top: 65; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo17' title='hp' style='position:fixed; top: 61; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1852,10 +1985,13 @@
                     <div id='barraHpCampo17' title='hp' style='position:fixed; top: 61; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo17' style='position:fixed; top: 75; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo18' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,4];"></img>
-                    <div id='nomeCampo18' style='position:fixed; top: 65; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo18' style='position:fixed; top: 65; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo18' title='hp' style='position:fixed; top: 61; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1864,10 +2000,13 @@
                     <div id='barraHpCampo18' title='hp' style='position:fixed; top: 61; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo18' style='position:fixed; top: 75; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo210' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,5];"></img>
-                    <div id='nomeCampo210' style='position:fixed; top: 65; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo210' style='position:fixed; top: 65; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo210' title='hp' style='position:fixed; top: 61; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1876,12 +2015,15 @@
                     <div id='barraHpCampo210' title='hp' style='position:fixed; top: 61; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo210' style='position:fixed; top: 75; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo003' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-5];"></img>
-                    <div id='nomeCampo003' style='position:fixed; top: 125; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo003' style='position:fixed; top: 125; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo003' title='hp' style='position:fixed; top: 121; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1890,10 +2032,13 @@
                     <div id='barraHpCampo003' title='hp' style='position:fixed; top: 121; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo003' style='position:fixed; top: 135; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo19' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-4];"></img>
-                    <div id='nomeCampo19' style='position:fixed; top: 125; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo19' style='position:fixed; top: 125; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo19' title='hp' style='position:fixed; top: 121; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1902,10 +2047,13 @@
                     <div id='barraHpCampo19' title='hp' style='position:fixed; top: 121; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo19' style='position:fixed; top: 135; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo20' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-3];"></img>
-                    <div id='nomeCampo20' style='position:fixed; top: 125; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo20' style='position:fixed; top: 125; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo20' title='hp' style='position:fixed; top: 121; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1914,10 +2062,13 @@
                     <div id='barraHpCampo20' title='hp' style='position:fixed; top: 121; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo20' style='position:fixed; top: 135; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo21' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-2];"></img>
-                    <div id='nomeCampo21' style='position:fixed; top: 125; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo21' style='position:fixed; top: 125; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo21' title='hp' style='position:fixed; top: 121; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1926,10 +2077,13 @@
                     <div id='barraHpCampo21' title='hp' style='position:fixed; top: 121; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo21' style='position:fixed; top: 135; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo22' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-1];"></img>
-                    <div id='nomeCampo22' style='position:fixed; top: 125; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo22' style='position:fixed; top: 125; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo22' title='hp' style='position:fixed; top: 121; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1938,10 +2092,13 @@
                     <div id='barraHpCampo22' title='hp' style='position:fixed; top: 121; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo22' style='position:fixed; top: 135; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,0];"></img>
-                    <div id='nomeCampo23' style='position:fixed; top: 125; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo23' style='position:fixed; top: 125; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo23' title='hp' style='position:fixed; top: 121; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1950,10 +2107,13 @@
                     <div id='barraHpCampo23' title='hp' style='position:fixed; top: 121; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo23' style='position:fixed; top: 135; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo24' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,1];"></img>
-                    <div id='nomeCampo24' style='position:fixed; top: 125; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo24' style='position:fixed; top: 125; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo24' title='hp' style='position:fixed; top: 121; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1962,10 +2122,13 @@
                     <div id='barraHpCampo24' title='hp' style='position:fixed; top: 121; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo24' style='position:fixed; top: 135; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo25' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,2];"></img>
-                    <div id='nomeCampo25' style='position:fixed; top: 125; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo25' style='position:fixed; top: 125; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo25' title='hp' style='position:fixed; top: 121; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1974,10 +2137,13 @@
                     <div id='barraHpCampo25' title='hp' style='position:fixed; top: 121; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo25' style='position:fixed; top: 135; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo26' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,3];"></img>
-                    <div id='nomeCampo26' style='position:fixed; top: 125; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo26' style='position:fixed; top: 125; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo26' title='hp' style='position:fixed; top: 121; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1986,10 +2152,13 @@
                     <div id='barraHpCampo26' title='hp' style='position:fixed; top: 121; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo26' style='position:fixed; top: 135; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo27' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,4];"></img>
-                    <div id='nomeCampo27' style='position:fixed; top: 125; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo27' style='position:fixed; top: 125; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo27' title='hp' style='position:fixed; top: 121; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -1998,10 +2167,13 @@
                     <div id='barraHpCampo27' title='hp' style='position:fixed; top: 121; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo27' style='position:fixed; top: 135; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo310' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,5];"></img>
-                    <div id='nomeCampo310' style='position:fixed; top: 125; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo310' style='position:fixed; top: 125; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo310' title='hp' style='position:fixed; top: 121; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2010,12 +2182,15 @@
                     <div id='barraHpCampo310' title='hp' style='position:fixed; top: 121; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo310' style='position:fixed; top: 135; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo004' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-5];"></img>
-                    <div id='nomeCampo004' style='position:fixed; top: 185; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo004' style='position:fixed; top: 185; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo004' title='hp' style='position:fixed; top: 181; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2024,10 +2199,13 @@
                     <div id='barraHpCampo004' title='hp' style='position:fixed; top: 181; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo004' style='position:fixed; top: 195; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo28' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-4];"></img>
-                    <div id='nomeCampo28' style='position:fixed; top: 185; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo28' style='position:fixed; top: 185; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo28' title='hp' style='position:fixed; top: 181; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2036,10 +2214,13 @@
                     <div id='barraHpCampo28' title='hp' style='position:fixed; top: 181; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo28' style='position:fixed; top: 195; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo29' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-3];"></img>
-                    <div id='nomeCampo29' style='position:fixed; top: 185; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo29' style='position:fixed; top: 185; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo29' title='hp' style='position:fixed; top: 181; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2048,10 +2229,13 @@
                     <div id='barraHpCampo29' title='hp' style='position:fixed; top: 181; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo29' style='position:fixed; top: 195; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo30' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-2];"></img>
-                    <div id='nomeCampo30' style='position:fixed; top: 185; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo30' style='position:fixed; top: 185; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo30' title='hp' style='position:fixed; top: 181; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2060,10 +2244,13 @@
                     <div id='barraHpCampo30' title='hp' style='position:fixed; top: 181; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo30' style='position:fixed; top: 195; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-1];"></img>
-                    <div id='nomeCampo31' style='position:fixed; top: 185; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo31' style='position:fixed; top: 185; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo31' title='hp' style='position:fixed; top: 181; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2072,10 +2259,13 @@
                     <div id='barraHpCampo31' title='hp' style='position:fixed; top: 181; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo31' style='position:fixed; top: 195; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo32' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
-                    <div id='nomeCampo32' style='position:fixed; top: 185; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo32' style='position:fixed; top: 185; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo32' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2084,10 +2274,13 @@
                     <div id='barraHpCampo32' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo32' style='position:fixed; top: 195; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,1];"></img>
-                    <div id='nomeCampo33' style='position:fixed; top: 185; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo33' style='position:fixed; top: 185; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo33' title='hp' style='position:fixed; top: 181; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2096,10 +2289,13 @@
                     <div id='barraHpCampo33' title='hp' style='position:fixed; top: 181; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo33' style='position:fixed; top: 195; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo34' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,2];"></img>
-                    <div id='nomeCampo34' style='position:fixed; top: 185; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo34' style='position:fixed; top: 185; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo34' title='hp' style='position:fixed; top: 181; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2108,10 +2304,13 @@
                     <div id='barraHpCampo34' title='hp' style='position:fixed; top: 181; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo34' style='position:fixed; top: 195; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo35' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,3];"></img>
-                    <div id='nomeCampo35' style='position:fixed; top: 185; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo35' style='position:fixed; top: 185; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo35' title='hp' style='position:fixed; top: 181; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2120,10 +2319,13 @@
                     <div id='barraHpCampo35' title='hp' style='position:fixed; top: 181; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo35' style='position:fixed; top: 195; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo36' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,4];"></img>
-                    <div id='nomeCampo36' style='position:fixed; top: 185; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo36' style='position:fixed; top: 185; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo36' title='hp' style='position:fixed; top: 181; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2132,10 +2334,13 @@
                     <div id='barraHpCampo36' title='hp' style='position:fixed; top: 181; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo36' style='position:fixed; top: 195; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo410' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,5];"></img>
-                    <div id='nomeCampo410' style='position:fixed; top: 185; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo410' style='position:fixed; top: 185; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo410' title='hp' style='position:fixed; top: 181; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2144,12 +2349,15 @@
                     <div id='barraHpCampo410' title='hp' style='position:fixed; top: 181; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo410' style='position:fixed; top: 195; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo005' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-5];"></img>
-                    <div id='nomeCampo005' style='position:fixed; top: 245; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo005' style='position:fixed; top: 245; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo005' title='hp' style='position:fixed; top: 241; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2158,10 +2366,13 @@
                     <div id='barraHpCampo005' title='hp' style='position:fixed; top: 241; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo005' style='position:fixed; top: 255; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo37' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-4];"></img>
-                    <div id='nomeCampo37' style='position:fixed; top: 245; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo37' style='position:fixed; top: 245; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo37' title='hp' style='position:fixed; top: 241; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2170,10 +2381,13 @@
                     <div id='barraHpCampo37' title='hp' style='position:fixed; top: 241; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo37' style='position:fixed; top: 255; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo38' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-3];"></img>
-                    <div id='nomeCampo38' style='position:fixed; top: 245; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo38' style='position:fixed; top: 245; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo38' title='hp' style='position:fixed; top: 241; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2182,10 +2396,13 @@
                     <div id='barraHpCampo38' title='hp' style='position:fixed; top: 241; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo38' style='position:fixed; top: 255; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo39' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-2];"></img>
-                    <div id='nomeCampo39' style='position:fixed; top: 245; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo39' style='position:fixed; top: 245; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo39' title='hp' style='position:fixed; top: 241; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2194,10 +2411,13 @@
                     <div id='barraHpCampo39' title='hp' style='position:fixed; top: 241; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo39' style='position:fixed; top: 255; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo40' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-1];"></img>
-                    <div id='nomeCampo40' style='position:fixed; top: 245; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo40' style='position:fixed; top: 245; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo40' title='hp' style='position:fixed; top: 241; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2206,10 +2426,13 @@
                     <div id='barraHpCampo40' title='hp' style='position:fixed; top: 241; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo40' style='position:fixed; top: 255; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,0];"></img>
-                    <div id='nomeCampo41' style='position:fixed; top: 245; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo41' style='position:fixed; top: 245; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo41' title='hp' style='position:fixed; top: 241; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2218,10 +2441,13 @@
                     <div id='barraHpCampo41' title='hp' style='position:fixed; top: 241; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo41' style='position:fixed; top: 255; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo42' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,1];"></img>
-                    <div id='nomeCampo42' style='position:fixed; top: 245; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo42' style='position:fixed; top: 245; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo42' title='hp' style='position:fixed; top: 241; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2230,10 +2456,13 @@
                     <div id='barraHpCampo42' title='hp' style='position:fixed; top: 241; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo42' style='position:fixed; top: 255; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo43' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,2];"></img>
-                    <div id='nomeCampo43' style='position:fixed; top: 245; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo43' style='position:fixed; top: 245; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo43' title='hp' style='position:fixed; top: 241; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2242,10 +2471,13 @@
                     <div id='barraHpCampo43' title='hp' style='position:fixed; top: 241; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo43' style='position:fixed; top: 255; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo44' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,3];"></img>
-                    <div id='nomeCampo44' style='position:fixed; top: 245; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo44' style='position:fixed; top: 245; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo44' title='hp' style='position:fixed; top: 241; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2254,10 +2486,13 @@
                     <div id='barraHpCampo44' title='hp' style='position:fixed; top: 241; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo44' style='position:fixed; top: 255; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo45' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,4];"></img>
-                    <div id='nomeCampo45' style='position:fixed; top: 245; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo45' style='position:fixed; top: 245; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo45' title='hp' style='position:fixed; top: 241; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2266,10 +2501,13 @@
                     <div id='barraHpCampo45' title='hp' style='position:fixed; top: 241; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo45' style='position:fixed; top: 255; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo510' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,5];"></img>
-                    <div id='nomeCampo510' style='position:fixed; top: 245; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo510' style='position:fixed; top: 245; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo510' title='hp' style='position:fixed; top: 241; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2278,12 +2516,15 @@
                     <div id='barraHpCampo510' title='hp' style='position:fixed; top: 241; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo510' style='position:fixed; top: 255; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo006' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-5];"></img>
-                    <div id='nomeCampo006' style='position:fixed; top: 305; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo006' style='position:fixed; top: 305; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo006' title='hp' style='position:fixed; top: 301; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2292,10 +2533,13 @@
                     <div id='barraHpCampo006' title='hp' style='position:fixed; top: 301; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo006' style='position:fixed; top: 315; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo46' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-4];"></img>
-                    <div id='nomeCampo46' style='position:fixed; top: 305; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo46' style='position:fixed; top: 305; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo46' title='hp' style='position:fixed; top: 301; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2304,10 +2548,13 @@
                     <div id='barraHpCampo46' title='hp' style='position:fixed; top: 301; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo46' style='position:fixed; top: 315; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo47' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-3];"></img>
-                    <div id='nomeCampo47' style='position:fixed; top: 305; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo47' style='position:fixed; top: 305; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo47' title='hp' style='position:fixed; top: 301; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2316,10 +2563,13 @@
                     <div id='barraHpCampo47' title='hp' style='position:fixed; top: 301; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo47' style='position:fixed; top: 315; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo48' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-2];"></img>
-                    <div id='nomeCampo48' style='position:fixed; top: 305; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo48' style='position:fixed; top: 305; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo48' title='hp' style='position:fixed; top: 301; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2328,10 +2578,13 @@
                     <div id='barraHpCampo48' title='hp' style='position:fixed; top: 301; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo48' style='position:fixed; top: 315; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo49' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-1];"></img>
-                    <div id='nomeCampo49' style='position:fixed; top: 305; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo49' style='position:fixed; top: 305; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo49' title='hp' style='position:fixed; top: 301; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2340,10 +2593,13 @@
                     <div id='barraHpCampo49' title='hp' style='position:fixed; top: 301; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo49' style='position:fixed; top: 315; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo50' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,0];"></img>
-                    <div id='nomeCampo50' style='position:fixed; top: 305; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo50' style='position:fixed; top: 305; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo50' title='hp' style='position:fixed; top: 301; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2352,10 +2608,13 @@
                     <div id='barraHpCampo50' title='hp' style='position:fixed; top: 301; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo50' style='position:fixed; top: 315; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo51' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,1];"></img>
-                    <div id='nomeCampo51' style='position:fixed; top: 305; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo51' style='position:fixed; top: 305; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo51' title='hp' style='position:fixed; top: 301; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2364,10 +2623,13 @@
                     <div id='barraHpCampo51' title='hp' style='position:fixed; top: 301; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo51' style='position:fixed; top: 315; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo52' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,2];"></img>
-                    <div id='nomeCampo52' style='position:fixed; top: 305; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo52' style='position:fixed; top: 305; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo52' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2376,10 +2638,13 @@
                     <div id='barraHpCampo52' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo52' style='position:fixed; top: 315; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo53' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,3];"></img>
-                    <div id='nomeCampo53' style='position:fixed; top: 305; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo53' style='position:fixed; top: 305; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo53' title='hp' style='position:fixed; top: 301; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2388,10 +2653,13 @@
                     <div id='barraHpCampo53' title='hp' style='position:fixed; top: 301; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo53' style='position:fixed; top: 315; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo54' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,4];"></img>
-                    <div id='nomeCampo54' style='position:fixed; top: 305; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo54' style='position:fixed; top: 305; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo54' title='hp' style='position:fixed; top: 301; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2400,10 +2668,13 @@
                     <div id='barraHpCampo54' title='hp' style='position:fixed; top: 301; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo54' style='position:fixed; top: 315; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo610' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,5];"></img>
-                    <div id='nomeCampo610' style='position:fixed; top: 305; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo610' style='position:fixed; top: 305; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo610' title='hp' style='position:fixed; top: 301; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2412,12 +2683,15 @@
                     <div id='barraHpCampo610' title='hp' style='position:fixed; top: 301; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo610' style='position:fixed; top: 315; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo007' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-5];"></img>
-                    <div id='nomeCampo007' style='position:fixed; top: 365; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo007' style='position:fixed; top: 365; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo007' title='hp' style='position:fixed; top: 361; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2426,10 +2700,13 @@
                     <div id='barraHpCampo007' title='hp' style='position:fixed; top: 361; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo007' style='position:fixed; top: 375; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo55' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-4];"></img>
-                    <div id='nomeCampo55' style='position:fixed; top: 365; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo55' style='position:fixed; top: 365; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo55' title='hp' style='position:fixed; top: 361; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2438,10 +2715,13 @@
                     <div id='barraHpCampo55' title='hp' style='position:fixed; top: 361; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo55' style='position:fixed; top: 375; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo56' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-3];"></img>
-                    <div id='nomeCampo56' style='position:fixed; top: 365; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo56' style='position:fixed; top: 365; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo56' title='hp' style='position:fixed; top: 361; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2450,10 +2730,13 @@
                     <div id='barraHpCampo56' title='hp' style='position:fixed; top: 361; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo56' style='position:fixed; top: 375; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo57' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-2];"></img>
-                    <div id='nomeCampo57' style='position:fixed; top: 365; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo57' style='position:fixed; top: 365; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo57' title='hp' style='position:fixed; top: 361; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2462,10 +2745,13 @@
                     <div id='barraHpCampo57' title='hp' style='position:fixed; top: 361; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo57' style='position:fixed; top: 375; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo58' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-1];"></img>
-                    <div id='nomeCampo58' style='position:fixed; top: 365; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo58' style='position:fixed; top: 365; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo58' title='hp' style='position:fixed; top: 361; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2474,10 +2760,13 @@
                     <div id='barraHpCampo58' title='hp' style='position:fixed; top: 361; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo58' style='position:fixed; top: 375; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo59' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,0];"></img>
-                    <div id='nomeCampo59' style='position:fixed; top: 365; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo59' style='position:fixed; top: 365; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo59' title='hp' style='position:fixed; top: 361; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2486,10 +2775,13 @@
                     <div id='barraHpCampo59' title='hp' style='position:fixed; top: 361; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo59' style='position:fixed; top: 375; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo60' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,1];"></img>
-                    <div id='nomeCampo60' style='position:fixed; top: 365; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo60' style='position:fixed; top: 365; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo60' title='hp' style='position:fixed; top: 361; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2498,10 +2790,13 @@
                     <div id='barraHpCampo60' title='hp' style='position:fixed; top: 361; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo60' style='position:fixed; top: 375; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo61' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,2];"></img>
-                    <div id='nomeCampo61' style='position:fixed; top: 365; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo61' style='position:fixed; top: 365; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo61' title='hp' style='position:fixed; top: 361; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2510,10 +2805,13 @@
                     <div id='barraHpCampo61' title='hp' style='position:fixed; top: 361; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo61' style='position:fixed; top: 375; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo62' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,3];"></img>
-                    <div id='nomeCampo62' style='position:fixed; top: 365; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo62' style='position:fixed; top: 365; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo62' title='hp' style='position:fixed; top: 361; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2522,10 +2820,13 @@
                     <div id='barraHpCampo62' title='hp' style='position:fixed; top: 361; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo62' style='position:fixed; top: 375; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo63' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,4];"></img>
-                    <div id='nomeCampo63' style='position:fixed; top: 365; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo63' style='position:fixed; top: 365; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2534,10 +2835,13 @@
                     <div id='barraHpCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo63' style='position:fixed; top: 375; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo710' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,5];"></img>
-                    <div id='nomeCampo710' style='position:fixed; top: 365; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo710' style='position:fixed; top: 365; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo710' title='hp' style='position:fixed; top: 361; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2546,12 +2850,15 @@
                     <div id='barraHpCampo710' title='hp' style='position:fixed; top: 361; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo710' style='position:fixed; top: 375; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
             <div id='m1r1'style='top: 0'>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo008' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-5];"></img>
-                    <div id='nomeCampo008' style='position:fixed; top: 425; left: -55; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo008' style='position:fixed; top: 425; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo008' title='hp' style='position:fixed; top: 421; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2560,10 +2867,13 @@
                     <div id='barraHpCampo008' title='hp' style='position:fixed; top: 421; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo008' style='position:fixed; top: 435; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c1' style='width: 60; height: 60; float: left'>
                     <img id='campo81' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-4];"></img>
-                    <div id='nomeCampo81' style='position:fixed; top: 425; left: 5; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo81' style='position:fixed; top: 425; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo81' title='hp' style='position:fixed; top: 421; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2572,10 +2882,13 @@
                     <div id='barraHpCampo81' title='hp' style='position:fixed; top: 421; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo81' style='position:fixed; top: 435; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c2' style='width: 60; height: 60; float: left'>
                     <img id='campo82' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-3];"></img>
-                    <div id='nomeCampo82' style='position:fixed; top: 425; left: 65; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo82' style='position:fixed; top: 425; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo82' title='hp' style='position:fixed; top: 421; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2584,10 +2897,13 @@
                     <div id='barraHpCampo82' title='hp' style='position:fixed; top: 421; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo82' style='position:fixed; top: 435; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c3' style='width: 60; height: 60; float: left'>
                     <img id='campo83' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-2];"></img>
-                    <div id='nomeCampo83' style='position:fixed; top: 425; left: 125; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo83' style='position:fixed; top: 425; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo83' title='hp' style='position:fixed; top: 421; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2596,10 +2912,13 @@
                     <div id='barraHpCampo83' title='hp' style='position:fixed; top: 421; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo83' style='position:fixed; top: 435; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c4' style='width: 60; height: 60; float: left'>
                     <img id='campo84' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-1];"></img>
-                    <div id='nomeCampo84' style='position:fixed; top: 425; left: 185; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo84' style='position:fixed; top: 425; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo84' title='hp' style='position:fixed; top: 421; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2608,10 +2927,13 @@
                     <div id='barraHpCampo84' title='hp' style='position:fixed; top: 421; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo84' style='position:fixed; top: 435; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo85' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,0];"></img>
-                    <div id='nomeCampo85' style='position:fixed; top: 425; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo85' style='position:fixed; top: 425; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo85' title='hp' style='position:fixed; top: 421; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2620,10 +2942,13 @@
                     <div id='barraHpCampo85' title='hp' style='position:fixed; top: 421; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo85' style='position:fixed; top: 435; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo86' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,1];"></img>
-                    <div id='nomeCampo86' style='position:fixed; top: 425; left: 305; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo86' style='position:fixed; top: 425; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo86' title='hp' style='position:fixed; top: 421; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2632,10 +2957,13 @@
                     <div id='barraHpCampo86' title='hp' style='position:fixed; top: 421; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo86' style='position:fixed; top: 435; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo87' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,2];"></img>
-                    <div id='nomeCampo87' style='position:fixed; top: 425; left: 365; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo87' style='position:fixed; top: 425; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo87' title='hp' style='position:fixed; top: 421; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2644,10 +2972,13 @@
                     <div id='barraHpCampo87' title='hp' style='position:fixed; top: 421; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo87' style='position:fixed; top: 435; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo88' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,3];"></img>
-                    <div id='nomeCampo88' style='position:fixed; top: 425; left: 425; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo88' style='position:fixed; top: 425; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo88' title='hp' style='position:fixed; top: 421; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2656,10 +2987,13 @@
                     <div id='barraHpCampo88' title='hp' style='position:fixed; top: 421; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo88' style='position:fixed; top: 435; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo89' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,4];"></img>
-                    <div id='nomeCampo89' style='position:fixed; top: 425; left: 485; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo89' style='position:fixed; top: 425; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo89' title='hp' style='position:fixed; top: 421; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2668,10 +3002,13 @@
                     <div id='barraHpCampo89' title='hp' style='position:fixed; top: 421; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo89' style='position:fixed; top: 435; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
                 <div id='m1r1c5' style='width: 60; height: 60; float: left'>
                     <img id='campo810' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,5];"></img>
-                    <div id='nomeCampo810' style='position:fixed; top: 425; left: 545; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                    <div id='nomeCampo810' style='position:fixed; top: 425; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                     
                     </div>
                     <div id='barraHpVaziaCampo810' title='hp' style='position:fixed; top: 421; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
@@ -2680,12 +3017,15 @@
                     <div id='barraHpCampo810' title='hp' style='position:fixed; top: 421; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
                 
                     </div>
+                    <div id='mensagemDivCampo810' style='position:fixed; top: 435; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+                    </div>
                 </div>
             </div>
         </div>
         
         <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 185; left: 245; width: 50; height: 50;'></img>
-        <div id='nomePersonagem1' style='position:fixed; top: 185; left: 245; width: 50; text-align: center; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <div id='nomePersonagem1' style='position:fixed; top: 185; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
         <div id='barraHpVaziaPersonagem1' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: black;'>
@@ -2695,6 +3035,15 @@
     
         </div>
         <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' style='position:fixed; top: 185; left: 245;'></img>
+        <div id='mensagemDiv3' style='position:fixed; top: 195; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+        </div>
+        <div id='mensagemDiv2' style='position:fixed; top: 400; left: 150; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+        </div>
+        <div id='mensagemDiv1' style='position:fixed; top: 150; left: 150; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        
+        </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemMorto.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
         <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; run_ajax();}">
         
