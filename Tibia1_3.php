@@ -237,7 +237,7 @@
                                 if(dadosResposta.players[k].mensagem != ""){
                                     let data = new Date();
                                     mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
-                                    document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].mensagem;
+                                    document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
                                     setTimeout(function(){document.getElementById("mensagemDivCampo" + campo).innerHTML = "";}, 5000);
                                     ultimamensagem = dadosResposta.players[k].mensagem;
                                 }
@@ -1125,8 +1125,8 @@
                             document.getElementById('mensagemDiv3').style.textAlign = 'center';
                             document.getElementById('mensagemDiv3').style.left = 200;
                         }
-                        mensagem = username + " says: " + document.getElementById('campoDeEscritaInput').value;
-                        document.getElementById('mensagemDiv3').innerHTML = mensagem;
+                        mensagem = document.getElementById('campoDeEscritaInput').value;
+                        document.getElementById('mensagemDiv3').innerHTML = username + " says: " + mensagem;
                         setTimeout(function(){mensagem = ""; document.getElementById('mensagemDiv3').innerHTML = "";}, 5000);
                     }
                     document.getElementById('campoDeEscritaInput').value = "";
