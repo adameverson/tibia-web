@@ -1154,6 +1154,10 @@
                             if(!exura || !exuraGran){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, voce quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
 
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, voce quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                                 document.getElementById('opcao1').innerHTML = "Task";
                                 document.getElementById('opcao1').title = "Task";
                                 document.getElementById('opcao1').style.height = 44;
@@ -1168,6 +1172,11 @@
                                 document.getElementById('opcao3').style.visibility = 'visible';
                             } else {
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, voce quer receber/finalizar uma 'task'? Nao temos nenhuma magia para ensinar.";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, voce quer receber/finalizar uma 'task'? Nao temos nenhuma magia para ensinar.";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                                 document.getElementById('opcao1').innerHTML = "Task";
                                 document.getElementById('opcao1').title = "Task";
                                 document.getElementById('opcao1').style.height = 44;
@@ -1184,6 +1193,10 @@
                                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'tarefa' ||
                                 document.getElementById('opcao1').title == "Snake Task"){
                                 mensagensDoChatNpc += "\n\nNpc: Temos as seguintes tasks: 'Snake Task', 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar...";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos as seguintes tasks: 'Snake Task', 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar...";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Snake Task";
                                 document.getElementById('opcao1').title = "Snake Task";
@@ -1205,6 +1218,10 @@
                                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia' ||
                                 document.getElementById('opcao1').title == "Exura"){
                                 mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s): 'exura' e 'exura gran'. Digite o nome da magia para aprender...";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s): 'exura' e 'exura gran'. Digite o nome da magia para aprender...";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Exura";
                                 document.getElementById('opcao1').title = "Exura";
@@ -1241,6 +1258,11 @@
                             document.getElementById('opcao4').style.height = 0;
 
                             mensagensDoChatNpc += "\n\nNpc: Prontinho. Tchau!";
+
+                            document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                            document.getElementById('mensagemDiv1').innerHTML = "Npc: Prontinho. Tchau!";
+                            setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                             if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura'){
                                 exura = true;
                                 document.getElementById('magiaExura').src = 'imagens/imagemMagiaExura.png';
@@ -1305,6 +1327,11 @@
                             document.getElementById('opcao4').style.height = 0;
 
                             mensagensDoChatNpc += "\n\nNpc: Ate mais!";
+
+                            document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                            document.getElementById('mensagemDiv1').innerHTML = "Npc: Ate mais!";
+                            setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                             nivelDeConversaNpc = 0;
                             break;
                         case 5:
@@ -1329,15 +1356,35 @@
                             switch(document.getElementById('campoDeEscritaInput').value.toLowerCase()){
                                 case 'exura gran':
                                     mensagensDoChatNpc += "\n\nNpc: Voce precisa de level 50+ para aprender esta magia!";
+
+                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 50+ para aprender esta magia!";
+                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                                     break;
                                 case 'snake task':
                                     mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
+                                    
+                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
+                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                                     break;
                                 case 'dragon task':
                                     mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
+                                    
+                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
+                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                                     break;
                                 case 'mammoth task':
                                     mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
+                                    
+                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
+                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
                                     break;
                             }
                             nivelDeConversaNpc = 0;
@@ -3041,7 +3088,7 @@
         <div id='mensagemDiv2' style='position:fixed; top: 400; left: 150; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
-        <div id='mensagemDiv1' style='position:fixed; top: 150; left: 150; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <div id='mensagemDiv1' style='position:fixed; top: 150; left: 150; width: 300; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemMorto.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
@@ -3059,7 +3106,7 @@
         <div id='painelBaixo1' title='painel' style='position:fixed; top: 420; left: 0; width: 100%; height:100%; background-color: lightgray;'></div>
         <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 540; width: 100%; height:100%; background-color: lightgray;'></div>
 
-        <div id='conversa' title='conversa' style='position: fixed; top: 0; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
+        <div id='conversa' title='conversa' style='position: fixed; top: 200; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: hidden;' onclick="if(document.getElementById('opcao1').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao1').title; dialogo(); }">
                 Opcao 1
             </button>
@@ -3071,6 +3118,20 @@
             </button>
             <button type="submit" id='opcao4' title='opcao4' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: hidden;' onclick="if(document.getElementById('opcao4').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao4').title; dialogo(); }">
                 Opcao 4
+            </button>
+        </div>
+
+        <div id='conversaLogout' title='logout' style='position: fixed; top: 0; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
+            <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                Voce tem certeza que quer sair?
+            </div>
+            <form action="http://magiclevel.ml/SO/test/jogos/login.php">
+                <button type="submit" id='logoutOpcao1' title='Sim' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: hidden;'>
+                    Sim
+                </button>
+            </form>
+            <button type="submit" id='logoutOpcao2' title='Nao' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: hidden;' onclick="if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ document.getElementById('logoutPergunta1').style.visibility = 'hidden'; document.getElementById('logoutOpcao1').style.visibility = 'hidden'; document.getElementById('logoutOpcao2').style.visibility = 'hidden'; }">
+                Nao
             </button>
         </div>
 
@@ -3239,11 +3300,9 @@
 
                 </div>
             </div>
-            <form action="http://magiclevel.ml/SO/test/jogos/login.php">
-                <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: visible;'>
-                    Logout
-                </button>
-            </form>
+            <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: lightgray; visibility: visible;' onclick="document.getElementById('logoutPergunta1').style.visibility = 'visible'; document.getElementById('logoutOpcao1').style.visibility = 'visible'; document.getElementById('logoutOpcao2').style.visibility = 'visible';">
+                Logout
+            </button>
         </div>
 
         <div id='chat' title='chat' style='position: fixed; top: 0; left: 720; width: 178; height:414; background-color: lightgray; border-style: solid; border-color: gray;'>
@@ -3329,7 +3388,7 @@
                 }
 
                 if(!$logado){
-                    echo "alert('Conta inexistente, os seus dados nao serao salvos. Acesse login.php para se registrar.');";
+                    echo "alert('Conta inexistente, os seus dados nao serao salvos. Acesse login.php para se registrar. Sem logar voce nao podera interagir com os outros players.');";
                 }
 
                 $result->close();
