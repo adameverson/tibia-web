@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Login</title>
+        <title>Magic Level</title>
         <style>
             table, th, td {
                 border: 1px solid white;
@@ -105,7 +105,7 @@
             }
         </style>
     </head>
-    <body style="background-color: lightgray;">
+    <body style="background-color: #ccffff;">
 
         <form action="login.php" method="post">
             Usuario: <input name="usernameRegister" type='text'></input>
@@ -229,10 +229,10 @@
 ?>
 
 <audio id="myAudio" preload autoplay loop>
-  <source src="musicas/2cPoC.mp3" type="audio/mpeg">
+  <source src="musicas/ToPTrack01.mp3" type="audio/mpeg">
   Your browser does not support the audio tag.
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.0.6
+    ©2021 magiclevel.ml. All rights reserved. v1.0.8
 </div>
