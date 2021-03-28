@@ -3,7 +3,7 @@
         <title>Login</title>
         <style>
             table, th, td {
-                border: 1px solid black;
+                border: 1px solid white;
                 border-collapse: collapse;
             }
             th, td {
@@ -12,10 +12,96 @@
             }
             #t01 {
                 width: 50%;    
-                background-color: #f1f1c1;
+                background-color: #4CAF50;
+                color: White;
                 margin: 15px;
                 font-family: "Lucida Console", "Courier New", monospace;
                 font-weight: bold;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .button1 {
+                position: relative;
+                background-color: #4CAF50;
+                border: none;
+                font-size: 28px;
+                color: #FFFFFF;
+                padding: 10px;
+                width: 200px;
+                text-align: center;
+                transition-duration: 0.4s;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+                margin: 5px;
+                border-radius: 4px;
+            }
+
+            .button2 {
+                display: inline-block;
+                border-radius: 4px;
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 28px;
+                padding: 10px;
+                width: 200px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .button1:after {
+                content: "";
+                background: #f1f1f1;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px !important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 0.8s
+            }
+
+            .button1:active:after {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s
+            }
+
+            .button2 span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            .button2 span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+            .button2:hover span {
+                padding-right: 25px;
+            }
+
+            .button2:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+            form {
+                border: 2px solid white;
+                padding: 10px;
+                border-radius: 12px;
+                font-family: "Lucida Console", "Courier New", monospace;
             }
         </style>
     </head>
@@ -28,12 +114,12 @@
             <label for="male">Masculino</label>
             <input type="radio" id="female" name="gender" value="F">
             <label for="female">Feminino</label>
-            <button type='submit'>Registrar</button>
+            <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
         <form action="Tibia1_3.php" method="post">
             Usuario: <input name="username" type='text'></input>
             Senha: <input type="password" name="password" type='text'></input>
-            <button type='submit'>Entrar</button>
+            <button type='submit' class="button2"><span>Entrar</span></button>
         </form>
 
     </body>
@@ -86,19 +172,19 @@
         $result->close();
         
         if($usuarioexistente){
-            echo "Usuario ja existente.";
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuario ja existente.</div>";
         }else{
 
             $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`, `outfit`) VALUES ('" . $username . "', '" . $password . "', 0, 176, '" . $outfit . "')";
             
             $conn->query($sql);
 
-            echo "Usuario registrado com sucesso.";
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuario registrado com sucesso.</div>";
 
         }
 
     } else {
-        echo "Usuario e Senha devem ser preenchidos.";
+        echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuario e Senha devem ser preenchidos.</div>";
     }
 
     $sql = "SET @n = 0";
@@ -147,6 +233,6 @@
   Your browser does not support the audio tag.
 </audio>
 
-<div style='text-align: center;'>
-    ©2021 magiclevel.ml. All rights reserved. v1.0.4
+<div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
+    ©2021 magiclevel.ml. All rights reserved. v1.0.6
 </div>
