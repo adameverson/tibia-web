@@ -148,5 +148,5 @@
 </audio>
 
 <div style='text-align: center;'>
-    ©2021 magiclevel.ml. All rights reserved. v1.0.3
+    ©2021 magiclevel.ml. All rights reserved. v1.0.4
 </div>
