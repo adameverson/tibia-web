@@ -1,6 +1,6 @@
 # tibia-web realizado por Adam Everson
 
-* Game Web semelhante ao Tibia
+* Game Web semelhante ao Tibia (Magic Level v1.1.10)
 
 * Motivação: realizar um Tibia Web
 
