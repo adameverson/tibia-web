@@ -1536,12 +1536,22 @@
                 if(conjurarExura && hp < hpmax){
                     if(hp + 60 < hpmax){
                         hp = hp + 60;
+                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 60;
                         mensagensDoChatServerLog += '\n\nVoce curou 60 pontos de vida.';
+                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         document.getElementById('hpvalor').innerHTML = hp;
                         document.getElementById('hp').style.width = (176 * hp) / hpmax;
                         document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                     } else {
+                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
                         mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         hp = hpmax;
                         document.getElementById('hpvalor').innerHTML = hp;
                         document.getElementById('hp').style.width = 176;
@@ -1564,12 +1574,22 @@
                 if(conjurarExuraGran && hp < hpmax){
                     if(hp + 120 < hpmax){
                         hp = hp + 120;
+                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 120;
                         mensagensDoChatServerLog += '\n\nVoce curou 120 pontos de vida.';
+                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         document.getElementById('hpvalor').innerHTML = hp;
                         document.getElementById('hp').style.width = (176 * hp) / hpmax;
                         document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                     } else {
+                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
                         mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         hp = hpmax;
                         document.getElementById('hpvalor').innerHTML = hp;
                         document.getElementById('hp').style.width = 176;
@@ -3318,7 +3338,7 @@
                     Mochila
                 </div>
                 <div id='campoDaMochila1' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[0] == 'PocaoHP'){document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; if(hp < hpmax){if(hp + 40 < hpmax){hp = hp + 40; mensagensDoChatServerLog += '\n\nVoce curou 40 pontos de vida.'; document.getElementById('hp').style.width = (176 * hp) / hpmax; document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;}else{mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.'; hp = hpmax; document.getElementById('hp').style.width = 176; document.getElementById('barraHpPersonagem1').style.width = 50;}} if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen'; document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';} document.getElementById('hpvalor').innerHTML = hp; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);} datainicioinatividade = new Date();}"></img>
+                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[0] == 'PocaoHP'){document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; if(hp < hpmax){if(hp + 40 < hpmax){hp = hp + 40; document.getElementById('mensagemDiv3').style.color = '#ccffcc'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 40; mensagensDoChatServerLog += '\n\nVoce curou 40 pontos de vida.'; setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500); document.getElementById('hp').style.width = (176 * hp) / hpmax; document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;}else{document.getElementById('mensagemDiv3').style.color = '#ccffcc'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp); mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.'; setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500); hp = hpmax; document.getElementById('hp').style.width = 176; document.getElementById('barraHpPersonagem1').style.width = 50;}} if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen'; document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';} document.getElementById('hpvalor').innerHTML = hp; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);} datainicioinatividade = new Date();}"></img>
                 </div>
                 <div id='campoDaMochila2' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='itemCampoDaMochila2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[1] == 'Corda' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 4){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();} datainicioinatividade = new Date();}"></img>
@@ -3345,12 +3365,22 @@
                         if(exura && hp < hpmax){
                             if(hp + 60 < hpmax){
                                 hp = hp + 60;
+                                document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                                document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                                document.getElementById('mensagemDiv3').style.width = 50;
+                                document.getElementById('mensagemDiv3').innerHTML = 60;
                                 mensagensDoChatServerLog += '\n\nVoce curou 60 pontos de vida.';
+                                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
                                 document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                             } else {
+                                document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                                document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                                document.getElementById('mensagemDiv3').style.width = 50;
+                                document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
                                 mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 hp = hpmax;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = 176;
@@ -3383,12 +3413,22 @@
                         if(exuraGran && hp < hpmax){
                             if(hp + 120 < hpmax){
                                 hp = hp + 120;
+                                document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                                document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                                document.getElementById('mensagemDiv3').style.width = 50;
+                                document.getElementById('mensagemDiv3').innerHTML = 120;
                                 mensagensDoChatServerLog += '\n\nVoce curou 120 pontos de vida.';
+                                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
                                 document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                             } else {
+                                document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                                document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                                document.getElementById('mensagemDiv3').style.width = 50;
+                                document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
                                 mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 hp = hpmax;
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = 176;
