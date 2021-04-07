@@ -108,8 +108,8 @@
     <body style="background-color: #ccffff;">
 
         <form action="login.php" method="post">
-            Usuario: <input name="usernameRegister" type='text'></input>
-            Senha: <input type="password" name="passwordRegister" type='text'></input>
+            Usuario: <input name="usernameRegister" type='text' maxlength="20"></input>
+            Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
             <input type="radio" id="male" name="gender" value="M" checked>
             <label for="male">Masculino</label>
             <input type="radio" id="female" name="gender" value="F">
@@ -117,8 +117,8 @@
             <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
         <form action="Tibia1_3.php" method="post">
-            Usuario: <input name="username" type='text'></input>
-            Senha: <input type="password" name="password" type='text'></input>
+            Usuario: <input name="username" type='text' maxlength="20"></input>
+            Senha: <input type="password" name="password" type='text' maxlength="20"></input>
             <button type='submit' class="button2"><span>Entrar</span></button>
         </form>
 
@@ -234,5 +234,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.2.15
+    ©2021 magiclevel.ml. All rights reserved. v1.2.16
 </div>
