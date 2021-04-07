@@ -3505,7 +3505,7 @@
                     <textarea id="textareaChat" name="textareaChat" title='default' rows="23" cols="22" style="resize: none;" disabled></textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 176; height: 22; background-color: #ccffff;'>
-                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' style="opacity: 0.6;" autofocus></input>
+                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0.6;" autofocus></input>
                 </div>
             </div>
         </div>
