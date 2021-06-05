@@ -1119,6 +1119,8 @@
                 }else{
                     inativo = false;
                 }
+                
+                document.getElementById('campoDeEscritaInput').focus();
 
             }
 
