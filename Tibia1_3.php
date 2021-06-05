@@ -830,6 +830,16 @@
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
+                                if(parseInt(document.getElementById("barraHpCampo23").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo23").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo23").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo23").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo23").style.color = 'orange';
+                                    document.getElementById("barraHpCampo23").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo23").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo23").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo23").style.background = 'mediumseagreen';
+                                }
                                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11){
                                     document.getElementById('campoDeEscritaInput').value = 'Oi';
                                     dialogo();
@@ -837,6 +847,16 @@
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == 1){
                                 moverDireita();
+                                if(parseInt(document.getElementById("barraHpCampo33").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo33").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo33").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo33").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo33").style.color = 'orange';
+                                    document.getElementById("barraHpCampo33").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo33").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo33").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo33").style.background = 'mediumseagreen';
+                                }
                                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11){
                                     document.getElementById('campoDeEscritaInput').value = 'Oi';
                                     dialogo();
@@ -844,6 +864,16 @@
                             }
                             if(moverPersonagem[0] == 1 && moverPersonagem[1] == 0){
                                 moverBaixo();
+                                if(parseInt(document.getElementById("barraHpCampo41").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo41").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo41").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo41").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo41").style.color = 'orange';
+                                    document.getElementById("barraHpCampo41").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo41").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo41").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo41").style.background = 'mediumseagreen';
+                                }
                                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11){
                                     document.getElementById('campoDeEscritaInput').value = 'Oi';
                                     dialogo();
@@ -851,6 +881,16 @@
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == -1){
                                 moverEsquerda();
+                                if(parseInt(document.getElementById("barraHpCampo31").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo31").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo31").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo31").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo31").style.color = 'orange';
+                                    document.getElementById("barraHpCampo31").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo31").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo31").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo31").style.background = 'mediumseagreen';
+                                }
                                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11){
                                     document.getElementById('campoDeEscritaInput').value = 'Oi';
                                     dialogo();
