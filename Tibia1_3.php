@@ -143,6 +143,7 @@
             var mochila = ["","","",""];
             var exura = false;
             var exuraGran = false;
+            var exori = false;
             var outfit = "M";
             var mensagem = "";
             var ultimamensagem = "";
@@ -1127,13 +1128,18 @@
             function dialogo(){
                 var conjurarExura = false;
                 var conjurarExuraGran = false;
-
+                var conjurarExori = false;
+                
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' && exura){
                     conjurarExura = true; 
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && exuraGran){
                     conjurarExuraGran = true; 
                 }
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && exori){
+                    conjurarExori = true; 
+                }
+
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'hi' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'oi' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'task' || 
@@ -1146,6 +1152,7 @@
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset task' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' || 
+                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'no' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'nao'){
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
@@ -1179,7 +1186,8 @@
                                 (
                                     (
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura') ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl >= 50)
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl >= 50) ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvl >= 100)
                                     ) && document.getElementById('opcao1').title == "Exura"
                                 ) ||
                                 (   
@@ -1204,8 +1212,10 @@
                         }else if( 
                             (
                                 (
-                                    (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) 
-                                    && document.getElementById('opcao1').title == "Exura"
+                                    (
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvl < 100)
+                                    ) && document.getElementById('opcao1').title == "Exura"
                                 ) ||
                                 (
                                     (
@@ -1233,10 +1243,17 @@
                         }
                     }
                 }
-                if(identificadorDoChat == 0){
+                if(
+                    (conjurarExura) ||
+                    (conjurarExuraGran) ||
+                    (conjurarExori)
+                ){
+                    //Atualmente ao conjurar nenhuma escrita aparece nos chats default e npc
+                } else if(identificadorDoChat == 0){
                     if(
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura) ||
-                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran)
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran) ||
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori" && !exori)
                     ){
                         mensagensDoChatDefault += "\n\nSistema: Voce ainda nao sabe esta magia.";
                         document.getElementById('mensagemDiv2').innerHTML = "Voce ainda nao sabe esta magia.";
@@ -1265,7 +1282,8 @@
                 } else if(identificadorDoChat == 2){
                     if(
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura && nivelDeConversaNpc != 3) ||
-                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5))
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5)) ||
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori" && !exori && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5))
                     ){
                         mensagensDoChatNpc += "\n\nSistema: Voce ainda nao sabe esta magia.";
                         document.getElementById('mensagemDiv2').innerHTML = "Voce ainda nao sabe esta magia.";
@@ -1281,7 +1299,7 @@
                     }
                     switch(nivelDeConversaNpc){
                         case 1:
-                            if(!exura || !exuraGran){
+                            if(!exura || !exuraGran || !exori){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, voce quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
@@ -1351,10 +1369,10 @@
                             }else if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magic' ||
                                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia' ||
                                 document.getElementById('opcao1').title == "Exura"){
-                                mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s): 'exura' e 'exura gran'. Digite o nome da magia para aprender...";
+                                mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s): 'exura', 'exura gran' e 'exori'. Digite o nome da magia para aprender...";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s): 'exura' e 'exura gran'. Digite o nome da magia para aprender...";
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s): 'exura', 'exura gran' e 'exori'. Digite o nome da magia para aprender...";
                                 setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Exura";
@@ -1365,10 +1383,14 @@
                                 document.getElementById('opcao2').title = "Exura gran";
                                 document.getElementById('opcao2').style.height = 44;
                                 document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Agora nao";
-                                document.getElementById('opcao3').title = "Nao";
+                                document.getElementById('opcao3').innerHTML = "Exori";
+                                document.getElementById('opcao3').title = "Exori";
                                 document.getElementById('opcao3').style.height = 44;
                                 document.getElementById('opcao3').style.visibility = 'visible';
+                                document.getElementById('opcao4').innerHTML = "Agora nao";
+                                document.getElementById('opcao4').title = "Nao";
+                                document.getElementById('opcao4').style.height = 44;
+                                document.getElementById('opcao4').style.visibility = 'visible';
                             }
                             //document.getElementById('conversa').style.visibility = 'visible';
                             break;
@@ -1412,6 +1434,12 @@
                                 document.getElementById('magiaExuraGran').src = 'imagens/imagemMagiaExuraGran.png';
                                 document.getElementById('magiaExuraGran').alt = 'exura gran';
                                 document.getElementById('magiaExuraGran').title = 'exura gran';
+                            }
+                            else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori'){
+                                exori = true;
+                                document.getElementById('magiaExori').src = 'imagens/imagemMagiaExori.png';
+                                document.getElementById('magiaExori').alt = 'exori';
+                                document.getElementById('magiaExori').title = 'exori';
                             }
                             else if( (
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
@@ -1523,6 +1551,14 @@
                                     setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                     break;
+                                case 'exori':
+                                    mensagensDoChatNpc += "\n\nNpc: Voce precisa de level 100+ para aprender esta magia!";
+
+                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 100+ para aprender esta magia!";
+                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
+                                    break;
                                 case 'snake task':
                                     mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
                                     
@@ -1573,6 +1609,10 @@
                 }
                 if(conjurarExuraGran){
                     document.getElementById('fala1').src = 'imagens/imagemFalaExuraGran.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if(conjurarExori){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
                 if(conjurarExura && hp < hpmax){
@@ -1651,6 +1691,48 @@
                         document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
                     }
                 }
+                if(conjurarExori){
+                    if( 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20
+                    ){
+                        moverCima();
+                    }
+                    if( 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20
+                    ){
+                        moverDireita();
+                    }
+                    if( 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20
+                    ){
+                        moverBaixo();
+                    }
+                    if( 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 ||
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20
+                    ){
+                        moverEsquerda();
+                    }
+                }
             }
 
             function pressKey(key){
@@ -1662,7 +1744,10 @@
                 if(tecla != 13){
                     tecla = String.fromCharCode(tecla);
                 } else {
-                    dialogo();
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
+                        datainicioinatividade = new Date();
+                        dialogo();
+                    }
                 }
 
             }
@@ -3493,7 +3578,56 @@
                     }"></img>
                 </div>
                 <div id='campoDaMagia3' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magia3' src='imagens/imagemCampoItem.png' alt='item' title='magia' style='width: 100%; height: 100%'></img>
+                    <img id='magiaExori' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
+                        datainicioinatividade = new Date();
+                        if(exori){
+                            document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
+                            setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                        }
+                        if(exori){
+                            if( 
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20
+                            ){
+                                moverCima();
+                            }
+                            if( 
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20
+                            ){
+                                moverDireita();
+                            }
+                            if( 
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20
+                            ){
+                                moverBaixo();
+                            }
+                            if( 
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 ||
+                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20
+                            ){
+                                moverEsquerda();
+                            }
+                        }
+                    }"></img>
                 </div>
                 <div id='campoDaMagia4' title='parcel' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='magia4' src='imagens/imagemCampoItem.png' alt='item' title='magia' style='width: 100%; height: 100%'></img>
