@@ -1121,7 +1121,7 @@
                     inativo = false;
                 }
 
-                document.getElementById('campoDeEscritaInput').focus();
+                //document.getElementById('campoDeEscritaInput').focus();
 
             }
 
