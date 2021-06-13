@@ -157,8 +157,8 @@
             var mensagensDoChatNpc = "";
             var nivelDeConversaNpc = 0;
 
-            var mensagensDoChatHistoria1 = "História - Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
-            var mensagensDoChatHistoriaNovidades1 = "-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n";
+            var mensagensDoChatHistoria1 = "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
+            var mensagensDoChatHistoriaNovidades1 = "Novidades:\n\n-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n";
 
             var mover = 60;
             var quadrosDeAnimacao = 9;
