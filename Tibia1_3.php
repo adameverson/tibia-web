@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Magic Level</title>
+        <meta charset="UTF-8">
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <script>
             var username = "";
@@ -156,8 +157,8 @@
             var mensagensDoChatNpc = "";
             var nivelDeConversaNpc = 0;
 
-            var mensagensDoChatHistoria1 = "História - Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
-            var mensagensDoChatHistoriaNovidades1 = "-Magia exori é a nova sensação\n\n-Sistema de história em busca de dados...\n\n";
+            var mensagensDoChatHistoria1 = "História - Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
+            var mensagensDoChatHistoriaNovidades1 = "-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n";
 
             var mover = 60;
             var quadrosDeAnimacao = 9;
@@ -822,15 +823,183 @@
                         if(moverPersonagem[1] < 0 && (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25)){
                             moverEsquerda();
                             moverPersonagem[1] = moverPersonagem[1] + 1;
+                            if(nivelDeConversaNpc > 0 &&
+                                !(
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == 11
+                                )
+                            ){
+                                document.getElementById('conversa').style.visibility = 'hidden';
+                                document.getElementById('opcao1').style.visibility = 'hidden';
+                                document.getElementById('opcao2').style.visibility = 'hidden';
+                                document.getElementById('opcao3').style.visibility = 'hidden';
+                                document.getElementById('opcao4').style.visibility = 'hidden';
+                                document.getElementById('opcao5').style.visibility = 'hidden';
+                                document.getElementById('opcao1').innerHTML = "Opcao 1";
+                                document.getElementById('opcao1').title = "opcao1";
+                                document.getElementById('opcao2').innerHTML = "Opcao 2";
+                                document.getElementById('opcao2').title = "opcao2";
+                                document.getElementById('opcao3').innerHTML = "Opcao 3";
+                                document.getElementById('opcao3').title = "opcao3";
+                                document.getElementById('opcao4').innerHTML = "Opcao 4";
+                                document.getElementById('opcao4').title = "opcao4";
+                                document.getElementById('opcao5').innerHTML = "Opcao 5";
+                                document.getElementById('opcao5').title = "opcao5";
+                                document.getElementById('opcao1').style.height = 0;
+                                document.getElementById('opcao2').style.height = 0;
+                                document.getElementById('opcao3').style.height = 0;
+                                document.getElementById('opcao4').style.height = 0;
+                                document.getElementById('opcao5').style.height = 0;
+                                
+                                mensagensDoChatNpc += "\n\nNpc: Até mais!";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+
+                                nivelDeConversaNpc = 0;
+                            }
                         }else if(moverPersonagem[0] < 0 && (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25)){
                             moverCima();
                             moverPersonagem[0] = moverPersonagem[0] + 1;
+                            if(nivelDeConversaNpc > 0 &&
+                                !(
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == 11
+                                )
+                            ){
+                                document.getElementById('conversa').style.visibility = 'hidden';
+                                document.getElementById('opcao1').style.visibility = 'hidden';
+                                document.getElementById('opcao2').style.visibility = 'hidden';
+                                document.getElementById('opcao3').style.visibility = 'hidden';
+                                document.getElementById('opcao4').style.visibility = 'hidden';
+                                document.getElementById('opcao5').style.visibility = 'hidden';
+                                document.getElementById('opcao1').innerHTML = "Opcao 1";
+                                document.getElementById('opcao1').title = "opcao1";
+                                document.getElementById('opcao2').innerHTML = "Opcao 2";
+                                document.getElementById('opcao2').title = "opcao2";
+                                document.getElementById('opcao3').innerHTML = "Opcao 3";
+                                document.getElementById('opcao3').title = "opcao3";
+                                document.getElementById('opcao4').innerHTML = "Opcao 4";
+                                document.getElementById('opcao4').title = "opcao4";
+                                document.getElementById('opcao5').innerHTML = "Opcao 5";
+                                document.getElementById('opcao5').title = "opcao5";
+                                document.getElementById('opcao1').style.height = 0;
+                                document.getElementById('opcao2').style.height = 0;
+                                document.getElementById('opcao3').style.height = 0;
+                                document.getElementById('opcao4').style.height = 0;
+                                document.getElementById('opcao5').style.height = 0;
+                                
+                                mensagensDoChatNpc += "\n\nNpc: Até mais!";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                
+                                nivelDeConversaNpc = 0;
+                            }
                         }else if(moverPersonagem[1] > 0 && (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25)){
                             moverDireita();
                             moverPersonagem[1] = moverPersonagem[1] - 1;
+                            if(nivelDeConversaNpc > 0 &&
+                                !(
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == 11
+                                )
+                            ){
+                                document.getElementById('conversa').style.visibility = 'hidden';
+                                document.getElementById('opcao1').style.visibility = 'hidden';
+                                document.getElementById('opcao2').style.visibility = 'hidden';
+                                document.getElementById('opcao3').style.visibility = 'hidden';
+                                document.getElementById('opcao4').style.visibility = 'hidden';
+                                document.getElementById('opcao5').style.visibility = 'hidden';
+                                document.getElementById('opcao1').innerHTML = "Opcao 1";
+                                document.getElementById('opcao1').title = "opcao1";
+                                document.getElementById('opcao2').innerHTML = "Opcao 2";
+                                document.getElementById('opcao2').title = "opcao2";
+                                document.getElementById('opcao3').innerHTML = "Opcao 3";
+                                document.getElementById('opcao3').title = "opcao3";
+                                document.getElementById('opcao4').innerHTML = "Opcao 4";
+                                document.getElementById('opcao4').title = "opcao4";
+                                document.getElementById('opcao5').innerHTML = "Opcao 5";
+                                document.getElementById('opcao5').title = "opcao5";
+                                document.getElementById('opcao1').style.height = 0;
+                                document.getElementById('opcao2').style.height = 0;
+                                document.getElementById('opcao3').style.height = 0;
+                                document.getElementById('opcao4').style.height = 0;
+                                document.getElementById('opcao5').style.height = 0;
+                                
+                                mensagensDoChatNpc += "\n\nNpc: Até mais!";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                
+                                nivelDeConversaNpc = 0;
+                            }
                         }else if(moverPersonagem[0] > 0 && (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25)){
                             moverBaixo();
                             moverPersonagem[0] = moverPersonagem[0] - 1;
+                            if(nivelDeConversaNpc > 0 &&
+                                !(
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
+                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == 11
+                                )
+                            ){
+                                document.getElementById('conversa').style.visibility = 'hidden';
+                                document.getElementById('opcao1').style.visibility = 'hidden';
+                                document.getElementById('opcao2').style.visibility = 'hidden';
+                                document.getElementById('opcao3').style.visibility = 'hidden';
+                                document.getElementById('opcao4').style.visibility = 'hidden';
+                                document.getElementById('opcao5').style.visibility = 'hidden';
+                                document.getElementById('opcao1').innerHTML = "Opcao 1";
+                                document.getElementById('opcao1').title = "opcao1";
+                                document.getElementById('opcao2').innerHTML = "Opcao 2";
+                                document.getElementById('opcao2').title = "opcao2";
+                                document.getElementById('opcao3').innerHTML = "Opcao 3";
+                                document.getElementById('opcao3').title = "opcao3";
+                                document.getElementById('opcao4').innerHTML = "Opcao 4";
+                                document.getElementById('opcao4').title = "opcao4";
+                                document.getElementById('opcao5').innerHTML = "Opcao 5";
+                                document.getElementById('opcao5').title = "opcao5";
+                                document.getElementById('opcao1').style.height = 0;
+                                document.getElementById('opcao2').style.height = 0;
+                                document.getElementById('opcao3').style.height = 0;
+                                document.getElementById('opcao4').style.height = 0;
+                                document.getElementById('opcao5').style.height = 0;
+                                
+                                mensagensDoChatNpc += "\n\nNpc: Até mais!";
+
+                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
+                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                
+                                nivelDeConversaNpc = 0;
+                            }
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
@@ -1096,6 +1265,7 @@
                 if(lvlantigo && lvlantigo < lvl){
                     mensagensDoChatDefault += "\n\nYou advanced from Level " + lvlantigo + " to Level " + lvl;
                     document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvl;
+                    document.getElementById('mensagemDiv1').style.color = "white";
                     setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = "";}, 10000);
                 }
 
@@ -1193,7 +1363,11 @@
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura') ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl >= 50) ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvl >= 100)
-                                    ) && document.getElementById('opcao1').title == "Exura"
+                                    ) && (
+                                        (document.getElementById('opcao1').title == "Exura") ||
+                                        (document.getElementById('opcao1').title == "Exura gran") ||
+                                        (document.getElementById('opcao1').title == "Exori")
+                                    )
                                 ) ||
                                 (   
                                     (
@@ -1220,7 +1394,11 @@
                                     (
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvl < 100)
-                                    ) && document.getElementById('opcao1').title == "Exura"
+                                    ) && (
+                                        (document.getElementById('opcao1').title == "Exura") ||
+                                        (document.getElementById('opcao1').title == "Exura gran") ||
+                                        (document.getElementById('opcao1').title == "Exori")
+                                    )
                                 ) ||
                                 (
                                     (
@@ -1260,8 +1438,8 @@
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran) ||
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori" && !exori)
                     ){
-                        mensagensDoChatDefault += "\n\nSistema: Voce ainda nao sabe esta magia.";
-                        document.getElementById('mensagemDiv2').innerHTML = "Voce ainda nao sabe esta magia.";
+                        mensagensDoChatDefault += "\n\nSistema: Você ainda nao sabe esta magia.";
+                        document.getElementById('mensagemDiv2').innerHTML = "Você ainda nao sabe esta magia.";
                         setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }else{
                         let data = new Date();
@@ -1290,8 +1468,8 @@
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5)) ||
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori" && !exori && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5))
                     ){
-                        mensagensDoChatNpc += "\n\nSistema: Voce ainda nao sabe esta magia.";
-                        document.getElementById('mensagemDiv2').innerHTML = "Voce ainda nao sabe esta magia.";
+                        mensagensDoChatNpc += "\n\nSistema: Você ainda nao sabe esta magia.";
+                        document.getElementById('mensagemDiv2').innerHTML = "Você ainda nao sabe esta magia.";
                         setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     } else{
                         if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "nao"){
@@ -1305,10 +1483,10 @@
                     switch(nivelDeConversaNpc){
                         case 1:
                             if(!exura || !exuraGran || !exori){
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, voce quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
+                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, voce quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
                                 setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Task";
@@ -1324,10 +1502,10 @@
                                 document.getElementById('opcao3').style.height = 44;
                                 document.getElementById('opcao3').style.visibility = 'visible';
                             } else {
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, voce quer receber/finalizar uma 'task'? Nao temos nenhuma magia para ensinar.";
+                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, voce quer receber/finalizar uma 'task'? Nao temos nenhuma magia para ensinar.";
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
                                 setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Task";
@@ -1373,29 +1551,110 @@
                                 document.getElementById('opcao5').style.visibility = 'visible';
                             }else if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magic' ||
                                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia' ||
-                                document.getElementById('opcao1').title == "Exura"){
-                                mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s): 'exura', 'exura gran' e 'exori'. Digite o nome da magia para aprender...";
+                                document.getElementById('opcao1').title == "Exura" ||
+                                document.getElementById('opcao1').title == "Exura gran" ||
+                                document.getElementById('opcao1').title == "Exori"){
+                                mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s):";
+                                let magias = "";
+                                if(!exura){
+                                    magias += " 'exura'";
+                                }
+                                if(!exuraGran){
+                                    magias += " 'exura gran'";
+                                }
+                                if(!exori){
+                                    magias += " 'exori'";
+                                }
+
+                                mensagensDoChatNpc += magias + ". Digite o nome da magia para aprender...";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s): 'exura', 'exura gran' e 'exori'. Digite o nome da magia para aprender...";
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s):" + magias + ". Digite o nome da magia para aprender...";
                                 setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
-                                document.getElementById('opcao1').innerHTML = "Exura";
-                                document.getElementById('opcao1').title = "Exura";
-                                document.getElementById('opcao1').style.height = 44;
-                                document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Exura gran";
-                                document.getElementById('opcao2').title = "Exura gran";
-                                document.getElementById('opcao2').style.height = 44;
-                                document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Exori";
-                                document.getElementById('opcao3').title = "Exori";
-                                document.getElementById('opcao3').style.height = 44;
-                                document.getElementById('opcao3').style.visibility = 'visible';
-                                document.getElementById('opcao4').innerHTML = "Agora nao";
-                                document.getElementById('opcao4').title = "Nao";
-                                document.getElementById('opcao4').style.height = 44;
-                                document.getElementById('opcao4').style.visibility = 'visible';
+                                document.getElementById('opcao1').style.visibility = 'hidden';
+                                document.getElementById('opcao2').style.visibility = 'hidden';
+                                document.getElementById('opcao3').style.visibility = 'hidden';
+                                document.getElementById('opcao4').style.visibility = 'hidden';
+                                document.getElementById('opcao5').style.visibility = 'hidden';
+                                document.getElementById('opcao1').innerHTML = "Opcao 1";
+                                document.getElementById('opcao1').title = "opcao1";
+                                document.getElementById('opcao2').innerHTML = "Opcao 2";
+                                document.getElementById('opcao2').title = "opcao2";
+                                document.getElementById('opcao3').innerHTML = "Opcao 3";
+                                document.getElementById('opcao3').title = "opcao3";
+                                document.getElementById('opcao4').innerHTML = "Opcao 4";
+                                document.getElementById('opcao4').title = "opcao4";
+                                document.getElementById('opcao5').innerHTML = "Opcao 5";
+                                document.getElementById('opcao5').title = "opcao5";
+                                document.getElementById('opcao1').style.height = 0;
+                                document.getElementById('opcao2').style.height = 0;
+                                document.getElementById('opcao3').style.height = 0;
+                                document.getElementById('opcao4').style.height = 0;
+                                document.getElementById('opcao5').style.height = 0;
+
+                                if(!exura){
+                                    document.getElementById('opcao1').innerHTML = "Exura";
+                                    document.getElementById('opcao1').title = "Exura";
+                                    document.getElementById('opcao1').style.height = 44;
+                                    document.getElementById('opcao1').style.visibility = 'visible';
+                                }
+                                if(!exura && !exuraGran){
+                                    document.getElementById('opcao2').innerHTML = "Exura gran";
+                                    document.getElementById('opcao2').title = "Exura gran";
+                                    document.getElementById('opcao2').style.height = 44;
+                                    document.getElementById('opcao2').style.visibility = 'visible';
+                                }else if(exura && !exuraGran){
+                                    document.getElementById('opcao1').innerHTML = "Exura gran";
+                                    document.getElementById('opcao1').title = "Exura gran";
+                                    document.getElementById('opcao1').style.height = 44;
+                                    document.getElementById('opcao1').style.visibility = 'visible';
+                                }
+                                if(!exura && !exuraGran && !exori){
+                                    document.getElementById('opcao3').innerHTML = "Exori";
+                                    document.getElementById('opcao3').title = "Exori";
+                                    document.getElementById('opcao3').style.height = 44;
+                                    document.getElementById('opcao3').style.visibility = 'visible';
+                                    document.getElementById('opcao4').innerHTML = "Agora nao";
+                                    document.getElementById('opcao4').title = "Nao";
+                                    document.getElementById('opcao4').style.height = 44;
+                                    document.getElementById('opcao4').style.visibility = 'visible';
+                                }else if(
+                                    (exura && !exuraGran && !exori) ||
+                                    (!exura && exuraGran && !exori)
+                                    ){
+                                    document.getElementById('opcao2').innerHTML = "Exori";
+                                    document.getElementById('opcao2').title = "Exori";
+                                    document.getElementById('opcao2').style.height = 44;
+                                    document.getElementById('opcao2').style.visibility = 'visible';
+                                    document.getElementById('opcao3').innerHTML = "Agora nao";
+                                    document.getElementById('opcao3').title = "Nao";
+                                    document.getElementById('opcao3').style.height = 44;
+                                    document.getElementById('opcao3').style.visibility = 'visible';
+                                }else if(exura && exuraGran && !exori){
+                                    document.getElementById('opcao1').innerHTML = "Exori";
+                                    document.getElementById('opcao1').title = "Exori";
+                                    document.getElementById('opcao1').style.height = 44;
+                                    document.getElementById('opcao1').style.visibility = 'visible';
+                                    document.getElementById('opcao2').innerHTML = "Agora nao";
+                                    document.getElementById('opcao2').title = "Nao";
+                                    document.getElementById('opcao2').style.height = 44;
+                                    document.getElementById('opcao2').style.visibility = 'visible';
+                                }
+                                if(!exura && !exuraGran && exori){
+                                    document.getElementById('opcao3').innerHTML = "Agora nao";
+                                    document.getElementById('opcao3').title = "Nao";
+                                    document.getElementById('opcao3').style.height = 44;
+                                    document.getElementById('opcao3').style.visibility = 'visible';
+                                }else if(
+                                    (!exura && exuraGran && exori) ||
+                                    (exura && !exuraGran && exori)
+                                ){
+                                    document.getElementById('opcao2').innerHTML = "Agora nao";
+                                    document.getElementById('opcao2').title = "Nao";
+                                    document.getElementById('opcao2').style.height = 44;
+                                    document.getElementById('opcao2').style.visibility = 'visible';
+                                }
                             }
                             //document.getElementById('conversa').style.visibility = 'visible';
                             break;
@@ -1516,10 +1775,10 @@
                             document.getElementById('opcao4').style.height = 0;
                             document.getElementById('opcao5').style.height = 0;
 
-                            mensagensDoChatNpc += "\n\nNpc: Ate mais!";
+                            mensagensDoChatNpc += "\n\nNpc: Até mais!";
 
                             document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                            document.getElementById('mensagemDiv1').innerHTML = "Npc: Ate mais!";
+                            document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
                             setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                             nivelDeConversaNpc = 0;
@@ -3358,6 +3617,41 @@
                 </div>
             </div>
         </div>
+
+        <div id='chathistoria' title='historia' style='position: fixed; top: 0; left: 0; width: 178; height:414; background-color: lightgray; opacity: 1; visibility: visible;'>
+            <div id='campoDoChatHistoria' title='historia' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 390; background-color: #ccffff;'>
+                <textarea id="textareaChatHistoria" name="textareaChatHistoria" title='historia' rows="24" cols="22" style="resize: none;" disabled></textarea>
+            </div>
+            <div id='opcoesHistoria' title='opcoes historia' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 176; height: 20; background-color: #ccffff;'>
+                <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('chathistoria').style.visibility = 'hidden'; datainicioinatividade = new Date();">
+                    Pular
+                </button>
+                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1; datainicioinatividade = new Date();">
+                    Historia
+                </button>
+                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoriaNovidades1; datainicioinatividade = new Date();">
+                    Novidades
+                </button>
+            </div>
+        </div>
+
+        <div id='conversa' title='conversa' style='position: fixed; top: 160; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
+            <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao1').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao1').title; dialogo(); datainicioinatividade = new Date();}">
+                Opcao 1
+            </button>
+            <button type="submit" id='opcao2' title='opcao2' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao2').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao2').title; dialogo(); datainicioinatividade = new Date();}">
+                Opcao 2
+            </button>
+            <button type="submit" id='opcao3' title='opcao3' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao3').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao3').title; dialogo(); datainicioinatividade = new Date();}">
+                Opcao 3
+            </button>
+            <button type="submit" id='opcao4' title='opcao4' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao4').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao4').title; dialogo(); datainicioinatividade = new Date();}">
+                Opcao 4
+            </button>
+            <button type="submit" id='opcao5' title='opcao5' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao5').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao5').title; dialogo(); datainicioinatividade = new Date();}">
+                Opcao 5
+            </button>
+        </div>
         
         <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 185; left: 245; width: 50; height: 50;'></img>
         <div id='nomePersonagem1' style='position:fixed; top: 185; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
@@ -3380,28 +3674,11 @@
         
         </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemInativo.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
-        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; datainicioinatividade = new Date();}">
+        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
-        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; datainicioinatividade = new Date();}">
+        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
-        </div>
-
-        <div id='chathistoria' title='historia' style='position: fixed; top: 0; left: 0; width: 178; height:414; background-color: lightgray; opacity: 1; visibility: visible;'>
-            <div id='campoDoChatHistoria' title='historia' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 390; background-color: #ccffff;'>
-                <textarea id="textareaChatHistoria" name="textareaChatHistoria" title='historia' rows="24" cols="22" style="resize: none;" disabled></textarea>
-            </div>
-            <div id='opcoesHistoria' title='opcoes historia' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 176; height: 20; background-color: #ccffff;'>
-                <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('chathistoria').style.visibility = 'hidden'; datainicioinatividade = new Date();">
-                    Pular
-                </button>
-                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1; datainicioinatividade = new Date();">
-                    Historia
-                </button>
-                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoriaNovidades1; datainicioinatividade = new Date();">
-                    Novidades
-                </button>
-            </div>
         </div>
 
         <!--
@@ -3410,24 +3687,6 @@
         -->
         <div id='painelBaixo1' title='painel' style='position:fixed; top: 420; left: 0; width: 100%; height:100%; background-color: #ccffff;'></div>
         <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 540; width: 100%; height:100%; background-color: #ccffff;'></div>
-
-        <div id='conversa' title='conversa' style='position: fixed; top: 160; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
-            <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao1').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao1').title; dialogo(); datainicioinatividade = new Date();}">
-                Opcao 1
-            </button>
-            <button type="submit" id='opcao2' title='opcao2' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao2').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao2').title; dialogo(); datainicioinatividade = new Date();}">
-                Opcao 2
-            </button>
-            <button type="submit" id='opcao3' title='opcao3' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao3').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao3').title; dialogo(); datainicioinatividade = new Date();}">
-                Opcao 3
-            </button>
-            <button type="submit" id='opcao4' title='opcao4' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao4').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao4').title; dialogo(); datainicioinatividade = new Date();}">
-                Opcao 4
-            </button>
-            <button type="submit" id='opcao5' title='opcao5' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao5').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao5').title; dialogo(); datainicioinatividade = new Date();}">
-                Opcao 5
-            </button>
-        </div>
 
         <div id='conversaLogout' title='logout' style='position: fixed; top: 0; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
@@ -3683,6 +3942,9 @@
 
                 </div>
             </div>
+            <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('chathistoria').style.visibility = 'visible'; datainicioinatividade = new Date();">
+                História
+            </button>
             <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('logoutPergunta1').style.visibility = 'visible'; document.getElementById('logoutOpcao1').style.visibility = 'visible'; document.getElementById('logoutOpcao2').style.visibility = 'visible'; datainicioinatividade = new Date();">
                 Logout
             </button>
