@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Magic Level</title>
+        <meta charset="UTF-8">
         <style>
             table, th, td {
                 border: 1px solid white;
@@ -108,7 +109,7 @@
     <body style="background-color: #ccffff;">
 
         <form action="login.php" method="post">
-            Usuario: <input name="usernameRegister" type='text' maxlength="20"></input>
+            Usuário: <input name="usernameRegister" type='text' maxlength="20"></input>
             Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
             <input type="radio" id="male" name="gender" value="M" checked>
             <label for="male">Masculino</label>
@@ -117,7 +118,7 @@
             <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
         <form action="Tibia1_3.php" method="post">
-            Usuario: <input name="username" type='text' maxlength="20"></input>
+            Usuário: <input name="username" type='text' maxlength="20"></input>
             Senha: <input type="password" name="password" type='text' maxlength="20"></input>
             <button type='submit' class="button2"><span>Entrar</span></button>
         </form>
@@ -172,19 +173,19 @@
         $result->close();
         
         if($usuarioexistente){
-            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuario ja existente.</div>";
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário ja existente.</div>";
         }else{
 
             $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`, `outfit`) VALUES ('" . $username . "', '" . $password . "', 0, 176, '" . $outfit . "')";
             
             $conn->query($sql);
 
-            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuario registrado com sucesso.</div>";
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário registrado com sucesso.</div>";
 
         }
 
     } else {
-        echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuario e Senha devem ser preenchidos.</div>";
+        echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário e Senha devem ser preenchidos.</div>";
     }
 
     $sql = "SET @n = 0";
@@ -234,5 +235,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.3.25
+    ©2021 magiclevel.ml. All rights reserved. v1.3.27
 </div>
