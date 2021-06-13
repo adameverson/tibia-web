@@ -156,6 +156,9 @@
             var mensagensDoChatNpc = "";
             var nivelDeConversaNpc = 0;
 
+            var mensagensDoChatHistoria1 = "História - Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
+            var mensagensDoChatHistoriaNovidades1 = "-Magia exori é a nova sensação\n\n-Sistema de história em busca de dados...\n\n";
+
             var mover = 60;
             var quadrosDeAnimacao = 9;
             var esperaPorQuadro = 5;
@@ -3386,16 +3389,16 @@
 
         <div id='chathistoria' title='historia' style='position: fixed; top: 0; left: 0; width: 178; height:414; background-color: lightgray; opacity: 1; visibility: visible;'>
             <div id='campoDoChatHistoria' title='historia' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 365; background-color: #ccffff;'>
-                <textarea id="textareaChatHistoria" name="textareaChatHistoria" title='historia' rows="24" cols="22" style="resize: none;" disabled>História - Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)</textarea>
+                <textarea id="textareaChatHistoria" name="textareaChatHistoria" title='historia' rows="24" cols="22" style="resize: none;" disabled></textarea>
             </div>
             <div id='opcoesHistoria' title='opcoes historia' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
                 <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('chathistoria').style.visibility = 'hidden'; datainicioinatividade = new Date();">
                     Pular
                 </button>
-                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small; visibility: hidden;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; datainicioinatividade = new Date();">
-                    Proxima
+                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1; datainicioinatividade = new Date();">
+                    Historia
                 </button>
-                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small; visibility: hidden;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; datainicioinatividade = new Date();">
+                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoriaNovidades1; datainicioinatividade = new Date();">
                     Novidades
                 </button>
             </div>
@@ -3831,6 +3834,8 @@
             }
 
             document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
+
+            document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1;
             
         </script>
 
