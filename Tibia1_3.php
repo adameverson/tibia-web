@@ -148,8 +148,10 @@
             var outfit = "M";
             var mensagem = "";
             var ultimamensagem = "";
+            var dataLoop = new Date();
             var datainicioinatividade = new Date();
             var inativo = false;
+            var qtdAjax = 0;
 
             var identificadorDoChat = 0;
             var mensagensDoChatDefault = "Bem Vindo!";
@@ -1213,7 +1215,8 @@
 
             function loop(){
 
-                let data = new Date();
+                dataLoop = new Date();
+
                 let tempoinativo = 0;
                 let hitTotal = 0;
 
@@ -1254,6 +1257,7 @@
                 document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
 
                 if(!inativo){
+                    qtdAjax = 0;
                     run_ajax();
                     preencherImagens();
                 }
@@ -1280,11 +1284,11 @@
                 }
                 document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
                 
-                if((data.getMinutes() - datainicioinatividade.getMinutes()) > 0){
-                    tempoinativo = data.getMinutes() - datainicioinatividade.getMinutes();
-                }else if((data.getMinutes() - datainicioinatividade.getMinutes()) < 0){
+                if((dataLoop.getMinutes() - datainicioinatividade.getMinutes()) > 0){
+                    tempoinativo = dataLoop.getMinutes() - datainicioinatividade.getMinutes();
+                }else if((dataLoop.getMinutes() - datainicioinatividade.getMinutes()) < 0){
                     tempoinativo = 60 - datainicioinatividade.getMinutes();
-                    tempoinativo += data.getMinutes();
+                    tempoinativo += dataLoop.getMinutes();
                 }
                 if(tempoinativo > 3){
                     inativo = true;
@@ -2018,6 +2022,10 @@
 
             function run_ajax(){
 
+                if(qtdAjax == 0){
+
+                qtdAjax++;
+
                 // [INICIO] AJAX
 
                 var dados = new FormData();
@@ -2106,7 +2114,12 @@
 
                 })
                 
+                return "ajax seguro";
+
                 // [FIM] AJAX
+
+                }
+                return "ajax inseguro";
             }
 
         </script>
