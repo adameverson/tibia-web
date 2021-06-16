@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <script>
+
             var username = "";
             var password = "";
 
@@ -151,7 +152,6 @@
             var dataLoop = new Date();
             var datainicioinatividade = new Date();
             var inativo = false;
-            var qtdAjax = 0;
 
             var identificadorDoChat = 0;
             var mensagensDoChatDefault = "Bem Vindo!";
@@ -1213,7 +1213,101 @@
 
             }
 
-            function loop(){
+            this.loop = function (){
+
+                var run_ajax = function(){
+
+                    // [INICIO] AJAX
+
+                    var dados = new FormData();
+
+                    dados.append('username', username);
+                    dados.append('password', password);
+                    dados.append('x', posicaoDoPersonagemNaMatriz[0]);
+                    dados.append('y', posicaoDoPersonagemNaMatriz[1]);
+                    dados.append('direcao', direcaoDoPersonagem);
+                    dados.append('nivel', nivel);
+                    dados.append('hp', hp);
+                    dados.append('mensagem', mensagem);
+
+                    $.ajax({
+                        url: 'TibiaGET1_3.php',
+                        method: 'POST',
+                        data: dados,
+                        processData: false,
+                        contentType: false
+                    }).done(function(resposta){
+
+                        if(dadosResposta != "vazio"){
+                            for(let i = 0; i < dadosResposta.players.length; i++){
+                                switch(matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y]){
+                                    case 0:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
+                                        break;
+                                    case 4:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 4;
+                                        break;
+                                    case 5:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 5;
+                                        break;
+                                    case 6:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 6;
+                                        break;
+                                    case 7:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 7;
+                                        break;
+                                }
+                            }
+                        }
+
+                        dadosResposta = JSON.parse(resposta);
+                        
+                        for(let i = 0; i < dadosResposta.players.length; i++){
+                            if(
+                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
+                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
+                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
+                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7
+                            ){
+                                if(dadosResposta.players[i].outfit == "M"){
+                                    switch(dadosResposta.players[i].direcao){
+                                        case 0:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 12;
+                                            break;
+                                        case 1:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 13;
+                                            break;
+                                        case 2:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 14;
+                                            break;
+                                        case 3:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 15;
+                                            break;
+                                    }
+                                }else if(dadosResposta.players[i].outfit == "F"){
+                                    switch(dadosResposta.players[i].direcao){
+                                        case 0:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 22;
+                                            break;
+                                        case 1:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 23;
+                                            break;
+                                        case 2:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 24;
+                                            break;
+                                        case 3:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 25;
+                                            break;
+                                    }
+                                }
+                            }
+                        }
+
+                    })
+
+                    // [FIM] AJAX
+
+                }
 
                 dataLoop = new Date();
 
@@ -1257,7 +1351,6 @@
                 document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
 
                 if(!inativo){
-                    qtdAjax = 0;
                     run_ajax();
                     preencherImagens();
                 }
@@ -2018,108 +2111,6 @@
                     }
                 }
 
-            }
-
-            function run_ajax(){
-
-                if(qtdAjax == 0){
-
-                qtdAjax++;
-
-                // [INICIO] AJAX
-
-                var dados = new FormData();
-
-                dados.append('username', username);
-                dados.append('password', password);
-                dados.append('x', posicaoDoPersonagemNaMatriz[0]);
-                dados.append('y', posicaoDoPersonagemNaMatriz[1]);
-                dados.append('direcao', direcaoDoPersonagem);
-                dados.append('nivel', nivel);
-                dados.append('hp', hp);
-                dados.append('mensagem', mensagem);
-
-                $.ajax({
-                    url: 'TibiaGET1_3.php',
-                    method: 'POST',
-                    data: dados,
-                    processData: false,
-                    contentType: false
-                }).done(function(resposta){
-
-                    if(dadosResposta != "vazio"){
-                        for(let i = 0; i < dadosResposta.players.length; i++){
-                            switch(matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y]){
-                                case 0:
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
-                                    break;
-                                case 4:
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 4;
-                                    break;
-                                case 5:
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 5;
-                                    break;
-                                case 6:
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 6;
-                                    break;
-                                case 7:
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 7;
-                                    break;
-                            }
-                        }
-                    }
-
-                    dadosResposta = JSON.parse(resposta);
-                    
-                    for(let i = 0; i < dadosResposta.players.length; i++){
-                        if(
-                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
-                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
-                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
-                            matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7
-                        ){
-                            if(dadosResposta.players[i].outfit == "M"){
-                                switch(dadosResposta.players[i].direcao){
-                                    case 0:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 12;
-                                        break;
-                                    case 1:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 13;
-                                        break;
-                                    case 2:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 14;
-                                        break;
-                                    case 3:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 15;
-                                        break;
-                                }
-                            }else if(dadosResposta.players[i].outfit == "F"){
-                                switch(dadosResposta.players[i].direcao){
-                                    case 0:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 22;
-                                        break;
-                                    case 1:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 23;
-                                        break;
-                                    case 2:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 24;
-                                        break;
-                                    case 3:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 25;
-                                        break;
-                                }
-                            }
-                        }
-                    }
-
-                })
-                
-                return "ajax seguro";
-
-                // [FIM] AJAX
-
-                }
-                return "ajax inseguro";
             }
 
         </script>
@@ -4111,7 +4102,7 @@
             document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
 
             document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1;
-            
+
         </script>
 
     </body>
