@@ -76,30 +76,30 @@
                 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
                 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
                 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
-            ]; //p
+            ];
 
-            var posicaoDoPersonagemNaMatriz = [5,6]; //p
-            var moverPersonagem = [0,0]; //p
-            var direcaoDoPersonagem = 2; //p
-            var nivelDeSolo = 1; //p
+            var posicaoDoPersonagemNaMatriz = [5,6];
+            var moverPersonagem = [0,0];
+            var direcaoDoPersonagem = 2;
+            var nivelDeSolo = 1;
             
-            var hpmax = 176; //p
-            var hp = 176; //p
-            var mochila = ["","","",""]; //p
-            var exura = false; //p
-            var exuraGran = false; //p
-            var exori = false; //p
+            var hpmax = 176;
+            var hp = 176;
+            var mochila = ["","","",""];
+            var exura = false;
+            var exuraGran = false;
+            var exori = false;
             
-            var datainicioinatividade = new Date(); //p
+            var datainicioinatividade = new Date();
             
-            var identificadorDoChat = 0; //p
-            var mensagensDoChatDefault = "Bem Vindo!"; //p
-            var mensagensDoChatServerLog = ""; //p
-            var mensagensDoChatNpc = ""; //p
-            var nivelDeConversaNpc = 0; //p
+            var identificadorDoChat = 0;
+            var mensagensDoChatDefault = "Bem Vindo!";
+            var mensagensDoChatServerLog = "";
+            var mensagensDoChatNpc = "";
+            var nivelDeConversaNpc = 0;
 
-            var mensagensDoChatHistoria1 = "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)"; //p
-            var mensagensDoChatHistoriaNovidades1 = "Novidades:\n\n-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n"; //p
+            var mensagensDoChatHistoria1 = "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
+            var mensagensDoChatHistoriaNovidades1 = "Novidades:\n\n-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n";
 
         </script>
     </head>
