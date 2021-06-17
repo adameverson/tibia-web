@@ -5,26 +5,15 @@
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <script>
 
-            var auxPreencherImagens;
             var preencherImagens;
-            var loop;
-            var cima;
-            var baixo;
-            var direita;
-            var esquerda;
             var moverCima;
-            var moverBaixo;
             var moverDireita;
+            var moverBaixo;
             var moverEsquerda;
             var funcMoverPersonagem;
-            var getRandomIntInclusive;
-            var animacaoMonster;
             var loop;
             var dialogo;
             var pressKey;
-
-            var username = "";
-            var password = "";
 
             var matrizDoMapa = 
             [
@@ -87,127 +76,30 @@
                 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
                 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
                 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
-            ];
+            ]; //p
 
-            var matrizDoMapaOriginal = 
-            [
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 0, 0, 0,29,27,27,27,27],
-                [27,27,27,27,31, 0, 0, 2,29,27,27,27,27],
-                [27,27,27,27,31, 4, 0, 0,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 0, 1, 1,29,27,27,27,27],
-                [27,27,27,27,31, 0, 7, 8,29,27,27,27,27],
-                [27,27,27,27,31, 5, 4, 1,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 8, 7, 8,29,27,27,27,27],
-                [27,27,27,27,31, 1, 0, 7,29,27,27,27,27],
-                [27,27,27,27,31, 1, 5, 4,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 1, 8, 1,29,27,27,27,27],
-                [27,27,27,27,31, 8, 7, 4,29,27,27,27,27],
-                [27,27,27,27,31, 1, 8, 5,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,39,38,38,37,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
-            ];
+            var posicaoDoPersonagemNaMatriz = [5,6]; //p
+            var moverPersonagem = [0,0]; //p
+            var direcaoDoPersonagem = 2; //p
+            var nivelDeSolo = 1; //p
+            
+            var hpmax = 176; //p
+            var hp = 176; //p
+            var mochila = ["","","",""]; //p
+            var exura = false; //p
+            var exuraGran = false; //p
+            var exori = false; //p
+            
+            var datainicioinatividade = new Date(); //p
+            
+            var identificadorDoChat = 0; //p
+            var mensagensDoChatDefault = "Bem Vindo!"; //p
+            var mensagensDoChatServerLog = ""; //p
+            var mensagensDoChatNpc = ""; //p
+            var nivelDeConversaNpc = 0; //p
 
-            var posicaoDoPersonagemNaMatriz = [5,6];
-            var moverPersonagem = [0,0];
-            var direcaoDoPersonagem = 2;
-            var nivelDeSolo = 1;
-            var lvlantigo = 0;
-            //var nivel = 0;
-            var hpmax = 176;
-            var hp = 176;
-            var mochila = ["","","",""];
-            var exura = false;
-            var exuraGran = false;
-            var exori = false;
-            var outfit = "M";
-            var mensagem = "";
-            var ultimamensagem = "";
-            var dataLoop = new Date();
-            var datainicioinatividade = new Date();
-            var inativo = false;
-
-            var identificadorDoChat = 0;
-            var mensagensDoChatDefault = "Bem Vindo!";
-            var mensagensDoChatServerLog = "";
-            var mensagensDoChatNpc = "";
-            var nivelDeConversaNpc = 0;
-
-            var mensagensDoChatHistoria1 = "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
-            var mensagensDoChatHistoriaNovidades1 = "Novidades:\n\n-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n";
-
-            var mover = 60;
-            var quadrosDeAnimacao = 9;
-            var esperaPorQuadro = 5;
-
-            //Variaveis Animacao Monster Atacando
-            var posicaoLinhaCima = 0;
-            var posicaoColunaCima = 0;
-            var posicaoLinhaEsquerda = 0;
-            var posicaoColunaEsquerda = 0;
-            var posicaoLinhaDireita = 0;
-            var posicaoColunaDireita = 0;
-            var posicaoLinhaBaixo = 0;
-            var posicaoColunaBaixo = 0;
-            var esperaRessCima = 3;
-            var esperaRessEsquerda = 3;
-            var esperaRessDireita = 3;
-            var esperaRessBaixo = 3;
-            var esperaRessCimaContador = 0;
-            var esperaRessEsquerdaContador = 0;
-            var esperaRessDireitaContador = 0;
-            var esperaRessBaixoContador = 0;
-            var flagCima = false;
-            var flagEsquerda = false;
-            var flagDireita = false;
-            var flagBaixo = false;
-
-            //Variaveis JSON
-            var dadosResposta = "vazio";
+            var mensagensDoChatHistoria1 = "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)"; //p
+            var mensagensDoChatHistoriaNovidades1 = "Novidades:\n\n-A magia exura é para todos\n\n-A magia exura gran é para os mais experientes\n\n-A magia exori é a nova sensação\n\n-O sistema de história está em busca de novos dados...\n\n"; //p
 
         </script>
     </head>
@@ -2089,7 +1981,119 @@
 
         function main(){
 
+            var auxPreencherImagens;
+            var cima;
+            var direita;
+            var baixo;
+            var esquerda;
+            var getRandomIntInclusive;
+            var animacaoMonster;
+
             var nivel = 0;
+            var flagAjax = true;
+            var dataAjax = new Date();
+            var dataLoop = new Date();
+
+            var username = "";
+            var password = "";
+
+            var matrizDoMapaOriginal = 
+            [
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,32,30,30,30,27,27,27,27,27],
+                [27,27,27,27,31, 0, 0, 0,29,27,27,27,27],
+                [27,27,27,27,31, 0, 0, 2,29,27,27,27,27],
+                [27,27,27,27,31, 4, 0, 0,29,27,27,27,27],
+                [27,27,27,27,27,28,28,28,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,32,30,30,30,27,27,27,27,27],
+                [27,27,27,27,31, 0, 1, 1,29,27,27,27,27],
+                [27,27,27,27,31, 0, 7, 8,29,27,27,27,27],
+                [27,27,27,27,31, 5, 4, 1,29,27,27,27,27],
+                [27,27,27,27,27,28,28,28,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,32,30,30,30,27,27,27,27,27],
+                [27,27,27,27,31, 8, 7, 8,29,27,27,27,27],
+                [27,27,27,27,31, 1, 0, 7,29,27,27,27,27],
+                [27,27,27,27,31, 1, 5, 4,29,27,27,27,27],
+                [27,27,27,27,27,28,28,28,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,32,30,30,30,27,27,27,27,27],
+                [27,27,27,27,31, 1, 8, 1,29,27,27,27,27],
+                [27,27,27,27,31, 8, 7, 4,29,27,27,27,27],
+                [27,27,27,27,31, 1, 8, 5,29,27,27,27,27],
+                [27,27,27,27,27,28,28,28,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [27,27,27,27,27,27,27,27,27,27,27,27,27],
+                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+                [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
+                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0,36,26,26,26,26],
+                [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,39,38,38,37,26,26,26,26],
+                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
+            ];
+
+            var lvlantigo = 0;
+            var outfit = "M";
+            var mensagem = "";
+            var ultimamensagem = "";
+            var inativo = false;
+            
+            var mover = 60;
+            var quadrosDeAnimacao = 9;
+            var esperaPorQuadro = 5;
+
+            //Variaveis Animacao Monster Atacando
+            var posicaoLinhaCima = 0;
+            var posicaoColunaCima = 0;
+            var posicaoLinhaEsquerda = 0;
+            var posicaoColunaEsquerda = 0;
+            var posicaoLinhaDireita = 0;
+            var posicaoColunaDireita = 0;
+            var posicaoLinhaBaixo = 0;
+            var posicaoColunaBaixo = 0;
+            var esperaRessCima = 3;
+            var esperaRessEsquerda = 3;
+            var esperaRessDireita = 3;
+            var esperaRessBaixo = 3;
+            var esperaRessCimaContador = 0;
+            var esperaRessEsquerdaContador = 0;
+            var esperaRessDireitaContador = 0;
+            var esperaRessBaixoContador = 0;
+            var flagCima = false;
+            var flagEsquerda = false;
+            var flagDireita = false;
+            var flagBaixo = false;
+
+            //Variaveis JSON
+            var dadosResposta = "vazio";
 
             auxPreencherImagens = function (i, j, caminhoImagem, campo){
                 let baseCampo = "campo" + campo;
@@ -3115,6 +3119,14 @@
 
             loop = function (){
 
+                dataLoop = new Date();
+
+                if(dataAjax <= dataLoop){
+                    flagAjax = true;
+                    dataAjax = new Date();
+                    dataAjax.setMilliseconds(dataAjax.getMilliseconds() + 950);
+                }
+
                 var run_ajax = function(){
 
                     // [INICIO] AJAX
@@ -3209,8 +3221,6 @@
 
                 }
 
-                dataLoop = new Date();
-
                 let tempoinativo = 0;
                 let hitTotal = 0;
 
@@ -3251,7 +3261,12 @@
                 document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
 
                 if(!inativo){
-                    run_ajax();
+                    if(flagAjax){
+                        run_ajax();
+                        flagAjax = false;
+                    }else{
+                        console.log("Ajax desnecessário");
+                    }
                     preencherImagens();
                 }
 
