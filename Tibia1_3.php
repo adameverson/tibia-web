@@ -15,68 +15,73 @@
             var dialogo;
             var pressKey;
 
-            var matrizDoMapa = 
-            [
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 0, 0, 0,29,27,27,27,27],
-                [27,27,27,27,31, 0, 0, 2,29,27,27,27,27],
-                [27,27,27,27,31, 4, 0, 0,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 0, 1, 1,29,27,27,27,27],
-                [27,27,27,27,31, 0, 7, 8,29,27,27,27,27],
-                [27,27,27,27,31, 5, 4, 1,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 8, 7, 8,29,27,27,27,27],
-                [27,27,27,27,31, 1, 0, 7,29,27,27,27,27],
-                [27,27,27,27,31, 1, 5, 4,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 1, 8, 1,29,27,27,27,27],
-                [27,27,27,27,31, 8, 7, 4,29,27,27,27,27],
-                [27,27,27,27,31, 1, 8, 5,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,39,38,38,37,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
-            ];
+var matrizDoMapa = 
+[
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 0, 0, 0,29,27,27,27,27],
+[27,27,27,27,31, 0, 0, 2,29,27,27,27,27],
+[27,27,27,27,31, 4, 0, 0,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 0, 1, 1,29,27,27,27,27],
+[27,27,27,27,31, 0, 7, 8,29,27,27,27,27],
+[27,27,27,27,31, 5, 4, 1,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 8, 7, 8,29,27,27,27,27],
+[27,27,27,27,31, 1, 0, 7,29,27,27,27,27],
+[27,27,27,27,31, 1, 5, 4,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 1, 8, 1,29,27,27,27,27],
+[27,27,27,27,31, 8, 7, 4,29,27,27,27,27],
+[27,27,27,27,31, 1, 8, 5,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,34,34,34, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,36,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34, 0, 0, 0, 0,36,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
+];
 
             var posicaoDoPersonagemNaMatriz = [5,6];
             var moverPersonagem = [0,0];
@@ -1666,10 +1671,10 @@
         
         </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemInativo.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
-        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(document.getElementById('mensagem1').src == 'imagens/imagemMensagemPersonagemMorto.png'){posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
-        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(document.getElementById('mensagem1').src == 'imagens/imagemMensagemPersonagemMorto.png'){posicaoDoPersonagemNaMatriz = [5,6]; hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); direcaoDoPersonagem = 2; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
 
@@ -1738,13 +1743,13 @@
                     Mochila
                 </div>
                 <div id='campoDaMochila1' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[0] == 'PocaoHP'){document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; if(hp < hpmax){if(hp + 40 < hpmax){hp = hp + 40; document.getElementById('mensagemDiv3').style.color = '#ccffcc'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 40; mensagensDoChatServerLog += '\n\nVoce curou 40 pontos de vida.'; setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500); document.getElementById('hp').style.width = (176 * hp) / hpmax; document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;}else{document.getElementById('mensagemDiv3').style.color = '#ccffcc'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp); mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.'; setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500); hp = hpmax; document.getElementById('hp').style.width = 176; document.getElementById('barraHpPersonagem1').style.width = 50;}} if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen'; document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';} document.getElementById('hpvalor').innerHTML = hp; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);} datainicioinatividade = new Date();}"></img>
+                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[0] == 'PocaoHP'){document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; if(hp < hpmax){if(hp + 40 < hpmax){hp = hp + 40; document.getElementById('mensagemDiv3').style.color = '#ccffcc'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 40; mensagensDoChatServerLog += '\n\nVocê curou 40 pontos de vida.'; setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500); document.getElementById('hp').style.width = (176 * hp) / hpmax; document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;}else{document.getElementById('mensagemDiv3').style.color = '#ccffcc'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp); mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.'; setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500); hp = hpmax; document.getElementById('hp').style.width = 176; document.getElementById('barraHpPersonagem1').style.width = 50;}} if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange';}else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen'; document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';} document.getElementById('hpvalor').innerHTML = hp; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);} datainicioinatividade = new Date();}"></img>
                 </div>
                 <div id='campoDaMochila2' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[1] == 'Corda' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 4){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();} datainicioinatividade = new Date();}"></img>
+                    <img id='itemCampoDaMochila2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[1] == 'Corda' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 4){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(mochila[1] == 'Corda'){ if(identificadorDoChat == 0){mensagensDoChatDefault += '\n\nSistema: Aqui não é possível subir.'}else if(identificadorDoChat == 1){mensagensDoChatServerLog += '\n\nSistema: Aqui não é possível subir.'}else if(identificadorDoChat == 2){mensagensDoChatNpc += '\n\nSistema: Aqui não é possível subir.'} document.getElementById('campoDeEscritaInput').value = ''; dialogo(); document.getElementById('mensagemDiv2').innerHTML = 'Aqui não é possível subir.'; setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = '';}, 5000);} datainicioinatividade = new Date();}"></img>
                 </div>
                 <div id='campoDaMochila3' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila3' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[2] == 'Pa' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 6){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();} datainicioinatividade = new Date();}"></img>
+                    <img id='itemCampoDaMochila3' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(mochila[2] == 'Pa' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 6){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(mochila[1] == 'Corda'){ if(identificadorDoChat == 0){mensagensDoChatDefault += '\n\nSistema: Aqui não é possível cavar.'}else if(identificadorDoChat == 1){mensagensDoChatServerLog += '\n\nSistema: Aqui não é possível cavar.'}else if(identificadorDoChat == 2){mensagensDoChatNpc += '\n\nSistema: Aqui não é possível cavar.'} document.getElementById('campoDeEscritaInput').value = ''; dialogo(); document.getElementById('mensagemDiv2').innerHTML = 'Aqui não é possível cavar.'; setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = '';}, 5000);} datainicioinatividade = new Date();}"></img>
                 </div>
                 <div id='campoDaMochila4' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='itemCampoDaMochila4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
@@ -1769,7 +1774,7 @@
                                 document.getElementById('mensagemDiv3').style.textAlign = 'center';
                                 document.getElementById('mensagemDiv3').style.width = 50;
                                 document.getElementById('mensagemDiv3').innerHTML = 60;
-                                mensagensDoChatServerLog += '\n\nVoce curou 60 pontos de vida.';
+                                mensagensDoChatServerLog += '\n\nVocê curou 60 pontos de vida.';
                                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
@@ -1779,7 +1784,7 @@
                                 document.getElementById('mensagemDiv3').style.textAlign = 'center';
                                 document.getElementById('mensagemDiv3').style.width = 50;
                                 document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
-                                mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                                mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.';
                                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 hp = hpmax;
                                 document.getElementById('hpvalor').innerHTML = hp;
@@ -1817,7 +1822,7 @@
                                 document.getElementById('mensagemDiv3').style.textAlign = 'center';
                                 document.getElementById('mensagemDiv3').style.width = 50;
                                 document.getElementById('mensagemDiv3').innerHTML = 120;
-                                mensagensDoChatServerLog += '\n\nVoce curou 120 pontos de vida.';
+                                mensagensDoChatServerLog += '\n\nVocê curou 120 pontos de vida.';
                                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 document.getElementById('hpvalor').innerHTML = hp;
                                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
@@ -1827,7 +1832,7 @@
                                 document.getElementById('mensagemDiv3').style.textAlign = 'center';
                                 document.getElementById('mensagemDiv3').style.width = 50;
                                 document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
-                                mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                                mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.';
                                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                                 hp = hpmax;
                                 document.getElementById('hpvalor').innerHTML = hp;
@@ -1997,68 +2002,73 @@
             var username = "";
             var password = "";
 
-            var matrizDoMapaOriginal = 
-            [
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 0, 0, 0,29,27,27,27,27],
-                [27,27,27,27,31, 0, 0, 2,29,27,27,27,27],
-                [27,27,27,27,31, 4, 0, 0,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 0, 1, 1,29,27,27,27,27],
-                [27,27,27,27,31, 0, 7, 8,29,27,27,27,27],
-                [27,27,27,27,31, 5, 4, 1,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 8, 7, 8,29,27,27,27,27],
-                [27,27,27,27,31, 1, 0, 7,29,27,27,27,27],
-                [27,27,27,27,31, 1, 5, 4,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,32,30,30,30,27,27,27,27,27],
-                [27,27,27,27,31, 1, 8, 1,29,27,27,27,27],
-                [27,27,27,27,31, 8, 7, 4,29,27,27,27,27],
-                [27,27,27,27,31, 1, 8, 5,29,27,27,27,27],
-                [27,27,27,27,27,28,28,28,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [27,27,27,27,27,27,27,27,27,27,27,27,27],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0,36,26,26,26,26],
-                [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,39,38,38,37,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-                [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
-            ];
+var matrizDoMapaOriginal = 
+[
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 0, 0, 0,29,27,27,27,27],
+[27,27,27,27,31, 0, 0, 2,29,27,27,27,27],
+[27,27,27,27,31, 4, 0, 0,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 0, 1, 1,29,27,27,27,27],
+[27,27,27,27,31, 0, 7, 8,29,27,27,27,27],
+[27,27,27,27,31, 5, 4, 1,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 8, 7, 8,29,27,27,27,27],
+[27,27,27,27,31, 1, 0, 7,29,27,27,27,27],
+[27,27,27,27,31, 1, 5, 4,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,32,30,30,30,27,27,27,27,27],
+[27,27,27,27,31, 1, 8, 1,29,27,27,27,27],
+[27,27,27,27,31, 8, 7, 4,29,27,27,27,27],
+[27,27,27,27,31, 1, 8, 5,29,27,27,27,27],
+[27,27,27,27,27,28,28,28,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,34,34,34, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,36,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34, 0, 0, 0, 0,36,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
+];
 
             var lvlantigo = 0;
             var outfit = "M";
@@ -3453,7 +3463,7 @@
                         mensagensDoChatDefault += "\n\nSistema: Você ainda nao sabe esta magia.";
                         document.getElementById('mensagemDiv2').innerHTML = "Você ainda nao sabe esta magia.";
                         setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
-                    }else{
+                    }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         let data = new Date();
                         mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlantigo + "]: " + document.getElementById('campoDeEscritaInput').value;
 
@@ -3474,7 +3484,17 @@
                     document.getElementById('campoDeEscritaInput').value = "";
                     document.getElementById('textareaChat').value = mensagensDoChatDefault;
                     document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
-                } else if(identificadorDoChat == 2){
+                }else if(identificadorDoChat == 1){
+                    if(
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura) ||
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran) ||
+                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori" && !exori)
+                    ){
+                        mensagensDoChatServerLog += "\n\nSistema: Você ainda nao sabe esta magia.";
+                        document.getElementById('mensagemDiv2').innerHTML = "Você ainda nao sabe esta magia.";
+                        setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
+                    }
+                }else if(identificadorDoChat == 2){
                     if(
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura" && !exura && nivelDeConversaNpc != 3) ||
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exura gran" && !exuraGran && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5)) ||
@@ -3483,7 +3503,7 @@
                         mensagensDoChatNpc += "\n\nSistema: Você ainda nao sabe esta magia.";
                         document.getElementById('mensagemDiv2').innerHTML = "Você ainda nao sabe esta magia.";
                         setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
-                    } else{
+                    }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "nao"){
                             mensagensDoChatNpc += "\n\nAgora " + document.getElementById('campoDeEscritaInput').value.toLowerCase() + "!";
                         }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "no"){
@@ -3820,7 +3840,7 @@
 
                             switch(document.getElementById('campoDeEscritaInput').value.toLowerCase()){
                                 case 'exura gran':
-                                    mensagensDoChatNpc += "\n\nNpc: Voce precisa de level 50+ para aprender esta magia!";
+                                    mensagensDoChatNpc += "\n\nNpc: Você precisa de level 50+ para aprender esta magia!";
 
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 50+ para aprender esta magia!";
@@ -3828,7 +3848,7 @@
 
                                     break;
                                 case 'exori':
-                                    mensagensDoChatNpc += "\n\nNpc: Voce precisa de level 100+ para aprender esta magia!";
+                                    mensagensDoChatNpc += "\n\nNpc: Você precisa de level 100+ para aprender esta magia!";
 
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 100+ para aprender esta magia!";
@@ -3836,7 +3856,7 @@
 
                                     break;
                                 case 'snake task':
-                                    mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
+                                    mensagensDoChatNpc += "\n\nNpc: Você ainda nao terminou a task obtida!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
@@ -3844,7 +3864,7 @@
 
                                     break;
                                 case 'dragon task':
-                                    mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
+                                    mensagensDoChatNpc += "\n\nNpc: Você ainda nao terminou a task obtida!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
@@ -3852,7 +3872,7 @@
 
                                     break;
                                 case 'mammoth task':
-                                    mensagensDoChatNpc += "\n\nNpc: Voce ainda nao terminou a task obtida!";
+                                    mensagensDoChatNpc += "\n\nNpc: Você ainda nao terminou a task obtida!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
@@ -3860,7 +3880,7 @@
 
                                     break;
                                 case 'reset task':
-                                    mensagensDoChatNpc += "\n\nNpc: Voce ainda nao recebeu uma task!";
+                                    mensagensDoChatNpc += "\n\nNpc: Você ainda nao recebeu uma task!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao recebeu uma task!";
@@ -3898,7 +3918,7 @@
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
                         document.getElementById('mensagemDiv3').innerHTML = 60;
-                        mensagensDoChatServerLog += '\n\nVoce curou 60 pontos de vida.';
+                        mensagensDoChatServerLog += '\n\nVocê curou 60 pontos de vida.';
                         setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         document.getElementById('hpvalor').innerHTML = hp;
                         document.getElementById('hp').style.width = (176 * hp) / hpmax;
@@ -3908,7 +3928,7 @@
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
                         document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
-                        mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                        mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.';
                         setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         hp = hpmax;
                         document.getElementById('hpvalor').innerHTML = hp;
@@ -3936,7 +3956,7 @@
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
                         document.getElementById('mensagemDiv3').innerHTML = 120;
-                        mensagensDoChatServerLog += '\n\nVoce curou 120 pontos de vida.';
+                        mensagensDoChatServerLog += '\n\nVocê curou 120 pontos de vida.';
                         setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         document.getElementById('hpvalor').innerHTML = hp;
                         document.getElementById('hp').style.width = (176 * hp) / hpmax;
@@ -3946,7 +3966,7 @@
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
                         document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
-                        mensagensDoChatServerLog += '\n\nVoce curou ' + (hpmax - hp) + ' pontos de vida.';
+                        mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.';
                         setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                         hp = hpmax;
                         document.getElementById('hpvalor').innerHTML = hp;
