@@ -37,7 +37,7 @@
 
     $result->close();
 
-    $sql = "SELECT `nivel` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+    /* $sql = "SELECT `nivel` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
                 
     $result = $conn->query($sql);
 
@@ -47,13 +47,13 @@
 
     $result->close();
 
-    if($nivel_atual >= $nivel_antigo){
+    if($nivel_atual >= $nivel_antigo){ */
 
         $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . ", `mensagem`='" . $_POST['mensagem'] . "' WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
 
         $conn->query($sql);
 
-    }
+    //}
     
     $conn->close();
     
