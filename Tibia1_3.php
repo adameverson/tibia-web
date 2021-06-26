@@ -2021,9 +2021,9 @@ var matrizDoMapa =
             var ultimaPosicaoDoPersonagemNaMatriz = posicaoDoPersonagemNaMatriz;
 
             var questFerramentas = false;
-            var quest1 = false;
-            var quest2 = false;
-            var quest3 = false;
+            var quest1 = true;
+            var quest2 = true;
+            var quest3 = true;
 
             var username = "";
             var password = "";
@@ -4351,6 +4351,12 @@ var matrizDoMapaOriginal =
                         document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png';
                     }
                     break;    
+            }
+
+	    if(matrizDoMapa[ultimaPosicaoDoPersonagemNaMatriz[0]][ultimaPosicaoDoPersonagemNaMatriz[1]] == 7){
+                nivelDeSolo++;
+                document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10;
+                document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
 
         }

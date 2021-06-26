@@ -235,5 +235,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.5.37
+    ©2021 magiclevel.ml. All rights reserved. v1.5.39
 </div>
