@@ -4353,7 +4353,7 @@ var matrizDoMapaOriginal =
                     break;    
             }
 
-	    if(matrizDoMapa[ultimaPosicaoDoPersonagemNaMatriz[0]][ultimaPosicaoDoPersonagemNaMatriz[1]] == 7){
+            if(matrizDoMapa[ultimaPosicaoDoPersonagemNaMatriz[0]][ultimaPosicaoDoPersonagemNaMatriz[1]] == 7){
                 nivelDeSolo++;
                 document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10;
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
