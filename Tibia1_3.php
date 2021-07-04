@@ -2996,11 +2996,26 @@ var matrizCriaturasVida =
                         document.getElementById('mensagemDiv' + campo).innerHTML = ""; 
                     }, 500);
                 }else{ 
+
+                    let xp = 0;
+
+                    switch(nomeCriatura){
+                        case "Snake":
+                            xp = 1;
+                            break;
+                        case "Dragon":
+                            xp = 2;
+                            break;
+                        case "Mammoth":
+                            xp = 3;
+                            break;
+                    }
+
                     document.getElementById('mensagemDiv' + campo).innerHTML = (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] * hitAcrescimo) + 1; 
                     document.getElementById('mensagemDiv3').style.color = 'white'; 
                     document.getElementById('mensagemDiv3').style.textAlign = 'center'; 
                     document.getElementById('mensagemDiv3').style.width = 50; 
-                    document.getElementById('mensagemDiv3').innerHTML = 1 + "Xp"; 
+                    document.getElementById('mensagemDiv3').innerHTML = xp + "Xp"; 
                     setTimeout(function(){ 
                         document.getElementById('mensagemDiv' + campo).innerHTML = ""; 
                         document.getElementById('mensagemDiv3').innerHTML = ""; 
@@ -3009,9 +3024,9 @@ var matrizCriaturasVida =
                     }, 500); 
                     mensagensDoChatServerLog += "\n\nUma snake perdeu " + ((matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] * hitAcrescimo) + 1) + " pontos de vida devido ao seu ataque."; 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = 0; 
-                    mensagensDoChatServerLog += "\n\nVoce ganhou 1 ponto de experiencia."; 
+                    mensagensDoChatServerLog += "\n\nVocê ganhou " + xp + " ponto(s) de experiência."; 
                     matrizDoMapa[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = morto; 
-                    nivel += 1; 
+                    nivel += xp; 
                     expaux = nivel; 
                     lvl=0; 
                     for(lvl=1; expaux >= 0; lvl++){ 
