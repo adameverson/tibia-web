@@ -177,7 +177,7 @@
             echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário ja existente.</div>";
         }else{
 
-            $sql = "INSERT INTO `ottibia`(`username`, `password`, `nivel`, `hp`, `outfit`) VALUES ('" . $username . "', '" . $password . "', 0, 176, '" . $outfit . "')";
+            $sql = "INSERT INTO `ottibia`(`username`, `password`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem`) VALUES ('" . $username . "', '" . $password . "', 5, 6, 2, 0, 176, '" . $outfit . "', '')";
             
             $conn->query($sql);
 
@@ -236,5 +236,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.6.48
+    ©2021 magiclevel.ml. All rights reserved. v1.6.49
 </div>
