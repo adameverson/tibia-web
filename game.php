@@ -26,10 +26,10 @@
 
             var mensagensDoChatHistoria1 = "";
             //mensagensDoChatHistoria1 += "Servidor em Manutenção!\n\n";
-            mensagensDoChatHistoria1 += "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil no último andar, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um npc mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
+            mensagensDoChatHistoria1 += "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)";
             var mensagensDoChatHistoriaNovidades1 = "";
             //mensagensDoChatHistoriaNovidades1 += "Servidor em Manutenção!\n\n";
-            mensagensDoChatHistoriaNovidades1 += "Novidades:\n\n-A magia exura é para todos;\n\n-A magia exura gran é para os mais experientes;\n\n-A magia exori é a nova sensação;\n\n-O historiador está em busca de novos dados...\n\n-Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!\n\n-A magia exori gran chegou para ajudar nas suas tasks.";
+            mensagensDoChatHistoriaNovidades1 += "Novidades:\n\n-A magia exura é a base de uma longa jornada;\n\n-A magia exura gran é para os mais experientes;\n\n-A magia exori é a nova sensação;\n\n-O historiador está em busca de novos dados...\n\n-Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!\n\n-A magia exori gran chegou para ajudar nas suas tasks;\n\n-A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.";
 
         </script>
     </head>
@@ -1597,17 +1597,17 @@
         </div>
         <div id='menuopcoes' style='position:fixed; top: 210; left: 270; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
             <div style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
-                Masculino
+                Addon 1
             </div>
             <div style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';">
-                Feminino
+                Addon 2
             </div>
         </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemInativo.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
-        <div id='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
-        <div id='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
 
@@ -1622,7 +1622,7 @@
             <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                 Voce tem certeza que deseja sair?
             </div>
-            <form action="http://magiclevel.ml/SO/test/jogos/login.php">
+            <form action="http://magiclevel.ml">
                 <button type="submit" id='logoutOpcao1' title='Sim' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                     Sim
                 </button>
@@ -1827,6 +1827,8 @@
             var verificacaoAproximacaoNPC;
             var verificarPosicaoValida;
             var recompensaSacola;
+            var regeneracao;
+            var calculaLevel;
 
             var posicaoDoPersonagemNaMatriz = [5,6];
             var direcaoDoPersonagem = 2;
@@ -2061,6 +2063,7 @@ var matrizCriaturasVida =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
 ];
 
+            var lvlatual = 0;
             var lvlantigo = 0;
             var mensagem = "";
             var ultimamensagem = "";
@@ -2095,58 +2098,117 @@ var matrizCriaturasVida =
             //Variaveis JSON
             var dadosResposta = "vazio";
 
+            calculaLevel = function(){
+                let expaux = nivel;
+                lvlatual=0;
+                for(lvlatual=1; expaux >= 0; lvlatual++){
+                    expaux = expaux - lvlatual;
+                }
+                lvlatual--;
+                
+                let expmin = nivel - (lvlatual + expaux);
+                let expmax = nivel - expaux -1;
+                let exptotal = 0;
+                (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1;
+
+                document.getElementById('levelvalor').innerHTML = lvlatual;
+
+                document.getElementById('nivelvalor').innerHTML = nivel;
+                document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal;
+                document.getElementById('speedvalor').innerHTML = (lvlatual < 490)?(109+lvlatual):'max';
+                document.getElementById('hpvalor').innerHTML = hp;
+                hpmax = ((lvlatual-1) * 15) + 176;
+                document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                
+                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
+                    document.getElementById('hp').style.background = 'tomato';
+                    document.getElementById('nomePersonagem1').style.color = 'tomato';
+                    document.getElementById('barraHpPersonagem1').style.background = 'tomato';
+                } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
+                    document.getElementById('hp').style.background = 'orange';
+                    document.getElementById('nomePersonagem1').style.color = 'orange';
+                    document.getElementById('barraHpPersonagem1').style.background = 'orange';
+                } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
+                    document.getElementById('hp').style.background = 'mediumseagreen';
+                    document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                    document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
+                }
+
+                document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
+
+                document.getElementById('personagem1').title = username + " level: " + lvlatual.toString() + " hp: " + hp.toString();
+
+                (lvlatual < 490)?( esperaPorQuadro = 5 - (lvlatual*0.01) ):(esperaPorQuadro = 0.1);
+
+                if(lvlantigo && lvlantigo < lvlatual){
+                    mensagensDoChatDefault += "\n\nYou advanced from Level " + lvlantigo + " to Level " + lvlatual;
+                    document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvlatual;
+                    document.getElementById('mensagemDiv1').style.color = "white";
+                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = "";}, 10000);
+                }
+
+                lvlantigo = lvlatual;
+
+            }
+
+            regeneracao = function(curaPadrao, tipoDeCura){
+                let cura;
+                
+                if(tipoDeCura == "curou"){
+                    cura = getRandomIntInclusive(((40*curaPadrao)+(lvlatual*curaPadrao)),((40*curaPadrao)+(lvlatual*curaPadrao*2))); 
+                }else if(tipoDeCura == "regenerou"){
+                    cura = getRandomIntInclusive((lvlatual*curaPadrao),(lvlatual*curaPadrao*2)); 
+                }
+                if(hp == hpmax){
+                    return;
+                }
+                if(hp + cura < hpmax){
+                    hp = hp + cura;
+                    document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                    document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                    document.getElementById('mensagemDiv3').style.width = 50;
+                    document.getElementById('mensagemDiv3').innerHTML = cura;
+                    mensagensDoChatServerLog += '\n\nVocê ' + tipoDeCura + ' ' + cura + ' pontos de vida.';
+                    setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
+                    document.getElementById('hpvalor').innerHTML = hp;
+                    document.getElementById('hp').style.width = (176 * hp) / hpmax;
+                    document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
+                } else {
+                    document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                    document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                    document.getElementById('mensagemDiv3').style.width = 50;
+                    document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
+                    mensagensDoChatServerLog += '\n\nVocê ' + tipoDeCura + ' ' + (hpmax - hp) + ' pontos de vida.';
+                    setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
+                    hp = hpmax;
+                    document.getElementById('hpvalor').innerHTML = hp;
+                    document.getElementById('hp').style.width = 176;
+                    document.getElementById('barraHpPersonagem1').style.width = 50;
+                }
+                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
+                    document.getElementById('hp').style.background = 'tomato';
+                    document.getElementById('nomePersonagem1').style.color = 'tomato';
+                    document.getElementById('barraHpPersonagem1').style.background = 'tomato';
+                } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
+                    document.getElementById('hp').style.background = 'orange';
+                    document.getElementById('nomePersonagem1').style.color = 'orange';
+                    document.getElementById('barraHpPersonagem1').style.background = 'orange';
+                } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
+                    document.getElementById('hp').style.background = 'mediumseagreen';
+                    document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
+                    document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
+                }
+            }
+
             utilizarIten = function(id){
                 switch(id){
                     case 0:
                         if(mochila[0] == 'PocaoHP'){
                             document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; 
-                            let cura = getRandomIntInclusive(40,40*2); 
-                            if(hp < hpmax){
-                                if(hp + cura < hpmax){
-                                    hp = hp + cura; 
-                                    document.getElementById('mensagemDiv3').style.color = '#ccffcc'; 
-                                    document.getElementById('mensagemDiv3').style.textAlign = 'center'; 
-                                    document.getElementById('mensagemDiv3').style.width = 50; 
-                                    document.getElementById('mensagemDiv3').innerHTML = cura; 
-                                    mensagensDoChatServerLog += '\n\nVocê curou ' + cura + ' pontos de vida.'; 
-                                    setTimeout(function(){ 
-                                        document.getElementById('mensagemDiv3').innerHTML = ''; 
-                                        document.getElementById('mensagemDiv3').style.width = 250; 
-                                    }, 500); 
-                                    document.getElementById('hp').style.width = (176 * hp) / hpmax; 
-                                    document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
-                                }else{
-                                    document.getElementById('mensagemDiv3').style.color = '#ccffcc'; 
-                                    document.getElementById('mensagemDiv3').style.textAlign = 'center'; 
-                                    document.getElementById('mensagemDiv3').style.width = 50; 
-                                    document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp); 
-                                    mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.'; 
-                                    setTimeout(function(){ 
-                                        document.getElementById('mensagemDiv3').innerHTML = ''; 
-                                        document.getElementById('mensagemDiv3').style.width = 250; 
-                                    }, 500); 
-                                    hp = hpmax; 
-                                    document.getElementById('hp').style.width = 176; 
-                                    document.getElementById('barraHpPersonagem1').style.width = 50;
-                                }
-                            }
-                            if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
-                                document.getElementById('hp').style.background = 'tomato'; 
-                                document.getElementById('nomePersonagem1').style.color = 'tomato'; 
-                                document.getElementById('barraHpPersonagem1').style.background = 'tomato';
-                            }else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
-                                document.getElementById('hp').style.background = 'orange'; 
-                                document.getElementById('nomePersonagem1').style.color = 'orange'; 
-                                document.getElementById('barraHpPersonagem1').style.background = 'orange';
-                            }else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
-                                document.getElementById('hp').style.background = 'mediumseagreen'; 
-                                document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; 
-                                document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
-                            } 
-                            document.getElementById('hpvalor').innerHTML = hp; 
                             setTimeout(function(){
                                 document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';
                             }, 1000);
+                            regeneracao(1, "curou"); 
                         } 
                         break;
                     case 1:
@@ -2262,6 +2324,7 @@ var matrizCriaturasVida =
                         break;
                     case 1:
                         nivel += 100;
+                        calculaLevel();
                         mensagensDoChatServerLog += "\n\nVoce ganhou 100 pontos de experiencia.";
                         document.getElementById('textareaChat').value = mensagensDoChatNpc;
                         document.getElementById('mensagemDiv3').style.color = 'white';
@@ -2277,6 +2340,7 @@ var matrizCriaturasVida =
                         break;
                     case 2:
                         nivel += 200;
+                        calculaLevel();
                         mensagensDoChatServerLog += "\n\nVoce ganhou 200 pontos de experiencia.";
                         document.getElementById('mensagemDiv3').style.color = 'white';
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
@@ -2291,6 +2355,7 @@ var matrizCriaturasVida =
                         break;
                     case 3:
                         nivel += 300;
+                        calculaLevel();
                         mensagensDoChatServerLog += "\n\nVoce ganhou 300 pontos de experiencia.";
                         document.getElementById('mensagemDiv3').style.color = 'white';
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
@@ -3016,13 +3081,9 @@ var matrizCriaturasVida =
             }
             
             ataqueCriatura = function (campo, distanciaDoPersonagemLinha, distanciaDoPersonagemColuna, hitDecrescimo, hitAcrescimo, morto, nomeCriatura){
-                let expaux = nivel; 
-                let lvl=0; 
-                for(lvl=1; expaux >= 0; lvl++){ 
-                    expaux = expaux - lvl;
-                } 
-                lvl--; 
-                let hit = getRandomIntInclusive(lvl,lvl*2); 
+                
+                let hit = getRandomIntInclusive(lvlatual,lvlatual*2); 
+
                 if( (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - (hit*hitDecrescimo)) > 0 ){ 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - (hit*hitDecrescimo); 
                     document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
@@ -3063,20 +3124,9 @@ var matrizCriaturasVida =
                     mensagensDoChatServerLog += "\n\nVocê ganhou " + xp + " ponto(s) de experiência."; 
                     matrizDoMapa[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = morto; 
                     nivel += xp; 
-                    expaux = nivel; 
-                    lvl=0; 
-                    for(lvl=1; expaux >= 0; lvl++){ 
-                        expaux = expaux - lvl;
-                    } 
-                    lvl--; 
-                    let expmin = nivel - (lvl + expaux); 
-                    let expmax = nivel - expaux -1; 
-                    let exptotal = 0; 
-                    (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1; 
-                    document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal; 
-                    document.getElementById('nivelvalor').innerHTML = nivel; 
-                    document.getElementById('levelvalor').innerHTML = lvl; 
-                    hpmax = ((lvl-1) * 15) + 176; 
+
+                    calculaLevel();
+
                     preencherImagens(); 
                     if(document.getElementById('task').innerHTML == nomeCriatura && taskvalor < 100){
                         taskvalor++; 
@@ -3126,14 +3176,7 @@ var matrizCriaturasVida =
                     return;
                 }
 
-                let expaux = nivel;
-                let lvl=0;
-                for(lvl=1; expaux >= 0; lvl++){
-                    expaux = expaux - lvl;
-                }
-                lvl--;
-
-                let velocidade = (lvl < 490)?(500 - lvl):10;
+                let velocidade = (lvlatual < 490)?(500 - lvlatual):10;
 
                 dataMove = new Date();
                 dataMove.setMilliseconds(dataMove.getMilliseconds() + velocidade);
@@ -3439,7 +3482,7 @@ var matrizCriaturasVida =
                     dados.append('mensagem', mensagem);
 
                     $.ajax({
-                        url: 'TibiaGET1_3.php',
+                        url: 'gameGET.php',
                         method: 'POST',
                         data: dados,
                         processData: false,
@@ -3528,7 +3571,23 @@ var matrizCriaturasVida =
                 if(personagemMorto){
                     let perdaDeNivel = (nivel * 0.01) | 0;
                     nivel -= perdaDeNivel;
+                    calculaLevel();
                     mensagensDoChatServerLog += "\n\nVoce perdeu " + perdaDeNivel + " pontos de experiencia.";
+                }
+
+                if(hitTotal > 0){
+                    mensagensDoChatServerLog += "\n\nVoce perdeu " + hitTotal + " pontos de vida.";
+                }
+
+                if(!inativo){
+                    if(flagAjax){
+                        run_ajax();
+                        flagAjax = false;
+                        regeneracao(1, "regenerou");
+                    }else{
+                        console.log("Ajax desnecessário");
+                    }
+                    preencherImagens();
                 }
 
                 if(hitTotal > 0){
@@ -3536,55 +3595,8 @@ var matrizCriaturasVida =
                     document.getElementById('mensagemDiv3').style.textAlign = 'center';
                     document.getElementById('mensagemDiv3').style.width = 50;
                     document.getElementById('mensagemDiv3').innerHTML = hitTotal;
-                    mensagensDoChatServerLog += "\n\nVoce perdeu " + hitTotal + " pontos de vida.";
                     setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
                 }
-
-                let expaux = nivel;
-                let lvl=0;
-                for(lvl=1; expaux >= 0; lvl++){
-                    expaux = expaux - lvl;
-                }
-                lvl--;
-                let expmin = nivel - (lvl + expaux);
-                let expmax = nivel - expaux -1;
-                let exptotal = 0;
-                (expmax - expmin)?exptotal = (expmax - expmin):exptotal = 1;
-
-                document.getElementById('levelvalor').innerHTML = lvl;
-
-                document.getElementById('nivelvalor').innerHTML = nivel;
-                document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal;
-                document.getElementById('speedvalor').innerHTML = (lvl < 490)?(109+lvl):'max';
-                document.getElementById('hpvalor').innerHTML = hp;
-                hpmax = ((lvl-1) * 15) + 176;
-                document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ document.getElementById('hp').style.background = 'tomato'; document.getElementById('nomePersonagem1').style.color = 'tomato'; document.getElementById('barraHpPersonagem1').style.background = 'tomato'; }else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ document.getElementById('hp').style.background = 'orange'; document.getElementById('nomePersonagem1').style.color = 'orange'; document.getElementById('barraHpPersonagem1').style.background = 'orange'; }else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ document.getElementById('hp').style.background = 'mediumseagreen';  document.getElementById('nomePersonagem1').style.color = 'mediumseagreen'; document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen'; }
-
-                document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
-
-                if(!inativo){
-                    if(flagAjax){
-                        run_ajax();
-                        flagAjax = false;
-                    }else{
-                        console.log("Ajax desnecessário");
-                    }
-                    preencherImagens();
-                }
-
-                document.getElementById('personagem1').title = username + " level: " + lvl.toString() + " hp: " + hp.toString();
-
-                (lvl < 490)?( esperaPorQuadro = 5 - (lvl*0.01) ):(esperaPorQuadro = 0.1);
-
-                if(lvlantigo && lvlantigo < lvl){
-                    mensagensDoChatDefault += "\n\nYou advanced from Level " + lvlantigo + " to Level " + lvl;
-                    document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvl;
-                    document.getElementById('mensagemDiv1').style.color = "white";
-                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = "";}, 10000);
-                }
-
-                lvlantigo = lvl;
 
                 switch(identificadorDoChat){
                     case 0:
@@ -3685,18 +3697,13 @@ var matrizCriaturasVida =
                         ){
                             nivelDeConversaNpc = 3;
                         }
-                        let expaux = nivel;
-                        let lvl=0;
-                        for(lvl=1; expaux >= 0; lvl++){
-                            expaux = expaux - lvl;
-                        }
                         if( (
                                 (
                                     (
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura') ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl >= 50) ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvl >= 100) ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori gran' && lvl >= 200)
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvlatual >= 50) ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvlatual >= 100) ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori gran' && lvlatual >= 200)
                                     ) && (
                                         (document.getElementById('opcao1').title == "Exura") ||
                                         (document.getElementById('opcao1').title == "Exura gran") ||
@@ -3727,9 +3734,9 @@ var matrizCriaturasVida =
                             (
                                 (
                                     (
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvl < 50) ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvl < 100) ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori gran' && lvl < 200)
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran' && lvlatual < 50) ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori' && lvlatual < 100) ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori gran' && lvlatual < 200)
                                     ) && (
                                         (document.getElementById('opcao1').title == "Exura") ||
                                         (document.getElementById('opcao1').title == "Exura gran") ||
@@ -3782,7 +3789,7 @@ var matrizCriaturasVida =
                         setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         let data = new Date();
-                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlantigo + "]: " + document.getElementById('campoDeEscritaInput').value;
+                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlatual + "]: " + document.getElementById('campoDeEscritaInput').value;
 
                         if(document.getElementById('campoDeEscritaInput').value.length < 32){
                             document.getElementById('mensagemDiv3').style.textAlign = 'left';
@@ -4168,18 +4175,21 @@ var matrizCriaturasVida =
                                 switch(document.getElementById('task').innerHTML.toLowerCase()){
                                     case 'snake':
                                         nivel += 100;
+                                        calculaLevel();
                                         mensagensDoChatServerLog += "\n\nVoce ganhou 100 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 100 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
                                     case 'dragon':
                                         nivel += 200;
+                                        calculaLevel();
                                         mensagensDoChatServerLog += "\n\nVoce ganhou 200 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 200 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
                                     case 'mammoth':
                                         nivel += 300;
+                                        calculaLevel();
                                         mensagensDoChatServerLog += "\n\nVoce ganhou 300 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 300 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
@@ -4350,83 +4360,11 @@ var matrizCriaturasVida =
                     document.getElementById('fala1').src = 'imagens/imagemFalaExoriGran.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if(conjurarExura && hp < hpmax){
-                    let cura = getRandomIntInclusive(60,60*2); 
-                    if(hp + cura < hpmax){
-                        hp = hp + cura;
-                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = cura;
-                        mensagensDoChatServerLog += '\n\nVocê curou ' + cura + ' pontos de vida.';
-                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
-                        document.getElementById('hpvalor').innerHTML = hp;
-                        document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                        document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
-                    } else {
-                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
-                        mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.';
-                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
-                        hp = hpmax;
-                        document.getElementById('hpvalor').innerHTML = hp;
-                        document.getElementById('hp').style.width = 176;
-                        document.getElementById('barraHpPersonagem1').style.width = 50;
-                    }
-                    if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
-                        document.getElementById('hp').style.background = 'tomato';
-                        document.getElementById('nomePersonagem1').style.color = 'tomato';
-                        document.getElementById('barraHpPersonagem1').style.background = 'tomato';
-                    } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
-                        document.getElementById('hp').style.background = 'orange';
-                        document.getElementById('nomePersonagem1').style.color = 'orange';
-                        document.getElementById('barraHpPersonagem1').style.background = 'orange';
-                    } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
-                        document.getElementById('hp').style.background = 'mediumseagreen';
-                        document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
-                        document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
-                    }
+                if(conjurarExura){
+                    regeneracao(2, "curou");
                 }
-                if(conjurarExuraGran && hp < hpmax){
-                    let cura = getRandomIntInclusive(120,120*2); 
-                    if(hp + cura < hpmax){
-                        hp = hp + cura;
-                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = cura;
-                        mensagensDoChatServerLog += '\n\nVocê curou ' + cura + ' pontos de vida.';
-                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
-                        document.getElementById('hpvalor').innerHTML = hp;
-                        document.getElementById('hp').style.width = (176 * hp) / hpmax;
-                        document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
-                    } else {
-                        document.getElementById('mensagemDiv3').style.color = '#ccffcc';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
-                        mensagensDoChatServerLog += '\n\nVocê curou ' + (hpmax - hp) + ' pontos de vida.';
-                        setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ''; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
-                        hp = hpmax;
-                        document.getElementById('hpvalor').innerHTML = hp;
-                        document.getElementById('hp').style.width = 176;
-                        document.getElementById('barraHpPersonagem1').style.width = 50;
-                    }
-                    if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
-                        document.getElementById('hp').style.background = 'tomato';
-                        document.getElementById('nomePersonagem1').style.color = 'tomato';
-                        document.getElementById('barraHpPersonagem1').style.background = 'tomato';
-                    } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
-                        document.getElementById('hp').style.background = 'orange';
-                        document.getElementById('nomePersonagem1').style.color = 'orange';
-                        document.getElementById('barraHpPersonagem1').style.background = 'orange';
-                    } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
-                        document.getElementById('hp').style.background = 'mediumseagreen';
-                        document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
-                        document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
-                    }
+                if(conjurarExuraGran){
+                    regeneracao(3, "curou");
                 }
                 if(conjurarExori){
                     if( 
@@ -4553,7 +4491,7 @@ var matrizCriaturasVida =
                 }
 
                 if(!$logado){
-                    echo "alert('Conta inexistente, os seus dados nao serao salvos. Acesse login.php para se registrar. Sem logar voce nao podera interagir com os outros players.');";
+                    echo "alert('Conta inexistente, os seus dados nao serao salvos. Acesse magiclevel.ml para se registrar. Sem logar voce nao podera interagir com os outros players.');";
                 }
 
                 $result->close();
@@ -4565,21 +4503,8 @@ var matrizCriaturasVida =
             document.getElementById('nomePersonagem1').innerHTML = username;
 
             document.getElementById('level').innerHTML = 'Level';
-            let expaux = nivel;
-            let lvl=0;
-            for(lvl=1; expaux >= 0; lvl++){
-                expaux = expaux - lvl;
-            }
-            lvl--;
-            document.getElementById('levelvalor').innerHTML = lvl;
-            
-            hpmax = ((lvl-1) * 15) + 176;
-            document.getElementById('hp').style.width = (176 * hp) / hpmax;
-            document.getElementById('hpvalor').innerHTML = hp;
             document.getElementById('nivel').innerHTML = 'Xp';
-            document.getElementById('nivelvalor').innerHTML = nivel;
             document.getElementById('speed').innerHTML = 'Speed';
-            document.getElementById('speedvalor').innerHTML = (lvl < 490)?(109+lvl):'max';
             document.getElementById('tasks').innerHTML = 'Tasks no NPC';
             document.getElementById('task').innerHTML = '[Monster]';
             taskvalor = 0;
@@ -4588,21 +4513,7 @@ var matrizCriaturasVida =
             document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
             setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
 
-            if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
-                document.getElementById('hp').style.background = 'tomato';
-                document.getElementById('nomePersonagem1').style.color = 'tomato';
-                document.getElementById('barraHpPersonagem1').style.background = 'tomato';
-            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 88){ 
-                document.getElementById('hp').style.background = 'orange';
-                document.getElementById('nomePersonagem1').style.color = 'orange';
-                document.getElementById('barraHpPersonagem1').style.background = 'orange';
-            } else if(parseInt(document.getElementById('hp').style.width.split('p')[0]) > 88){ 
-                document.getElementById('hp').style.background = 'mediumseagreen';
-                document.getElementById('nomePersonagem1').style.color = 'mediumseagreen';
-                document.getElementById('barraHpPersonagem1').style.background = 'mediumseagreen';
-            }
-
-            document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
+            calculaLevel();
 
             document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1;
 

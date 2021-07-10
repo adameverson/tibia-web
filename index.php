@@ -2,6 +2,7 @@
     <head>
         <title>Magic Level</title>
         <meta charset="UTF-8">
+        <script data-ad-client="ca-pub-2702297921966374" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <style>
             table, th, td {
                 border: 1px solid white;
@@ -108,7 +109,7 @@
     </head>
     <body style="background-color: #ccffff;">
 
-        <form action="login.php" method="post">
+        <form action="index.php" method="post">
             Usuário: <input name="usernameRegister" type='text' maxlength="20"></input>
             Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
             <input type="radio" id="male" name="gender" value="M" checked>
@@ -117,7 +118,7 @@
             <label for="female">Feminino</label>
             <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
-        <form action="Tibia1_3.php" method="post">
+        <form action="game.php" method="post">
             Usuário: <input name="username" type='text' maxlength="20"></input>
             Senha: <input type="password" name="password" type='text' maxlength="20"></input>
             <button type='submit' class="button2"><span>Entrar</span></button>
@@ -235,5 +236,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.5.47
+    ©2021 magiclevel.ml. All rights reserved. v1.6.48
 </div>
