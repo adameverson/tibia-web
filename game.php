@@ -1802,6 +1802,8 @@
             var recompensaSacola;
             var regeneracao;
             var calculaLevel;
+            var updateDadosJson;
+            var readDadosJson;
 
             var ultim_x;
             var ultim_y;
@@ -1810,6 +1812,7 @@
             var ultim_nivel;
             var ultim_hp;
             var ultim_mensgem;
+            var ultim_json;
 
             var posicaoDoPersonagemNaMatriz = [5,6];
             var direcaoDoPersonagem = 2;
@@ -1823,6 +1826,9 @@
 
             var hpmax = 176;
             var hp = 176;
+
+            var dadosJson = "";
+
             var mochila = ["","","",""];
 
             var exura = false;
@@ -1830,6 +1836,8 @@
             var exori = false;
             var exoriGran = false;
 
+            var nomeCriaturaTask = "[Monster]";
+            var tasknumber = 0;
             var taskvalor = 0;
 
             var questFerramentas = false;
@@ -2078,6 +2086,137 @@ var matrizCriaturasVida =
 
             //Variaveis JSON
             var dadosResposta = "vazio";
+
+            updateDadosJson = function(){
+                
+                if(mochila[0] == 'PocaoHP'){
+                    dadosJson.json[0].itens[0] = 1;
+                }
+                if(mochila[1] == 'Corda'){
+                    dadosJson.json[0].itens[1] = 1;
+                }
+                if(mochila[2] == 'Pa'){
+                    dadosJson.json[0].itens[2] = 1;
+                }
+                if(exura){
+                    dadosJson.json[1].magias[0] = 1;
+                }
+                if(exuraGran){
+                    dadosJson.json[1].magias[1] = 1;
+                }
+                if(exori){
+                    dadosJson.json[1].magias[2] = 1;
+                }
+                if(exoriGran){
+                    dadosJson.json[1].magias[3] = 1;
+                }
+                dadosJson.json[2].tasks[0] = tasknumber;
+                dadosJson.json[2].tasks[1] = taskvalor;
+                if(questFerramentas){
+                    dadosJson.json[3].quests[0] = 1;
+                }
+                if(quest1){
+                    dadosJson.json[3].quests[1] = 1;
+                }else{
+                    dadosJson.json[3].quests[1] = 0;
+                }
+                if(quest2){
+                    dadosJson.json[3].quests[2] = 1;
+                }else{
+                    dadosJson.json[3].quests[2] = 0;
+                }
+                if(quest3){
+                    dadosJson.json[3].quests[3] = 1;
+                }else{
+                    dadosJson.json[3].quests[3] = 0;
+                }
+
+            }
+
+            readDadosJson = function(){
+                
+                if(dadosJson.json[0].itens[0]){
+                    mochila[0] = 'PocaoHP';
+                    document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png';
+                    document.getElementById('itemCampoDaMochila1').alt = 'pocao hp';
+                    document.getElementById('itemCampoDaMochila1').title = 'pocao hp';
+                }
+                if(dadosJson.json[0].itens[1]){
+                    mochila[1] = 'Corda';
+                    document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png';
+                    document.getElementById('itemCampoDaMochila2').alt = 'corda';
+                    document.getElementById('itemCampoDaMochila2').title = 'corda';
+                }
+                if(dadosJson.json[0].itens[2]){
+                    mochila[2] = 'Pa';
+                    document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png';
+                    document.getElementById('itemCampoDaMochila3').alt = 'pa';
+                    document.getElementById('itemCampoDaMochila3').title = 'pa';
+                }
+                if(dadosJson.json[1].magias[0]){
+                    exura = true;
+                    document.getElementById('magiaExura').src = 'imagens/imagemMagiaExura.png';
+                    document.getElementById('magiaExura').alt = 'exura';
+                    document.getElementById('magiaExura').title = 'exura';
+                }
+                if(dadosJson.json[1].magias[1]){
+                    exuraGran = true;
+                    document.getElementById('magiaExuraGran').src = 'imagens/imagemMagiaExuraGran.png';
+                    document.getElementById('magiaExuraGran').alt = 'exura gran';
+                    document.getElementById('magiaExuraGran').title = 'exura gran';
+                }
+                if(dadosJson.json[1].magias[2]){
+                    exori = true;
+                    document.getElementById('magiaExori').src = 'imagens/imagemMagiaExori.png';
+                    document.getElementById('magiaExori').alt = 'exori';
+                    document.getElementById('magiaExori').title = 'exori';
+                }
+                if(dadosJson.json[1].magias[3]){
+                    exoriGran = true;
+                    document.getElementById('magiaExoriGran').src = 'imagens/imagemMagiaExoriGran.png';
+                    document.getElementById('magiaExoriGran').alt = 'exori gran';
+                    document.getElementById('magiaExoriGran').title = 'exori gran';
+                }
+                if(dadosJson.json[2].tasks[0]){
+                    switch(dadosJson.json[2].tasks[0]){
+                        case 1:
+                            document.getElementById('task').innerHTML = "Snake";
+                            nomeCriaturaTask = "Snake";
+                            tasknumber = 1;
+                            break;
+                        case 2:
+                            document.getElementById('task').innerHTML = "Dragon";
+                            nomeCriaturaTask = "Dragon";
+                            tasknumber = 2;
+                            break;
+                        case 3:
+                            document.getElementById('task').innerHTML = "Mammoth";
+                            nomeCriaturaTask = "Mammoth";
+                            tasknumber = 3;
+                            break;
+                    }
+                    document.getElementById('tasks').innerHTML = 'Tasks';
+                    taskvalor = dadosJson.json[2].tasks[1];
+                    document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
+                    document.getElementById('task').style.visibility = 'visible';
+                    document.getElementById('taskvalor').style.visibility = 'visible';
+                }
+                if(dadosJson.json[3].quests[0]){
+                    questFerramentas = true;
+                    matrizDoMapa[5][7] = 3;
+                    matrizDoMapa[44][10] = 3;
+                }
+                if(!dadosJson.json[3].quests[1]){
+                    quest1 = false;
+                }
+                if(!dadosJson.json[3].quests[2]){
+                    quest2 = false;
+                }
+                if(!dadosJson.json[3].quests[3]){
+                    quest3 = false;
+                }
+
+            }
 
             calculaLevel = function(){
                 let expaux = nivel;
@@ -3143,7 +3282,8 @@ var matrizCriaturasVida =
                     calculaLevel();
 
                     preencherImagens(); 
-                    if(document.getElementById('task').innerHTML == nomeCriatura && taskvalor < 100){
+
+                    if(nomeCriaturaTask == nomeCriatura && taskvalor < 100){
                         taskvalor++; 
                         document.getElementById('taskvalor').innerHTML = taskvalor + "/100";
                     }
@@ -3486,6 +3626,8 @@ var matrizCriaturasVida =
 
                     var dados = new FormData();
 
+                    updateDadosJson();
+
                     if(
                         ultim_x != posicaoDoPersonagemNaMatriz[0] ||
                         ultim_y != posicaoDoPersonagemNaMatriz[1] ||
@@ -3493,7 +3635,8 @@ var matrizCriaturasVida =
                         ultim_outfit != outfit ||
                         ultim_nivel != nivel ||
                         ultim_hp != hp ||
-                        ultim_mensgem != mensagem
+                        ultim_mensgem != mensagem ||
+                        ultim_json != JSON.stringify(dadosJson)
                     ){
                         dados.append('username', username);
                         dados.append('password', password);
@@ -3525,6 +3668,10 @@ var matrizCriaturasVida =
                         if(ultim_mensgem != mensagem){
                             dados.append('mensagem', mensagem);
                             ultim_mensgem = mensagem;
+                        }
+                        if(ultim_json != JSON.stringify(dadosJson)){
+                            dados.append('json', JSON.stringify(dadosJson));
+                            ultim_json = JSON.stringify(dadosJson);
                         }
                     }
 
@@ -4214,28 +4361,42 @@ var matrizCriaturasVida =
                             ){
                                 document.getElementById('tasks').innerHTML = 'Tasks';
                                 document.getElementById('task').innerHTML = document.getElementById('campoDeEscritaInput').value.toLowerCase().split(' ')[0].charAt(0).toUpperCase() + document.getElementById('campoDeEscritaInput').value.toLowerCase().split(' ')[0].slice(1);
+                                switch(document.getElementById('campoDeEscritaInput').value.toLowerCase().split(' ')[0].charAt(0).toUpperCase() + document.getElementById('campoDeEscritaInput').value.toLowerCase().split(' ')[0].slice(1)){
+                                    case "Snake":
+                                        nomeCriaturaTask = "Snake";
+                                        tasknumber = 1;
+                                        break;
+                                    case "Dragon":
+                                        nomeCriaturaTask = "Dragon";
+                                        tasknumber = 2;
+                                        break;
+                                    case "Mammoth":
+                                        nomeCriaturaTask = "Mammoth";
+                                        tasknumber = 3;
+                                        break;
+                                }
                                 taskvalor = 0;
                                 document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
                                 document.getElementById('task').style.visibility = 'visible';
                                 document.getElementById('taskvalor').style.visibility = 'visible';
                             }
                             else if((document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() || document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset task') && document.getElementById('task').style.visibility == 'visible' && taskvalor == 100){
-                                switch(document.getElementById('task').innerHTML.toLowerCase()){
-                                    case 'snake':
+                                switch(tasknumber){
+                                    case 1: //Snake
                                         nivel += 100;
                                         calculaLevel();
                                         mensagensDoChatServerLog += "\n\nVoce ganhou 100 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 100 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
-                                    case 'dragon':
+                                    case 2: //Dragon
                                         nivel += 200;
                                         calculaLevel();
                                         mensagensDoChatServerLog += "\n\nVoce ganhou 200 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 200 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
-                                    case 'mammoth':
+                                    case 3: //Mammoth
                                         nivel += 300;
                                         calculaLevel();
                                         mensagensDoChatServerLog += "\n\nVoce ganhou 300 pontos de experiencia.";
@@ -4247,6 +4408,8 @@ var matrizCriaturasVida =
                                 document.getElementById('taskvalor').style.visibility = 'hidden';
                                 document.getElementById('tasks').innerHTML = 'Tasks no NPC';
                                 document.getElementById('task').innerHTML = "[Monster]";
+                                nomeCriaturaTask = "[Monster]";
+                                tasknumber = 0;
                                 taskvalor = 0;
                                 document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
                             }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset task' && document.getElementById('task').style.visibility == 'visible' && taskvalor < 100){
@@ -4254,6 +4417,8 @@ var matrizCriaturasVida =
                                 document.getElementById('taskvalor').style.visibility = 'hidden';
                                 document.getElementById('tasks').innerHTML = 'Tasks no NPC';
                                 document.getElementById('task').innerHTML = "[Monster]";
+                                nomeCriaturaTask = "[Monster]";
+                                tasknumber = 0;
                                 taskvalor = 0;
                                 document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
                             }else if(
@@ -4517,7 +4682,7 @@ var matrizCriaturasVida =
                 $password = $_POST['password'];
                 $logado = false;
 
-                $sql = "SELECT `username`, `password`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+                $sql = "SELECT `username`, `password`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem`, `json` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
                 
                 $result = $conn->query($sql);
 
@@ -4534,6 +4699,8 @@ var matrizCriaturasVida =
                         hp++;
                     }";
                     echo "outfit = '" . $obj->outfit . "';";
+                    echo "mensagem = '" . $obj->mensagem . "';";
+                    echo "dadosJson = '" . $obj->json . "';";
 
                     $logado = true;
                 }
@@ -4555,6 +4722,8 @@ var matrizCriaturasVida =
             ultim_nivel = nivel;
             ultim_hp = hp;
             ultim_mensgem = mensagem;
+            dadosJson = JSON.parse(dadosJson);
+            ultim_json = JSON.stringify(dadosJson);
 
             document.getElementById('nomePersonagem1').innerHTML = username;
 
@@ -4609,6 +4778,8 @@ var matrizCriaturasVida =
                 document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10;
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
+
+            readDadosJson();
 
         }
 

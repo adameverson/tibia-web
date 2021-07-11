@@ -34,6 +34,7 @@
     $nivel = $_POST['nivel'];
     $hp = $_POST['hp'];
     $mensagem = $_POST['mensagem'];
+    $json = $_POST['json'];
 
     //$nivel_atual = $_POST['nivel'];
     //$nivel_antigo = 1;
@@ -137,6 +138,13 @@
                 $sql .= ", ";
             }
             $sql .= "`mensagem`='" . $mensagem . "'";
+            $first_update = false;
+        }
+        if(isset($_POST['json'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`json`='" . $json . "'";
             $first_update = false;
         }
 
