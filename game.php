@@ -8,6 +8,7 @@
             var funcMoverPersonagem;
             var loop;
             var utilizarIten;
+            var utilizarMagia;
             var dialogo;
             var pressKey;
 
@@ -1693,44 +1694,16 @@
                     Magias
                 </div>
                 <div id='campoDaMagia1' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExura' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
-                        datainicioinatividade = new Date();
-
-                        document.getElementById('campoDeEscritaInput').value = 'exura';
-                        dialogo();
-                        document.getElementById('campoDeEscritaInput').value = '';
-                    }"></img>
+                    <img id='magiaExura' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(0); }"></img>
                 </div>
                 <div id='campoDaMagia2' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExuraGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
-                        datainicioinatividade = new Date();
-                        
-                        document.getElementById('campoDeEscritaInput').value = 'exura gran';
-                        dialogo();
-                        document.getElementById('campoDeEscritaInput').value = '';
-                    }"></img>
+                    <img id='magiaExuraGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(1); }"></img>
                 </div>
                 <div id='campoDaMagia3' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExori' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
-                        datainicioinatividade = new Date();
-
-                        document.getElementById('campoDeEscritaInput').value = 'exori';
-                        dialogo();
-                        document.getElementById('campoDeEscritaInput').value = '';
-                    }"></img>
+                    <img id='magiaExori' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(2); }"></img>
                 </div>
                 <div id='campoDaMagia4' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExoriGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
-                        datainicioinatividade = new Date();
-
-                        document.getElementById('campoDeEscritaInput').value = 'exori gran';
-                        dialogo();
-                        document.getElementById('campoDeEscritaInput').value = '';
-                    }"></img>
+                    <img id='magiaExoriGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(3); }"></img>
                 </div>
             </div>
             <div id='parcel' title='parcel' style='position: absolute; top: 220; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: hidden;'>
@@ -2269,6 +2242,40 @@ var matrizCriaturasVida =
                             setTimeout(function(){
                                 document.getElementById('mensagemDiv2').innerHTML = '';
                             }, 5000);
+                        } 
+                        break;
+                }
+                datainicioinatividade = new Date();
+            }
+
+            utilizarMagia = function(id){
+                switch(id){
+                    case 0:
+                        if(exura){
+                            document.getElementById('campoDeEscritaInput').value = 'exura';
+                            dialogo();
+                            document.getElementById('campoDeEscritaInput').value = '';
+                        } 
+                        break;
+                    case 1:
+                        if(exuraGran){
+                            document.getElementById('campoDeEscritaInput').value = 'exura gran';
+                            dialogo();
+                            document.getElementById('campoDeEscritaInput').value = '';
+                        } 
+                        break;
+                    case 2:
+                        if(exori){
+                            document.getElementById('campoDeEscritaInput').value = 'exori';
+                            dialogo();
+                            document.getElementById('campoDeEscritaInput').value = '';
+                        } 
+                        break;
+                    case 3:
+                        if(exoriGran){
+                            document.getElementById('campoDeEscritaInput').value = 'exori gran';
+                            dialogo();
+                            document.getElementById('campoDeEscritaInput').value = '';
                         } 
                         break;
                 }
