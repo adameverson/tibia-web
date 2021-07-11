@@ -109,7 +109,7 @@
     </head>
     <body style="background-color: #ccffff;">
 
-        <form action="index.php" method="post">
+        <form action="http://magiclevel.ml" method="post">
             Usuário: <input name="usernameRegister" type='text' maxlength="20"></input>
             Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
             <input type="radio" id="male" name="gender" value="M" checked>
@@ -236,5 +236,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.8.52
+    ©2021 magiclevel.ml. All rights reserved. v1.8.54
 </div>
