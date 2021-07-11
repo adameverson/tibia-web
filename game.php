@@ -1830,6 +1830,14 @@
             var regeneracao;
             var calculaLevel;
 
+            var ultim_x;
+            var ultim_y;
+            var ultim_direcao;
+            var ultim_outfit;
+            var ultim_nivel;
+            var ultim_hp;
+            var ultim_mensgem;
+
             var posicaoDoPersonagemNaMatriz = [5,6];
             var direcaoDoPersonagem = 2;
             var nivel = 0;
@@ -3481,6 +3489,28 @@ var matrizCriaturasVida =
                     dados.append('hp', hp);
                     dados.append('mensagem', mensagem);
 
+                    if(
+                        ultim_x != posicaoDoPersonagemNaMatriz[0] ||
+                        ultim_y != posicaoDoPersonagemNaMatriz[1] ||
+                        ultim_direcao != direcaoDoPersonagem ||
+                        ultim_outfit != outfit ||
+                        ultim_nivel != nivel ||
+                        ultim_hp != hp ||
+                        ultim_mensgem != mensagem
+                    ){
+                        dados.append('update', 'S');
+
+                        ultim_x = posicaoDoPersonagemNaMatriz[0];
+                        ultim_y = posicaoDoPersonagemNaMatriz[1];
+                        ultim_direcao = direcaoDoPersonagem;
+                        ultim_outfit = outfit;
+                        ultim_nivel = nivel;
+                        ultim_hp = hp;
+                        ultim_mensgem = mensagem;
+                    }else{
+                        dados.append('update', 'N');
+                    }
+
                     $.ajax({
                         url: 'gameGET.php',
                         method: 'POST',
@@ -4500,6 +4530,14 @@ var matrizCriaturasVida =
                 $conn->close();
                 
             ?>
+
+            ultim_x = posicaoDoPersonagemNaMatriz[0];
+            ultim_y = posicaoDoPersonagemNaMatriz[1];
+            ultim_direcao = direcaoDoPersonagem;
+            ultim_outfit = outfit;
+            ultim_nivel = nivel;
+            ultim_hp = hp;
+            ultim_mensgem = mensagem;
 
             document.getElementById('nomePersonagem1').innerHTML = username;
 
