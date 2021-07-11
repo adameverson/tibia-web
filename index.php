@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="shortcut icon" href="imagens/magic.ico" type="image/x-icon">
         <title>Magic Level</title>
         <meta charset="UTF-8">
         <script data-ad-client="ca-pub-2702297921966374" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -236,5 +237,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.8.54
+    ©2021 magiclevel.ml. All rights reserved. v1.8.55
 </div>

@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="shortcut icon" href="imagens/magic.ico" type="image/x-icon">
         <title>Magic Level</title>
         <meta charset="UTF-8">
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
