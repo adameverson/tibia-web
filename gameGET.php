@@ -27,10 +27,18 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $nivel_atual = $_POST['nivel'];
-    $update = $_POST['update'];
+    $x = $_POST['x'];
+    $y = $_POST['y'];
+    $direcao = $_POST['direcao'];
+    $outfit = $_POST['outfit'];
+    $nivel = $_POST['nivel'];
+    $hp = $_POST['hp'];
+    $mensagem = $_POST['mensagem'];
+
+    //$nivel_atual = $_POST['nivel'];
     //$nivel_antigo = 1;
-    $first = true;
+    $first_select = true;
+    $first_update = true;
     $response_json = "";
 
     $date1  = filemtime('dados/dados1.txt') + 1;
@@ -50,9 +58,9 @@
 
         while($obj = $result->fetch_object()){
 
-            if($first){
+            if($first_select){
                 $response_json .= "{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\",\"mensagem\":\"" . $obj->mensagem . "\"}";
-                $first = false;
+                $first_select = false;
             } else {
                 $response_json .= ",{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\",\"mensagem\":\"" . $obj->mensagem . "\"}";
             }
@@ -81,9 +89,60 @@
 
     if($nivel_atual >= $nivel_antigo){ */
 
-    if($update == 'S'){
+    if(isset($_POST['username']) && isset($_POST['password'])){
 
-        $sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `outfit`='" . $_POST['outfit'] . "', `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . ", `mensagem`='" . $_POST['mensagem'] . "' WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+        $sql = "UPDATE `ottibia` SET ";
+
+        if(isset($_POST['x'])){
+            $sql .= "`x`=" . $x;
+            $first_update = false;
+        }
+        if(isset($_POST['y'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`y`=" . $y;
+            $first_update = false;
+        }
+        if(isset($_POST['direcao'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`direcao`=" . $direcao;
+            $first_update = false;
+        }
+        if(isset($_POST['outfit'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`outfit`='" . $outfit . "'";
+            $first_update = false;
+        }
+        if(isset($_POST['nivel'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`nivel`=" . $nivel;
+            $first_update = false;
+        }
+        if(isset($_POST['hp'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`hp`=" . $hp;
+            $first_update = false;
+        }
+        if(isset($_POST['mensagem'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
+            $sql .= "`mensagem`='" . $mensagem . "'";
+            $first_update = false;
+        }
+
+        $sql .= " WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
+        
+        //$sql = "UPDATE `ottibia` SET `x`=" . $_POST['x'] . ", `y`=" . $_POST['y'] . ", `direcao`=" . $_POST['direcao'] . ", `outfit`='" . $_POST['outfit'] . "', `nivel`=" . $_POST['nivel'] . ", `hp`=" . $_POST['hp'] . ", `mensagem`='" . $_POST['mensagem'] . "' WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
 
         $conn->query($sql);
 

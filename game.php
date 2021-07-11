@@ -1597,10 +1597,10 @@
         </div>
         <div id='menuopcoes' style='position:fixed; top: 210; left: 270; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
             <div style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
-                Addon 1
+                Outfit 1
             </div>
             <div style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';">
-                Addon 2
+                Outfit 2
             </div>
         </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemInativo.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
@@ -3479,16 +3479,6 @@ var matrizCriaturasVida =
 
                     var dados = new FormData();
 
-                    dados.append('username', username);
-                    dados.append('password', password);
-                    dados.append('x', posicaoDoPersonagemNaMatriz[0]);
-                    dados.append('y', posicaoDoPersonagemNaMatriz[1]);
-                    dados.append('direcao', direcaoDoPersonagem);
-                    dados.append('outfit', outfit);
-                    dados.append('nivel', nivel);
-                    dados.append('hp', hp);
-                    dados.append('mensagem', mensagem);
-
                     if(
                         ultim_x != posicaoDoPersonagemNaMatriz[0] ||
                         ultim_y != posicaoDoPersonagemNaMatriz[1] ||
@@ -3498,17 +3488,37 @@ var matrizCriaturasVida =
                         ultim_hp != hp ||
                         ultim_mensgem != mensagem
                     ){
-                        dados.append('update', 'S');
+                        dados.append('username', username);
+                        dados.append('password', password);
 
-                        ultim_x = posicaoDoPersonagemNaMatriz[0];
-                        ultim_y = posicaoDoPersonagemNaMatriz[1];
-                        ultim_direcao = direcaoDoPersonagem;
-                        ultim_outfit = outfit;
-                        ultim_nivel = nivel;
-                        ultim_hp = hp;
-                        ultim_mensgem = mensagem;
-                    }else{
-                        dados.append('update', 'N');
+                        if(ultim_x != posicaoDoPersonagemNaMatriz[0]){
+                            dados.append('x', posicaoDoPersonagemNaMatriz[0]);
+                            ultim_x = posicaoDoPersonagemNaMatriz[0];
+                        }
+                        if(ultim_y != posicaoDoPersonagemNaMatriz[1]){
+                            dados.append('y', posicaoDoPersonagemNaMatriz[1]);
+                            ultim_y = posicaoDoPersonagemNaMatriz[1];
+                        }
+                        if(ultim_direcao != direcaoDoPersonagem){
+                            dados.append('direcao', direcaoDoPersonagem);
+                            ultim_direcao = direcaoDoPersonagem;
+                        }
+                        if(ultim_outfit != outfit){
+                            dados.append('outfit', outfit);
+                            ultim_outfit = outfit;
+                        }
+                        if(ultim_nivel != nivel){
+                            dados.append('nivel', nivel);
+                            ultim_nivel = nivel;
+                        }
+                        if(ultim_hp != hp){
+                            dados.append('hp', hp);
+                            ultim_hp = hp;
+                        }
+                        if(ultim_mensgem != mensagem){
+                            dados.append('mensagem', mensagem);
+                            ultim_mensgem = mensagem;
+                        }
                     }
 
                     $.ajax({
