@@ -3518,7 +3518,8 @@ var matrizCriaturasVida =
                                 matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
                                 matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
                                 matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
-                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7
+                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7 &&
+                                dadosResposta.players[i].username != username
                             ){
                                 if(dadosResposta.players[i].outfit == "M"){
                                     switch(dadosResposta.players[i].direcao){

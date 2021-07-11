@@ -1,5 +1,20 @@
 <?php
 
+    #file_get_contents()
+    #file_put_contents()
+
+    /*
+    $dados = file_get_contents('dados/dados1.txt');
+    $dados_decode = json_decode($dados);
+
+    echo "nivel = " . $dados_decode->{'nivel'} . ";";
+    echo "hp = " . $dados_decode->{'hp'} . ";";
+    
+    echo "run_ajax();";
+
+    file_put_contents('dados/dados1.txt', json_encode(array( 'nivel' => intval($_POST['nivel']), 'hp' => intval($_POST['hp']) )) );
+    */
+
     require_once("dados/config.php");
 
     // Create connection
@@ -13,29 +28,45 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     $nivel_atual = $_POST['nivel'];
-    $nivel_antigo = 1;
+    //$nivel_antigo = 1;
     $first = true;
+    $response_json = "";
 
-    $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `username`<>'" . $username . "'";
-    
-    $result = $conn->query($sql);
+    $date1  = filemtime('dados/dados1.txt') + 1;
+    $date2 = time();
+    $result = $date1 > $date2;
 
-    echo "{\"players\":[";
+    if($result){
+        echo file_get_contents('dados/dados1.txt');
+    }else{
 
-    while($obj = $result->fetch_object()){
+        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia`";
+        //$sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `username`<>'" . $username . "'";
+        
+        $result = $conn->query($sql);
 
-        if($first){
-            echo "{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\",\"mensagem\":\"" . $obj->mensagem . "\"}";
-            $first = false;
-        } else {
-            echo ",{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\",\"mensagem\":\"" . $obj->mensagem . "\"}";
+        $response_json = "{\"players\":[";
+
+        while($obj = $result->fetch_object()){
+
+            if($first){
+                $response_json .= "{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\",\"mensagem\":\"" . $obj->mensagem . "\"}";
+                $first = false;
+            } else {
+                $response_json .= ",{\"username\":\"" . $obj->username . "\",\"x\":" . $obj->x . ",\"y\":" . $obj->y . ",\"direcao\":" . $obj->direcao . ",\"nivel\":" . $obj->nivel . ",\"hp\":" . $obj->hp . ",\"outfit\":\"" . $obj->outfit . "\",\"mensagem\":\"" . $obj->mensagem . "\"}";
+            }
+
         }
 
+        $response_json .= "]}";
+
+        $result->close();
+
+        echo $response_json;
+
+        file_put_contents('dados/dados1.txt', $response_json );
+
     }
-
-    echo "]}";
-
-    $result->close();
 
     /* $sql = "SELECT `nivel` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
                 
