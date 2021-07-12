@@ -106,6 +106,20 @@
                 border-radius: 12px;
                 font-family: "Lucida Console", "Courier New", monospace;
             }
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px; 
+                margin-bottom: 10px; 
+            }
+            .cartao {
+                border: 2px solid white;
+                padding: 10px;
+                border-radius: 12px;
+                font-family: "Lucida Console", "Courier New", monospace;
+                margin-bottom: 50px; 
+            }
         </style>
     </head>
     <body style="background-color: #ccffff;">
@@ -231,11 +245,34 @@
     
 ?>
 
+<div title="game" alt="game" class="cartao" style="width: document.getElementById('cartaoDeVisita').style.width; height: document.getElementById('cartaoDeVisita').style.height;">
+História:
+<br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)
+<br>- Ei alguém criou um teleporte para pular esta fase!
+<br>- «silêncio!»
+    <img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center">
+Novidades:
+
+<br>- A magia exura é a base de uma longa jornada;
+
+<br>- A magia exura gran é para os mais experientes;
+
+<br>- A magia exori é a nova sensação;
+
+<br>- O historiador está em busca de novos dados...
+
+<br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!
+
+<br>- A magia exori gran chegou para ajudar nas suas tasks;
+
+<br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.
+</div>
+
 <audio id="myAudio" preload autoplay loop>
   <source src="musicas/ToPTrack01.mp3" type="audio/mpeg">
   Your browser does not support the audio tag.
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.8.55
+    ©2021 magiclevel.ml. All rights reserved. v1.8.56
 </div>
