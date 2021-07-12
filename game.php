@@ -2774,6 +2774,14 @@ var matrizCriaturasVida =
                 ){
                     document.getElementById(baseCampo).alt = "margem de água";
                     document.getElementById(baseCampo).title = "margem de água";
+                }else if(
+                    matrizDoMapa[i][j] == 41 || 
+                    matrizDoMapa[i][j] == 42 || 
+                    matrizDoMapa[i][j] == 43 || 
+                    matrizDoMapa[i][j] == 44 
+                ){
+                    document.getElementById(baseCampo).alt = "teleport";
+                    document.getElementById(baseCampo).title = "teleport";
                 }else{
                     document.getElementById(barraHpCampo).style.width = 50;
                     if(document.getElementById("mensagemDivCampo" + campo).innerHTML != ""){

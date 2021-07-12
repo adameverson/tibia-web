@@ -274,5 +274,5 @@ Novidades:
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.8.56
+    ©2021 magiclevel.ml. All rights reserved. v1.8.57
 </div>
