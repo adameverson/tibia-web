@@ -6,7 +6,7 @@
 
 # DEPLOY
 
-http://magiclevel.ml/SO/test/jogos/login.php
+http://magiclevel.ml
 
 # FEATURES
 
