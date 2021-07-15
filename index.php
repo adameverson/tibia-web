@@ -5,6 +5,35 @@
         <meta charset="UTF-8">
         <script data-ad-client="ca-pub-2702297921966374" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-family: "Lucida Console", "Courier New", monospace;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+            .active {
+                background-color: #04AA6D;
+            }
+
             table, th, td {
                 border: 1px solid white;
                 border-collapse: collapse;
@@ -105,6 +134,7 @@
                 padding: 10px;
                 border-radius: 12px;
                 font-family: "Lucida Console", "Courier New", monospace;
+                margin: 10px;
             }
             .center {
                 display: block;
@@ -121,8 +151,72 @@
                 margin-bottom: 50px; 
             }
         </style>
+        <script>
+            function menuCheck(id){
+                document.getElementById('op1').classList.remove('active');
+                document.getElementById('op2').classList.remove('active');
+                document.getElementById('op3').classList.remove('active');
+                document.getElementById('op4').classList.remove('active');
+                document.getElementById('op5').classList.remove('active');
+                document.getElementById('op6').classList.remove('active');
+                document.getElementById('op7').classList.remove('active');
+                document.getElementById('op8').classList.remove('active');
+                document.getElementById('op9').classList.remove('active');
+                document.getElementById('op10').classList.remove('active');
+                document.getElementById('op11').classList.remove('active');
+
+                document.getElementById(id).classList.add('active');
+            }
+            function home(){
+                document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br>- Ei alguém criou um teleporte para pular esta fase!<br>- «silêncio!»<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center">Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br>- A magia exura gran é para os mais experientes;<br>- A magia exori é a nova sensação;<br>- O historiador está em busca de novos dados...<br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br>- A magia exori gran chegou para ajudar nas suas tasks;<br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.';
+            }
+            function news(){
+                document.getElementById("cartaoId").innerHTML = 'Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br><br>- A magia exura gran é para os mais experientes;<br><br>- A magia exori é a nova sensação;<br><br>- O historiador está em busca de novos dados...<br><br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br><br>- A magia exori gran chegou para ajudar nas suas tasks;<br><br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.';
+            }
+            function story(){
+                document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br><br>- Ei alguém criou um teleporte para pular esta fase!<br><br>- «silêncio!»';
+            }
+            function photos(){
+                document.getElementById("cartaoId").innerHTML = '<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
+            }
+            function quests(){
+                document.getElementById("cartaoId").innerHTML = 'Quests:<br><br>- Quest 1: Equipamentos Iniciais (Poção HP, Corda e Pá);<br><br>- Quest 2: Snake man (100xp);<br><br>- Quest 3: Dragon man (200xp);<br><br>- Quest 4: Mammoth man (300xp).<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center">';
+            }
+            function tasks(){
+                document.getElementById("cartaoId").innerHTML = 'Tasks:<br><br>- Task 1: Snake Task [0/100] (100xp);<br><br>- Task 2: Dragon Task [0/100] (200xp);<br><br>- Task 3: Mammoth Task [0/100] (300xp).';
+            }
+            function monsters(){
+                document.getElementById("cartaoId").innerHTML = 'Monsters:<br><br>- Snake<br><br><img id="cartaoDeVisita" src="imagens/imagemSnake.png" title="game" alt="game" class=""><br><br>XP: 1<br>Vida: 51<br>Ataque: 1~50<br><br>- Dragon<br><br><img id="cartaoDeVisita" src="imagens/imagemDragon.png" title="game" alt="game" class=""><br><br>XP: 2<br>Vida: 101<br>Ataque: 50~150<br><br>- Mammoth<br><br><img id="cartaoDeVisita" src="imagens/imagemMammoth.png" title="game" alt="game" class=""><br><br>XP: 3<br>Vida: 201<br>Ataque: 150~450';
+            }
+            function spells(){
+                document.getElementById("cartaoId").innerHTML = 'Spells:<br><br>- Exura<br>Cura: ((80)+(level*2))~((80)+(level*4))<br><br>- Exura Gran<br>Cura: ((120)+(level*3))~((120)+(level*6))<br><br>- Exori<br>Hit: Normal<br>Descrição: Ataca todos ao redor.<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center">- Exori Gran<br>Hit: Normal<br>Descrição: Ataca todos da tela.<br><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
+            }
+            function items(){
+                document.getElementById("cartaoId").innerHTML = 'Items:<br><br>- Poção HP<br>Cura: ((40)+(level))~((40)+(level*2))<br><br><img id="cartaoDeVisita" src="imagens/imagemPocaoHP.png" title="game" alt="game"><br><br>- Corda<br>Descrição: Utilizada para subir de um andar para o outro.<br><br><img id="cartaoDeVisita" src="imagens/imagemCorda.png" title="game" alt="game"><br><br>- Pá<br>Descrição: Utilizada para cavar um buraco fechado para descer um andar.<br><br><img id="cartaoDeVisita" src="imagens/imagemPa.png" title="game" alt="game">';
+            }
+            function fields(){
+                document.getElementById("cartaoId").innerHTML = 'Fields:<br><br>- Teleport<br>Descrição: Utilizado para se mover longas distâncias.<br><br><img id="cartaoDeVisita" src="imagens/imagemTeleport1.png" title="game" alt="game"><br><br>- Buraco Aberto<br>Descrição: Leva para o andar de baixo ao andar sobre.<br><br><img id="cartaoDeVisita" src="imagens/imagemBuracoAberto.png" title="game" alt="game"><br><br>- Buraco Fechado<br>Descrição: Pode ser aberto com uma pá, e leva para o andar de baixo.<br><br><img id="cartaoDeVisita" src="imagens/imagemBuracoFechado.png" title="game" alt="game"><br><br>- Chão com terra<br>Descrição: A terra vem do andar de cima, é possível usar a corda estando neste terreno para subir um andar.<br><br><img id="cartaoDeVisita" src="imagens/imagemFundoBuraco.png" title="game" alt="game"><br><br>- Caixa<br>Descrição: Utilizada para segurar os Monstros, mas você pode subir ou descer e caminhar sobre elas.<br><br><img id="cartaoDeVisita" src="imagens/imagemParcel.png" title="game" alt="game">';
+            }
+            function mechanics(){
+                document.getElementById("cartaoId").innerHTML = 'Mecânicas:<br><br>- Os personagens a cada level ganham 40 pontos de vida ou hitpoints, o seu ataque mínimo aumenta em 1(um), e o seu ataque máximo aumenta em 2(dois), os valores de regeneração natural do seu personagem são equivalentes ao do seu ataque;<br><br>- Os ataques recebidos ou realizados aparecem sobre o personagem ou criatura na cor amarela, e as curas na cor verde.';
+            }
+        </script>
     </head>
     <body style="background-color: #ccffff;">
+
+        <ul>
+            <li><a id="op1" class="active" href="#home" onclick="menuCheck('op1'); home();">Home</a></li>
+            <li><a id="op2" href="#news" onclick="menuCheck('op2'); news();">News</a></li>
+            <li><a id="op3" href="#story" onclick="menuCheck('op3'); story();">Story</a></li>
+            <li><a id="op4" href="#photos" onclick="menuCheck('op4'); photos();">Photos</a></li>
+            <li><a id="op5" href="#quests" onclick="menuCheck('op5'); quests();">Quests</a></li>
+            <li><a id="op6" href="#tasks" onclick="menuCheck('op6'); tasks();">Tasks</a></li>
+            <li><a id="op7" href="#monsters" onclick="menuCheck('op7'); monsters();">Monsters</a></li>
+            <li><a id="op8" href="#spells" onclick="menuCheck('op8'); spells();">Spells</a></li>
+            <li><a id="op9" href="#items" onclick="menuCheck('op9'); items();">Items</a></li>
+            <li><a id="op10" href="#fields" onclick="menuCheck('op10'); fields();">Fields</a></li>
+            <li><a id="op11" href="#mechanics" onclick="menuCheck('op11'); mechanics();">Mechanics</a></li>
+        </ul>
 
         <form action="http://magiclevel.ml" method="post">
             Usuário: <input name="usernameRegister" type='text' maxlength="20"></input>
@@ -245,27 +339,27 @@
     
 ?>
 
-<div title="game" alt="game" class="cartao" style="width: document.getElementById('cartaoDeVisita').style.width; height: document.getElementById('cartaoDeVisita').style.height;">
-História:
-<br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)
-<br>- Ei alguém criou um teleporte para pular esta fase!
-<br>- «silêncio!»
-    <img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center">
-Novidades:
+<div id="cartaoId" class="cartao" title="game" alt="game">
+    História:
+    <br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)
+    <br>- Ei alguém criou um teleporte para pular esta fase!
+    <br>- «silêncio!»
+        <img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center">
+    Novidades:
 
-<br>- A magia exura é a base de uma longa jornada;
+    <br><br>- A magia exura é a base de uma longa jornada;
 
-<br>- A magia exura gran é para os mais experientes;
+    <br>- A magia exura gran é para os mais experientes;
 
-<br>- A magia exori é a nova sensação;
+    <br>- A magia exori é a nova sensação;
 
-<br>- O historiador está em busca de novos dados...
+    <br>- O historiador está em busca de novos dados...
 
-<br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!
+    <br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!
 
-<br>- A magia exori gran chegou para ajudar nas suas tasks;
+    <br>- A magia exori gran chegou para ajudar nas suas tasks;
 
-<br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.
+    <br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.
 </div>
 
 <audio id="myAudio" preload autoplay loop>
@@ -274,5 +368,5 @@ Novidades:
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.8.57
+    ©2021 magiclevel.ml. All rights reserved. v1.9.59
 </div>

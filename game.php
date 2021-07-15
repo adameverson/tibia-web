@@ -1824,6 +1824,7 @@
             var dataAjax = new Date();
             var dataLoop = new Date();
             var dataMove = new Date();
+            var dataMagia = new Date();
 
             var hpmax = 176;
             var hp = 176;
@@ -2139,8 +2140,8 @@ var matrizCriaturasVida =
                 if(dadosJson.json[0].itens[0]){
                     mochila[0] = 'PocaoHP';
                     document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png';
-                    document.getElementById('itemCampoDaMochila1').alt = 'pocao hp';
-                    document.getElementById('itemCampoDaMochila1').title = 'pocao hp';
+                    document.getElementById('itemCampoDaMochila1').alt = 'poção hp';
+                    document.getElementById('itemCampoDaMochila1').title = 'poção hp';
                 }
                 if(dadosJson.json[0].itens[1]){
                     mochila[1] = 'Corda';
@@ -2151,8 +2152,8 @@ var matrizCriaturasVida =
                 if(dadosJson.json[0].itens[2]){
                     mochila[2] = 'Pa';
                     document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png';
-                    document.getElementById('itemCampoDaMochila3').alt = 'pa';
-                    document.getElementById('itemCampoDaMochila3').title = 'pa';
+                    document.getElementById('itemCampoDaMochila3').alt = 'pá';
+                    document.getElementById('itemCampoDaMochila3').title = 'pá';
                 }
                 if(dadosJson.json[1].magias[0]){
                     exura = true;
@@ -3778,9 +3779,9 @@ var matrizCriaturasVida =
                 let hitTotal = 0;
                 personagemMorto = false;
 
-                hitTotal += animacaoMonster(8,9,10,1,50); //Snake(normal,atacando,morto,hit)
-                hitTotal += animacaoMonster(16,17,18,50,150); //Dragon(normal,atacando,morto,hit)
-                hitTotal += animacaoMonster(19,20,21,150,450); //Mammoth(normal,atacando,morto,hit)
+                hitTotal += animacaoMonster(8,9,10,1,50); //Snake(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(16,17,18,50,150); //Dragon(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(19,20,21,150,450); //Mammoth(normal,atacando,morto,hitmin,hitmax)
 
                 if(personagemMorto){
                     let perdaDeNivel = (nivel * 0.01) | 0;
@@ -4026,7 +4027,11 @@ var matrizCriaturasVida =
 
                         mensagem = document.getElementById('campoDeEscritaInput').value;
                         document.getElementById('mensagemDiv3').innerHTML = username + " says: " + mensagem;
-                        setTimeout(function(){mensagem = ""; document.getElementById('mensagemDiv3').innerHTML = "";}, 5000);
+                        setTimeout(function(){
+                            mensagem = ""; document.getElementById('mensagemDiv3').innerHTML = "";
+                            document.getElementById('mensagemDiv3').style.textAlign = 'left';
+                            document.getElementById('mensagemDiv3').style.left = 245;
+                        }, 5000);
                     }
                     document.getElementById('campoDeEscritaInput').value = "";
                     document.getElementById('textareaChat').value = mensagensDoChatDefault;
@@ -4586,77 +4591,125 @@ var matrizCriaturasVida =
                     document.getElementById('nomeDoChatNpc').style.color = 'white';
                 }
                 if(conjurarExura){
-                    document.getElementById('fala1').src = 'imagens/imagemFalaExura.png';
-                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+
+                    if(dataMagia <= new Date()){
+                        dataMagia = new Date();
+                        dataMagia.setMilliseconds(dataMagia.getMilliseconds() + 1000);
+
+                        document.getElementById('fala1').src = 'imagens/imagemFalaExura.png';
+                        setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+
+                        regeneracao(2, "curou");
+
+                    }else{
+                        document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
+                        setTimeout(function(){
+                            document.getElementById('mensagemDiv2').innerHTML = '';
+                        }, 5000);
+                    }
+                    
                 }
                 if(conjurarExuraGran){
-                    document.getElementById('fala1').src = 'imagens/imagemFalaExuraGran.png';
-                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+
+                    if(dataMagia <= new Date()){
+                        dataMagia = new Date();
+                        dataMagia.setMilliseconds(dataMagia.getMilliseconds() + 1000);
+
+                        document.getElementById('fala1').src = 'imagens/imagemFalaExuraGran.png';
+                        setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+
+                        regeneracao(3, "curou");
+
+                    }else{
+                        document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
+                        setTimeout(function(){
+                            document.getElementById('mensagemDiv2').innerHTML = '';
+                        }, 5000);
+                    }
+
                 }
                 if(conjurarExori){
-                    document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
-                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
-                }
-                if(conjurarExoriGran){
-                    document.getElementById('fala1').src = 'imagens/imagemFalaExoriGran.png';
-                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
-                }
-                if(conjurarExura){
-                    regeneracao(2, "curou");
-                }
-                if(conjurarExuraGran){
-                    regeneracao(3, "curou");
-                }
-                if(conjurarExori){
-                    if( 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20
-                    ){
-                        moverCima();
+
+                    if(dataMagia <= new Date()){
+                        dataMagia = new Date();
+                        dataMagia.setMilliseconds(dataMagia.getMilliseconds() + 1000);
+
+                        document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
+                        setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                        
+                        if( 
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20
+                        ){
+                            moverCima();
+                        }
+                        if( 
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20
+                        ){
+                            moverDireita();
+                        }
+                        if( 
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20
+                        ){
+                            moverBaixo();
+                        }
+                        if( 
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 ||
+                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20
+                        ){
+                            moverEsquerda();
+                        }
+
+                    }else{
+                        document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
+                        setTimeout(function(){
+                            document.getElementById('mensagemDiv2').innerHTML = '';
+                        }, 5000);
                     }
-                    if( 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20
-                    ){
-                        moverDireita();
-                    }
-                    if( 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20
-                    ){
-                        moverBaixo();
-                    }
-                    if( 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 ||
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20
-                    ){
-                        moverEsquerda();
-                    }
+
                 }
                 if(conjurarExoriGran){
                     let i = 1;
-                    for(let j = -3; j < 4; j++){
-                        for(let k = -4; k < 5; k++){
-                            ataqueCampo("Campo"+i,j,k);
-                            i++;
+
+                    if(dataMagia <= new Date()){
+                        dataMagia = new Date();
+                        dataMagia.setMilliseconds(dataMagia.getMilliseconds() + 1000);
+
+                        document.getElementById('fala1').src = 'imagens/imagemFalaExoriGran.png';
+                        setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+
+                        for(let j = -3; j < 4; j++){
+                            for(let k = -4; k < 5; k++){
+                                ataqueCampo("Campo"+i,j,k);
+                                i++;
+                            }
                         }
+                        
+                    }else{
+                        document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
+                        setTimeout(function(){
+                            document.getElementById('mensagemDiv2').innerHTML = '';
+                        }, 5000);
                     }
+
                 }
             }
 
@@ -4808,6 +4861,10 @@ var matrizCriaturasVida =
                 nivelDeSolo++;
                 document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10;
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
+            }
+
+            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25){
+                posicaoDoPersonagemNaMatriz = [5,6];
             }
 
             if(dadosJson){
