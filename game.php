@@ -3193,7 +3193,7 @@ var matrizCriaturasVida =
                     matrizDoMapa[i][j] == 25
                 ){
                     for(let k = 0; k < dadosResposta.players.length; k++){
-                        if(dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
+                        if(dadosResposta.players[k].username != username && dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
 
                             let expaux = dadosResposta.players[k].nivel;
                             let lvl=0;
