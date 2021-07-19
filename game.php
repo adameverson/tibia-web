@@ -1622,15 +1622,15 @@
 
         <div id='conversaLogout' title='logout' style='position: fixed; top: 0; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                Voce tem certeza que deseja sair?
+                Você tem certeza que deseja sair?
             </div>
             <form action="http://magiclevel.ml">
                 <button type="submit" id='logoutOpcao1' title='Sim' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                     Sim
                 </button>
             </form>
-            <button type="submit" id='logoutOpcao2' title='Nao' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ document.getElementById('logoutPergunta1').style.visibility = 'hidden'; document.getElementById('logoutOpcao1').style.visibility = 'hidden'; document.getElementById('logoutOpcao2').style.visibility = 'hidden'; datainicioinatividade = new Date();}">
-                Nao
+            <button type="submit" id='logoutOpcao2' title='Não' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ document.getElementById('logoutPergunta1').style.visibility = 'hidden'; document.getElementById('logoutOpcao1').style.visibility = 'hidden'; document.getElementById('logoutOpcao2').style.visibility = 'hidden'; datainicioinatividade = new Date();}">
+                Não
             </button>
         </div>
 
@@ -1758,7 +1758,7 @@
                     <textarea id="textareaChat" name="textareaChat" title='default' rows="23" cols="22" style="resize: none;" disabled></textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 176; height: 22; background-color: #ccffff;'>
-                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0.6;" autofocus></input>
+                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0.6;"></input>
                 </div>
             </div>
         </div>
@@ -1782,6 +1782,7 @@
 
         function main(){
 
+            var moverCriaturas;
             var auxPreencherImagensCriaturas;
             var auxPreencherImagens;
             var preencherImagens;
@@ -1825,6 +1826,9 @@
             var dataLoop = new Date();
             var dataMove = new Date();
             var dataMagia = new Date();
+            var dataMoverCriaturas = new Date();
+            var dataDiv1 = new Date();
+            var dataDiv2 = new Date();
 
             var hpmax = 176;
             var hp = 176;
@@ -1843,9 +1847,10 @@
             var taskvalor = 0;
 
             var questFerramentas = false;
-            var quest1 = true;
-            var quest2 = true;
-            var quest3 = true;
+            var quest1 = 0;
+            var quest2 = 0;
+            var quest3 = 0;
+            var quest4 = 0;
 
             var username = "";
             var password = "";
@@ -1896,23 +1901,31 @@ var matrizDoMapa =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7, 7, 7, 7,16, 1, 7, 7, 7, 7, 7, 8, 1, 7, 7, 7, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 2, 7, 7, 7, 7,16, 1, 2, 7, 7, 7, 7, 8, 1, 2, 7, 7, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
 [26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,34,34,34, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7, 8, 7, 2,36,26,26,26,26],
-[26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0, 0, 0, 7, 7, 8, 1, 7, 7, 7, 7, 7, 7,19, 1, 7, 7, 7, 7,16, 1, 7, 7, 7, 7, 1,36,26,26,26,26],
+[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
+[26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 7, 7,34,34,34, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7, 8, 7, 2,36,26,26,26,26],
+[26,26,26,26,40,19,19,19, 1,45,45,45, 1,16,16,16,36,26,40, 0, 0, 0, 0, 7, 7, 8, 1, 2, 7, 7, 7, 7, 7,19, 1, 2, 7, 7, 7,16, 1, 2, 7, 7, 7, 1,36,26,26,26,26],
 [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,36,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34, 0, 0, 0, 0,36,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38, 0, 0,38, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,38,38,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,26,26,26,26,26, 2, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26,26,38, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 2,36,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
@@ -1964,23 +1977,31 @@ var matrizDoMapaOriginal =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7, 7, 7, 7,16, 1, 7, 7, 7, 7, 7, 8, 1, 7, 7, 7, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 2, 7, 7, 7, 7,16, 1, 2, 7, 7, 7, 7, 8, 1, 2, 7, 7, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
 [26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,34,34,34, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40,19, 7,19, 7,19, 7,16, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7, 8, 7, 2,36,26,26,26,26],
-[26,26,26,26,40, 1,19, 1, 1, 1,19, 1, 1, 1,16, 1,36,26,40, 0, 0, 0, 0, 7, 7, 8, 1, 7, 7, 7, 7, 7, 7,19, 1, 7, 7, 7, 7,16, 1, 7, 7, 7, 7, 1,36,26,26,26,26],
+[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
+[26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 7, 7,34,34,34, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7, 8, 7, 2,36,26,26,26,26],
+[26,26,26,26,40,19,19,19, 1,45,45,45, 1,16,16,16,36,26,40, 0, 0, 0, 0, 7, 7, 8, 1, 2, 7, 7, 7, 7, 7,19, 1, 2, 7, 7, 7,16, 1, 2, 7, 7, 7, 1,36,26,26,26,26],
 [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,36,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34, 0, 0, 0, 0,36,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38, 0, 0,38, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,38,38,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,26,26,26,26,26, 2, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26,26,38, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 2,36,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
@@ -2032,23 +2053,31 @@ var matrizCriaturasVida =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7, 7, 7, 7,50, 1, 7, 7, 7, 7, 7,50, 1, 7, 7, 7, 7,50, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 2, 7, 7, 7, 7,50, 1, 2, 7, 7, 7, 7,50, 1, 2, 7, 7, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
 [26,26,26,26,40,50, 7, 0, 0, 0, 0, 0, 0, 0, 7,50,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
-[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,34,34,34, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
+[26,26,26,26,40,50, 7,50, 7,50, 7,50, 7,50, 7,50,36,26,40, 7, 7,34,34,34, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40,50, 7,50, 7,50, 7,50, 7,50, 7,50,36,26,40, 0, 0, 0, 0, 7, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
-[26,26,26,26,40, 1,50, 1, 1, 1,50, 1, 1, 1,50, 1,36,26,40, 0, 0, 0, 0, 7, 7,50, 1, 7, 7, 7, 7, 7, 7,50, 1, 7, 7, 7, 7,50, 1, 7, 7, 7, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,50,50,50, 1,50,50,50, 1,50,50,50,36,26,40, 0, 0, 0, 0, 7, 7,50, 1, 2, 7, 7, 7, 7, 7,50, 1, 2, 7, 7, 7,50, 1, 2, 7, 7, 7, 1,36,26,26,26,26],
 [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,36,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34, 0, 0, 0, 0,36,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0,50, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,39,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38, 0, 0,38, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0,50, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,38,38,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26, 0, 0,50, 0, 0, 0, 0, 0, 0, 0,50, 0, 0,50, 0, 0,36,26,26,26,26],
+[26,26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,26,26,26,26,26, 2, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26,26,38, 0, 0,50, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 2,36,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
@@ -2072,18 +2101,38 @@ var matrizCriaturasVida =
             var posicaoColunaDireita = 0;
             var posicaoLinhaBaixo = 0;
             var posicaoColunaBaixo = 0;
+            var posicaoLinhaCimaEsquerda = 0;
+            var posicaoColunaCimaEsquerda = 0;
+            var posicaoLinhaCimaDireita = 0;
+            var posicaoColunaCimaDireita = 0;
+            var posicaoLinhaBaixoDireita = 0;
+            var posicaoColunaBaixoDireita = 0;
+            var posicaoLinhaBaixoEsquerda = 0;
+            var posicaoColunaBaixoEsquerda = 0;
             var esperaRessCima = 3;
             var esperaRessEsquerda = 3;
             var esperaRessDireita = 3;
             var esperaRessBaixo = 3;
+            var esperaRessCimaEsquerda = 3;
+            var esperaRessCimaDireita = 3;
+            var esperaRessBaixoDireita = 3;
+            var esperaRessBaixoEsquerda = 3;
             var esperaRessCimaContador = 0;
             var esperaRessEsquerdaContador = 0;
             var esperaRessDireitaContador = 0;
             var esperaRessBaixoContador = 0;
+            var esperaRessCimaEsquerdaContador = 0;
+            var esperaRessCimaDireitaContador = 0;
+            var esperaRessBaixoDireitaContador = 0;
+            var esperaRessBaixoEsquerdaContador = 0;
             var flagCima = false;
             var flagEsquerda = false;
             var flagDireita = false;
             var flagBaixo = false;
+            var flagCimaEsquerda = false;
+            var flagCimaDireita = false;
+            var flagBaixoDireita = false;
+            var flagBaixoEsquerda = false;
             var esperaGeral = 100;
 
             //Variaveis JSON
@@ -2091,96 +2140,106 @@ var matrizCriaturasVida =
 
             updateDadosJson = function(){
                 
+                dadosJson.json[0].itens = "";
                 if(mochila[0] == 'PocaoHP'){
-                    dadosJson.json[0].itens[0] = 1;
+                    dadosJson.json[0].itens += "1";
+                }else{
+                    dadosJson.json[0].itens += "0";
                 }
                 if(mochila[1] == 'Corda'){
-                    dadosJson.json[0].itens[1] = 1;
+                    dadosJson.json[0].itens += ",1";
+                }else{
+                    dadosJson.json[0].itens += ",0";
                 }
                 if(mochila[2] == 'Pa'){
-                    dadosJson.json[0].itens[2] = 1;
+                    dadosJson.json[0].itens += ",1";
+                }else{
+                    dadosJson.json[0].itens += ",0";
                 }
+                dadosJson.json[1].magias = "";
                 if(exura){
-                    dadosJson.json[1].magias[0] = 1;
+                    dadosJson.json[1].magias += "1";
+                }else{
+                    dadosJson.json[1].magias += "0";
                 }
                 if(exuraGran){
-                    dadosJson.json[1].magias[1] = 1;
+                    dadosJson.json[1].magias += ",1";
+                }else{
+                    dadosJson.json[1].magias += ",0";
                 }
                 if(exori){
-                    dadosJson.json[1].magias[2] = 1;
+                    dadosJson.json[1].magias += ",1";
+                }else{
+                    dadosJson.json[1].magias += ",0";
                 }
                 if(exoriGran){
-                    dadosJson.json[1].magias[3] = 1;
+                    dadosJson.json[1].magias += ",1";
+                }else{
+                    dadosJson.json[1].magias += ",0";
                 }
-                dadosJson.json[2].tasks[0] = tasknumber;
-                dadosJson.json[2].tasks[1] = taskvalor;
+                dadosJson.json[2].tasks = "";
+                dadosJson.json[2].tasks += tasknumber.toString() + "," + taskvalor.toString();
+                dadosJson.json[3].quests = "";
                 if(questFerramentas){
-                    dadosJson.json[3].quests[0] = 1;
-                }
-                if(quest1){
-                    dadosJson.json[3].quests[1] = 1;
+                    dadosJson.json[3].quests += "1";
                 }else{
-                    dadosJson.json[3].quests[1] = 0;
+                    dadosJson.json[3].quests += "0";
                 }
-                if(quest2){
-                    dadosJson.json[3].quests[2] = 1;
-                }else{
-                    dadosJson.json[3].quests[2] = 0;
-                }
-                if(quest3){
-                    dadosJson.json[3].quests[3] = 1;
-                }else{
-                    dadosJson.json[3].quests[3] = 0;
-                }
+                dadosJson.json[3].quests += "," + quest1.toString() + "," + quest2.toString() + "," + quest3.toString() + "," + quest4.toString();
 
             }
 
             readDadosJson = function(){
+
+                let strDados = "";
                 
-                if(dadosJson.json[0].itens[0]){
+                strDados = dadosJson.json[0].itens.split(',');
+                if(strDados.length > 0 && parseInt(strDados[0])){
                     mochila[0] = 'PocaoHP';
                     document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png';
                     document.getElementById('itemCampoDaMochila1').alt = 'poção hp';
                     document.getElementById('itemCampoDaMochila1').title = 'poção hp';
                 }
-                if(dadosJson.json[0].itens[1]){
+                if(strDados.length > 1 && parseInt(strDados[1])){
                     mochila[1] = 'Corda';
                     document.getElementById('itemCampoDaMochila2').src = 'imagens/imagemCorda.png';
                     document.getElementById('itemCampoDaMochila2').alt = 'corda';
                     document.getElementById('itemCampoDaMochila2').title = 'corda';
                 }
-                if(dadosJson.json[0].itens[2]){
+                if(strDados.length > 2 && parseInt(strDados[2])){
                     mochila[2] = 'Pa';
                     document.getElementById('itemCampoDaMochila3').src = 'imagens/imagemPa.png';
                     document.getElementById('itemCampoDaMochila3').alt = 'pá';
                     document.getElementById('itemCampoDaMochila3').title = 'pá';
                 }
-                if(dadosJson.json[1].magias[0]){
+                strDados = dadosJson.json[1].magias.split(',');
+                if(strDados.length > 0 && parseInt(strDados[0])){
                     exura = true;
                     document.getElementById('magiaExura').src = 'imagens/imagemMagiaExura.png';
                     document.getElementById('magiaExura').alt = 'exura';
                     document.getElementById('magiaExura').title = 'exura';
                 }
-                if(dadosJson.json[1].magias[1]){
+                if(strDados.length > 1 && parseInt(strDados[1])){
                     exuraGran = true;
                     document.getElementById('magiaExuraGran').src = 'imagens/imagemMagiaExuraGran.png';
                     document.getElementById('magiaExuraGran').alt = 'exura gran';
                     document.getElementById('magiaExuraGran').title = 'exura gran';
                 }
-                if(dadosJson.json[1].magias[2]){
+                if(strDados.length > 2 && parseInt(strDados[2])){
                     exori = true;
                     document.getElementById('magiaExori').src = 'imagens/imagemMagiaExori.png';
                     document.getElementById('magiaExori').alt = 'exori';
                     document.getElementById('magiaExori').title = 'exori';
                 }
-                if(dadosJson.json[1].magias[3]){
+                if(strDados.length > 3 && parseInt(strDados[3])){
                     exoriGran = true;
                     document.getElementById('magiaExoriGran').src = 'imagens/imagemMagiaExoriGran.png';
                     document.getElementById('magiaExoriGran').alt = 'exori gran';
                     document.getElementById('magiaExoriGran').title = 'exori gran';
                 }
-                if(dadosJson.json[2].tasks[0]){
-                    switch(dadosJson.json[2].tasks[0]){
+                strDados = dadosJson.json[2].tasks.split(',');
+                if(strDados.length > 0 && parseInt(strDados[0])){
+                    switch(parseInt(strDados[0])){
                         case 1:
                             document.getElementById('task').innerHTML = "Snake";
                             nomeCriaturaTask = "Snake";
@@ -2196,30 +2255,41 @@ var matrizCriaturasVida =
                             nomeCriaturaTask = "Mammoth";
                             tasknumber = 3;
                             break;
+                        case 4:
+                            document.getElementById('task').innerHTML = "Spider";
+                            nomeCriaturaTask = "Spider";
+                            tasknumber = 4;
+                            break;
                     }
                     document.getElementById('tasks').innerHTML = 'Tasks';
-                    taskvalor = dadosJson.json[2].tasks[1];
+                    if(strDados.length > 1){
+                        taskvalor = parseInt(strDados[1]);
+                    }
                     document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
                     document.getElementById('task').style.visibility = 'visible';
                     document.getElementById('taskvalor').style.visibility = 'visible';
                 }
-                if(dadosJson.json[3].quests[0]){
+                strDados = dadosJson.json[3].quests.split(',');
+                if(strDados.length > 0 && parseInt(strDados[0])){
                     questFerramentas = true;
                     matrizDoMapa[5][7] = 3;
                     matrizDoMapa[44][10] = 3;
                 }
-                if(!dadosJson.json[3].quests[1]){
-                    quest1 = false;
+                if(strDados.length > 1){
+                    quest1 = parseInt(strDados[1]);
                 }
-                if(!dadosJson.json[3].quests[2]){
-                    quest2 = false;
+                if(strDados.length > 2){
+                    quest2 = parseInt(strDados[2]);
                 }
-                if(!dadosJson.json[3].quests[3]){
-                    quest3 = false;
+                if(strDados.length > 3){
+                    quest3 = parseInt(strDados[3]);
+                }
+                if(strDados.length > 4){
+                    quest4 = parseInt(strDados[4]);
                 }
 
             }
-
+            
             calculaLevel = function(){
                 let expaux = nivel;
                 lvlatual=0;
@@ -2264,9 +2334,10 @@ var matrizCriaturasVida =
 
                 if(lvlantigo && lvlantigo < lvlatual){
                     mensagensDoChatDefault += "\n\nYou advanced from Level " + lvlantigo + " to Level " + lvlatual;
-                    document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvlatual;
+                    dataDiv1 = new Date();
+                    dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
                     document.getElementById('mensagemDiv1').style.color = "white";
-                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = "";}, 10000);
+                    document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvlatual;
                 }
 
                 lvlantigo = lvlatual;
@@ -2326,11 +2397,22 @@ var matrizCriaturasVida =
                 switch(id){
                     case 0:
                         if(mochila[0] == 'PocaoHP'){
-                            document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; 
-                            setTimeout(function(){
-                                document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';
-                            }, 1000);
-                            regeneracao(1, "curou"); 
+                            if(dataMagia <= new Date()){
+                                dataMagia = new Date();
+                                dataMagia.setMilliseconds(dataMagia.getMilliseconds() + 1000);
+
+                                document.getElementById('fala1').src = 'imagens/imagemFalaPocaoHP.png'; 
+                                setTimeout(function(){
+                                    document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';
+                                }, 1000);
+
+                                regeneracao(1, "curou"); 
+
+                            }else{
+                                dataDiv2 = new Date();
+                                dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
+                                document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
+                            }
                         } 
                         break;
                     case 1:
@@ -2353,10 +2435,9 @@ var matrizCriaturasVida =
                                     document.getElementById('textareaChat').value = mensagensDoChatNpc;
                                     break;
                             }
+                            dataDiv2 = new Date();
+                            dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                             document.getElementById('mensagemDiv2').innerHTML = 'Aqui não é possível subir.'; 
-                            setTimeout(function(){
-                                document.getElementById('mensagemDiv2').innerHTML = '';
-                            }, 5000);
                         } 
                         break;
                     case 2:
@@ -2379,10 +2460,9 @@ var matrizCriaturasVida =
                                     document.getElementById('textareaChat').value = mensagensDoChatNpc;
                                     break;
                             }
+                            dataDiv2 = new Date();
+                            dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                             document.getElementById('mensagemDiv2').innerHTML = 'Aqui não é possível cavar.'; 
-                            setTimeout(function(){
-                                document.getElementById('mensagemDiv2').innerHTML = '';
-                            }, 5000);
                         } 
                         break;
                 }
@@ -2437,24 +2517,171 @@ var matrizCriaturasVida =
                     matrizDoMapa[5][7] = 3;
                     matrizDoMapa[44][10] = 3;
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 53 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 && !quest1){
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 24
+                &&
+                    (
+                        quest1 == 0 ||
+                        quest1 == 70 ||
+                        quest1 == 10 ||
+                        quest1 == 80 
+                    )
+                ){
                     id = 1;
-                    quest1 = true;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 24){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 27 
+                &&
+                    (
+                        quest2 == 0 ||
+                        quest2 == 130 ||
+                        quest2 == 20 ||
+                        quest2 == 150 
+                    )
+                ){
+                    id = 2;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 27){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 31 
+                &&
+                    (
+                        quest3 == 0 ||
+                        quest3 == 200 ||
+                        quest3 == 30 ||
+                        quest3 == 230 
+                    )
+                ){
+                    id = 3;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 31){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 35 
+                &&
+                    (
+                        quest1 == 0 ||
+                        quest1 == 30 ||
+                        quest1 == 10 ||
+                        quest1 == 40 
+                    )
+                ){
+                    id = 4;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 35){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 38 
+                &&
+                    ( 
+                        quest2 == 0 ||
+                        quest2 == 70 ||
+                        quest2 == 20 ||
+                        quest2 == 90 
+                    )
+                ){
+                    id = 5;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 38){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 41
+                &&
+                    ( 
+                        quest3 == 0 ||
+                        quest3 == 100 ||
+                        quest3 == 30 ||
+                        quest3 == 130
+                    )
+                ){
+                    id = 6;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 41){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 53 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                && 
+                    (
+                        quest1 == 0 ||
+                        quest1 == 30 ||
+                        quest1 == 70 ||
+                        quest1 == 100 
+                    )
+                ){
+                    id = 7;
                 }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 53 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 49 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 && !quest2){
-                    id = 2;
-                    quest2 = true;
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 49 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                &&
+                    (
+                        quest2 == 0 ||
+                        quest2 == 70 ||
+                        quest2 == 130 ||
+                        quest2 == 200 
+                    )
+                ){
+                    id = 8;
                 }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 49 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 45 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 && !quest3){
-                    id = 3;
-                    quest3 = true;
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 45 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                && 
+                    (
+                        quest3 == 0 ||
+                        quest3 == 100 ||
+                        quest3 == 200 ||
+                        quest3 == 300 
+                    )
+                ){
+                    id = 9;
                 }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 45 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 66 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 30 
+                && 
+                    (
+                        quest4 == 0 ||
+                        quest4 == 130 ||
+                        quest4 == 180 ||
+                        quest4 == 310 
+                    )
+                ){
+                    id = 10;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 66 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 30){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 58 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                && 
+                    (
+                        quest4 == 0 ||
+                        quest4 == 90 ||
+                        quest4 == 180 ||
+                        quest4 == 270 
+                    )
+                ){
+                    id = 11;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 58 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
+                    document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
+                    setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
+                }
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 44 
+                && 
+                    (
+                        quest4 == 0 ||
+                        quest4 == 90 ||
+                        quest4 == 130 ||
+                        quest4 == 220 
+                    )
+                ){
+                    id = 12;
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 44){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
@@ -2479,10 +2706,42 @@ var matrizCriaturasVida =
                         document.getElementById('itemCampoDaMochila3').title = 'pa';
                         break;
                     case 1:
+                        quest1 += 30;
+                        nivel += 30;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 30 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 30 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 2:
+                        quest2 += 70;
+                        nivel += 70;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 70 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 70 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 3:
+                        quest3 += 100;
                         nivel += 100;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVoce ganhou 100 pontos de experiencia.";
-                        document.getElementById('textareaChat').value = mensagensDoChatNpc;
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 100 pontos de experiencia.";
                         document.getElementById('mensagemDiv3').style.color = 'white';
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
@@ -2494,10 +2753,43 @@ var matrizCriaturasVida =
                                 document.getElementById('mensagemDiv3').style.width = 250;
                             }, 500);
                         break;
-                    case 2:
+                    case 4:
+                        quest1 += 70;
+                        nivel += 70;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 70 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 70 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 5:
+                        quest2 += 130;
+                        nivel += 130;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 130 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 130 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 6:
+                        quest3 += 200;
                         nivel += 200;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVoce ganhou 200 pontos de experiencia.";
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 200 pontos de experiencia.";
                         document.getElementById('mensagemDiv3').style.color = 'white';
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
@@ -2509,14 +2801,95 @@ var matrizCriaturasVida =
                                 document.getElementById('mensagemDiv3').style.width = 250;
                             }, 500);
                         break;
-                    case 3:
-                        nivel += 300;
+                    case 7:
+                        quest1 += 10;
+                        nivel += 10;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVoce ganhou 300 pontos de experiencia.";
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 10 pontos de experiencia.";
                         document.getElementById('mensagemDiv3').style.color = 'white';
                         document.getElementById('mensagemDiv3').style.textAlign = 'center';
                         document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 300 + "Xp";
+                        document.getElementById('mensagemDiv3').innerHTML = 10 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 8:
+                        quest2 += 20;
+                        nivel += 20;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 20 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 20 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 9:
+                        quest3 += 30;
+                        nivel += 30;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 30 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 30 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 10:
+                        quest4 += 90;
+                        nivel += 90;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 90 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 90 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 11:
+                        quest4 += 130;
+                        nivel += 130;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 130 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 130 + "Xp";
+                        setTimeout(
+                            function(){ 
+                                document.getElementById('mensagemDiv3').innerHTML = "";
+                                document.getElementById('mensagemDiv3').style.color = 'yellow';
+                                document.getElementById('mensagemDiv3').style.width = 250;
+                            }, 500);
+                        break;
+                    case 12:
+                        quest4 += 180;
+                        nivel += 180;
+                        calculaLevel();
+                        mensagensDoChatServerLog += "\n\nVocê ganhou 180 pontos de experiencia.";
+                        document.getElementById('mensagemDiv3').style.color = 'white';
+                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
+                        document.getElementById('mensagemDiv3').style.width = 50;
+                        document.getElementById('mensagemDiv3').innerHTML = 180 + "Xp";
                         setTimeout(
                             function(){ 
                                 document.getElementById('mensagemDiv3').innerHTML = "";
@@ -2532,7 +2905,7 @@ var matrizCriaturasVida =
             }
 
             verificarPosicaoValida = function(linha, coluna){
-                return (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 25);
+                return (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 25);
             }
 
             verificacaoAproximacaoNPC = function(linha, coluna){
@@ -2579,20 +2952,169 @@ var matrizCriaturasVida =
                     
                     mensagensDoChatNpc += "\n\nNpc: Até mais!";
 
+                    dataDiv1 = new Date();
+                    dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 5000);
                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
-                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                     nivelDeConversaNpc = 0;
                 }
             }
 
+            moverCriaturas = function(){
+                
+                if(dataMoverCriaturas > new Date()){
+                    return;
+                }else{
+                    dataMoverCriaturas = new Date();
+                    dataMoverCriaturas.setMilliseconds(dataMoverCriaturas.getMilliseconds() + 2000);
+                }
+
+                let arrayMove = [];
+                
+                for(let i = -3; i < 4; i++){
+                    for(let j = -4; j < 5; j++){
+
+                        let posicaoDoCampoNaMatriz = [posicaoDoPersonagemNaMatriz[0]+i,posicaoDoPersonagemNaMatriz[1]+j];
+                        let flagMove = false;
+                        
+                        for(let k = 0; k < arrayMove.length; k++){
+                            if(arrayMove[k] == posicaoDoCampoNaMatriz){
+                                flagMove = true;
+                                break;
+                            }
+                        }
+                        
+                        if(flagMove){
+                            continue;
+                        }
+
+                        if(
+                            (
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] == 10 || 
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+j] == 18 || 
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+j] == 21 ||
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+j] == 47
+                            ) ||
+                            (
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 8 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 16 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 19 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 45 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 9 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 17 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 20 &&
+                                matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] != 46
+                            )
+                            // ||
+                            //(i == 0 && j == 0)
+                        ){
+                            continue;
+                        }
+
+                        let randomDirecao = getRandomIntInclusive(0,3);
+                        
+                        switch(randomDirecao){
+                            case 0:
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]-1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1])){
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+                                    
+
+                                    posicaoDoCampoNaMatriz[0]--;
+
+                                    arrayMove.push(posicaoDoCampoNaMatriz);
+                                }
+                                break;
+                            case 1:
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]+1) != posicaoDoPersonagemNaMatriz[1])){
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+
+                                    posicaoDoCampoNaMatriz[1]++;
+
+                                    arrayMove.push(posicaoDoCampoNaMatriz);
+                                }
+                                break;
+                            case 2:
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]+1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1])){
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+
+                                    posicaoDoCampoNaMatriz[0]++;
+
+                                    arrayMove.push(posicaoDoCampoNaMatriz);
+                                }
+                                break;
+                            case 3:
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]-1) != posicaoDoPersonagemNaMatriz[1])){
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
+                                    matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+                                    matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
+
+                                    posicaoDoCampoNaMatriz[1]--;
+
+                                    arrayMove.push(posicaoDoCampoNaMatriz);
+                                }
+                                break;
+                        }
+                    }
+                }
+                
+            }
+
             auxPreencherImagensCriaturas = function (nomeCriatura, i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo){
+                if(
+                    (
+                        matrizDoMapa[i][j] == 9 || 
+                        matrizDoMapa[i][j] == 17 || 
+                        matrizDoMapa[i][j] == 20 ||
+                        matrizDoMapa[i][j] == 46 
+                    ) &&
+                    (
+                        (i != posicaoDoPersonagemNaMatriz[0]-1 && j != posicaoDoPersonagemNaMatriz[j]-1) &&
+                        (i != posicaoDoPersonagemNaMatriz[0]-1 && j != posicaoDoPersonagemNaMatriz[j]) &&
+                        (i != posicaoDoPersonagemNaMatriz[0]-1 && j != posicaoDoPersonagemNaMatriz[j]+1) &&
+                        (i != posicaoDoPersonagemNaMatriz[0] && j != posicaoDoPersonagemNaMatriz[j]+1) &&
+                        (i != posicaoDoPersonagemNaMatriz[0]+1 && j != posicaoDoPersonagemNaMatriz[j]+1) &&
+                        (i != posicaoDoPersonagemNaMatriz[0]+1 && j != posicaoDoPersonagemNaMatriz[j]) &&
+                        (i != posicaoDoPersonagemNaMatriz[0]+1 && j != posicaoDoPersonagemNaMatriz[j]-1) &&
+                        (i != posicaoDoPersonagemNaMatriz[0] && j != posicaoDoPersonagemNaMatriz[j]-1)
+                    )
+                ){
+                    switch(matrizDoMapa[i][j]){
+                        case 9:
+                            matrizDoMapa[i][j] = 8;
+                            document.getElementById(baseCampo).src = "imagens/imagemSnake.png";
+                            break;
+                        case 17:
+                            matrizDoMapa[i][j] = 16;
+                            document.getElementById(baseCampo).src = "imagens/imagemDragon.png";
+                            break;
+                        case 20:
+                            matrizDoMapa[i][j] = 19;
+                            document.getElementById(baseCampo).src = "imagens/imagemMammoth.png";
+                            break;
+                        case 46:
+                            matrizDoMapa[i][j] = 45;
+                            document.getElementById(baseCampo).src = "imagens/imagemSpider.png";
+                            break;
+                    }
+                }
+
                 if(
                     matrizDoMapa[i][j] == 10 || 
                     matrizDoMapa[i][j] == 18 || 
-                    matrizDoMapa[i][j] == 21
-                    ){
+                    matrizDoMapa[i][j] == 21 ||
+                    matrizDoMapa[i][j] == 47 
+                ){
 
                     document.getElementById(baseCampo).alt = "restos de criaturas";
                     document.getElementById(baseCampo).title = "restos de criaturas";
@@ -2619,6 +3141,10 @@ var matrizCriaturasVida =
                             case 21:
                                 matrizDoMapa[i][j] = 19;
                                 document.getElementById(baseCampo).src = "imagens/imagemMammoth.png";
+                                break;
+                            case 47:
+                                matrizDoMapa[i][j] = 45;
+                                document.getElementById(baseCampo).src = "imagens/imagemSpider.png";
                                 break;
                         }
                     }
@@ -2698,13 +3224,13 @@ var matrizCriaturasVida =
                             document.getElementById(barraHpCampo).style.visibility = "visible";
                             document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
 
-                            if(dadosResposta.players[k].mensagem != ultimamensagem){
+                            if((dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem) != ultimamensagem){
                                 if(dadosResposta.players[k].mensagem != ""){
                                     let data = new Date();
                                     mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
                                     document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
                                     setTimeout(function(){document.getElementById("mensagemDivCampo" + campo).innerHTML = "";}, 5000);
-                                    ultimamensagem = dadosResposta.players[k].mensagem;
+                                    ultimamensagem = document.getElementById("mensagemDivCampo" + campo).innerHTML;
                                 }
                             }
                         }
@@ -2720,6 +3246,10 @@ var matrizCriaturasVida =
                 }else if(matrizDoMapa[i][j] == 19 || matrizDoMapa[i][j] == 20 || matrizDoMapa[i][j] == 21){
 
                     auxPreencherImagensCriaturas("Mammoth", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+
+                }else if(matrizDoMapa[i][j] == 45 || matrizDoMapa[i][j] == 46 || matrizDoMapa[i][j] == 47){
+
+                    auxPreencherImagensCriaturas("Spider", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
 
                 }else if(matrizDoMapa[i][j] == 11){
                     document.getElementById(nomeCampo).innerHTML = "NPC";
@@ -2889,6 +3419,12 @@ var matrizCriaturasVida =
                             caminhoImagem = "imagens/imagemTeleport3.png";
                         }else if(matrizDoMapa[i][j] == 44){
                             caminhoImagem = "imagens/imagemTeleport2.png";
+                        }else if(matrizDoMapa[i][j] == 45){
+                            caminhoImagem = "imagens/imagemSpider.png";
+                        }else if(matrizDoMapa[i][j] == 46){
+                            caminhoImagem = "imagens/imagemSpiderAtacando.png";
+                        }else if(matrizDoMapa[i][j] == 47){
+                            caminhoImagem = "imagens/imagemCaveira.png";
                         }
                         
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-5){
@@ -3256,9 +3792,21 @@ var matrizCriaturasVida =
                 
                 let hit = getRandomIntInclusive(lvlatual,lvlatual*2); 
 
-                if( (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - (hit*hitDecrescimo)) > 0 ){ 
-                    matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - (hit*hitDecrescimo); 
+                if( (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0)) > 0 ){ 
+                    matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0); 
+
                     document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
+                    if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 13){ 
+                        document.getElementById('nome' + campo).style.color = 'tomato';
+                        document.getElementById('barraHp' + campo).style.background = 'tomato';
+                    } else if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 25){ 
+                        document.getElementById('nome' + campo).style.color = 'orange';
+                        document.getElementById('barraHp' + campo).style.background = 'orange';
+                    } else if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] > 25){ 
+                        document.getElementById('nome' + campo).style.color = 'mediumseagreen';
+                        document.getElementById('barraHp' + campo).style.background = 'mediumseagreen';
+                    }
+
                     document.getElementById('mensagemDiv' + campo).innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + hit + " pontos de vida devido ao seu ataque."; 
                     setTimeout(function(){ 
@@ -3277,6 +3825,9 @@ var matrizCriaturasVida =
                             break;
                         case "Mammoth":
                             xp = 3;
+                            break;
+                        case "Spider":
+                            xp = 4;
                             break;
                     }
 
@@ -3324,23 +3875,28 @@ var matrizCriaturasVida =
                     matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1]+distanciaDoPersonagemColuna] == 20)
                 { 
                     ataqueCriatura(campo, distanciaDoPersonagemLinha, distanciaDoPersonagemColuna, 0.25, 4, 21, "Mammoth"); 
+                }else if(
+                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1]+distanciaDoPersonagemColuna] == 45 || 
+                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1]+distanciaDoPersonagemColuna] == 46)
+                { 
+                    ataqueCriatura(campo, distanciaDoPersonagemLinha, distanciaDoPersonagemColuna, 0.13, 8, 47, "Spider"); 
                 }
             }
 
             moverCima = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(-1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+39; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo23", -1, 0); } direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(-1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+39; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo23", -1, 0); } direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } }
             }
 
             moverDireita = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){recompensaSacola(0,1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else{ ataqueCampo("Campo33", 0, 1); } direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){recompensaSacola(0,1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else{ ataqueCampo("Campo33", 0, 1); } direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } }
             }
 
             moverBaixo = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+41; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo41", 1, 0); } direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+41; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo41", 1, 0); } direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } }
             }
 
             moverEsquerda = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else{ ataqueCampo("Campo31", 0, -1); } direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else{ ataqueCampo("Campo31", 0, -1); } direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } }
             }
 
             funcMoverPersonagem = function (){
@@ -3624,6 +4180,182 @@ var matrizCriaturasVida =
                     flagBaixo = false;
                 }
 
+                //Animacao Monster Atacando de Cima Esquerda
+
+                hit = getRandomIntInclusive(hitmin, hitmax);
+
+                if(
+                    (
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == atacando || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == morto
+                    ) && 
+                    (
+                        (posicaoDoPersonagemNaMatriz[0]-1) != posicaoLinhaCimaEsquerda ||
+                        (posicaoDoPersonagemNaMatriz[1]-1) != posicaoColunaCimaEsquerda
+                    )
+                ){
+                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] = normal;
+                }
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == morto){
+                    posicaoLinhaCimaEsquerda = posicaoDoPersonagemNaMatriz[0]-1;
+                    posicaoColunaCimaEsquerda = posicaoDoPersonagemNaMatriz[1]-1;
+                    flagCimaEsquerda = true;
+                    if(matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == normal && hp > 0){
+                        matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == morto && esperaRessCimaEsquerda == esperaRessCimaEsquerdaContador && hp > 0){
+                        matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] = atacando;
+                        esperaRessCimaEsquerdaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == morto && esperaRessCimaEsquerda > esperaRessCimaEsquerdaContador){
+                        esperaRessCimaEsquerdaContador++;
+                    }
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == atacando){
+                        hp -= hit;
+                        hitTotal += hit;
+                    }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == atacando){
+                        hp = 0;
+                        hitTotal += hp;
+                        personagemMorto = true;
+                        posicaoDoPersonagemNaMatriz = [5,6];
+                        document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == atacando || matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == morto) && flagCimaEsquerda){
+                    matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] = normal;
+                    flagCimaEsquerda = false;
+                }
+
+                //Animacao Monster Atacando de Cima Direita
+
+                hit = getRandomIntInclusive(hitmin, hitmax);
+
+                if(
+                    (
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == atacando || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == morto
+                    ) && 
+                    (
+                        (posicaoDoPersonagemNaMatriz[0]-1) != posicaoLinhaCimaDireita ||
+                        (posicaoDoPersonagemNaMatriz[1]+1) != posicaoColunaCimaDireita
+                    )
+                ){
+                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] = normal;
+                }
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == morto){
+                    posicaoLinhaCimaDireita = posicaoDoPersonagemNaMatriz[0]-1;
+                    posicaoColunaCimaDireita = posicaoDoPersonagemNaMatriz[1]+1;
+                    flagCimaDireita = true;
+                    if(matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == normal && hp > 0){
+                        matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == morto && esperaRessCimaDireita == esperaRessCimaDireitaContador && hp > 0){
+                        matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] = atacando;
+                        esperaRessCimaDireitaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == morto && esperaRessCimaDireita > esperaRessCimaDireitaContador){
+                        esperaRessCimaDireitaContador++;
+                    }
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == atacando){
+                        hp -= hit;
+                        hitTotal += hit;
+                    }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == atacando){
+                        hp = 0;
+                        hitTotal += hp;
+                        personagemMorto = true;
+                        posicaoDoPersonagemNaMatriz = [5,6];
+                        document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == atacando || matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == morto) && flagCimaDireita){
+                    matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] = normal;
+                    flagCimaDireita = false;
+                }
+
+                //Animacao Monster Atacando de Baixo Direita
+
+                hit = getRandomIntInclusive(hitmin, hitmax);
+
+                if(
+                    (
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == atacando || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == morto
+                    ) && 
+                    (
+                        (posicaoDoPersonagemNaMatriz[0]+1) != posicaoLinhaBaixoDireita ||
+                        (posicaoDoPersonagemNaMatriz[1]+1) != posicaoColunaBaixoDireita
+                    )
+                ){
+                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] = normal;
+                }
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == morto){
+                    posicaoLinhaBaixoDireita = posicaoDoPersonagemNaMatriz[0]+1;
+                    posicaoColunaBaixoDireita = posicaoDoPersonagemNaMatriz[1]+1;
+                    flagBaixoDireita = true;
+                    if(matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == normal && hp > 0){
+                        matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == morto && esperaRessBaixoDireita == esperaRessBaixoDireitaContador && hp > 0){
+                        matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] = atacando;
+                        esperaRessBaixoDireitaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == morto && esperaRessBaixoDireita > esperaRessBaixoDireitaContador){
+                        esperaRessBaixoDireitaContador++;
+                    }
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando){
+                        hp -= hit;
+                        hitTotal += hit;
+                    }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando){
+                        hp = 0;
+                        hitTotal += hp;
+                        personagemMorto = true;
+                        posicaoDoPersonagemNaMatriz = [5,6];
+                        document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando || matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == morto) && flagBaixoDireita){
+                    matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] = normal;
+                    flagBaixoDireita = false;
+                }
+
+                //Animacao Monster Atacando de Baixo Esquerda
+
+                hit = getRandomIntInclusive(hitmin, hitmax);
+
+                if(
+                    (
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == atacando || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == morto
+                    ) && 
+                    (
+                        (posicaoDoPersonagemNaMatriz[0]+1) != posicaoLinhaBaixoEsquerda ||
+                        (posicaoDoPersonagemNaMatriz[1]-1) != posicaoColunaBaixoEsquerda
+                    )
+                ){
+                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] = normal;
+                }
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == normal || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == morto){
+                    posicaoLinhaBaixoEsquerda = posicaoDoPersonagemNaMatriz[0]+1;
+                    posicaoColunaBaixoEsquerda = posicaoDoPersonagemNaMatriz[1]-1;
+                    flagBaixoEsquerda = true;
+                    if(matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == normal && hp > 0){
+                        matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] = atacando;
+                    }else if(matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == morto && esperaRessBaixoEsquerda == esperaRessBaixoEsquerdaContador && hp > 0){
+                        matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] = atacando;
+                        esperaRessBaixoEsquerdaContador = 0;
+                    }else if(matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == morto && esperaRessBaixoEsquerda > esperaRessBaixoEsquerdaContador){
+                        esperaRessBaixoEsquerdaContador++;
+                    }
+                    if(hp - hit > 0 && matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == atacando){
+                        hp -= hit;
+                        hitTotal += hit;
+                    }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == atacando){
+                        hp = 0;
+                        hitTotal += hp;
+                        personagemMorto = true;
+                        posicaoDoPersonagemNaMatriz = [5,6];
+                        document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
+                        document.getElementById('mensagem1').style.visibility = 'visible';
+                    }
+                } else if((matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == atacando || matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == morto) && flagBaixoEsquerda){
+                    matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] = normal;
+                    flagBaixoEsquerda = false;
+                }
+
                 return hitTotal;
 
             }
@@ -3705,6 +4437,11 @@ var matrizCriaturasVida =
 
                         if(dadosResposta != "vazio"){
                             for(let i = 0; i < dadosResposta.players.length; i++){
+
+                                if(dadosResposta.players[i].username == username){
+                                    continue;
+                                }
+
                                 switch(matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y]){
                                     case 0:
                                         matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
@@ -3733,6 +4470,18 @@ var matrizCriaturasVida =
                                 matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
                                 matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
                                 matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 8 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 16 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 19 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 45 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 9 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 17 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 20 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 46 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 10 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 18 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 21 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 47 &&
                                 dadosResposta.players[i].username != username
                             ){
                                 if(dadosResposta.players[i].outfit == "M"){
@@ -3782,16 +4531,17 @@ var matrizCriaturasVida =
                 hitTotal += animacaoMonster(8,9,10,1,50); //Snake(normal,atacando,morto,hitmin,hitmax)
                 hitTotal += animacaoMonster(16,17,18,50,150); //Dragon(normal,atacando,morto,hitmin,hitmax)
                 hitTotal += animacaoMonster(19,20,21,150,450); //Mammoth(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(45,46,47,450,1350); //Spider(normal,atacando,morto,hitmin,hitmax)
 
                 if(personagemMorto){
                     let perdaDeNivel = (nivel * 0.01) | 0;
                     nivel -= perdaDeNivel;
                     calculaLevel();
-                    mensagensDoChatServerLog += "\n\nVoce perdeu " + perdaDeNivel + " pontos de experiencia.";
+                    mensagensDoChatServerLog += "\n\nVocê perdeu " + perdaDeNivel + " pontos de experiencia.";
                 }
 
                 if(hitTotal > 0){
-                    mensagensDoChatServerLog += "\n\nVoce perdeu " + hitTotal + " pontos de vida.";
+                    mensagensDoChatServerLog += "\n\nVocê perdeu " + hitTotal + " pontos de vida.";
                 }
 
                 if(!inativo){
@@ -3811,6 +4561,7 @@ var matrizCriaturasVida =
                     }else if(matrizDoMapa[4][7] == 44){
                         matrizDoMapa[4][7] = 41;
                     }
+                    moverCriaturas();
                     preencherImagens();
                 }
 
@@ -3849,6 +4600,14 @@ var matrizCriaturasVida =
                     inativo = false;
                 }
 
+                if(dataDiv1 <= new Date()){
+                    document.getElementById('mensagemDiv1').innerHTML = '';
+                    document.getElementById('mensagemDiv1').style.color = "white";
+                }
+                if(dataDiv2 <= new Date()){
+                    document.getElementById('mensagemDiv2').innerHTML = '';
+                }
+
                 //document.getElementById('campoDeEscritaInput').focus();
 
             }
@@ -3880,7 +4639,8 @@ var matrizCriaturasVida =
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia' ||
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task' || 
-                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task' || 
+                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task' ||
+                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'spider task' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset task' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset quest' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' || 
@@ -3915,7 +4675,7 @@ var matrizCriaturasVida =
                         }else if(
                             (
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset quest') && 
-                                (quest1 || quest2 || quest3) &&
+                                (quest1 || quest2 || quest3 || quest4) &&
                                 (document.getElementById('opcao1').title == "Task")
                             ) && nivelDeConversaNpc == 1
                         ){
@@ -3939,17 +4699,25 @@ var matrizCriaturasVida =
                                     (
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task') ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'spider task')
                                     ) && 
                                     (
                                         (document.getElementById('task').style.visibility == 'hidden') ||
                                         (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && taskvalor == 100)
-                                    ) && document.getElementById('opcao1').title == "Snake Task"
+                                    ) && 
+                                    (
+                                        document.getElementById('opcao1').title == "Snake Task" ||
+                                        document.getElementById('opcao1').title == "Spider Task"
+                                    )
                                 ) ||
                                 (
                                     (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset task') && 
                                     (document.getElementById('task').style.visibility == 'visible') &&
-                                    (document.getElementById('opcao1').title == "Snake Task")
+                                    (
+                                        document.getElementById('opcao1').title == "Snake Task" ||
+                                        document.getElementById('opcao1').title == "Spider Task"
+                                    )
                                 )
                             ) && nivelDeConversaNpc == 2
                         ){
@@ -3972,17 +4740,25 @@ var matrizCriaturasVida =
                                     (
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
                                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
-                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task') ||
+                                        (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'spider task')
                                     ) &&
                                     (
                                         (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() == document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible' && taskvalor < 100) ||
                                         (document.getElementById('campoDeEscritaInput').value.split(' ')[0].toLowerCase() != document.getElementById('task').innerHTML.toLowerCase() && document.getElementById('task').style.visibility == 'visible')
-                                    ) && document.getElementById('opcao1').title == "Snake Task"
+                                    ) && 
+                                    (
+                                        document.getElementById('opcao1').title == "Snake Task" ||
+                                        document.getElementById('opcao1').title == "Spider Task"
+                                    )
                                 ) ||
                                 (
                                     (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset task') && 
                                     (document.getElementById('task').style.visibility == 'hidden') &&
-                                    (document.getElementById('opcao1').title == "Snake Task")
+                                    (
+                                        document.getElementById('opcao1').title == "Snake Task" ||
+                                        document.getElementById('opcao1').title == "Spider Task"
+                                    )
                                 )
                             ) && nivelDeConversaNpc == 2
                         ){
@@ -4009,8 +4785,9 @@ var matrizCriaturasVida =
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori gran" && !exoriGran)
                     ){
                         mensagensDoChatDefault += "\n\nSistema: Você ainda não sabe esta magia.";
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = "Você ainda não sabe esta magia.";
-                        setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         let data = new Date();
                         mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlatual + "]: " + document.getElementById('campoDeEscritaInput').value;
@@ -4059,21 +4836,24 @@ var matrizCriaturasVida =
                         setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "nao"){
-                            mensagensDoChatNpc += "\n\nAgora " + document.getElementById('campoDeEscritaInput').value.toLowerCase() + "!";
+                            mensagensDoChatNpc += "\n\nAgora não!";
                         }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "no"){
                             mensagensDoChatNpc += "\n\n" + document.getElementById('campoDeEscritaInput').value.charAt(0).toUpperCase() + document.getElementById('campoDeEscritaInput').value.slice(1).toLowerCase() + " now!";
                         }else{
                             mensagensDoChatNpc += "\n\n" + document.getElementById('campoDeEscritaInput').value.charAt(0).toUpperCase() + document.getElementById('campoDeEscritaInput').value.slice(1).toLowerCase() + "!";
                         }
                     }
+
+                    dataDiv1 = new Date();
+                    dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
+
                     switch(nivelDeConversaNpc){
                         case 1:
-                            if((!exura || !exuraGran || !exori || !exoriGran) && (quest1 || quest2 || quest3)){
+                            if((!exura || !exuraGran || !exori || !exoriGran) && (quest1 || quest2 || quest3 || quest4)){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task', aprender uma 'magia' ou resetar a quest principal?";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
-                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task', aprender uma 'magia' ou resetar a quest principal?";
 
                                 document.getElementById('opcao1').innerHTML = "Task";
                                 document.getElementById('opcao1').title = "Task";
@@ -4087,16 +4867,15 @@ var matrizCriaturasVida =
                                 document.getElementById('opcao3').title = "Reset Quest";
                                 document.getElementById('opcao3').style.height = 44;
                                 document.getElementById('opcao3').style.visibility = 'visible';
-                                document.getElementById('opcao4').innerHTML = "Agora nao";
+                                document.getElementById('opcao4').innerHTML = "Agora não";
                                 document.getElementById('opcao4').title = "Nao";
                                 document.getElementById('opcao4').style.height = 44;
                                 document.getElementById('opcao4').style.visibility = 'visible';
-                            } else if((!exura || !exuraGran || !exori || !exoriGran) && (!quest1 && !quest2 && !quest3)){
+                            } else if((!exura || !exuraGran || !exori || !exoriGran) && (!quest1 && !quest2 && !quest3 && !quest4)){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
-                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Task";
                                 document.getElementById('opcao1').title = "Task";
@@ -4106,16 +4885,15 @@ var matrizCriaturasVida =
                                 document.getElementById('opcao2').title = "Magia";
                                 document.getElementById('opcao2').style.height = 44;
                                 document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Agora nao";
+                                document.getElementById('opcao3').innerHTML = "Agora não";
                                 document.getElementById('opcao3').title = "Nao";
                                 document.getElementById('opcao3').style.height = 44;
                                 document.getElementById('opcao3').style.visibility = 'visible';
-                            } else if((exura && exuraGran && exori && exoriGran) && (quest1 || quest2 || quest3)){
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal?";
+                            } else if((exura && exuraGran && exori && exoriGran) && (quest1 || quest2 || quest3 || quest4)){
+                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal? Não temos nenhuma magia para ensinar.";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
-                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal? Não temos nenhuma magia para ensinar.";
 
                                 document.getElementById('opcao1').innerHTML = "Task";
                                 document.getElementById('opcao1').title = "Task";
@@ -4125,7 +4903,7 @@ var matrizCriaturasVida =
                                 document.getElementById('opcao2').title = "Reset Quest";
                                 document.getElementById('opcao2').style.height = 44;
                                 document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Agora nao";
+                                document.getElementById('opcao3').innerHTML = "Agora não";
                                 document.getElementById('opcao3').title = "Nao";
                                 document.getElementById('opcao3').style.height = 44;
                                 document.getElementById('opcao3').style.visibility = 'visible';
@@ -4134,13 +4912,12 @@ var matrizCriaturasVida =
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
-                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').innerHTML = "Task";
                                 document.getElementById('opcao1').title = "Task";
                                 document.getElementById('opcao1').style.height = 44;
                                 document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Agora nao";
+                                document.getElementById('opcao2').innerHTML = "Agora não";
                                 document.getElementById('opcao2').title = "Nao";
                                 document.getElementById('opcao2').style.height = 44;
                                 document.getElementById('opcao2').style.visibility = 'visible';
@@ -4150,15 +4927,24 @@ var matrizCriaturasVida =
                         case 2:
                             if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'task' ||
                                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'tarefa' ||
-                                document.getElementById('opcao1').title == "Snake Task"){
-                                mensagensDoChatNpc += "\n\nNpc: Temos as seguintes tasks: 'Snake Task', 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
+                                document.getElementById('opcao1').title == "Snake Task" ||
+                                document.getElementById('opcao1').title == "Spider Task"){
+
+                                let taskopcao1 = ""; 
+
+                                if(lvlatual < 100){
+                                    taskopcao1 = "Snake Task";
+                                }else{
+                                    taskopcao1 = "Spider Task";
+                                }
+
+                                mensagensDoChatNpc += "\n\nNpc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos as seguintes tasks: 'Snake Task', 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
-                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
 
-                                document.getElementById('opcao1').innerHTML = "Snake Task";
-                                document.getElementById('opcao1').title = "Snake Task";
+                                document.getElementById('opcao1').innerHTML = taskopcao1;
+                                document.getElementById('opcao1').title = taskopcao1;
                                 document.getElementById('opcao1').style.height = 44;
                                 document.getElementById('opcao1').style.visibility = 'visible';
                                 document.getElementById('opcao2').innerHTML = "Dragon Task";
@@ -4173,7 +4959,7 @@ var matrizCriaturasVida =
                                 document.getElementById('opcao4').title = "Reset Task";
                                 document.getElementById('opcao4').style.height = 44;
                                 document.getElementById('opcao4').style.visibility = 'visible';
-                                document.getElementById('opcao5').innerHTML = "Agora nao";
+                                document.getElementById('opcao5').innerHTML = "Agora não";
                                 document.getElementById('opcao5').title = "Nao";
                                 document.getElementById('opcao5').style.height = 44;
                                 document.getElementById('opcao5').style.visibility = 'visible';
@@ -4202,7 +4988,6 @@ var matrizCriaturasVida =
 
                                 document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s):" + magias + ". Digite o nome da magia para aprender...";
-                                setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                                 document.getElementById('opcao1').style.visibility = 'hidden';
                                 document.getElementById('opcao2').style.visibility = 'hidden';
@@ -4266,7 +5051,7 @@ var matrizCriaturasVida =
                                     document.getElementById('opcao4').title = "Exori gran";
                                     document.getElementById('opcao4').style.height = 44;
                                     document.getElementById('opcao4').style.visibility = 'visible';
-                                    document.getElementById('opcao5').innerHTML = "Agora nao";
+                                    document.getElementById('opcao5').innerHTML = "Agora não";
                                     document.getElementById('opcao5').title = "Nao";
                                     document.getElementById('opcao5').style.height = 44;
                                     document.getElementById('opcao5').style.visibility = 'visible';
@@ -4279,7 +5064,7 @@ var matrizCriaturasVida =
                                     document.getElementById('opcao3').title = "Exori gran";
                                     document.getElementById('opcao3').style.height = 44;
                                     document.getElementById('opcao3').style.visibility = 'visible';
-                                    document.getElementById('opcao4').innerHTML = "Agora nao";
+                                    document.getElementById('opcao4').innerHTML = "Agora não";
                                     document.getElementById('opcao4').title = "Nao";
                                     document.getElementById('opcao4').style.height = 44;
                                     document.getElementById('opcao4').style.visibility = 'visible';
@@ -4292,7 +5077,7 @@ var matrizCriaturasVida =
                                     document.getElementById('opcao2').title = "Exori gran";
                                     document.getElementById('opcao2').style.height = 44;
                                     document.getElementById('opcao2').style.visibility = 'visible';
-                                    document.getElementById('opcao3').innerHTML = "Agora nao";
+                                    document.getElementById('opcao3').innerHTML = "Agora não";
                                     document.getElementById('opcao3').title = "Nao";
                                     document.getElementById('opcao3').style.height = 44;
                                     document.getElementById('opcao3').style.visibility = 'visible';
@@ -4301,13 +5086,13 @@ var matrizCriaturasVida =
                                     document.getElementById('opcao1').title = "Exori gran";
                                     document.getElementById('opcao1').style.height = 44;
                                     document.getElementById('opcao1').style.visibility = 'visible';
-                                    document.getElementById('opcao2').innerHTML = "Agora nao";
+                                    document.getElementById('opcao2').innerHTML = "Agora não";
                                     document.getElementById('opcao2').title = "Nao";
                                     document.getElementById('opcao2').style.height = 44;
                                     document.getElementById('opcao2').style.visibility = 'visible';
                                 }
                                 if(!exura && !exuraGran && !exori && exoriGran){
-                                    document.getElementById('opcao4').innerHTML = "Agora nao";
+                                    document.getElementById('opcao4').innerHTML = "Agora não";
                                     document.getElementById('opcao4').title = "Nao";
                                     document.getElementById('opcao4').style.height = 44;
                                     document.getElementById('opcao4').style.visibility = 'visible';
@@ -4316,7 +5101,7 @@ var matrizCriaturasVida =
                                     (!exura && exuraGran && !exori && exoriGran) ||
                                     (exura && !exuraGran && !exori && exoriGran)
                                     ){
-                                    document.getElementById('opcao3').innerHTML = "Agora nao";
+                                    document.getElementById('opcao3').innerHTML = "Agora não";
                                     document.getElementById('opcao3').title = "Nao";
                                     document.getElementById('opcao3').style.height = 44;
                                     document.getElementById('opcao3').style.visibility = 'visible';
@@ -4325,7 +5110,7 @@ var matrizCriaturasVida =
                                     (exura && !exuraGran && exori && exoriGran) ||
                                     (exura && exuraGran && !exori && exoriGran)
                                 ){
-                                    document.getElementById('opcao2').innerHTML = "Agora nao";
+                                    document.getElementById('opcao2').innerHTML = "Agora não";
                                     document.getElementById('opcao2').title = "Nao";
                                     document.getElementById('opcao2').style.height = 44;
                                     document.getElementById('opcao2').style.visibility = 'visible';
@@ -4360,7 +5145,6 @@ var matrizCriaturasVida =
 
                             document.getElementById('mensagemDiv1').style.color = '#00ccff';
                             document.getElementById('mensagemDiv1').innerHTML = "Npc: Prontinho. Tchau!";
-                            setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                             if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura'){
                                 exura = true;
@@ -4389,7 +5173,8 @@ var matrizCriaturasVida =
                             else if( (
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'snake task') ||
                                 (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'dragon task') ||
-                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task')
+                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'mammoth task') ||
+                                (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'spider task')
                                 ) && document.getElementById('task').style.visibility == 'hidden'
                             ){
                                 document.getElementById('tasks').innerHTML = 'Tasks';
@@ -4407,6 +5192,10 @@ var matrizCriaturasVida =
                                         nomeCriaturaTask = "Mammoth";
                                         tasknumber = 3;
                                         break;
+                                    case "Spider":
+                                        nomeCriaturaTask = "Spider";
+                                        tasknumber = 4;
+                                        break;
                                 }
                                 taskvalor = 0;
                                 document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
@@ -4418,22 +5207,29 @@ var matrizCriaturasVida =
                                     case 1: //Snake
                                         nivel += 100;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVoce ganhou 100 pontos de experiencia.";
+                                        mensagensDoChatServerLog += "\n\nVocê ganhou 100 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 100 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
                                     case 2: //Dragon
                                         nivel += 200;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVoce ganhou 200 pontos de experiencia.";
+                                        mensagensDoChatServerLog += "\n\nVocê ganhou 200 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 200 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
                                     case 3: //Mammoth
                                         nivel += 300;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVoce ganhou 300 pontos de experiencia.";
+                                        mensagensDoChatServerLog += "\n\nVocê ganhou 300 pontos de experiencia.";
                                         document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 300 + "Xp";
+                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
+                                        break;
+                                    case 4: //Spider
+                                        nivel += 400;
+                                        calculaLevel();
+                                        mensagensDoChatServerLog += "\n\nVocê ganhou 400 pontos de experiencia.";
+                                        document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 400 + "Xp";
                 setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
                                         break;
                                 }
@@ -4456,14 +5252,24 @@ var matrizCriaturasVida =
                                 document.getElementById('taskvalor').innerHTML = taskvalor + '/100';
                             }else if(
                                     (document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'reset quest') && 
-                                    (quest1 || quest2 || quest3)
+                                    (quest1 || quest2 || quest3 || quest4)
                             ){
-                                quest1 = false;
+                                quest1 = 0;
+                                matrizDoMapa[44][24] = matrizDoMapaOriginal[44][24];
+                                matrizDoMapa[54][35] = matrizDoMapaOriginal[54][35];
                                 matrizDoMapa[45][45] = matrizDoMapaOriginal[45][45];
-                                quest2 = false;
+                                quest2 = 0;
+                                matrizDoMapa[54][27] = matrizDoMapaOriginal[54][27];
+                                matrizDoMapa[44][38] = matrizDoMapaOriginal[44][38];
                                 matrizDoMapa[49][45] = matrizDoMapaOriginal[49][45];
-                                quest3 = false;
+                                quest3 = 0;
+                                matrizDoMapa[44][31] = matrizDoMapaOriginal[44][31];
+                                matrizDoMapa[54][41] = matrizDoMapaOriginal[54][41];
                                 matrizDoMapa[53][45] = matrizDoMapaOriginal[53][45];
+                                quest4 = 0;
+                                matrizDoMapa[66][30] = matrizDoMapaOriginal[66][30];
+                                matrizDoMapa[58][45] = matrizDoMapaOriginal[58][45];
+                                matrizDoMapa[67][44] = matrizDoMapaOriginal[67][44];
                             }
                             nivelDeConversaNpc = 0;
                             break;
@@ -4494,7 +5300,6 @@ var matrizCriaturasVida =
 
                             document.getElementById('mensagemDiv1').style.color = '#00ccff';
                             document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
-                            setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
 
                             nivelDeConversaNpc = 0;
                             break;
@@ -4526,56 +5331,56 @@ var matrizCriaturasVida =
                                     mensagensDoChatNpc += "\n\nNpc: Você precisa de level 50+ para aprender esta magia!";
 
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 50+ para aprender esta magia!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 50+ para aprender esta magia!";
 
                                     break;
                                 case 'exori':
                                     mensagensDoChatNpc += "\n\nNpc: Você precisa de level 100+ para aprender esta magia!";
 
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 100+ para aprender esta magia!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 100+ para aprender esta magia!";
 
                                     break;
                                 case 'exori gran':
                                     mensagensDoChatNpc += "\n\nNpc: Você precisa de level 200+ para aprender esta magia!";
 
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce precisa de level 200+ para aprender esta magia!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 200+ para aprender esta magia!";
 
                                     break;
                                 case 'snake task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'dragon task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'mammoth task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao terminou a task obtida!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
+
+                                    break;
+                                case 'spider task':
+                                    mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
+                                    
+                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'reset task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não recebeu uma task!";
                                     
                                     document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Voce ainda nao recebeu uma task!";
-                                    setTimeout(function(){document.getElementById('mensagemDiv1').innerHTML = ""; document.getElementById('mensagemDiv1').style.color = "white";}, 10000);
+                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não recebeu uma task!";
 
                                     break;
                             }
@@ -4602,10 +5407,9 @@ var matrizCriaturasVida =
                         regeneracao(2, "curou");
 
                     }else{
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
-                        setTimeout(function(){
-                            document.getElementById('mensagemDiv2').innerHTML = '';
-                        }, 5000);
                     }
                     
                 }
@@ -4621,10 +5425,9 @@ var matrizCriaturasVida =
                         regeneracao(3, "curou");
 
                     }else{
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
-                        setTimeout(function(){
-                            document.getElementById('mensagemDiv2').innerHTML = '';
-                        }, 5000);
                     }
 
                 }
@@ -4636,53 +5439,20 @@ var matrizCriaturasVida =
 
                         document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
                         setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
-                        
-                        if( 
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 20
-                        ){
-                            moverCima();
-                        }
-                        if( 
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 8 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 9 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 16 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 17 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 19 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 20
-                        ){
-                            moverDireita();
-                        }
-                        if( 
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 8 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 9 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 16 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 17 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 19 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 20
-                        ){
-                            moverBaixo();
-                        }
-                        if( 
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 8 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 9 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 16 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 17 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 19 ||
-                            matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 20
-                        ){
-                            moverEsquerda();
-                        }
+
+                        ataqueCampo("Campo22",-1,-1);
+                        ataqueCampo("Campo23",-1,0);
+                        ataqueCampo("Campo24",-1,1);
+                        ataqueCampo("Campo33",0,1);
+                        ataqueCampo("Campo42",1,1);
+                        ataqueCampo("Campo41",1,0);
+                        ataqueCampo("Campo40",1,-1);
+                        ataqueCampo("Campo31",0,-1);
 
                     }else{
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
-                        setTimeout(function(){
-                            document.getElementById('mensagemDiv2').innerHTML = '';
-                        }, 5000);
                     }
 
                 }
@@ -4704,10 +5474,9 @@ var matrizCriaturasVida =
                         }
                         
                     }else{
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = 'Você está exausto.'; 
-                        setTimeout(function(){
-                            document.getElementById('mensagemDiv2').innerHTML = '';
-                        }, 5000);
                     }
 
                 }
@@ -4721,12 +5490,33 @@ var matrizCriaturasVida =
 
                 if(tecla != 13){
                     tecla = String.fromCharCode(tecla);
+                    if(tecla == "1" && exura && document.getElementById('campoDeEscritaInput').value == ''){
+                        document.getElementById('campoDeEscritaInput').value = 'exura';
+                        dialogo();
+                        document.getElementById('campoDeEscritaInput').value = '';
+                    }
+                    if(tecla == "2" && exuraGran && document.getElementById('campoDeEscritaInput').value == ''){
+                        document.getElementById('campoDeEscritaInput').value = 'exura gran';
+                        dialogo();
+                        document.getElementById('campoDeEscritaInput').value = '';
+                    }
+                    if(tecla == "3" && exori && document.getElementById('campoDeEscritaInput').value == ''){
+                        document.getElementById('campoDeEscritaInput').value = 'exori';
+                        dialogo();
+                        document.getElementById('campoDeEscritaInput').value = '';
+                    }
+                    if(tecla == "4" && exoriGran && document.getElementById('campoDeEscritaInput').value == ''){
+                        document.getElementById('campoDeEscritaInput').value = 'exori gran';
+                        dialogo();
+                        document.getElementById('campoDeEscritaInput').value = '';
+                    }
                 } else {
                     if(document.getElementById('mensagem1').style.visibility == 'hidden'){
-                        datainicioinatividade = new Date();
                         dialogo();
                     }
                 }
+
+                datainicioinatividade = new Date();
 
             }
 
@@ -4780,14 +5570,15 @@ var matrizCriaturasVida =
                         hp++;
                     }";
                     echo "outfit = '" . $obj->outfit . "';";
-                    echo "mensagem = '" . $obj->mensagem . "';";
+                    //echo "mensagem = '" . $obj->mensagem . "';";
+                    echo "mensagem = '';";
                     echo "dadosJson = '" . $obj->json . "';";
 
                     $logado = true;
                 }
 
                 if(!$logado){
-                    echo "alert('Conta inexistente, os seus dados nao serao salvos. Acesse magiclevel.ml para se registrar. Sem logar voce nao podera interagir com os outros players.');";
+                    echo "alert('Conta inexistente, os seus dados não serao salvos. Acesse magiclevel.ml para se registrar. Sem logar você não podera interagir com os outros players.');";
                     echo "window.location.replace('http://magiclevel.ml');";
                 }
 
@@ -4863,7 +5654,7 @@ var matrizCriaturasVida =
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
 
-            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25){
+            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45){
                 posicaoDoPersonagemNaMatriz = [5,6];
             }
 

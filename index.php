@@ -180,16 +180,16 @@
                 document.getElementById("cartaoId").innerHTML = '<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
             }
             function quests(){
-                document.getElementById("cartaoId").innerHTML = 'Quests:<br><br>- Quest 1: Equipamentos Iniciais (Poção HP, Corda e Pá);<br><br>- Quest 2: Snake man (100xp);<br><br>- Quest 3: Dragon man (200xp);<br><br>- Quest 4: Mammoth man (300xp).<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center">';
+                document.getElementById("cartaoId").innerHTML = 'Quests:<br><br>- Quest 1: Equipamentos Iniciais (Poção HP, Corda e Pá);<br><br>- Quest 2: Snake man (30xp, 70xp, 10xp);<br><br>- Quest 3: Dragon man (70xp, 130xp, 20xp);<br><br>- Quest 4: Mammoth man (100xp, 200xp, 30xp).<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center">';
             }
             function tasks(){
-                document.getElementById("cartaoId").innerHTML = 'Tasks:<br><br>- Task 1: Snake Task [0/100] (100xp);<br><br>- Task 2: Dragon Task [0/100] (200xp);<br><br>- Task 3: Mammoth Task [0/100] (300xp).';
+                document.getElementById("cartaoId").innerHTML = 'Tasks:<br><br>- Task 1: Snake Task [0/100] (100xp);<br><br>- Task 2: Dragon Task [0/100] (200xp);<br><br>- Task 3: Mammoth Task [0/100] (300xp);<br><br>- Task 4: Spider Task [0/100] (400xp).';
             }
             function monsters(){
-                document.getElementById("cartaoId").innerHTML = 'Monsters:<br><br>- Snake<br><br><img id="cartaoDeVisita" src="imagens/imagemSnake.png" title="game" alt="game" class=""><br><br>XP: 1<br>Vida: 51<br>Ataque: 1~50<br><br>- Dragon<br><br><img id="cartaoDeVisita" src="imagens/imagemDragon.png" title="game" alt="game" class=""><br><br>XP: 2<br>Vida: 101<br>Ataque: 50~150<br><br>- Mammoth<br><br><img id="cartaoDeVisita" src="imagens/imagemMammoth.png" title="game" alt="game" class=""><br><br>XP: 3<br>Vida: 201<br>Ataque: 150~450';
+                document.getElementById("cartaoId").innerHTML = 'Monsters:<br><br>- Snake<br><br><img id="cartaoDeVisita" src="imagens/imagemSnake.png" title="game" alt="game" class=""><br><br>XP: 1<br>Vida: 51<br>Ataque: 1~50<br><br>- Dragon<br><br><img id="cartaoDeVisita" src="imagens/imagemDragon.png" title="game" alt="game" class=""><br><br>XP: 2<br>Vida: 101<br>Ataque: 50~150<br><br>- Mammoth<br><br><img id="cartaoDeVisita" src="imagens/imagemMammoth.png" title="game" alt="game" class=""><br><br>XP: 3<br>Vida: 201<br>Ataque: 150~450<br><br>- Spider<br><br><img id="cartaoDeVisita" src="imagens/imagemSpider.png" title="game" alt="game" class=""><br><br>XP: 4<br>Vida: 401<br>Ataque: 450~1350';
             }
             function spells(){
-                document.getElementById("cartaoId").innerHTML = 'Spells:<br><br>- Exura<br>Cura: ((80)+(level*2))~((80)+(level*4))<br><br>- Exura Gran<br>Cura: ((120)+(level*3))~((120)+(level*6))<br><br>- Exori<br>Hit: Normal<br>Descrição: Ataca todos ao redor.<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center">- Exori Gran<br>Hit: Normal<br>Descrição: Ataca todos da tela.<br><img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
+                document.getElementById("cartaoId").innerHTML = 'Spells:<br><br>- Exura<br>Cura: ((80)+(level*2))~((80)+(level*4))<br><br>- Exura Gran<br>Cura: ((120)+(level*3))~((120)+(level*6))<br><br>- Exori<br>Hit: Normal<br>Descrição: Ataca todos ao redor.<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center">- Exori Gran<br>Hit: Normal<br>Descrição: Ataca todos da tela.<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
             }
             function items(){
                 document.getElementById("cartaoId").innerHTML = 'Items:<br><br>- Poção HP<br>Cura: ((40)+(level))~((40)+(level*2))<br><br><img id="cartaoDeVisita" src="imagens/imagemPocaoHP.png" title="game" alt="game"><br><br>- Corda<br>Descrição: Utilizada para subir de um andar para o outro.<br><br><img id="cartaoDeVisita" src="imagens/imagemCorda.png" title="game" alt="game"><br><br>- Pá<br>Descrição: Utilizada para cavar um buraco fechado para descer um andar.<br><br><img id="cartaoDeVisita" src="imagens/imagemPa.png" title="game" alt="game">';
@@ -198,7 +198,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Fields:<br><br>- Teleport<br>Descrição: Utilizado para se mover longas distâncias.<br><br><img id="cartaoDeVisita" src="imagens/imagemTeleport1.png" title="game" alt="game"><br><br>- Buraco Aberto<br>Descrição: Leva para o andar de baixo ao andar sobre.<br><br><img id="cartaoDeVisita" src="imagens/imagemBuracoAberto.png" title="game" alt="game"><br><br>- Buraco Fechado<br>Descrição: Pode ser aberto com uma pá, e leva para o andar de baixo.<br><br><img id="cartaoDeVisita" src="imagens/imagemBuracoFechado.png" title="game" alt="game"><br><br>- Chão com terra<br>Descrição: A terra vem do andar de cima, é possível usar a corda estando neste terreno para subir um andar.<br><br><img id="cartaoDeVisita" src="imagens/imagemFundoBuraco.png" title="game" alt="game"><br><br>- Caixa<br>Descrição: Utilizada para segurar os Monstros, mas você pode subir ou descer e caminhar sobre elas.<br><br><img id="cartaoDeVisita" src="imagens/imagemParcel.png" title="game" alt="game">';
             }
             function mechanics(){
-                document.getElementById("cartaoId").innerHTML = 'Mecânicas:<br><br>- Os personagens a cada level ganham 40 pontos de vida ou hitpoints, o seu ataque mínimo aumenta em 1(um), e o seu ataque máximo aumenta em 2(dois), os valores de regeneração natural do seu personagem são equivalentes ao do seu ataque;<br><br>- Os ataques recebidos ou realizados aparecem sobre o personagem ou criatura na cor amarela, e as curas na cor verde.';
+                document.getElementById("cartaoId").innerHTML = 'Mecânicas:<br><br>- Os personagens a cada level ganham 40 pontos de vida ou hitpoints, o seu ataque mínimo aumenta em 1(um), e o seu ataque máximo aumenta em 2(dois), os valores de regeneração natural do seu personagem são equivalentes ao do seu ataque;<br><br>- As criaturas entram em combate quando você se aproxima delas, clique sobre elas para combatê-las, você pode ganhar alguma experiência assim;<br><br>- Os ataques recebidos ou realizados aparecem sobre o personagem ou criatura na cor amarela, e as curas e regenerações na cor verde;<br><br>- As magias são conjuradas, então você pode escrevê-las e enviá-las com o enter, que as mesmas serão executadas. Também pode conjurar uma magia, usando os números de 1-4, sem estar escrevendo algo. Ou simplesmente clicar em uma das magias disponíveis na caixa de magias.';
             }
         </script>
     </head>
@@ -286,7 +286,7 @@
             echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário ja existente.</div>";
         }else{
 
-            $sql = "INSERT INTO `ottibia`(`username`, `password`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem`, `json`) VALUES ('" . $username . "', '" . $password . "', 5, 6, 2, 0, 176, '" . $outfit . "', '', '{\"json\":[{\"itens\":[0,0,0,0]},{\"magias\":[0,0,0,0]},{\"tasks\":[0,0]},{\"quests\":[0,0,0,0]}]}')";
+            $sql = "INSERT INTO `ottibia`(`username`, `password`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem`, `json`) VALUES ('" . $username . "', '" . $password . "', 5, 6, 2, 0, 176, '" . $outfit . "', '', '{\"json\":[{\"itens\":\"0,0,0\"},{\"magias\":\"0,0,0,0\"},{\"tasks\":\"0,0\"},{\"quests\":\"0,0,0,0,0\"}]}')";
             
             $conn->query($sql);
 
@@ -368,5 +368,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.9.59
+    ©2021 magiclevel.ml. All rights reserved. v1.12.61
 </div>
