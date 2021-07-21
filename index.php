@@ -164,6 +164,7 @@
                 document.getElementById('op9').classList.remove('active');
                 document.getElementById('op10').classList.remove('active');
                 document.getElementById('op11').classList.remove('active');
+                document.getElementById('op12').classList.remove('active');
 
                 document.getElementById(id).classList.add('active');
             }
@@ -200,6 +201,9 @@
             function mechanics(){
                 document.getElementById("cartaoId").innerHTML = 'Mecânicas:<br><br>- Os personagens a cada level ganham 40 pontos de vida ou hitpoints, o seu ataque mínimo aumenta em 1(um), e o seu ataque máximo aumenta em 2(dois), os valores de regeneração natural do seu personagem são equivalentes ao do seu ataque;<br><br>- As criaturas entram em combate quando você se aproxima delas, clique sobre elas para combatê-las, você pode ganhar alguma experiência assim;<br><br>- Os ataques recebidos ou realizados aparecem sobre o personagem ou criatura na cor amarela, e as curas e regenerações na cor verde;<br><br>- As magias são conjuradas, então você pode escrevê-las e enviá-las com o enter, que as mesmas serão executadas. Também pode conjurar uma magia, usando os números de 1-4, sem estar escrevendo algo. Ou simplesmente clicar em uma das magias disponíveis na caixa de magias.';
             }
+            function movies(){
+                document.getElementById("cartaoId").innerHTML = '<iframe class="center" width="757" height="473" src="https://www.youtube.com/embed/zCH4438zCKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
         </script>
     </head>
     <body style="background-color: #ccffff;">
@@ -216,6 +220,7 @@
             <li><a id="op9" href="#items" onclick="menuCheck('op9'); items();">Items</a></li>
             <li><a id="op10" href="#fields" onclick="menuCheck('op10'); fields();">Fields</a></li>
             <li><a id="op11" href="#mechanics" onclick="menuCheck('op11'); mechanics();">Mechanics</a></li>
+            <li><a id="op12" href="#movies" onclick="menuCheck('op12'); movies();">Movies</a></li>
         </ul>
 
         <form action="http://magiclevel.ml" method="post">
@@ -372,5 +377,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.14.66
+    ©2021 magiclevel.ml. All rights reserved. v1.14.67
 </div>
