@@ -171,7 +171,7 @@
                 document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br>- Ei alguém criou um teleporte para pular esta fase!<br>- «silêncio!»<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita.png" title="game" alt="game" class="center">Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br>- A magia exura gran é para os mais experientes;<br>- A magia exori é a nova sensação;<br>- O historiador está em busca de novos dados...<br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br>- A magia exori gran chegou para ajudar nas suas tasks;<br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level.';
             }
             function news(){
-                document.getElementById("cartaoId").innerHTML = 'Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br><br>- A magia exura gran é para os mais experientes;<br><br>- A magia exori é a nova sensação;<br><br>- O historiador está em busca de novos dados...<br><br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br><br>- A magia exori gran chegou para ajudar nas suas tasks;<br><br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;<br><br>- Hotkeys números de 1-4, sem estar escrevendo algo.';
+                document.getElementById("cartaoId").innerHTML = 'Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br><br>- A magia exura gran é para os mais experientes;<br><br>- A magia exori é a nova sensação;<br><br>- O historiador está em busca de novos dados...<br><br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br><br>- A magia exori gran chegou para ajudar nas suas tasks;<br><br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;<br><br>- Hotkeys números de 1-4, sem estar escrevendo algo;<br><br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é mágica de verdade.';
             }
             function story(){
                 document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br><br>- Ei alguém criou um teleporte para pular esta fase!<br><br>- «silêncio!»';
@@ -361,7 +361,9 @@
 
     <br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;
 
-    <br>- Hotkeys números de 1-4, sem estar escrevendo algo.
+    <br>- Hotkeys números de 1-4, sem estar escrevendo algo;
+
+    <br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é mágica de verdade.
 </div>
 
 <audio id="myAudio" preload autoplay loop>
@@ -370,5 +372,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.14.65
+    ©2021 magiclevel.ml. All rights reserved. v1.14.66
 </div>
