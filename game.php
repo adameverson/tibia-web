@@ -1707,12 +1707,12 @@
                     <img id='magiaExoriGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(3); }"></img>
                 </div>
             </div>
-            <div id='parcel' title='parcel' style='position: absolute; top: 220; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: hidden;'>
+            <div id='parcel' title='parcel' style='position: absolute; top: 160; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: hidden;'>
                 <div id='nomeDoParcel1' title='parcel' style='top: 0; left: 10; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
-                    Parcel
+                    Caixa
                 </div>
                 <div id='campoDoParcel1' title='parcel' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDoParcel1' src='imagens/imagemPocaoHP.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="document.getElementById('itemCampoDoParcel1').src = 'imagens/imagemCampoItem.png'; mochila[0] = 'PocaoHP'; document.getElementById('itemCampoDaMochila1').src = 'imagens/imagemPocaoHP.png';"></img>
+                    <img id='itemCampoDoParcel1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDoParcel2' title='parcel' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
                     <img id='itemCampoDoParcel2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
@@ -1724,18 +1724,30 @@
                     <img id='itemCampoDoParcel4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
-            <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 220; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
-                <div id='tasks' title='tasks' style='position: fixed; top: 230; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+            <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 230; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
+                <div id='tasks' title='tasks' style='position: fixed; top: 240; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                 </div>
-                <div id='task' title='task' style='position: fixed; top: 245; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                <div id='task' title='task' style='position: fixed; top: 255; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
 
                 </div>
-                <div id='taskvalor' title='task' style='position: fixed; top: 245; left: 540; width: 178; height: 20; text-align: right; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                <div id='taskvalor' title='task' style='position: fixed; top: 255; left: 540; width: 178; height: 20; text-align: right; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
 
                 </div>
             </div>
-            <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('chathistoria').style.visibility == 'hidden'){document.getElementById('chathistoria').style.visibility = 'visible';}else{document.getElementById('chathistoria').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 193; left: 252; width: 10; height: 10;' onclick="document.getElementById('mensagem1').style.visibility = 'hidden'; datainicioinatividade = new Date();">
+        
+            </div>
+            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 193; left: 325; width: 30; height: 10;' onclick="if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel2').style.visibility = 'visible'; document.getElementById('campoDaParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel3').style.visibility = 'visible'; document.getElementById('campoDaParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel2').style.visibility = 'hidden'; document.getElementById('campoDaParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel3').style.visibility = 'hidden'; document.getElementById('campoDaParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+        
+            </div>
+            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 208; left: 325; width: 30; height: 30;' onclick="if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();">
+        
+            </div>
+            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; if(document.getElementById('mensagem1').style.visibility == 'hidden'){document.getElementById('mensagem1').style.visibility = 'visible';}else{document.getElementById('mensagem1').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+                Equipamentos
+            </button>
+            <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('chathistoria').style.visibility == 'hidden'){document.getElementById('chathistoria').style.visibility = 'visible';}else{document.getElementById('chathistoria').style.visibility = 'hidden';} datainicioinatividade = new Date();">
                 História
             </button>
             <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('logoutPergunta1').style.visibility == 'hidden'){document.getElementById('logoutPergunta1').style.visibility = 'visible'; document.getElementById('logoutOpcao1').style.visibility = 'visible'; document.getElementById('logoutOpcao2').style.visibility = 'visible';}else{document.getElementById('logoutPergunta1').style.visibility = 'hidden'; document.getElementById('logoutOpcao1').style.visibility = 'hidden'; document.getElementById('logoutOpcao2').style.visibility = 'hidden';} datainicioinatividade = new Date();">
@@ -2087,6 +2099,7 @@ var matrizCriaturasVida =
             var lvlantigo = 0;
             var mensagem = "";
             var ultimamensagem = "";
+            var alertaBoss = false;
             
             var mover = 60;
             var quadrosDeAnimacao = 9;
@@ -2333,11 +2346,11 @@ var matrizCriaturasVida =
                 (lvlatual < 490)?( esperaPorQuadro = 5 - (lvlatual*0.01) ):(esperaPorQuadro = 0.1);
 
                 if(lvlantigo && lvlantigo < lvlatual){
-                    mensagensDoChatDefault += "\n\nYou advanced from Level " + lvlantigo + " to Level " + lvlatual;
+                    mensagensDoChatDefault += "\n\nVocê avançou do Level " + lvlantigo + " para o Level " + lvlatual;
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
                     document.getElementById('mensagemDiv1').style.color = "white";
-                    document.getElementById('mensagemDiv1').innerHTML = "You advanced from Level " + lvlantigo + " to Level " + lvlatual;
+                    document.getElementById('mensagemDiv1').innerHTML = "Você avançou do Level " + lvlantigo + " para o Level " + lvlatual;
                 }
 
                 lvlantigo = lvlatual;
@@ -4639,6 +4652,21 @@ var matrizCriaturasVida =
                 }
                 if(dataDiv2 <= new Date()){
                     document.getElementById('mensagemDiv2').innerHTML = '';
+                }
+
+                //codigo de alerta do boss
+                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > 58 && posicaoDoPersonagemNaMatriz[1] < 18){
+                    dataDiv1 = new Date();
+                    dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
+                    document.getElementById('mensagemDiv1').style.color = "red";
+                    document.getElementById('mensagemDiv1').innerHTML = 'Um boss está nas redondezas!';
+                    alertaBoss = true;
+                }else if(posicaoDoPersonagemNaMatriz[0] <= 58 || posicaoDoPersonagemNaMatriz[1] >= 18){
+                    alertaBoss = false;
+                    if(document.getElementById('mensagemDiv1').innerHTML == 'Um boss está nas redondezas!'){
+                        document.getElementById('mensagemDiv1').innerHTML = '';
+                        document.getElementById('mensagemDiv1').style.color = "white";
+                    }
                 }
 
                 //document.getElementById('campoDeEscritaInput').focus();
