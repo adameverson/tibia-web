@@ -4658,14 +4658,13 @@ var matrizCriaturasVida =
                 if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > 58 && posicaoDoPersonagemNaMatriz[1] < 18){
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
-                    document.getElementById('mensagemDiv1').style.color = "red";
+                    document.getElementById('mensagemDiv1').style.color = "white";
                     document.getElementById('mensagemDiv1').innerHTML = 'Um boss está nas redondezas!';
                     alertaBoss = true;
                 }else if(posicaoDoPersonagemNaMatriz[0] <= 58 || posicaoDoPersonagemNaMatriz[1] >= 18){
                     alertaBoss = false;
                     if(document.getElementById('mensagemDiv1').innerHTML == 'Um boss está nas redondezas!'){
                         document.getElementById('mensagemDiv1').innerHTML = '';
-                        document.getElementById('mensagemDiv1').style.color = "white";
                     }
                 }
 
