@@ -19,6 +19,8 @@
 
             var inativo = false;
             var datainicioinatividade = new Date();
+
+            var  flagEquipamento = false;
             
             var identificadorDoChat = 0;
             var mensagensDoChatDefault = "Bem Vindo!";
@@ -1598,18 +1600,18 @@
         
         </div>
         <div id='menuopcoes' style='position:fixed; top: 210; left: 270; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-            <div style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
+            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
                 Outfit 1
-            </div>
-            <div style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';">
+            </button>
+            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';">
                 Outfit 2
-            </div>
+            </button>
         </div>
         <img id='mensagem1' src='imagens/imagemMensagemPersonagemInativo.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
-        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
-        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
 
@@ -1735,16 +1737,16 @@
 
                 </div>
             </div>
-            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 193; left: 252; width: 10; height: 10;' onclick="document.getElementById('mensagem1').style.visibility = 'hidden'; datainicioinatividade = new Date();">
+            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 193; left: 252; width: 10; height: 10; visibility: hidden;' onclick="if(flagEquipamento){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('equipamentoMochila').style.visibility = 'hidden'; document.getElementById('equipamentoParcel').style.visibility = 'hidden'; document.getElementById('equipamentoMenos').style.visibility = 'hidden'; datainicioinatividade = new Date();}">
         
             </div>
-            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 193; left: 325; width: 30; height: 10;' onclick="if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel2').style.visibility = 'visible'; document.getElementById('campoDaParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel3').style.visibility = 'visible'; document.getElementById('campoDaParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel2').style.visibility = 'hidden'; document.getElementById('campoDaParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel3').style.visibility = 'hidden'; document.getElementById('campoDaParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 193; left: 325; width: 30; height: 10; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel2').style.visibility = 'visible'; document.getElementById('campoDaParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel3').style.visibility = 'visible'; document.getElementById('campoDaParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel2').style.visibility = 'hidden'; document.getElementById('campoDaParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel3').style.visibility = 'hidden'; document.getElementById('campoDaParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();}">
         
             </div>
-            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 208; left: 325; width: 30; height: 30;' onclick="if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();">
+            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 208; left: 325; width: 30; height: 30; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();}">
         
             </div>
-            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; if(document.getElementById('mensagem1').style.visibility == 'hidden'){document.getElementById('mensagem1').style.visibility = 'visible';}else{document.getElementById('mensagem1').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; if(document.getElementById('mensagem1').style.visibility == 'hidden'){document.getElementById('mensagem1').style.visibility = 'visible'; document.getElementById('equipamentoMochila').style.visibility = 'visible'; document.getElementById('equipamentoParcel').style.visibility = 'visible'; document.getElementById('equipamentoMenos').style.visibility = 'visible'; flagEquipamento = true;}else{document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('equipamentoMochila').style.visibility = 'hidden'; document.getElementById('equipamentoParcel').style.visibility = 'hidden'; document.getElementById('equipamentoMenos').style.visibility = 'hidden'; flagEquipamento = false;} datainicioinatividade = new Date();">
                 Equipamentos
             </button>
             <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('chathistoria').style.visibility == 'hidden'){document.getElementById('chathistoria').style.visibility = 'visible';}else{document.getElementById('chathistoria').style.visibility = 'hidden';} datainicioinatividade = new Date();">
@@ -2967,7 +2969,8 @@ var matrizCriaturasVida =
 
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 5000);
-                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                    document.getElementById('mensagemDiv1').style.color = 'white';
                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
 
                     nivelDeConversaNpc = 0;
@@ -4077,6 +4080,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == atacando){
                         matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = normal;
@@ -4116,6 +4121,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = normal;
@@ -4155,6 +4162,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == atacando){
                         matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = normal;
@@ -4194,6 +4203,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == atacando){
                         matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = normal;
@@ -4233,6 +4244,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] = normal;
@@ -4272,6 +4285,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == atacando){
                         matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] = normal;
@@ -4311,6 +4326,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando){
                         matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] = normal;
@@ -4350,6 +4367,8 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz = [5,6];
                             document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                             document.getElementById('mensagem1').style.visibility = 'visible';
+                            document.getElementById('ok').style.visibility = 'visible'; 
+                            document.getElementById('cancel').style.visibility = 'visible';
                         }
                     } else if(matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] = normal;
@@ -4388,6 +4407,8 @@ var matrizCriaturasVida =
                                 posicaoDoPersonagemNaMatriz = [5,6];
                                 document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                                 document.getElementById('mensagem1').style.visibility = 'visible';
+                                document.getElementById('ok').style.visibility = 'visible'; 
+                                document.getElementById('cancel').style.visibility = 'visible';
                             }
                         }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == atacando || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == morto){
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] = normal;
@@ -4642,6 +4663,8 @@ var matrizCriaturasVida =
                     inativo = true;
                     document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemInativo.png';
                     document.getElementById('mensagem1').style.visibility = 'visible';
+                    document.getElementById('ok').style.visibility = 'visible'; 
+                    document.getElementById('cancel').style.visibility = 'visible';
                 }else{
                     inativo = false;
                 }
@@ -4912,7 +4935,8 @@ var matrizCriaturasVida =
                             if((!exura || !exuraGran || !exori || !exoriGran) && (quest1 || quest2 || quest3 || quest4)){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task', aprender uma 'magia' ou resetar a quest principal?";
 
-                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task', aprender uma 'magia' ou resetar a quest principal?";
 
                                 document.getElementById('opcao1').innerHTML = "Task";
@@ -4934,7 +4958,8 @@ var matrizCriaturasVida =
                             } else if((!exura || !exuraGran || !exori || !exoriGran) && (!quest1 && !quest2 && !quest3 && !quest4)){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
 
-                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
 
                                 document.getElementById('opcao1').innerHTML = "Task";
@@ -4952,7 +4977,8 @@ var matrizCriaturasVida =
                             } else if((exura && exuraGran && exori && exoriGran) && (quest1 || quest2 || quest3 || quest4)){
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal? Não temos nenhuma magia para ensinar.";
 
-                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal? Não temos nenhuma magia para ensinar.";
 
                                 document.getElementById('opcao1').innerHTML = "Task";
@@ -4970,7 +4996,8 @@ var matrizCriaturasVida =
                             } else {
                                 mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
 
-                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
 
                                 document.getElementById('opcao1').innerHTML = "Task";
@@ -5000,7 +5027,8 @@ var matrizCriaturasVida =
 
                                 mensagensDoChatNpc += "\n\nNpc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
 
-                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
 
                                 document.getElementById('opcao1').innerHTML = taskopcao1;
@@ -5046,7 +5074,8 @@ var matrizCriaturasVida =
 
                                 mensagensDoChatNpc += magias + ". Digite o nome da magia para aprender...";
 
-                                document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
                                 document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s):" + magias + ". Digite o nome da magia para aprender...";
 
                                 document.getElementById('opcao1').style.visibility = 'hidden';
@@ -5203,7 +5232,8 @@ var matrizCriaturasVida =
 
                             mensagensDoChatNpc += "\n\nNpc: Prontinho. Tchau!";
 
-                            document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                            //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                            document.getElementById('mensagemDiv1').style.color = 'white';
                             document.getElementById('mensagemDiv1').innerHTML = "Npc: Prontinho. Tchau!";
 
                             if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura'){
@@ -5358,7 +5388,8 @@ var matrizCriaturasVida =
 
                             mensagensDoChatNpc += "\n\nNpc: Até mais!";
 
-                            document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                            //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                            document.getElementById('mensagemDiv1').style.color = 'white';
                             document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
 
                             nivelDeConversaNpc = 0;
@@ -5390,56 +5421,64 @@ var matrizCriaturasVida =
                                 case 'exura gran':
                                     mensagensDoChatNpc += "\n\nNpc: Você precisa de level 50+ para aprender esta magia!";
 
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 50+ para aprender esta magia!";
 
                                     break;
                                 case 'exori':
                                     mensagensDoChatNpc += "\n\nNpc: Você precisa de level 100+ para aprender esta magia!";
 
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 100+ para aprender esta magia!";
 
                                     break;
                                 case 'exori gran':
                                     mensagensDoChatNpc += "\n\nNpc: Você precisa de level 200+ para aprender esta magia!";
 
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 200+ para aprender esta magia!";
 
                                     break;
                                 case 'snake task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'dragon task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'mammoth task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'spider task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
                                     
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
 
                                     break;
                                 case 'reset task':
                                     mensagensDoChatNpc += "\n\nNpc: Você ainda não recebeu uma task!";
                                     
-                                    document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                    document.getElementById('mensagemDiv1').style.color = 'white';
                                     document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não recebeu uma task!";
 
                                     break;
