@@ -187,7 +187,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Tasks:<br><br>- Task 1: Snake Task [0/100] (100xp);<br><br>- Task 2: Dragon Task [0/100] (200xp);<br><br>- Task 3: Mammoth Task [0/100] (300xp);<br><br>- Task 4: Spider Task [0/100] (400xp).';
             }
             function monsters(){
-                document.getElementById("cartaoId").innerHTML = '-- Monsters --<br><br>- Snake<br><br><img id="snake" src="imagens/imagemSnake.png" title="game" alt="game" class=""><br><br>XP: 1<br>Vida: 51<br>Ataque: 1~50<br><br>- Dragon<br><br><img id="dragon" src="imagens/imagemDragon.png" title="game" alt="game" class=""><br><br>XP: 2<br>Vida: 101<br>Ataque: 50~150<br><br>- Mammoth<br><br><img id="mammoth" src="imagens/imagemMammoth.png" title="game" alt="game" class=""><br><br>XP: 3<br>Vida: 201<br>Ataque: 150~450<br><br>- Spider<br><br><img id="spider" src="imagens/imagemSpider.png" title="game" alt="game" class=""><br><br>XP: 4<br>Vida: 401<br>Ataque: 450~1350<br><br><br>-- Bosses --<br><br>- Orc Shaman<br><br><img id="orcshaman" src="imagens/imagemOrcShaman.gif" title="game" alt="game" class=""><br><br>XP: 100<br>Vida: 5000<br>Ataque: 450~1350';
+                document.getElementById("cartaoId").innerHTML = '-- Monsters --<br><br>- Snake<br><br><img id="snake" src="imagens/imagemSnake.png" title="game" alt="game" class=""><br><br>XP: 1<br>Vida: 51<br>Ataque: 1~50<br><br>- Dragon<br><br><img id="dragon" src="imagens/imagemDragon.png" title="game" alt="game" class=""><br><br>XP: 2<br>Vida: 101<br>Ataque: 50~150<br><br>- Mammoth<br><br><img id="mammoth" src="imagens/imagemMammoth.png" title="game" alt="game" class=""><br><br>XP: 3<br>Vida: 201<br>Ataque: 150~450<br><br>- Spider<br><br><img id="spider" src="imagens/imagemSpider.png" title="game" alt="game" class=""><br><br>XP: 4<br>Vida: 401<br>Ataque: 450~1350<br><br><br>-- Bosses --<br><br>- Orc Shaman<br><br><img id="orcshaman" src="imagens/imagemOrcShaman.gif" title="game" alt="game" class=""><br><br>XP: 100<br>Vida: 5000<br>Ataque: 1350~4050';
             }
             function spells(){
                 document.getElementById("cartaoId").innerHTML = 'Spells:<br><br>- Exura<br>Cura: ((80)+(level*2))~((80)+(level*4))<br><br>- Exura Gran<br>Cura: ((120)+(level*3))~((120)+(level*6))<br><br>- Exori<br>Hit: Normal<br>Descrição: Ataca todos ao redor.<img id="cartaoDeVisita4" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center">- Exori Gran<br>Hit: Normal<br>Descrição: Ataca todos da tela.<img id="cartaoDeVisita5" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
@@ -377,5 +377,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.15.71
+    ©2021 magiclevel.ml. All rights reserved. v1.16.72
 </div>

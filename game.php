@@ -1777,6 +1777,11 @@
             </div>
         </div>
 
+        <audio id="myAudio" src="" type="audio/mpeg" preload autoplay loop>
+            <!--<source id="myAudioSrc" src="musicas/ToPTrack02.mp3" type="audio/mpeg">-->
+            Your browser does not support the audio tag.
+        </audio>
+
         <!--
         <div style="position: fixed; top: 240; left: 60; width: 180;">
             <div style="position: fixed; left: 140; width: 180;">
@@ -2102,6 +2107,9 @@ var matrizCriaturasVida =
             var mensagem = "";
             var ultimamensagem = "";
             var alertaBoss = false;
+            var audio1 = false;
+            var audio2 = false;
+            var audio3 = false;
             
             var mover = 60;
             var quadrosDeAnimacao = 9;
@@ -4691,6 +4699,24 @@ var matrizCriaturasVida =
                     }
                 }
 
+                //codigo troca de musica
+                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 57 && posicaoDoPersonagemNaMatriz[0] > 39){
+                    document.getElementById("myAudio").src = "musicas/ToPTrack02.mp3";
+                    audio1 = true;
+                    audio2 = false;
+                    audio3 = false;
+                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 57){
+                    document.getElementById("myAudio").src = "musicas/ToPTrack11.mp3";
+                    audio1 = false;
+                    audio2 = true;
+                    audio3 = false;
+                }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < 40){
+                    document.getElementById("myAudio").src = "musicas/ToPTrack05.mp3";
+                    audio1 = false;
+                    audio2 = false;
+                    audio3 = true;
+                }
+
                 //document.getElementById('campoDeEscritaInput').focus();
 
             }
@@ -5765,14 +5791,27 @@ var matrizCriaturasVida =
 
             main();
 
+            //codigo troca de musica
+            if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 57 && posicaoDoPersonagemNaMatriz[0] > 39){
+                document.getElementById("myAudio").src = "musicas/ToPTrack02.mp3";
+                audio1 = true;
+                audio2 = false;
+                audio3 = false;
+            }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 57){
+                document.getElementById("myAudio").src = "musicas/ToPTrack11.mp3";
+                audio1 = false;
+                audio2 = true;
+                audio3 = false;
+            }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < 40){
+                document.getElementById("myAudio").src = "musicas/ToPTrack05.mp3";
+                audio1 = false;
+                audio2 = false;
+                audio3 = true;
+            }
+
             //alert("Servidor em Manutenção!");
 
         </script>
 
     </body>
 </html>
-
-<audio id="myAudio" preload autoplay loop>
-  <source src="musicas/ToPTrack02.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio>
