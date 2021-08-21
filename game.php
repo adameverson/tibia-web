@@ -4509,26 +4509,38 @@ var matrizCriaturasVida =
                         if(dadosResposta != "vazio"){
                             for(let i = 0; i < dadosResposta.players.length; i++){
 
-                                if(dadosResposta.players[i].username == username){
+                                if(
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 8 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 16 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 19 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 45 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 48 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 9 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 17 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 20 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 46 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 49 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 10 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 18 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 21 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 47 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 50 ||
+                                    dadosResposta.players[i].username == username
+                                ){
                                     continue;
                                 }
 
-                                switch(matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y]){
-                                    case 0:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
-                                        break;
-                                    case 4:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 4;
-                                        break;
-                                    case 5:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 5;
-                                        break;
-                                    case 6:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 6;
-                                        break;
-                                    case 7:
-                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 7;
-                                        break;
+                                if(
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 12 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 13 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 14 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 15 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 22 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 23 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 24 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 25
+                                ){
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
                                 }
                             }
                         }
@@ -4537,10 +4549,10 @@ var matrizCriaturasVida =
                         
                         for(let i = 0; i < dadosResposta.players.length; i++){
                             if(
-                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
-                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
-                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
-                                matrizDoMapaOriginal[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7 &&
                                 matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 8 &&
                                 matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 16 &&
                                 matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 19 &&
