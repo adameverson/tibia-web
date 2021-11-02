@@ -206,7 +206,7 @@
                 document.getElementById("cartaoId").innerHTML = '<iframe class="center" width="757" height="473" src="https://www.youtube.com/embed/zCH4438zCKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             }
             function downloads(){
-                document.getElementById("cartaoId").innerHTML = '<a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Download Android v0.1.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
         </script>
     </head>
@@ -382,5 +382,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.17.77
+    ©2021 magiclevel.ml. All rights reserved. v1.17.78
 </div>
