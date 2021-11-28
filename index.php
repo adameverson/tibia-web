@@ -166,6 +166,7 @@
                 document.getElementById('op11').classList.remove('active');
                 document.getElementById('op12').classList.remove('active');
                 document.getElementById('op13').classList.remove('active');
+                document.getElementById('op14').classList.remove('active');
 
                 document.getElementById(id).classList.add('active');
             }
@@ -208,6 +209,9 @@
             function downloads(){
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
+            function code(){
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.18.78</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+            }
         </script>
     </head>
     <body style="background-color: #ccffff;">
@@ -226,6 +230,7 @@
             <li><a id="op11" href="#mechanics" onclick="menuCheck('op11'); mechanics();">Mechanics</a></li>
             <li><a id="op12" href="#movies" onclick="menuCheck('op12'); movies();">Movies</a></li>
             <li><a id="op13" href="#downloads" onclick="menuCheck('op13'); downloads();">Download</a></li>
+            <li><a id="op14" href="#code" onclick="menuCheck('op14'); code();">Code</a></li>
         </ul>
 
         <form action="http://magiclevel.ml" method="post">
@@ -382,5 +387,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021 magiclevel.ml. All rights reserved. v1.17.78
+    ©2021 magiclevel.ml. All rights reserved. v1.18.78
 </div>
