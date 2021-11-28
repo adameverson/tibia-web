@@ -44,3 +44,6 @@ application up and running.
 Things you may want to cover:
 
 * Server PHP
+* SQL Table
+![image](https://user-images.githubusercontent.com/24993219/143771755-9e51eb51-de2b-46fb-b191-e2c11678329c.png)
+
