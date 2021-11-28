@@ -46,7 +46,7 @@ Things you may want to cover:
 * Server PHP
 * SQL Table
 ![image](https://user-images.githubusercontent.com/24993219/143771755-9e51eb51-de2b-46fb-b191-e2c11678329c.png)
-* SQL Code\
+* SQL Code MySQL\
 CREATE TABLE `ottibia` (\
  `id` int(11) NOT NULL AUTO_INCREMENT,\
  `username` varchar(20) NOT NULL,\
