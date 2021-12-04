@@ -1924,7 +1924,7 @@ var matrizDoMapa =
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,19, 7, 0, 0, 0,51, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
@@ -2000,7 +2000,7 @@ var matrizDoMapaOriginal =
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,19, 7, 0, 0, 0,51, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
@@ -2076,7 +2076,7 @@ var matrizCriaturasVida =
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38,38, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,50, 7, 0, 0, 0, 0, 0, 0, 0, 7,50,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,50, 7, 0, 0, 0,51, 0, 0, 0, 7,50,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
@@ -2157,6 +2157,9 @@ var matrizCriaturasVida =
             var flagBaixoDireita = false;
             var flagBaixoEsquerda = false;
             var esperaGeral = 100;
+
+            //Variaveis BOT
+            var posicaoBot = [48,10];
 
             //Variaveis JSON
             var dadosResposta = "vazio";
@@ -3467,6 +3470,8 @@ var matrizCriaturasVida =
                             caminhoImagem = "imagens/imagemOrcShamanAtacando.png";
                         }else if(matrizDoMapa[i][j] == 50){
                             caminhoImagem = "imagens/imagemCaveira.png";
+                        }else if(matrizDoMapa[i][j] == 51){
+                            caminhoImagem = "imagens/imagemBot.png";
                         }
                         
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-5){
@@ -4742,6 +4747,35 @@ var matrizCriaturasVida =
                 var conjurarExuraGran = false;
                 var conjurarExori = false;
                 var conjurarExoriGran = false;
+
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot up' && exura){
+                    if(matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 0 && !(posicaoBot[0]-1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
+                        posicaoBot[0] = posicaoBot[0]-1;
+                    } 
+                }
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot right' && exura){
+                    if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]+1 == posicaoDoPersonagemNaMatriz[1])){
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
+                        posicaoBot[1] = posicaoBot[1]+1;
+                    }
+                }
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot down' && exura){
+                    if(matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 0 && !(posicaoBot[0]+1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
+                        posicaoBot[0] = posicaoBot[0]+1;
+                    }
+                }
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot left' && exura){
+                    if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]-1 == posicaoDoPersonagemNaMatriz[1])){
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
+                        posicaoBot[1] = posicaoBot[1]-1;
+                    }
+                }
                 
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' && exura){
                     conjurarExura = true; 
