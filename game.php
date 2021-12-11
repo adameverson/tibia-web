@@ -2105,7 +2105,7 @@ var matrizCriaturasVida =
             var lvlatual = 0;
             var lvlantigo = 0;
             var mensagem = "";
-            var ultimamensagem = "";
+            var ultimamensagem = "vazio";
             var alertaBoss = false;
             var audio1 = false;
             var audio2 = false;
@@ -3259,13 +3259,13 @@ var matrizCriaturasVida =
                             document.getElementById(barraHpCampo).style.visibility = "visible";
                             document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
 
-                            if((dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem) != ultimamensagem){
+                            if(ultimamensagem != "vazio" && dadosResposta.players[k].mensagem != ultimamensagem.players[k].mensagem){
                                 if(dadosResposta.players[k].mensagem != ""){
                                     let data = new Date();
                                     mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
                                     document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
                                     setTimeout(function(){document.getElementById("mensagemDivCampo" + campo).innerHTML = "";}, 5000);
-                                    ultimamensagem = document.getElementById("mensagemDivCampo" + campo).innerHTML;
+                                    ultimamensagem.players[k].mensagem = dadosResposta.players[k].mensagem;
                                 }
                             }
                         }
@@ -4548,6 +4548,7 @@ var matrizCriaturasVida =
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
                                 }
                             }
+                            ultimamensagem = dadosResposta;
                         }
 
                         dadosResposta = JSON.parse(resposta);
@@ -5840,24 +5841,6 @@ var matrizCriaturasVida =
         }
 
             main();
-
-            //codigo troca de musica
-            if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 57 && posicaoDoPersonagemNaMatriz[0] > 39){
-                document.getElementById("myAudio").src = "musicas/ToPTrack02.mp3";
-                audio1 = true;
-                audio2 = false;
-                audio3 = false;
-            }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 57){
-                document.getElementById("myAudio").src = "musicas/ToPTrack11.mp3";
-                audio1 = false;
-                audio2 = true;
-                audio3 = false;
-            }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < 40){
-                document.getElementById("myAudio").src = "musicas/ToPTrack05.mp3";
-                audio1 = false;
-                audio2 = false;
-                audio3 = true;
-            }
 
             //alert("Servidor em Manutenção!");
 
