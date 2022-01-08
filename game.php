@@ -1822,6 +1822,10 @@
             var verificarPosicaoValida;
             var recompensaSacola;
             var mensagemDoSistema;
+            var moverCimaBot;
+            var moverDireitaBot;
+            var moverBaixoBot;
+            var moverEsquerdaBot;
             var calculaLevel;
             var regeneracao;
             var updateDadosJson;
@@ -2161,6 +2165,7 @@ var matrizCriaturasVida =
 
             //Variaveis BOT
             var posicaoBot = [48,10];
+            var botFree = true;
 
             //Variaveis JSON
             var dadosResposta = "vazio";
@@ -2335,6 +2340,74 @@ var matrizCriaturasVida =
                 dataDiv2 = new Date();
                 dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                 document.getElementById('mensagemDiv2').innerHTML = mensagem;
+            }
+
+            moverCimaBot = function(comando){
+                if(comando)
+                    botFree = false;
+                if(matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 0 && !(posicaoBot[0]-1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
+                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                    else
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
+                    posicaoBot[0] = posicaoBot[0]-1;
+                } 
+                else{
+                    if(comando)
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
+                }
+            }
+
+            moverDireitaBot = function(comando){
+                if(comando)
+                    botFree = false;
+                if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]+1 == posicaoDoPersonagemNaMatriz[1])){
+                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                    else
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
+                    posicaoBot[1] = posicaoBot[1]+1;
+                }
+                else{
+                    if(comando)
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
+                }
+            }
+
+            moverBaixoBot = function(comando){
+                if(comando)
+                    botFree = false;
+                if(matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 0 && !(posicaoBot[0]+1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
+                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                    else
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
+                    posicaoBot[0] = posicaoBot[0]+1;
+                }
+                else{
+                    if(comando)
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
+                }
+            }
+
+            moverEsquerdaBot = function(comando){
+                if(comando)
+                    botFree = false;
+                if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]-1 == posicaoDoPersonagemNaMatriz[1])){
+                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                    else
+                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
+                    posicaoBot[1] = posicaoBot[1]-1;
+                }
+                else{
+                    if(comando)
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
+                }
             }
             
             calculaLevel = function(){
@@ -4728,6 +4801,25 @@ var matrizCriaturasVida =
                     audio3 = true;
                 }
 
+                //bot free
+                if(botFree){
+                    let direcaoBot = getRandomIntInclusive(0,3); 
+                    switch(direcaoBot){
+                        case 0:
+                            moverCimaBot(false);
+                            break;
+                        case 1:
+                            moverDireitaBot(false);
+                            break;
+                        case 2:
+                            moverBaixoBot(false);
+                            break;
+                        case 3:
+                            moverEsquerdaBot(false);
+                            break;
+                    }
+                }
+
                 //document.getElementById('campoDeEscritaInput').focus();
 
             }
@@ -4739,56 +4831,22 @@ var matrizCriaturasVida =
                 var conjurarExoriGran = false;
 
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot up'){
-                    if(matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 0 && !(posicaoBot[0]-1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
-                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                        else
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
-                        matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
-                        posicaoBot[0] = posicaoBot[0]-1;
-                    } 
-                    else{
-                        mensagemDoSistema('Bot: Caminho bloqueado.');
-                    }
+                    moverCimaBot(true);
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot right'){
-                    if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]+1 == posicaoDoPersonagemNaMatriz[1])){
-                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                        else
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
-                        posicaoBot[1] = posicaoBot[1]+1;
-                    }
-                    else{
-                        mensagemDoSistema('Bot: Caminho bloqueado.');
-                    }
+                    moverDireitaBot(true);
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot down'){
-                    if(matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 0 && !(posicaoBot[0]+1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
-                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                        else
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
-                        matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
-                        posicaoBot[0] = posicaoBot[0]+1;
-                    }
-                    else{
-                        mensagemDoSistema('Bot: Caminho bloqueado.');
-                    }
+                    moverBaixoBot(true);
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot left'){
-                    if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]-1 == posicaoDoPersonagemNaMatriz[1])){
-                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                        else
-                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
-                        posicaoBot[1] = posicaoBot[1]-1;
-                    }
-                    else{
-                        mensagemDoSistema('Bot: Caminho bloqueado.');
-                    }
+                    moverEsquerdaBot(true);
+                }
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot free'){
+                    botFree = true;
+                }
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot stop'){
+                    botFree = false;
                 }
                 
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura' && exura){

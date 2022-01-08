@@ -201,7 +201,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Fields:<br><br>- Teleport<br>Descrição: Utilizado para se mover longas distâncias.<br><br><img id="teleport" src="imagens/imagemTeleport1.png" title="game" alt="game"><br><br>- Buraco Aberto<br>Descrição: Leva para o andar de baixo ao andar sobre.<br><br><img id="buracoaberto" src="imagens/imagemBuracoAberto.png" title="game" alt="game"><br><br>- Buraco Fechado<br>Descrição: Pode ser aberto com uma pá, e leva para o andar de baixo.<br><br><img id="buracofechado" src="imagens/imagemBuracoFechado.png" title="game" alt="game"><br><br>- Chão com terra<br>Descrição: A terra vem do andar de cima, é possível usar a corda estando neste terreno para subir um andar.<br><br><img id="chaocomterra" src="imagens/imagemFundoBuraco.png" title="game" alt="game"><br><br>- Caixa<br>Descrição: Utilizada para segurar os Monstros, mas você pode subir ou descer e caminhar sobre elas.<br><br><img id="caixa" src="imagens/imagemParcel.png" title="game" alt="game">';
             }
             function mechanics(){
-                document.getElementById("cartaoId").innerHTML = 'Mecânicas:<br><br>- Os personagens a cada level ganham 15 pontos de vida ou hitpoints, o seu ataque mínimo aumenta em 1(um), e o seu ataque máximo aumenta em 2(dois), os valores de regeneração natural do seu personagem são equivalentes ao do seu ataque;<br><br>- As criaturas entram em combate quando você se aproxima delas, clique sobre elas para combatê-las, você pode ganhar alguma experiência assim;<br><br>- Os ataques recebidos ou realizados aparecem sobre o personagem ou criatura na cor amarela, e as curas e regenerações na cor verde;<br><br>- As magias são conjuradas, então você pode escrevê-las e enviá-las com o enter, que as mesmas serão executadas. Também pode conjurar uma magia, usando os números de 1-4, sem estar escrevendo algo. Ou simplesmente clicar em uma das magias disponíveis na caixa de magias;<br><br>- Controle o seu bot: "bot up", "bot right", "bot down" e "bot left".';
+                document.getElementById("cartaoId").innerHTML = 'Mecânicas:<br><br>- Os personagens a cada level ganham 15 pontos de vida ou hitpoints, o seu ataque mínimo aumenta em 1(um), e o seu ataque máximo aumenta em 2(dois), os valores de regeneração natural do seu personagem são equivalentes ao do seu ataque;<br><br>- As criaturas entram em combate quando você se aproxima delas, clique sobre elas para combatê-las, você pode ganhar alguma experiência assim;<br><br>- Os ataques recebidos ou realizados aparecem sobre o personagem ou criatura na cor amarela, e as curas e regenerações na cor verde;<br><br>- As magias são conjuradas, então você pode escrevê-las e enviá-las com o enter, que as mesmas serão executadas. Também pode conjurar uma magia, usando os números de 1-4, sem estar escrevendo algo. Ou simplesmente clicar em uma das magias disponíveis na caixa de magias;<br><br>- Controle o seu bot: "bot free", "bot stop", "bot up", "bot right", "bot down" e "bot left".';
             }
             function movies(){
                 document.getElementById("cartaoId").innerHTML = '<iframe class="center" width="757" height="473" src="https://www.youtube.com/embed/zCH4438zCKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
@@ -210,7 +210,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
             function code(){
-                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.19.84</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.19.85</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
         </script>
     </head>
@@ -387,5 +387,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021-2022 magiclevel.ml. All rights reserved. v1.19.84
+    ©2021-2022 magiclevel.ml. All rights reserved. v1.19.85
 </div>
