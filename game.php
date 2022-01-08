@@ -4722,12 +4722,12 @@ var matrizCriaturasVida =
                 }
 
                 //codigo troca de musica
-                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 57 && posicaoDoPersonagemNaMatriz[0] > 39){
+                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 54 && posicaoDoPersonagemNaMatriz[0] > 39){
                     document.getElementById("myAudio").src = "musicas/ToPTrack02.mp3";
                     audio1 = true;
                     audio2 = false;
                     audio3 = false;
-                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 57){
+                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 54){
                     document.getElementById("myAudio").src = "musicas/ToPTrack11.mp3";
                     audio1 = false;
                     audio2 = true;
@@ -4749,30 +4749,42 @@ var matrizCriaturasVida =
                 var conjurarExori = false;
                 var conjurarExoriGran = false;
 
-                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot up' && exura){
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot up'){
                     if(matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 0 && !(posicaoBot[0]-1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                        else
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                         matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
                         posicaoBot[0] = posicaoBot[0]-1;
                     } 
                 }
-                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot right' && exura){
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot right'){
                     if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]+1 == posicaoDoPersonagemNaMatriz[1])){
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                        else
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                         matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
                         posicaoBot[1] = posicaoBot[1]+1;
                     }
                 }
-                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot down' && exura){
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot down'){
                     if(matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 0 && !(posicaoBot[0]+1 == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1] == posicaoDoPersonagemNaMatriz[1])){
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                        else
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                         matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
                         posicaoBot[0] = posicaoBot[0]+1;
                     }
                 }
-                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot left' && exura){
+                if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot left'){
                     if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]-1 == posicaoDoPersonagemNaMatriz[1])){
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                        if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
+                        else
+                            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                         matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
                         posicaoBot[1] = posicaoBot[1]-1;
                     }
