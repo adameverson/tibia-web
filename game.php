@@ -1821,8 +1821,9 @@
             var verificacaoAproximacaoNPC;
             var verificarPosicaoValida;
             var recompensaSacola;
-            var regeneracao;
+            var mensagemDoSistema;
             var calculaLevel;
+            var regeneracao;
             var updateDadosJson;
             var readDadosJson;
 
@@ -2315,6 +2316,26 @@ var matrizCriaturasVida =
                 }
 
             }
+
+            mensagemDoSistema = function(mensagem){
+                switch(identificadorDoChat){
+                    case 0:
+                        mensagensDoChatDefault += '\n\n' + mensagem;
+                        document.getElementById('textareaChat').value = mensagensDoChatDefault;
+                        break;
+                    case 1:
+                        mensagensDoChatServerLog += '\n\n' + mensagem;
+                        document.getElementById('textareaChat').value = mensagensDoChatServerLog;
+                        break;
+                    case 2:
+                        mensagensDoChatNpc += '\n\n' + mensagem;
+                        document.getElementById('textareaChat').value = mensagensDoChatNpc;
+                        break;
+                }
+                dataDiv2 = new Date();
+                dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
+                document.getElementById('mensagemDiv2').innerHTML = mensagem;
+            }
             
             calculaLevel = function(){
                 let expaux = nivel;
@@ -2447,23 +2468,7 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; 
                             preencherImagens();
                         }else if(mochila[1] == 'Corda'){ 
-                            switch(identificadorDoChat){
-                                case 0:
-                                    mensagensDoChatDefault += '\n\nSistema: Aqui não é possível subir.';
-                                    document.getElementById('textareaChat').value = mensagensDoChatDefault;
-                                    break;
-                                case 1:
-                                    mensagensDoChatServerLog += '\n\nSistema: Aqui não é possível subir.';
-                                    document.getElementById('textareaChat').value = mensagensDoChatServerLog;
-                                    break;
-                                case 2:
-                                    mensagensDoChatNpc += '\n\nSistema: Aqui não é possível subir.';
-                                    document.getElementById('textareaChat').value = mensagensDoChatNpc;
-                                    break;
-                            }
-                            dataDiv2 = new Date();
-                            dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
-                            document.getElementById('mensagemDiv2').innerHTML = 'Aqui não é possível subir.'; 
+                            mensagemDoSistema('Sistema: Aqui não é possível subir.');
                         } 
                         break;
                     case 2:
@@ -2472,23 +2477,7 @@ var matrizCriaturasVida =
                             posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; 
                             preencherImagens();
                         }else if(mochila[2] == 'Pa'){ 
-                            switch(identificadorDoChat){
-                                case 0:
-                                    mensagensDoChatDefault += '\n\nSistema: Aqui não é possível cavar.';
-                                    document.getElementById('textareaChat').value = mensagensDoChatDefault;
-                                    break;
-                                case 1:
-                                    mensagensDoChatServerLog += '\n\nSistema: Aqui não é possível cavar.';
-                                    document.getElementById('textareaChat').value = mensagensDoChatServerLog;
-                                    break;
-                                case 2:
-                                    mensagensDoChatNpc += '\n\nSistema: Aqui não é possível cavar.';
-                                    document.getElementById('textareaChat').value = mensagensDoChatNpc;
-                                    break;
-                            }
-                            dataDiv2 = new Date();
-                            dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
-                            document.getElementById('mensagemDiv2').innerHTML = 'Aqui não é possível cavar.'; 
+                            mensagemDoSistema('Sistema: Aqui não é possível cavar.');
                         } 
                         break;
                 }
@@ -4758,6 +4747,9 @@ var matrizCriaturasVida =
                         matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
                         posicaoBot[0] = posicaoBot[0]-1;
                     } 
+                    else{
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
+                    }
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot right'){
                     if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]+1 == posicaoDoPersonagemNaMatriz[1])){
@@ -4767,6 +4759,9 @@ var matrizCriaturasVida =
                             matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                         matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
                         posicaoBot[1] = posicaoBot[1]+1;
+                    }
+                    else{
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
                     }
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot down'){
@@ -4778,6 +4773,9 @@ var matrizCriaturasVida =
                         matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
                         posicaoBot[0] = posicaoBot[0]+1;
                     }
+                    else{
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
+                    }
                 }
                 if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'bot left'){
                     if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 && !(posicaoBot[0] == posicaoDoPersonagemNaMatriz[0] && posicaoBot[1]-1 == posicaoDoPersonagemNaMatriz[1])){
@@ -4787,6 +4785,9 @@ var matrizCriaturasVida =
                             matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                         matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
                         posicaoBot[1] = posicaoBot[1]-1;
+                    }
+                    else{
+                        mensagemDoSistema('Bot: Caminho bloqueado.');
                     }
                 }
                 
@@ -4993,8 +4994,9 @@ var matrizCriaturasVida =
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori gran" && !exoriGran)
                     ){
                         mensagensDoChatServerLog += "\n\nSistema: Você ainda não sabe esta magia.";
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = "Você ainda não sabe esta magia.";
-                        setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }
                 }else if(identificadorDoChat == 2){
                     if(
@@ -5004,8 +5006,9 @@ var matrizCriaturasVida =
                         (document.getElementById('campoDeEscritaInput').value.toLowerCase() == "exori gran" && !exoriGran && (nivelDeConversaNpc != 3 && nivelDeConversaNpc != 5))
                     ){
                         mensagensDoChatNpc += "\n\nSistema: Você ainda não sabe esta magia.";
+                        dataDiv2 = new Date();
+                        dataDiv2.setMilliseconds(dataDiv2.getMilliseconds() + 1000);
                         document.getElementById('mensagemDiv2').innerHTML = "Você ainda não sabe esta magia.";
-                        setTimeout(function(){document.getElementById('mensagemDiv2').innerHTML = "";}, 5000);
                     }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == "nao"){
                             mensagensDoChatNpc += "\n\nAgora não!";
