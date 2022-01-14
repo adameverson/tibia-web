@@ -2247,25 +2247,25 @@ var matrizCriaturasVida =
                 strDados = dadosJson.json[1].magias.split(',');
                 if(strDados.length > 0 && parseInt(strDados[0])){
                     exura = true;
-                    document.getElementById('magiaExura').src = 'imagens/imagemMagiaExura.png';
+                    document.getElementById('magiaExura').src = 'imagens/Ultimate_Healing.png';
                     document.getElementById('magiaExura').alt = 'exura';
                     document.getElementById('magiaExura').title = 'exura';
                 }
                 if(strDados.length > 1 && parseInt(strDados[1])){
                     exuraGran = true;
-                    document.getElementById('magiaExuraGran').src = 'imagens/imagemMagiaExuraGran.png';
+                    document.getElementById('magiaExuraGran').src = 'imagens/Restoration.png';
                     document.getElementById('magiaExuraGran').alt = 'exura gran';
                     document.getElementById('magiaExuraGran').title = 'exura gran';
                 }
                 if(strDados.length > 2 && parseInt(strDados[2])){
                     exori = true;
-                    document.getElementById('magiaExori').src = 'imagens/imagemMagiaExori.png';
+                    document.getElementById('magiaExori').src = 'imagens/Berserk.png';
                     document.getElementById('magiaExori').alt = 'exori';
                     document.getElementById('magiaExori').title = 'exori';
                 }
                 if(strDados.length > 3 && parseInt(strDados[3])){
                     exoriGran = true;
-                    document.getElementById('magiaExoriGran').src = 'imagens/imagemMagiaExoriGran.png';
+                    document.getElementById('magiaExoriGran').src = 'imagens/Fierce_Berserk.png';
                     document.getElementById('magiaExoriGran').alt = 'exori gran';
                     document.getElementById('magiaExoriGran').title = 'exori gran';
                 }
@@ -5388,25 +5388,25 @@ var matrizCriaturasVida =
 
                             if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura'){
                                 exura = true;
-                                document.getElementById('magiaExura').src = 'imagens/imagemMagiaExura.png';
+                                document.getElementById('magiaExura').src = 'imagens/Ultimate_Healing.png';
                                 document.getElementById('magiaExura').alt = 'exura';
                                 document.getElementById('magiaExura').title = 'exura';
                             }
                             else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exura gran'){
                                 exuraGran = true;
-                                document.getElementById('magiaExuraGran').src = 'imagens/imagemMagiaExuraGran.png';
+                                document.getElementById('magiaExuraGran').src = 'imagens/Restoration.png';
                                 document.getElementById('magiaExuraGran').alt = 'exura gran';
                                 document.getElementById('magiaExuraGran').title = 'exura gran';
                             }
                             else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori'){
                                 exori = true;
-                                document.getElementById('magiaExori').src = 'imagens/imagemMagiaExori.png';
+                                document.getElementById('magiaExori').src = 'imagens/Berserk.png';
                                 document.getElementById('magiaExori').alt = 'exori';
                                 document.getElementById('magiaExori').title = 'exori';
                             }
                             else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori gran'){
                                 exoriGran = true;
-                                document.getElementById('magiaExoriGran').src = 'imagens/imagemMagiaExoriGran.png';
+                                document.getElementById('magiaExoriGran').src = 'imagens/Fierce_Berserk.png';
                                 document.getElementById('magiaExoriGran').alt = 'exori gran';
                                 document.getElementById('magiaExoriGran').title = 'exori gran';
                             }
