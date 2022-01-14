@@ -42,15 +42,18 @@
     $first_update = true;
     $response_json = "";
 
+    /*
     $date1  = filemtime('dados/dados1.txt') + 1;
     $date2 = time();
     $result = $date1 > $date2;
 
     if($result){
         echo file_get_contents('dados/dados1.txt');
-    }else{
+    }else{*/
 
-        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia`";
+    if(isset($_POST['x']) && isset($_POST['y'])){
+
+        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `x` > " . ($x-8) . " AND `x` < " . ($x+8) . " AND `y` > " . ($y-10) . " AND `y` < " . ($y+10);
         //$sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `username`<>'" . $username . "'";
         
         $result = $conn->query($sql);
@@ -73,10 +76,15 @@
         $result->close();
 
         echo $response_json;
-
-        file_put_contents('dados/dados1.txt', $response_json );
-
+    } else {
+        $response_json = "{\"players\":[";
+        $response_json .= "]}";
+        echo $response_json;
     }
+
+        /*file_put_contents('dados/dados1.txt', $response_json );
+
+    }*/
 
     /* $sql = "SELECT `nivel` FROM `ottibia` WHERE `username`='" . $username . "' AND `password`='" . $password . "'";
                 

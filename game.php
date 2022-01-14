@@ -3321,13 +3321,20 @@ var matrizCriaturasVida =
                             document.getElementById(barraHpCampo).style.visibility = "visible";
                             document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
 
-                            if(ultimamensagem != "vazio" && dadosResposta.players[k].mensagem != ultimamensagem.players[k].mensagem){
-                                if(dadosResposta.players[k].mensagem != ""){
-                                    let data = new Date();
-                                    mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
-                                    document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
-                                    setTimeout(function(){document.getElementById("mensagemDivCampo" + campo).innerHTML = "";}, 5000);
-                                    ultimamensagem.players[k].mensagem = dadosResposta.players[k].mensagem;
+                            if(ultimamensagem != "vazio"){
+                                for(let l = 0; l < ultimamensagem.players.length; l++){
+                                    if(ultimamensagem.players[l].username != dadosResposta.players[k].username)
+                                        continue;
+                                    else if(dadosResposta.players[k].mensagem == ultimamensagem.players[l].mensagem)
+                                        break;
+
+                                    if(dadosResposta.players[k].mensagem != ""){
+                                        let data = new Date();
+                                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
+                                        document.getElementById("mensagemDivCampo" + campo).innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
+                                        setTimeout(function(){document.getElementById("mensagemDivCampo" + campo).innerHTML = "";}, 5000);
+                                        ultimamensagem.players[k].mensagem = dadosResposta.players[k].mensagem;
+                                    }
                                 }
                             }
                         }
@@ -4518,6 +4525,9 @@ var matrizCriaturasVida =
                         updateDadosJson();
                     }
 
+                    dados.append('x', posicaoDoPersonagemNaMatriz[0]);
+                    dados.append('y', posicaoDoPersonagemNaMatriz[1]);
+
                     if(
                         ultim_x != posicaoDoPersonagemNaMatriz[0] ||
                         ultim_y != posicaoDoPersonagemNaMatriz[1] ||
@@ -4530,7 +4540,7 @@ var matrizCriaturasVida =
                     ){
                         dados.append('username', username);
                         dados.append('password', password);
-
+                        
                         if(ultim_x != posicaoDoPersonagemNaMatriz[0]){
                             dados.append('x', posicaoDoPersonagemNaMatriz[0]);
                             ultim_x = posicaoDoPersonagemNaMatriz[0];
