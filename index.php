@@ -210,7 +210,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
             function code(){
-                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.20.91</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.20.92</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
         </script>
     </head>
@@ -275,8 +275,8 @@
 
     // Check connection
     if ($conn->connect_error) {
-        die("Banco de Dados temporariamente desabilitado!");
-    }
+        echo "<div style=\"padding: 15px; text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Banco de Dados temporariamente desabilitado!</div>";
+    }else{
 
     $username = $_POST['usernameRegister'];
     $password = $_POST['passwordRegister'];
@@ -351,7 +351,7 @@
     $result->close();
     
     $conn->close();
-    
+    }
 ?>
 
 <div id="cartaoId" class="cartao" title="game" alt="game">
@@ -387,5 +387,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021-2022 magiclevel.ml. All rights reserved. v1.20.91
+    ©2021-2022 magiclevel.ml. All rights reserved. v1.20.92
 </div>

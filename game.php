@@ -1746,7 +1746,7 @@
             <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 208; left: 325; width: 30; height: 30; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();}">
         
             </div>
-            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; if(document.getElementById('mensagem1').style.visibility == 'hidden'){document.getElementById('mensagem1').style.visibility = 'visible'; document.getElementById('equipamentoMochila').style.visibility = 'visible'; document.getElementById('equipamentoParcel').style.visibility = 'visible'; document.getElementById('equipamentoMenos').style.visibility = 'visible'; flagEquipamento = true;}else{document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('equipamentoMochila').style.visibility = 'hidden'; document.getElementById('equipamentoParcel').style.visibility = 'hidden'; document.getElementById('equipamentoMenos').style.visibility = 'hidden'; flagEquipamento = false;} datainicioinatividade = new Date();">
+            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; document.getElementById('mensagem1').alt = 'equipamentos'; document.getElementById('mensagem1').title = 'equipamentos'; if(document.getElementById('mensagem1').style.visibility == 'hidden'){document.getElementById('mensagem1').style.visibility = 'visible'; document.getElementById('equipamentoMochila').style.visibility = 'visible'; document.getElementById('equipamentoParcel').style.visibility = 'visible'; document.getElementById('equipamentoMenos').style.visibility = 'visible'; flagEquipamento = true;}else{document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('equipamentoMochila').style.visibility = 'hidden'; document.getElementById('equipamentoParcel').style.visibility = 'hidden'; document.getElementById('equipamentoMenos').style.visibility = 'hidden'; flagEquipamento = false;} datainicioinatividade = new Date();">
                 Equipamentos
             </button>
             <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('chathistoria').style.visibility == 'hidden'){document.getElementById('chathistoria').style.visibility = 'visible';}else{document.getElementById('chathistoria').style.visibility = 'hidden';} datainicioinatividade = new Date();">
@@ -1827,6 +1827,7 @@
             var moverBaixoBot;
             var moverEsquerdaBot;
             var moverJangada;
+            var funcPersonagemMorto;
             var calculaLevel;
             var regeneracao;
             var updateDadosJson;
@@ -2485,6 +2486,18 @@ var matrizCriaturasVida =
                         posicaoDoPersonagemNaMatriz[0]++;
                         break;
                 }
+            }
+
+            funcPersonagemMorto = function(){
+                hp = 0;
+                personagemMorto = true;
+                posicaoDoPersonagemNaMatriz = [5,6];
+                document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
+                document.getElementById('mensagem1').alt = 'mensagem';
+                document.getElementById('mensagem1').title = 'mensagem';
+                document.getElementById('mensagem1').style.visibility = 'visible';
+                document.getElementById('ok').style.visibility = 'visible'; 
+                document.getElementById('cancel').style.visibility = 'visible';
             }
             
             calculaLevel = function(){
@@ -3452,14 +3465,14 @@ var matrizCriaturasVida =
                     document.getElementById(baseCampo).alt = "sacola";
                     document.getElementById(baseCampo).title = "sacola";
                 }else if(matrizDoMapa[i][j] == 4){
-                    document.getElementById(baseCampo).alt = "terra do buraco no teto";
-                    document.getElementById(baseCampo).title = "terra do buraco no teto";
+                    document.getElementById(baseCampo).alt = "terra";
+                    document.getElementById(baseCampo).title = "terra";
                 }else if(matrizDoMapa[i][j] == 5){
-                    document.getElementById(baseCampo).alt = "buraco aberto";
-                    document.getElementById(baseCampo).title = "buraco aberto";
+                    document.getElementById(baseCampo).alt = "buraco";
+                    document.getElementById(baseCampo).title = "buraco";
                 }else if(matrizDoMapa[i][j] == 6){
-                    document.getElementById(baseCampo).alt = "buraco fechado";
-                    document.getElementById(baseCampo).title = "buraco fechado";
+                    document.getElementById(baseCampo).alt = "buraco";
+                    document.getElementById(baseCampo).title = "buraco";
                 }else if(matrizDoMapa[i][j] == 7){
                     document.getElementById(baseCampo).alt = "caixa";
                     document.getElementById(baseCampo).title = "caixa";
@@ -3488,8 +3501,8 @@ var matrizCriaturasVida =
                     matrizDoMapa[i][j] == 39 || 
                     matrizDoMapa[i][j] == 40
                 ){
-                    document.getElementById(baseCampo).alt = "margem de água";
-                    document.getElementById(baseCampo).title = "margem de água";
+                    document.getElementById(baseCampo).alt = "margem";
+                    document.getElementById(baseCampo).title = "margem";
                 }else if(
                     matrizDoMapa[i][j] == 41 || 
                     matrizDoMapa[i][j] == 42 || 
@@ -3498,6 +3511,17 @@ var matrizCriaturasVida =
                 ){
                     document.getElementById(baseCampo).alt = "teleport";
                     document.getElementById(baseCampo).title = "teleport";
+                }else if(
+                    matrizDoMapa[i][j] == 52
+                ){
+                    document.getElementById(baseCampo).alt = "jangada";
+                    document.getElementById(baseCampo).title = "jangada";
+                }else if(
+                    matrizDoMapa[i][j] == 53 || 
+                    matrizDoMapa[i][j] == 54 
+                ){
+                    document.getElementById(baseCampo).alt = "remo";
+                    document.getElementById(baseCampo).title = "remo";
                 }else{
                     document.getElementById(barraHpCampo).style.width = 50;
                     if(document.getElementById("mensagemDivCampo" + campo).innerHTML != ""){
@@ -4239,14 +4263,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] == atacando){
                         matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = normal;
@@ -4280,14 +4299,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = normal;
@@ -4321,14 +4335,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] == atacando){
                         matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = normal;
@@ -4362,14 +4371,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == atacando){
                         matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = normal;
@@ -4403,14 +4407,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] = normal;
@@ -4444,14 +4443,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] == atacando){
                         matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] = normal;
@@ -4485,14 +4479,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando){
                         matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] = normal;
@@ -4526,14 +4515,9 @@ var matrizCriaturasVida =
                             hp -= hit;
                             hitTotal += hit;
                         }else if(hp - hit <= 0 && matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == atacando){
-                            hp = 0;
                             hitTotal += hp;
-                            personagemMorto = true;
-                            posicaoDoPersonagemNaMatriz = [5,6];
-                            document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                            document.getElementById('mensagem1').style.visibility = 'visible';
-                            document.getElementById('ok').style.visibility = 'visible'; 
-                            document.getElementById('cancel').style.visibility = 'visible';
+                            funcPersonagemMorto();
+                            return hitTotal;
                         }
                     } else if(matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] = normal;
@@ -4566,14 +4550,9 @@ var matrizCriaturasVida =
                                 hp -= hit;
                                 hitTotal += hit;
                             }else if(hp - hit <= 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == atacando){
-                                hp = 0;
                                 hitTotal += hp;
-                                personagemMorto = true;
-                                posicaoDoPersonagemNaMatriz = [5,6];
-                                document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
-                                document.getElementById('mensagem1').style.visibility = 'visible';
-                                document.getElementById('ok').style.visibility = 'visible'; 
-                                document.getElementById('cancel').style.visibility = 'visible';
+                                funcPersonagemMorto();
+                                return hitTotal;
                             }
                         }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == atacando || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == morto){
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] = normal;
