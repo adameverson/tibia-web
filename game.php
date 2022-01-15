@@ -5996,11 +5996,7 @@ var matrizCriaturasVida =
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
 
-            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 52 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 48){
-                posicaoDoPersonagemNaMatriz = [5,6];
-            }
-
-            if(posicaoDoPersonagemNaMatriz[0] > 71){
+            if(posicaoDoPersonagemNaMatriz[0] > 69){
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
@@ -6018,6 +6014,30 @@ var matrizCriaturasVida =
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 52;
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 52; 
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 54;
+            }
+
+            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 52 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 48){
+                posicaoDoPersonagemNaMatriz = [5,6];
+
+                if(posicaoJangada[0] == 70){
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 26;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 26; 
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 26;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 33;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 34;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 34; 
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 35;
+                    posicaoJangada[0] = 64;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 54;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 53;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 52;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 52; 
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 54;
+                }
             }
 
             if(dadosJson){
