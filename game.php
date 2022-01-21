@@ -2528,7 +2528,7 @@ var matrizCriaturasVida =
             }
 
             revelarCasa = function(direcao){
-                let linha = 0, coluna = 0;
+                let linhaInicial = posicaoDoPersonagemNaMatriz[0], colunaInicial = posicaoDoPersonagemNaMatriz[1], linha = 0, coluna = 0;
                 switch(direcao){
                     case 0:
                         break;
@@ -2538,32 +2538,32 @@ var matrizCriaturasVida =
                         break;
                     case 3:
                         coluna-=2;
-                        while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 58){
-                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 60){
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 77;
+                        while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 58){
+                            if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 60){
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 77;
                                 linha++;
-                                while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 62){
-                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 0;
+                                while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 62){
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
                                     linha++;
                                 }
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 0;
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
                                 coluna--;
                                 continue;
-                            }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 59){
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 76;
+                            }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 59){
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 76;
                                 linha++;
-                                while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 63){
-                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 0;
+                                while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 63){
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
                                     linha++;
                                 }
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 0;
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
                                 coluna--;
                                 continue;
-                            }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 64){
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 78;
+                            }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 64){
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 78;
                                 linha--;
-                                while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 58){
-                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 79;
+                                while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 58){
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 79;
                                     linha--;
                                 }
                                 continue;
@@ -2572,13 +2572,13 @@ var matrizCriaturasVida =
                                 continue;
                             }
                         }
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 75;
+                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 75;
                         break;
                 }
             }
 
             esconderCasa = function(direcao){
-                let linha = 0, coluna = 0;
+                let linhaInicial = posicaoDoPersonagemNaMatriz[0], colunaInicial = posicaoDoPersonagemNaMatriz[1], linha = 0, coluna = 0;
                 switch(direcao){
                     case 0:
                         break;
@@ -2588,32 +2588,32 @@ var matrizCriaturasVida =
                         break;
                     case 3:
                         coluna-=2;
-                        while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 75){
-                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 77){
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 60;
+                        while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 75){
+                            if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 77){
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 60;
                                 linha++;
-                                while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 69){
-                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 61;
+                                while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 69){
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 61;
                                     linha++;
                                 }
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha-1][posicaoDoPersonagemNaMatriz[1]+coluna] = 62;
+                                matrizDoMapa[linhaInicial+linha-1][colunaInicial+coluna] = 62;
                                 coluna--;
                                 continue;
-                            }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 76){
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 59;
+                            }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 76){
+                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 59;
                                 linha++;
-                                while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 69){
-                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 57;
+                                while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 69){
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 57;
                                     linha++;
                                 }
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha-1][posicaoDoPersonagemNaMatriz[1]+coluna] = 63;
+                                matrizDoMapa[linhaInicial+linha-1][colunaInicial+coluna] = 63;
                                 coluna--;
                                 continue;
-                            }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 70){
-                                matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+(--linha)][posicaoDoPersonagemNaMatriz[1]+coluna] = 64;
+                            }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 70){
+                                matrizDoMapa[linhaInicial+(--linha)][colunaInicial+coluna] = 64;
                                 linha--;
-                                while(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] != 75){
-                                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 65;
+                                while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 75){
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 65;
                                     linha--;
                                 }
                                 continue;
@@ -2622,7 +2622,7 @@ var matrizCriaturasVida =
                                 continue;
                             }
                         }
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] = 58;
+                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 58;
                         break;
                 }
             }
