@@ -2598,10 +2598,10 @@ var matrizCriaturasVida =
                         break;
                     case 4:
                         if(
-                            matrizDoMapa[linhaInicial][colunaInicial+1] != 57 &&
-                            matrizDoMapa[linhaInicial][colunaInicial+1] != 61 &&
-                            matrizDoMapa[linhaInicial][colunaInicial+1] != 62 &&
-                            matrizDoMapa[linhaInicial][colunaInicial+1] != 63
+                            matrizDoMapa[linhaInicial][colunaInicial] != 57 &&
+                            matrizDoMapa[linhaInicial][colunaInicial] != 61 &&
+                            matrizDoMapa[linhaInicial][colunaInicial] != 62 &&
+                            matrizDoMapa[linhaInicial][colunaInicial] != 63
                         ){
                             break;
                         }
