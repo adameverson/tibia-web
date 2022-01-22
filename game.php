@@ -2553,6 +2553,12 @@ var matrizCriaturasVida =
                     case 2:
                         break;
                     case 3:
+                        if(
+                            matrizDoMapa[linhaInicial][colunaInicial-2] != 61 &&
+                            matrizDoMapa[linhaInicial][colunaInicial-2] != 62
+                        ){
+                            break;
+                        }
                         coluna-=2;
                         while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 58){
                             if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 60){
@@ -2591,10 +2597,18 @@ var matrizCriaturasVida =
                         matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 75;
                         break;
                     case 4:
+                        if(
+                            matrizDoMapa[linhaInicial][colunaInicial+1] != 57 &&
+                            matrizDoMapa[linhaInicial][colunaInicial+1] != 61 &&
+                            matrizDoMapa[linhaInicial][colunaInicial+1] != 62 &&
+                            matrizDoMapa[linhaInicial][colunaInicial+1] != 63
+                        ){
+                            break;
+                        }
                         while(
                             matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 61 && 
                             matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 62
-                            ){
+                        ){
                             coluna++;
                         }
                         while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 58){
@@ -4426,15 +4440,37 @@ var matrizCriaturasVida =
                             moverPersonagem[1]++;
                             verificacaoDistanciamentoNPC();
                         }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1,0)){
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                esconderCasa(3);
+                            }
                             moverCima();
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){
+                                revelarCasa(3,1);
+                            }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                revelarCasa(3,3);
+                            }
                             moverPersonagem[0]++;
                             verificacaoDistanciamentoNPC();
                         }else if(moverPersonagem[1] > 0 && verificarPosicaoValida(0,1)){
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                esconderCasa(3);
+                            }
                             moverDireita();
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){
+                                revelarCasa(3,1);
+                            }
                             moverPersonagem[1]--;
                             verificacaoDistanciamentoNPC();
                         }else if(moverPersonagem[0] > 0 && verificarPosicaoValida(1,0)){
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                esconderCasa(3);
+                            }
                             moverBaixo();
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){
+                                revelarCasa(3,1);
+                            }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                revelarCasa(3,3);
+                            }
                             moverPersonagem[0]--;
                             verificacaoDistanciamentoNPC();
                         }else if(
