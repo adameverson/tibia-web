@@ -3733,7 +3733,10 @@ var matrizCriaturasVida =
                     matrizDoMapa[i][j] == 38 || 
                     matrizDoMapa[i][j] == 39 || 
                     matrizDoMapa[i][j] == 40 ||
-                    matrizDoMapa[i][j] == 80
+                    matrizDoMapa[i][j] == 80 ||
+                    matrizDoMapa[i][j] == 81 ||
+                    matrizDoMapa[i][j] == 82 ||
+                    matrizDoMapa[i][j] == 83
                 ){
                     document.getElementById(baseCampo).alt = "margem";
                     document.getElementById(baseCampo).title = "margem";
