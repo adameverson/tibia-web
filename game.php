@@ -5033,6 +5033,7 @@ var matrizCriaturasVida =
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 47 ||
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 50 ||
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 51 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 52 ||
                                     dadosResposta.players[i].username == username
                                 ){
                                     continue;
@@ -5078,6 +5079,7 @@ var matrizCriaturasVida =
                                 matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 47 &&
                                 matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 50 &&
                                 matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 51 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 52 &&
                                 dadosResposta.players[i].username != username
                             ){
                                 if(dadosResposta.players[i].outfit == "M"){
