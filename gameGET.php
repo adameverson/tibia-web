@@ -54,7 +54,8 @@
     //if(isset($_POST['x']) && isset($_POST['y'])){
 
         //$sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `x` > " . ($x-8) . " AND `x` < " . ($x+8) . " AND `y` > " . ($y-10) . " AND `y` < " . ($y+10);
-        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `username`<>'" . $username . "'";
+        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia`";
+        //$sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `username`<>'" . $username . "'";
         
         $result = $conn->query($sql);
 

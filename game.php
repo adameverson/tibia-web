@@ -3767,6 +3767,21 @@ var matrizCriaturasVida =
                 ){
                     document.getElementById(baseCampo).alt = "porta";
                     document.getElementById(baseCampo).title = "porta";
+                }else if(
+                    matrizDoMapa[i][j] == 51 
+                ){
+                    document.getElementById(baseCampo).alt = "Bot";
+                    document.getElementById(baseCampo).title = "Bot";
+                }else if(
+                    matrizDoMapa[i][j] == 55 
+                ){
+                    document.getElementById(baseCampo).alt = "Spike Sword";
+                    document.getElementById(baseCampo).title = "Spike Sword";
+                }else if(
+                    matrizDoMapa[i][j] == 56 
+                ){
+                    document.getElementById(baseCampo).alt = "Crown Shield";
+                    document.getElementById(baseCampo).title = "Crown Shield";
                 }else{
                     document.getElementById(barraHpCampo).style.width = 50;
                     if(document.getElementById("mensagemDivCampo" + campo).innerHTML != ""){
