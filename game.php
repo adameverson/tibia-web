@@ -1936,7 +1936,7 @@ var matrizDoMapa =
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,38,83, 0, 0,80,37,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,19, 7, 0, 0, 0,51, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
@@ -2023,7 +2023,7 @@ var matrizDoMapaOriginal =
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,38,83, 0, 0,80,37,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,19, 7, 0, 0, 0,51, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
@@ -2110,7 +2110,7 @@ var matrizCriaturasVida =
 [26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,38,83, 0, 0,80,37,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,50, 7, 0, 0, 0,51, 0, 0, 0, 7,50,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
+[26,26,26,26,40,50, 7, 0, 0, 0, 0, 0, 0, 0, 7,50,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 2,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7,50, 1, 7, 7,50, 1, 7, 7,50, 1, 7,50, 1, 7,50, 1, 7,50, 1, 7, 1,36,26,26,26,26],
 [26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,50, 7, 7, 7,50, 7, 7, 7,50, 7, 7,50, 7, 7,50, 7, 7,50, 7, 0,36,26,26,26,26],
@@ -2386,10 +2386,7 @@ var matrizCriaturasVida =
                 if(comando)
                     botFree = false;
                 if(matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 0 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 12 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 13 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 14 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 15 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 22 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 23 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 24 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 25){
-                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                    else
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
                     posicaoBot[0] = posicaoBot[0]-1;
                 } 
@@ -2403,10 +2400,7 @@ var matrizCriaturasVida =
                 if(comando)
                     botFree = false;
                 if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 12 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 13 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 14 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 15 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 22 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 23 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 24 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 25){
-                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                    else
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
                     posicaoBot[1] = posicaoBot[1]+1;
                 }
@@ -2420,10 +2414,7 @@ var matrizCriaturasVida =
                 if(comando)
                     botFree = false;
                 if(matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 0 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 12 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 13 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 14 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 15 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 22 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 23 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 24 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 25){
-                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                    else
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
                     posicaoBot[0] = posicaoBot[0]+1;
                 }
@@ -2437,10 +2428,7 @@ var matrizCriaturasVida =
                 if(comando)
                     botFree = false;
                 if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 12 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 13 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 14 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 15 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 22 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 23 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 24 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 25){
-                    if(posicaoBot[0] == 48 && posicaoBot[1] == 10)
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 1;
-                    else
-                        matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
                     posicaoBot[1] = posicaoBot[1]-1;
                 }
@@ -6379,7 +6367,7 @@ var matrizCriaturasVida =
                 revelarCasa(4);
             }
 
-            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 52 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 48){
+            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 51 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 52 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 48){
                 posicaoDoPersonagemNaMatriz = [5,6];
 
                 if(posicaoJangada[0] == 71){
