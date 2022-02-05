@@ -12,6 +12,7 @@
             var utilizarMagia;
             var dialogo;
             var pressKey;
+            var visibilityEquipamentos;
 
             var moverPersonagem = [0,0];
             var nivelDeSolo = 1;
@@ -1675,7 +1676,7 @@
                     <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick=""></img>
                 </div>
             </div>
-            <div id='mochila' title='mochila' style='position: absolute; top: 100; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
+            <div id='mochila' title='mochila' style='position: absolute; top: 100; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: visible;'>
                 <div id='nomeDaMochila1' title='mochila' style='top: 0; left: 10; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Mochila
                 </div>
@@ -1692,7 +1693,7 @@
                     <img id='itemCampoDaMochila4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
-            <div id='magias' title='magias' style='position: absolute; top: 160; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray;'>
+            <div id='magias' title='magias' style='position: absolute; top: 160; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: visible;'>
                 <div id='nomeDoLivroDeMagias1' title='magias' style='top: 0; left: 10; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Magias
                 </div>
@@ -1737,7 +1738,7 @@
 
                 </div>
             </div>
-            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 193; left: 252; width: 10; height: 10; visibility: hidden;' onclick="if(flagEquipamento){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('equipamentoMochila').style.visibility = 'hidden'; document.getElementById('equipamentoParcel').style.visibility = 'hidden'; document.getElementById('equipamentoMenos').style.visibility = 'hidden'; datainicioinatividade = new Date();}">
+            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 193; left: 252; width: 10; height: 10; visibility: hidden;' onclick="visibilityEquipamentos(false);">
         
             </div>
             <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 193; left: 325; width: 30; height: 10; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel2').style.visibility = 'visible'; document.getElementById('campoDaParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel3').style.visibility = 'visible'; document.getElementById('campoDaParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel2').style.visibility = 'hidden'; document.getElementById('campoDaParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel3').style.visibility = 'hidden'; document.getElementById('campoDaParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();}">
@@ -1746,7 +1747,13 @@
             <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 208; left: 325; width: 30; height: 30; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();}">
         
             </div>
-            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; document.getElementById('mensagem1').alt = 'equipamentos'; document.getElementById('mensagem1').title = 'equipamentos'; if(document.getElementById('mensagem1').style.visibility == 'hidden'){document.getElementById('mensagem1').style.visibility = 'visible'; document.getElementById('equipamentoMochila').style.visibility = 'visible'; document.getElementById('equipamentoParcel').style.visibility = 'visible'; document.getElementById('equipamentoMenos').style.visibility = 'visible'; flagEquipamento = true;}else{document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('equipamentoMochila').style.visibility = 'hidden'; document.getElementById('equipamentoParcel').style.visibility = 'hidden'; document.getElementById('equipamentoMenos').style.visibility = 'hidden'; flagEquipamento = false;} datainicioinatividade = new Date();">
+            <div id='equipamentoMaoDireita' alt='' title='' style='position:fixed; top: 244; left: 253; width: 30; height: 30; visibility: hidden;' onclick="">
+        
+            </div>
+            <div id='equipamentoMaoEsquerda' alt='' title='' style='position:fixed; top: 244; left: 325; width: 30; height: 30; visibility: hidden;' onclick="">
+        
+            </div>
+            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');">
                 Equipamentos
             </button>
             <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('chathistoria').style.visibility == 'hidden'){document.getElementById('chathistoria').style.visibility = 'visible';}else{document.getElementById('chathistoria').style.visibility = 'hidden';} datainicioinatividade = new Date();">
@@ -1867,6 +1874,7 @@
             var dadosJson;
 
             var mochila = ["","","",""];
+            var equipamentos = [0,0,0,0,0,0,0,0,0];
 
             var exura = false;
             var exuraGran = false;
@@ -1964,8 +1972,8 @@ var matrizDoMapa =
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 1, 1, 1, 1, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 1,55,56, 1, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -2051,8 +2059,8 @@ var matrizDoMapaOriginal =
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 1, 1, 1, 1, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 1,55,56, 1, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -2138,8 +2146,8 @@ var matrizCriaturasVida =
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 1, 1, 1, 1, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 1,55,56, 1, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -2258,6 +2266,12 @@ var matrizCriaturasVida =
                     dadosJson.json[3].quests += "0";
                 }
                 dadosJson.json[3].quests += "," + quest1.toString() + "," + quest2.toString() + "," + quest3.toString() + "," + quest4.toString();
+                if(dadosJson.json.length < 5){
+                    dadosJson.json.push({"equipamentos":(equipamentos[0].toString() + "," + equipamentos[1].toString() + "," + equipamentos[2].toString() + "," + equipamentos[3].toString() + "," + equipamentos[4].toString() + "," + equipamentos[5].toString() + "," + equipamentos[6].toString() + "," + equipamentos[7].toString() + "," + equipamentos[8].toString())})
+                }else{
+                    dadosJson.json[4].equipamentos = "";
+                    dadosJson.json[4].equipamentos += equipamentos[0].toString() + "," + equipamentos[1].toString() + "," + equipamentos[2].toString() + "," + equipamentos[3].toString() + "," + equipamentos[4].toString() + "," + equipamentos[5].toString() + "," + equipamentos[6].toString() + "," + equipamentos[7].toString() + "," + equipamentos[8].toString();
+                }
 
             }
 
@@ -2358,6 +2372,31 @@ var matrizCriaturasVida =
                 }
                 if(strDados.length > 4){
                     quest4 = parseInt(strDados[4]);
+                }
+
+                if(dadosJson.json.length > 4){
+                    strDados = dadosJson.json[4].equipamentos.split(',');
+                    if(strDados.length > 8){
+                        equipamentos[0] = parseInt(strDados[0]);
+                        equipamentos[1] = parseInt(strDados[1]);
+                        if(equipamentos[1] == 1){
+                            document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
+                            document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
+                            document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                        }
+                        equipamentos[2] = parseInt(strDados[2]);
+                        equipamentos[3] = parseInt(strDados[3]);
+                        equipamentos[4] = parseInt(strDados[4]);
+                        equipamentos[5] = parseInt(strDados[5]);
+                        equipamentos[6] = parseInt(strDados[6]);
+                        equipamentos[7] = parseInt(strDados[7]);
+                        if(equipamentos[7] == 1){
+                            document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
+                            document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
+                            document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                        }
+                        equipamentos[8] = parseInt(strDados[8]);
+                    }
                 }
 
             }
@@ -2692,6 +2731,7 @@ var matrizCriaturasVida =
                 hp = 0;
                 personagemMorto = true;
                 posicaoDoPersonagemNaMatriz = [5,6];
+                visibilityEquipamentos(false);
                 document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                 document.getElementById('mensagem1').alt = 'mensagem';
                 document.getElementById('mensagem1').title = 'mensagem';
@@ -3763,13 +3803,13 @@ var matrizCriaturasVida =
                 }else if(
                     matrizDoMapa[i][j] == 55 
                 ){
-                    document.getElementById(baseCampo).alt = "Spike Sword";
-                    document.getElementById(baseCampo).title = "Spike Sword";
+                    document.getElementById(baseCampo).alt = "Spike Sword (Arm: 1)";
+                    document.getElementById(baseCampo).title = "Spike Sword (Arm: 1)";
                 }else if(
                     matrizDoMapa[i][j] == 56 
                 ){
-                    document.getElementById(baseCampo).alt = "Crown Shield";
-                    document.getElementById(baseCampo).title = "Crown Shield";
+                    document.getElementById(baseCampo).alt = "Crown Shield (Def: 1)";
+                    document.getElementById(baseCampo).title = "Crown Shield (Def: 1)";
                 }else{
                     document.getElementById(barraHpCampo).style.width = 50;
                     if(document.getElementById("mensagemDivCampo" + campo).innerHTML != ""){
@@ -4319,8 +4359,8 @@ var matrizCriaturasVida =
             
             ataqueCriatura = function (campo, distanciaDoPersonagemLinha, distanciaDoPersonagemColuna, hitDecrescimo, hitAcrescimo, morto, nomeCriatura){
                 
-                let hit = getRandomIntInclusive(lvlatual,lvlatual*2); 
-
+                let hit = getRandomIntInclusive(Math.ceil(lvlatual*(equipamentos[1]+1)),Math.floor(lvlatual*2*(equipamentos[1]+1))); 
+                
                 if( (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0)) > 0 ){ 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0); 
 
@@ -4451,7 +4491,13 @@ var matrizCriaturasVida =
                     if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0 ){
                         datainicioinatividade = new Date();
                         if(moverPersonagem[1] < 0 && verificarPosicaoValida(0,-1)){
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                esconderCasa(3);
+                            }
                             moverEsquerda();
+                            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
+                                revelarCasa(3,3);
+                            }
                             moverPersonagem[1]++;
                             verificacaoDistanciamentoNPC();
                         }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1,0)){
@@ -4530,6 +4576,21 @@ var matrizCriaturasVida =
                                     document.getElementById("barraHpCampo23").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(-1,0);
+
+                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 55){
+                                    equipamentos[1] = 1;
+                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
+                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
+                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 56){
+                                    equipamentos[7] = 1;
+                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
+                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
+                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }
+
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == 1){
                                 moverDireita();
@@ -4544,6 +4605,20 @@ var matrizCriaturasVida =
                                     document.getElementById("barraHpCampo33").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(0,1);
+
+                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 55){
+                                    equipamentos[1] = 1;
+                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
+                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
+                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 56){
+                                    equipamentos[7] = 1;
+                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
+                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
+                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }
                             }
                             if(moverPersonagem[0] == 1 && moverPersonagem[1] == 0){
                                 moverBaixo();
@@ -4558,6 +4633,20 @@ var matrizCriaturasVida =
                                     document.getElementById("barraHpCampo41").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(1,0);
+
+                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 55){
+                                    equipamentos[1] = 1;
+                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
+                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
+                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 56){
+                                    equipamentos[7] = 1;
+                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
+                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
+                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == -1){
                                 moverEsquerda();
@@ -4572,6 +4661,20 @@ var matrizCriaturasVida =
                                     document.getElementById("barraHpCampo31").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(0,-1);
+
+                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 55){
+                                    equipamentos[1] = 1;
+                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
+                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
+                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 56){
+                                    equipamentos[7] = 1;
+                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
+                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
+                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                                }
                             }
 
                             moverPersonagem = [0,0];
@@ -5122,11 +5225,11 @@ var matrizCriaturasVida =
                 let hitTotal = 0;
                 personagemMorto = false;
 
-                hitTotal += animacaoMonster(8,9,10,1,50,false); //Snake(normal,atacando,morto,hitmin,hitmax)
-                hitTotal += animacaoMonster(16,17,18,50,150,false); //Dragon(normal,atacando,morto,hitmin,hitmax)
-                hitTotal += animacaoMonster(19,20,21,150,450,false); //Mammoth(normal,atacando,morto,hitmin,hitmax)
-                hitTotal += animacaoMonster(45,46,47,450,1350,false); //Spider(normal,atacando,morto,hitmin,hitmax)
-                hitTotal += animacaoMonster(48,49,50,1350,4050,true); //Orc Shaman(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(8,9,10,Math.ceil(1/(equipamentos[7]+1)),Math.floor(50/(equipamentos[7]+1)),false); //Snake(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(16,17,18,Math.ceil(50/(equipamentos[7]+1)),Math.floor(150/(equipamentos[7]+1)),false); //Dragon(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(19,20,21,Math.ceil(150/(equipamentos[7]+1)),Math.floor(450/(equipamentos[7]+1)),false); //Mammoth(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(45,46,47,Math.ceil(450/(equipamentos[7]+1)),Math.floor(1350/(equipamentos[7]+1)),false); //Spider(normal,atacando,morto,hitmin,hitmax)
+                hitTotal += animacaoMonster(48,49,50,Math.ceil(1350/(equipamentos[7]+1)),Math.floor(4050/(equipamentos[7]+1)),true); //Orc Shaman(normal,atacando,morto,hitmin,hitmax)
 
                 if(personagemMorto){
                     let perdaDeNivel = (nivel * 0.01) | 0;
@@ -5193,6 +5296,7 @@ var matrizCriaturasVida =
                 }
                 if(tempoinativo > 3){
                     inativo = true;
+                    visibilityEquipamentos(false);
                     document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemInativo.png';
                     document.getElementById('mensagem1').style.visibility = 'visible';
                     document.getElementById('ok').style.visibility = 'visible'; 
@@ -6207,6 +6311,30 @@ var matrizCriaturasVida =
 
                 datainicioinatividade = new Date();
 
+            }
+
+            visibilityEquipamentos = function (condicao){
+                document.getElementById('mensagem1').src = 'imagens/imagemEquipamentos.png'; 
+                document.getElementById('mensagem1').alt = 'equipamentos'; 
+                document.getElementById('mensagem1').title = 'equipamentos'; 
+                if(condicao){
+                    document.getElementById('mensagem1').style.visibility = 'visible'; 
+                    document.getElementById('equipamentoMochila').style.visibility = 'visible'; 
+                    document.getElementById('equipamentoParcel').style.visibility = 'visible'; 
+                    document.getElementById('equipamentoMenos').style.visibility = 'visible'; 
+                    document.getElementById('equipamentoMaoDireita').style.visibility = 'visible'; 
+                    document.getElementById('equipamentoMaoEsquerda').style.visibility = 'visible'; 
+                    flagEquipamento = true;
+                }else{
+                    document.getElementById('mensagem1').style.visibility = 'hidden'; 
+                    document.getElementById('equipamentoMochila').style.visibility = 'hidden'; 
+                    document.getElementById('equipamentoParcel').style.visibility = 'hidden'; 
+                    document.getElementById('equipamentoMenos').style.visibility = 'hidden'; 
+                    document.getElementById('equipamentoMaoDireita').style.visibility = 'hidden'; 
+                    document.getElementById('equipamentoMaoEsquerda').style.visibility = 'hidden'; 
+                    flagEquipamento = false;
+                } 
+                datainicioinatividade = new Date();
             }
 
             <?php
