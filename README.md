@@ -58,6 +58,6 @@ CREATE TABLE `ottibia` (\
  `hp` int(11) NOT NULL,\
  `outfit` varchar(20) NOT NULL,\
  `mensagem` varchar(100) NOT NULL,\
- `json` varchar(100) NOT NULL,\
+ `json` varchar(150) NOT NULL,\
  PRIMARY KEY (`id`)\
 ) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1
