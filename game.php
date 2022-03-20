@@ -39,1510 +39,8 @@
         </script>
     </head>
     <body onload="setInterval('loop()', 1000); setInterval('funcMoverPersonagem()', 10);" onKeyPress="pressKey(event)">
-        <div id='mapa1'style='position:fixed; top: -60; left: -60;'>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo00' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-5];"></img>
-                    <div id='nomeCampo00' style='position:fixed; top: -55; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo00' title='hp' style='position:fixed; top: -59; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo00' title='hp' style='position:fixed; top: -59; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo00' style='position:fixed; top: -45; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo01' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-4];"></img>
-                    <div id='nomeCampo01' style='position:fixed; top: -55; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo01' title='hp' style='position:fixed; top: -59; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo01' title='hp' style='position:fixed; top: -59; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo01' style='position:fixed; top: -45; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo02' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-3];"></img>
-                    <div id='nomeCampo02' style='position:fixed; top: -55; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo02' title='hp' style='position:fixed; top: -59; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo02' title='hp' style='position:fixed; top: -59; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo02' style='position:fixed; top: -45; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo03' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-2];"></img>
-                    <div id='nomeCampo03' style='position:fixed; top: -55; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo03' title='hp' style='position:fixed; top: -59; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo03' title='hp' style='position:fixed; top: -59; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo03' style='position:fixed; top: -45; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo04' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,-1];"></img>
-                    <div id='nomeCampo04' style='position:fixed; top: -55; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo04' title='hp' style='position:fixed; top: -59; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo04' title='hp' style='position:fixed; top: -59; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo04' style='position:fixed; top: -45; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo05' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,0];"></img>
-                    <div id='nomeCampo05' style='position:fixed; top: -55; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo05' title='hp' style='position:fixed; top: -59; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo05' title='hp' style='position:fixed; top: -59; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo05' style='position:fixed; top: -45; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo06' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,1];"></img>
-                    <div id='nomeCampo06' style='position:fixed; top: -55; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo06' title='hp' style='position:fixed; top: -59; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo06' title='hp' style='position:fixed; top: -59; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo06' style='position:fixed; top: -45; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo07' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,2];"></img>
-                    <div id='nomeCampo07' style='position:fixed; top: -55; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo07' title='hp' style='position:fixed; top: -59; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo07' title='hp' style='position:fixed; top: -59; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo07' style='position:fixed; top: -45; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo08' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,3];"></img>
-                    <div id='nomeCampo08' style='position:fixed; top: -55; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo08' title='hp' style='position:fixed; top: -59; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo08' title='hp' style='position:fixed; top: -59; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo08' style='position:fixed; top: -45; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo09' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,4];"></img>
-                    <div id='nomeCampo09' style='position:fixed; top: -55; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo09' title='hp' style='position:fixed; top: -59; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo09' title='hp' style='position:fixed; top: -59; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo09' style='position:fixed; top: -45; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo010' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-4,5];"></img>
-                    <div id='nomeCampo010' style='position:fixed; top: -55; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo010' title='hp' style='position:fixed; top: -59; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo010' title='hp' style='position:fixed; top: 59; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo010' style='position:fixed; top: -45; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo001' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-5];"></img>
-                    <div id='nomeCampo001' style='position:fixed; top: 5; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo001' title='hp' style='position:fixed; top: 1; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo001' title='hp' style='position:fixed; top: 1; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo001' style='position:fixed; top: 15; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo1' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-4];"></img>
-                    <div id='nomeCampo1' style='position:fixed; top: 5; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo1' title='hp' style='position:fixed; top: 1; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo1' title='hp' style='position:fixed; top: 1; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo1' style='position:fixed; top: 15; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo2' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-3];"></img>
-                    <div id='nomeCampo2' style='position:fixed; top: 5; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo2' title='hp' style='position:fixed; top: 1; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo2' title='hp' style='position:fixed; top: 1; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo2' style='position:fixed; top: 15; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo3' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-2];"></img>
-                    <div id='nomeCampo3' style='position:fixed; top: 5; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo3' title='hp' style='position:fixed; top: 1; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo3' title='hp' style='position:fixed; top: 1; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo3' style='position:fixed; top: 15; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo4' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,-1];"></img>
-                    <div id='nomeCampo4' style='position:fixed; top: 5; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo4' title='hp' style='position:fixed; top: 1; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo4' title='hp' style='position:fixed; top: 1; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo4' style='position:fixed; top: 15; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo5' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,0];"></img>
-                    <div id='nomeCampo5' style='position:fixed; top: 5; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo5' title='hp' style='position:fixed; top: 1; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo5' title='hp' style='position:fixed; top: 1; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo5' style='position:fixed; top: 15; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo6' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,1];"></img>
-                    <div id='nomeCampo6' style='position:fixed; top: 5; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo6' title='hp' style='position:fixed; top: 1; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo6' title='hp' style='position:fixed; top: 1; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo6' style='position:fixed; top: 15; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo7' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,2];"></img>
-                    <div id='nomeCampo7' style='position:fixed; top: 5; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo7' title='hp' style='position:fixed; top: 1; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo7' title='hp' style='position:fixed; top: 1; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo7' style='position:fixed; top: 15; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo8' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,3];"></img>
-                    <div id='nomeCampo8' style='position:fixed; top: 5; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo8' title='hp' style='position:fixed; top: 1; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo8' title='hp' style='position:fixed; top: 1; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo8' style='position:fixed; top: 15; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo9' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,4];"></img>
-                    <div id='nomeCampo9' style='position:fixed; top: 5; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo9' title='hp' style='position:fixed; top: 1; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo9' title='hp' style='position:fixed; top: 1; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo9' style='position:fixed; top: 15; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo110' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-3,5];"></img>
-                    <div id='nomeCampo110' style='position:fixed; top: 5; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo110' title='hp' style='position:fixed; top: 1; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo110' title='hp' style='position:fixed; top: 1; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo110' style='position:fixed; top: 15; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo002' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-5];"></img>
-                    <div id='nomeCampo002' style='position:fixed; top: 65; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo002' title='hp' style='position:fixed; top: 61; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo002' title='hp' style='position:fixed; top: 61; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo002' style='position:fixed; top: 75; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo10' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-4];"></img>
-                    <div id='nomeCampo10' style='position:fixed; top: 65; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo10' title='hp' style='position:fixed; top: 61; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo10' title='hp' style='position:fixed; top: 61; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo10' style='position:fixed; top: 75; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo11' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-3];"></img>
-                    <div id='nomeCampo11' style='position:fixed; top: 65; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo11' title='hp' style='position:fixed; top: 61; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo11' title='hp' style='position:fixed; top: 61; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo11' style='position:fixed; top: 75; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo12' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-2];"></img>
-                    <div id='nomeCampo12' style='position:fixed; top: 65; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo12' title='hp' style='position:fixed; top: 61; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo12' title='hp' style='position:fixed; top: 61; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo12' style='position:fixed; top: 75; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo13' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,-1];"></img>
-                    <div id='nomeCampo13' style='position:fixed; top: 65; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo13' title='hp' style='position:fixed; top: 61; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo13' title='hp' style='position:fixed; top: 61; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo13' style='position:fixed; top: 75; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo14' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,0];"></img>
-                    <div id='nomeCampo14' style='position:fixed; top: 65; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo14' title='hp' style='position:fixed; top: 61; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo14' title='hp' style='position:fixed; top: 61; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo14' style='position:fixed; top: 75; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo15' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,1];"></img>
-                    <div id='nomeCampo15' style='position:fixed; top: 65; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo15' title='hp' style='position:fixed; top: 61; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo15' title='hp' style='position:fixed; top: 61; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo15' style='position:fixed; top: 75; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo16' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,2];"></img>
-                    <div id='nomeCampo16' style='position:fixed; top: 65; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo16' title='hp' style='position:fixed; top: 61; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo16' title='hp' style='position:fixed; top: 61; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo16' style='position:fixed; top: 75; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo17' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,3];"></img>
-                    <div id='nomeCampo17' style='position:fixed; top: 65; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo17' title='hp' style='position:fixed; top: 61; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo17' title='hp' style='position:fixed; top: 61; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo17' style='position:fixed; top: 75; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo18' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,4];"></img>
-                    <div id='nomeCampo18' style='position:fixed; top: 65; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo18' title='hp' style='position:fixed; top: 61; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo18' title='hp' style='position:fixed; top: 61; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo18' style='position:fixed; top: 75; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo210' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-2,5];"></img>
-                    <div id='nomeCampo210' style='position:fixed; top: 65; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo210' title='hp' style='position:fixed; top: 61; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo210' title='hp' style='position:fixed; top: 61; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo210' style='position:fixed; top: 75; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo003' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-5];"></img>
-                    <div id='nomeCampo003' style='position:fixed; top: 125; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo003' title='hp' style='position:fixed; top: 121; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo003' title='hp' style='position:fixed; top: 121; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo003' style='position:fixed; top: 135; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo19' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-4];"></img>
-                    <div id='nomeCampo19' style='position:fixed; top: 125; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo19' title='hp' style='position:fixed; top: 121; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo19' title='hp' style='position:fixed; top: 121; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo19' style='position:fixed; top: 135; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo20' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-3];"></img>
-                    <div id='nomeCampo20' style='position:fixed; top: 125; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo20' title='hp' style='position:fixed; top: 121; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo20' title='hp' style='position:fixed; top: 121; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo20' style='position:fixed; top: 135; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo21' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-2];"></img>
-                    <div id='nomeCampo21' style='position:fixed; top: 125; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo21' title='hp' style='position:fixed; top: 121; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo21' title='hp' style='position:fixed; top: 121; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo21' style='position:fixed; top: 135; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo22' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,-1];"></img>
-                    <div id='nomeCampo22' style='position:fixed; top: 125; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo22' title='hp' style='position:fixed; top: 121; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo22' title='hp' style='position:fixed; top: 121; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo22' style='position:fixed; top: 135; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo23' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,0];"></img>
-                    <div id='nomeCampo23' style='position:fixed; top: 125; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo23' title='hp' style='position:fixed; top: 121; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo23' title='hp' style='position:fixed; top: 121; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo23' style='position:fixed; top: 135; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo24' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,1];"></img>
-                    <div id='nomeCampo24' style='position:fixed; top: 125; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo24' title='hp' style='position:fixed; top: 121; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo24' title='hp' style='position:fixed; top: 121; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo24' style='position:fixed; top: 135; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo25' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,2];"></img>
-                    <div id='nomeCampo25' style='position:fixed; top: 125; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo25' title='hp' style='position:fixed; top: 121; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo25' title='hp' style='position:fixed; top: 121; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo25' style='position:fixed; top: 135; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo26' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,3];"></img>
-                    <div id='nomeCampo26' style='position:fixed; top: 125; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo26' title='hp' style='position:fixed; top: 121; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo26' title='hp' style='position:fixed; top: 121; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo26' style='position:fixed; top: 135; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo27' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,4];"></img>
-                    <div id='nomeCampo27' style='position:fixed; top: 125; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo27' title='hp' style='position:fixed; top: 121; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo27' title='hp' style='position:fixed; top: 121; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo27' style='position:fixed; top: 135; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo310' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [-1,5];"></img>
-                    <div id='nomeCampo310' style='position:fixed; top: 125; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo310' title='hp' style='position:fixed; top: 121; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo310' title='hp' style='position:fixed; top: 121; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo310' style='position:fixed; top: 135; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo004' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-5];"></img>
-                    <div id='nomeCampo004' style='position:fixed; top: 185; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo004' title='hp' style='position:fixed; top: 181; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo004' title='hp' style='position:fixed; top: 181; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo004' style='position:fixed; top: 195; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo28' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-4];"></img>
-                    <div id='nomeCampo28' style='position:fixed; top: 185; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo28' title='hp' style='position:fixed; top: 181; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo28' title='hp' style='position:fixed; top: 181; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo28' style='position:fixed; top: 195; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo29' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-3];"></img>
-                    <div id='nomeCampo29' style='position:fixed; top: 185; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo29' title='hp' style='position:fixed; top: 181; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo29' title='hp' style='position:fixed; top: 181; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo29' style='position:fixed; top: 195; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo30' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-2];"></img>
-                    <div id='nomeCampo30' style='position:fixed; top: 185; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo30' title='hp' style='position:fixed; top: 181; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo30' title='hp' style='position:fixed; top: 181; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo30' style='position:fixed; top: 195; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo31' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,-1];"></img>
-                    <div id='nomeCampo31' style='position:fixed; top: 185; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo31' title='hp' style='position:fixed; top: 181; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo31' title='hp' style='position:fixed; top: 181; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo31' style='position:fixed; top: 195; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo32' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%'></img>
-                    <div id='nomeCampo32' style='position:fixed; top: 185; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo32' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo32' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo32' style='position:fixed; top: 195; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo33' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,1];"></img>
-                    <div id='nomeCampo33' style='position:fixed; top: 185; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo33' title='hp' style='position:fixed; top: 181; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo33' title='hp' style='position:fixed; top: 181; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo33' style='position:fixed; top: 195; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo34' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,2];"></img>
-                    <div id='nomeCampo34' style='position:fixed; top: 185; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo34' title='hp' style='position:fixed; top: 181; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo34' title='hp' style='position:fixed; top: 181; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo34' style='position:fixed; top: 195; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo35' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,3];"></img>
-                    <div id='nomeCampo35' style='position:fixed; top: 185; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo35' title='hp' style='position:fixed; top: 181; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo35' title='hp' style='position:fixed; top: 181; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo35' style='position:fixed; top: 195; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo36' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,4];"></img>
-                    <div id='nomeCampo36' style='position:fixed; top: 185; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo36' title='hp' style='position:fixed; top: 181; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo36' title='hp' style='position:fixed; top: 181; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo36' style='position:fixed; top: 195; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo410' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [0,5];"></img>
-                    <div id='nomeCampo410' style='position:fixed; top: 185; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo410' title='hp' style='position:fixed; top: 181; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo410' title='hp' style='position:fixed; top: 181; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo410' style='position:fixed; top: 195; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo005' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-5];"></img>
-                    <div id='nomeCampo005' style='position:fixed; top: 245; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo005' title='hp' style='position:fixed; top: 241; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo005' title='hp' style='position:fixed; top: 241; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo005' style='position:fixed; top: 255; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo37' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-4];"></img>
-                    <div id='nomeCampo37' style='position:fixed; top: 245; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo37' title='hp' style='position:fixed; top: 241; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo37' title='hp' style='position:fixed; top: 241; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo37' style='position:fixed; top: 255; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo38' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-3];"></img>
-                    <div id='nomeCampo38' style='position:fixed; top: 245; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo38' title='hp' style='position:fixed; top: 241; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo38' title='hp' style='position:fixed; top: 241; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo38' style='position:fixed; top: 255; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo39' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-2];"></img>
-                    <div id='nomeCampo39' style='position:fixed; top: 245; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo39' title='hp' style='position:fixed; top: 241; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo39' title='hp' style='position:fixed; top: 241; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo39' style='position:fixed; top: 255; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo40' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,-1];"></img>
-                    <div id='nomeCampo40' style='position:fixed; top: 245; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo40' title='hp' style='position:fixed; top: 241; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo40' title='hp' style='position:fixed; top: 241; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo40' style='position:fixed; top: 255; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo41' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,0];"></img>
-                    <div id='nomeCampo41' style='position:fixed; top: 245; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo41' title='hp' style='position:fixed; top: 241; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo41' title='hp' style='position:fixed; top: 241; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo41' style='position:fixed; top: 255; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo42' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,1];"></img>
-                    <div id='nomeCampo42' style='position:fixed; top: 245; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo42' title='hp' style='position:fixed; top: 241; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo42' title='hp' style='position:fixed; top: 241; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo42' style='position:fixed; top: 255; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo43' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,2];"></img>
-                    <div id='nomeCampo43' style='position:fixed; top: 245; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo43' title='hp' style='position:fixed; top: 241; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo43' title='hp' style='position:fixed; top: 241; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo43' style='position:fixed; top: 255; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo44' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,3];"></img>
-                    <div id='nomeCampo44' style='position:fixed; top: 245; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo44' title='hp' style='position:fixed; top: 241; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo44' title='hp' style='position:fixed; top: 241; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo44' style='position:fixed; top: 255; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo45' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,4];"></img>
-                    <div id='nomeCampo45' style='position:fixed; top: 245; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo45' title='hp' style='position:fixed; top: 241; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo45' title='hp' style='position:fixed; top: 241; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo45' style='position:fixed; top: 255; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo510' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [1,5];"></img>
-                    <div id='nomeCampo510' style='position:fixed; top: 245; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo510' title='hp' style='position:fixed; top: 241; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo510' title='hp' style='position:fixed; top: 241; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo510' style='position:fixed; top: 255; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo006' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-5];"></img>
-                    <div id='nomeCampo006' style='position:fixed; top: 305; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo006' title='hp' style='position:fixed; top: 301; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo006' title='hp' style='position:fixed; top: 301; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo006' style='position:fixed; top: 315; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo46' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-4];"></img>
-                    <div id='nomeCampo46' style='position:fixed; top: 305; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo46' title='hp' style='position:fixed; top: 301; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo46' title='hp' style='position:fixed; top: 301; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo46' style='position:fixed; top: 315; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo47' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-3];"></img>
-                    <div id='nomeCampo47' style='position:fixed; top: 305; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo47' title='hp' style='position:fixed; top: 301; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo47' title='hp' style='position:fixed; top: 301; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo47' style='position:fixed; top: 315; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo48' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-2];"></img>
-                    <div id='nomeCampo48' style='position:fixed; top: 305; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo48' title='hp' style='position:fixed; top: 301; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo48' title='hp' style='position:fixed; top: 301; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo48' style='position:fixed; top: 315; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo49' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,-1];"></img>
-                    <div id='nomeCampo49' style='position:fixed; top: 305; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo49' title='hp' style='position:fixed; top: 301; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo49' title='hp' style='position:fixed; top: 301; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo49' style='position:fixed; top: 315; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo50' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,0];"></img>
-                    <div id='nomeCampo50' style='position:fixed; top: 305; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo50' title='hp' style='position:fixed; top: 301; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo50' title='hp' style='position:fixed; top: 301; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo50' style='position:fixed; top: 315; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo51' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,1];"></img>
-                    <div id='nomeCampo51' style='position:fixed; top: 305; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo51' title='hp' style='position:fixed; top: 301; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo51' title='hp' style='position:fixed; top: 301; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo51' style='position:fixed; top: 315; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo52' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,2];"></img>
-                    <div id='nomeCampo52' style='position:fixed; top: 305; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo52' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo52' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo52' style='position:fixed; top: 315; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo53' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,3];"></img>
-                    <div id='nomeCampo53' style='position:fixed; top: 305; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo53' title='hp' style='position:fixed; top: 301; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo53' title='hp' style='position:fixed; top: 301; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo53' style='position:fixed; top: 315; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo54' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,4];"></img>
-                    <div id='nomeCampo54' style='position:fixed; top: 305; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo54' title='hp' style='position:fixed; top: 301; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo54' title='hp' style='position:fixed; top: 301; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo54' style='position:fixed; top: 315; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo610' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [2,5];"></img>
-                    <div id='nomeCampo610' style='position:fixed; top: 305; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo610' title='hp' style='position:fixed; top: 301; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo610' title='hp' style='position:fixed; top: 301; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo610' style='position:fixed; top: 315; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo007' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-5];"></img>
-                    <div id='nomeCampo007' style='position:fixed; top: 365; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo007' title='hp' style='position:fixed; top: 361; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo007' title='hp' style='position:fixed; top: 361; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo007' style='position:fixed; top: 375; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo55' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-4];"></img>
-                    <div id='nomeCampo55' style='position:fixed; top: 365; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo55' title='hp' style='position:fixed; top: 361; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo55' title='hp' style='position:fixed; top: 361; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo55' style='position:fixed; top: 375; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo56' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-3];"></img>
-                    <div id='nomeCampo56' style='position:fixed; top: 365; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo56' title='hp' style='position:fixed; top: 361; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo56' title='hp' style='position:fixed; top: 361; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo56' style='position:fixed; top: 375; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo57' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-2];"></img>
-                    <div id='nomeCampo57' style='position:fixed; top: 365; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo57' title='hp' style='position:fixed; top: 361; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo57' title='hp' style='position:fixed; top: 361; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo57' style='position:fixed; top: 375; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo58' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,-1];"></img>
-                    <div id='nomeCampo58' style='position:fixed; top: 365; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo58' title='hp' style='position:fixed; top: 361; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo58' title='hp' style='position:fixed; top: 361; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo58' style='position:fixed; top: 375; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo59' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,0];"></img>
-                    <div id='nomeCampo59' style='position:fixed; top: 365; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo59' title='hp' style='position:fixed; top: 361; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo59' title='hp' style='position:fixed; top: 361; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo59' style='position:fixed; top: 375; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo60' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,1];"></img>
-                    <div id='nomeCampo60' style='position:fixed; top: 365; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo60' title='hp' style='position:fixed; top: 361; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo60' title='hp' style='position:fixed; top: 361; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo60' style='position:fixed; top: 375; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo61' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,2];"></img>
-                    <div id='nomeCampo61' style='position:fixed; top: 365; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo61' title='hp' style='position:fixed; top: 361; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo61' title='hp' style='position:fixed; top: 361; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo61' style='position:fixed; top: 375; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo62' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,3];"></img>
-                    <div id='nomeCampo62' style='position:fixed; top: 365; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo62' title='hp' style='position:fixed; top: 361; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo62' title='hp' style='position:fixed; top: 361; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo62' style='position:fixed; top: 375; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo63' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,4];"></img>
-                    <div id='nomeCampo63' style='position:fixed; top: 365; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo63' title='hp' style='position:fixed; top: 361; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo63' style='position:fixed; top: 375; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo710' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [3,5];"></img>
-                    <div id='nomeCampo710' style='position:fixed; top: 365; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo710' title='hp' style='position:fixed; top: 361; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo710' title='hp' style='position:fixed; top: 361; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo710' style='position:fixed; top: 375; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
-            <div id='m1r1'style='top: 0'>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo008' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-5];"></img>
-                    <div id='nomeCampo008' style='position:fixed; top: 425; left: -55; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo008' title='hp' style='position:fixed; top: 421; left: -55; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo008' title='hp' style='position:fixed; top: 421; left: -55; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo008' style='position:fixed; top: 435; left: -55; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c1' style='width: 60; height: 60; float: left'>
-                    <img id='campo81' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-4];"></img>
-                    <div id='nomeCampo81' style='position:fixed; top: 425; left: 5; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo81' title='hp' style='position:fixed; top: 421; left: 5; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo81' title='hp' style='position:fixed; top: 421; left: 5; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo81' style='position:fixed; top: 435; left: 5; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c2' style='width: 60; height: 60; float: left'>
-                    <img id='campo82' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-3];"></img>
-                    <div id='nomeCampo82' style='position:fixed; top: 425; left: 65; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo82' title='hp' style='position:fixed; top: 421; left: 65; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo82' title='hp' style='position:fixed; top: 421; left: 65; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo82' style='position:fixed; top: 435; left: 65; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c3' style='width: 60; height: 60; float: left'>
-                    <img id='campo83' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-2];"></img>
-                    <div id='nomeCampo83' style='position:fixed; top: 425; left: 125; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo83' title='hp' style='position:fixed; top: 421; left: 125; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo83' title='hp' style='position:fixed; top: 421; left: 125; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo83' style='position:fixed; top: 435; left: 125; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c4' style='width: 60; height: 60; float: left'>
-                    <img id='campo84' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,-1];"></img>
-                    <div id='nomeCampo84' style='position:fixed; top: 425; left: 185; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo84' title='hp' style='position:fixed; top: 421; left: 185; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo84' title='hp' style='position:fixed; top: 421; left: 185; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo84' style='position:fixed; top: 435; left: 185; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo85' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,0];"></img>
-                    <div id='nomeCampo85' style='position:fixed; top: 425; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo85' title='hp' style='position:fixed; top: 421; left: 245; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo85' title='hp' style='position:fixed; top: 421; left: 245; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo85' style='position:fixed; top: 435; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo86' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,1];"></img>
-                    <div id='nomeCampo86' style='position:fixed; top: 425; left: 305; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo86' title='hp' style='position:fixed; top: 421; left: 305; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo86' title='hp' style='position:fixed; top: 421; left: 305; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo86' style='position:fixed; top: 435; left: 305; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo87' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,2];"></img>
-                    <div id='nomeCampo87' style='position:fixed; top: 425; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo87' title='hp' style='position:fixed; top: 421; left: 365; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo87' title='hp' style='position:fixed; top: 421; left: 365; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo87' style='position:fixed; top: 435; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo88' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,3];"></img>
-                    <div id='nomeCampo88' style='position:fixed; top: 425; left: 425; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo88' title='hp' style='position:fixed; top: 421; left: 425; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo88' title='hp' style='position:fixed; top: 421; left: 425; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo88' style='position:fixed; top: 435; left: 425; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo89' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,4];"></img>
-                    <div id='nomeCampo89' style='position:fixed; top: 425; left: 485; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo89' title='hp' style='position:fixed; top: 421; left: 485; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo89' title='hp' style='position:fixed; top: 421; left: 485; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo89' style='position:fixed; top: 435; left: 485; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-                <div id='m1r1c5' style='width: 60; height: 60; float: left'>
-                    <img id='campo810' src='imagens/imagemCampo.png' alt='campo' title='campo' style='width: 100%; height: 100%' onclick="moverPersonagem = [4,5];"></img>
-                    <div id='nomeCampo810' style='position:fixed; top: 425; left: 545; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-                    
-                    </div>
-                    <div id='barraHpVaziaCampo810' title='hp' style='position:fixed; top: 421; left: 545; width: 50; height: 3; background-color: black; visibility: hidden;'>
-                
-                    </div>
-                    <div id='barraHpCampo810' title='hp' style='position:fixed; top: 421; left: 545; width: 50; height: 3; background-color: mediumseagreen; visibility: hidden;'>
-                
-                    </div>
-                    <div id='mensagemDivCampo810' style='position:fixed; top: 435; left: 545; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
-        
-                    </div>
-                </div>
-            </div>
+        <div id='map'>
+            
         </div>
 
         <div id='chathistoria' title='historia' style='position: fixed; top: 0; left: 0; width: 178; height:414; background-color: lightgray; opacity: 1; visibility: hidden;'>
@@ -1808,6 +306,9 @@
 
         function main(){
 
+            var newColumn;
+            var newMap;
+            var moveMap;
             var moverCriaturas;
             var auxPreencherImagensCriaturas;
             var auxPreencherImagens;
@@ -2068,6 +569,131 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             //Variaveis JSON
             var dadosResposta = "vazio";
+
+            //Variaveis Map
+            let campo = [0,0];
+            let columnLeft = -60;
+            let intoLeft = -55;
+
+            moveMap = function(param, direcao){
+                
+                switch(direcao){
+                    case 0:
+                        for(let i = 0; i < 11; i++){
+					        //document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] + param;
+				        }
+                        break;
+                    case 1:
+                        for(let i = 0; i < 11; i++){
+					        document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] - param;
+				        }
+                        break;
+                    case 2:
+                        for(let i = 0; i < 11; i++){
+					        document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] - param;
+				        }
+                        break;
+                    case 3:
+                        for(let i = 0; i < 11; i++){
+					        //document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] + param;
+				        }
+                        break;
+                }
+            }
+
+            newMap = function(){
+                
+				for(let i = 0; i < 11; i++){
+					newColumn();
+				}
+			}
+
+            newColumn = function(map){
+
+				const column = document.createElement("div");
+				column.setAttribute("id", "column" + campo[1]);
+				column.style.position = "fixed";
+				column.style.top = "-60";
+				column.style.left = columnLeft;
+				column.style.width = "60";
+				column.style.height = "60";
+
+				document.getElementById("map").appendChild(column);
+	
+				campo[0] = 0;
+				let nameTop = -55;
+				let barraHpTop = -59;
+				let messageTop = -45;
+				for(let i = 0; i < 9; i++){
+					const image = document.createElement("img");
+					image.setAttribute("id", "campo" + "-" + campo[0] + "-" + campo[1]);
+					image.src = "/imagens/imagemCampo.png";
+					image.alt = "campo";
+					image.title = "campo";
+					image.style.width = "100%"; 
+					image.style.height = "100%";
+					image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-4),(parseInt(this.id.split('-', 3)[2])-5)]; };
+				
+					document.getElementById("column" + campo[1]).appendChild(image);
+
+					const name = document.createElement("div");
+					name.setAttribute("id", "nomeCampo" + "-" + campo[0] + "-" + campo[1]);
+					name.style.position = "fixed";
+					name.style.top = nameTop;
+					name.style.left = intoLeft;
+					name.style.color = "mediumseagreen";
+					name.style.fontFamily = "Lucida Console,Courier New,monospace";
+					name.style.fontSize = "small";
+					name.style.visibility = "hidden";
+				
+					document.getElementById("column" + campo[1]).appendChild(name);
+
+					const barraHpVazia = document.createElement("div");
+					barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + campo[0] + "-" + campo[1]);
+					barraHpVazia.style.position = "fixed";
+					barraHpVazia.style.top = barraHpTop;
+					barraHpVazia.style.left = intoLeft;
+					barraHpVazia.style.width = "50"; 
+					barraHpVazia.style.height = "3";
+					barraHpVazia.style.backgroundColor = "black";
+					barraHpVazia.style.visibility = "hidden";
+				
+					document.getElementById("column" + campo[1]).appendChild(barraHpVazia);
+
+					const barraHp = document.createElement("div");
+					barraHp.setAttribute("id", "barraHpCampo" + "-" + campo[0] + "-" + campo[1]);
+					barraHp.style.position = "fixed";
+					barraHp.style.top = barraHpTop;
+					barraHp.style.left = intoLeft;
+					barraHp.style.width = "50"; 
+					barraHp.style.height = "3";
+					barraHp.style.backgroundColor = "mediumseagreen";
+					barraHp.style.visibility = "hidden";
+				
+					document.getElementById("column" + campo[1]).appendChild(barraHp);
+
+					const message = document.createElement("div");
+					message.setAttribute("id", "mensagemDivCampo" + "-" + campo[0] + "-" + campo[1]);
+					message.style.position = "fixed";
+					message.style.top = messageTop;
+					message.style.left = intoLeft;
+					message.style.width = "250";
+					message.style.textAlign = "left";
+					message.style.color = "yellow";
+					message.style.fontFamily = "Lucida Console,Courier New,monospace";
+					message.style.fontSize = "small";
+				
+					document.getElementById("column" + campo[1]).appendChild(message);
+
+					campo[0] = campo[0] + 1;
+					nameTop = nameTop + 60;
+					barraHpTop = barraHpTop + 60;
+					messageTop = messageTop + 60;
+				}
+				campo[1] = campo[1] + 1;
+				columnLeft = columnLeft + 60;
+				intoLeft = intoLeft + 60;
+			}
 
             updateDadosJson = function(){
                 
@@ -3848,301 +2474,301 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }
                         
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "00");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "01");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "02");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "03");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "04");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "05");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "06");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "07");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "08");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "09");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-4 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "010");
+                            auxPreencherImagens(i, j, caminhoImagem, "-0-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "001");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "1");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "2");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "3");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "4");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "5");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "6");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "7");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "8");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "9");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-3 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "110");
+                            auxPreencherImagens(i, j, caminhoImagem, "-1-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "002");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "10");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "11");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "12");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "13");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "14");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "15");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "16");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "17");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "18");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-2 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "210");
+                            auxPreencherImagens(i, j, caminhoImagem, "-2-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "003");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "19");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "20");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "21");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "22");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "23");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "24");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "25");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "26");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "27");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]-1 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "310");
+                            auxPreencherImagens(i, j, caminhoImagem, "-3-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "004");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "28");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "29");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "30");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "31");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "32");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "33");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "34");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "35");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "36");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0] && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "410");
+                            auxPreencherImagens(i, j, caminhoImagem, "-4-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "005");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "37");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "38");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "39");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "40");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "41");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "42");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "43");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "44");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "45");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+1 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "510");
+                            auxPreencherImagens(i, j, caminhoImagem, "-5-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "006");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "46");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "47");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "48");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "49");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "50");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "51");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "52");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "53");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "54");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+2 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "610");
+                            auxPreencherImagens(i, j, caminhoImagem, "-6-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "007");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "55");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "56");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "57");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "58");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "59");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "60");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "61");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "62");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "63");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+3 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "710");
+                            auxPreencherImagens(i, j, caminhoImagem, "-7-10");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-5){
-                            auxPreencherImagens(i, j, caminhoImagem, "008");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-0");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-4){
-                            auxPreencherImagens(i, j, caminhoImagem, "81");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-1");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-3){
-                            auxPreencherImagens(i, j, caminhoImagem, "82");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-2");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-2){
-                            auxPreencherImagens(i, j, caminhoImagem, "83");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-3");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]-1){
-                            auxPreencherImagens(i, j, caminhoImagem, "84");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-4");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]){
-                            auxPreencherImagens(i, j, caminhoImagem, "85");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-5");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+1){
-                            auxPreencherImagens(i, j, caminhoImagem, "86");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-6");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+2){
-                            auxPreencherImagens(i, j, caminhoImagem, "87");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-7");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+3){
-                            auxPreencherImagens(i, j, caminhoImagem, "88");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-8");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+4){
-                            auxPreencherImagens(i, j, caminhoImagem, "89");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-9");
                         }
                         if(i == posicaoDoPersonagemNaMatriz[0]+4 && j == posicaoDoPersonagemNaMatriz[1]+5){
-                            auxPreencherImagens(i, j, caminhoImagem, "810");
+                            auxPreencherImagens(i, j, caminhoImagem, "-8-10");
                         }
                     }
                 }
@@ -4154,13 +2780,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 while(quadrosDeAnimacaoInterno > 0){
 
-                    setTimeout(function(){ document.getElementById('mapa1').style.top = (parseInt(document.getElementById('mapa1').style.top.split('p')[0]) + (mover/quadrosDeAnimacao)); }, esperaPorQuadroInterno);
+                    setTimeout(function(){ moveMap( (mover/quadrosDeAnimacao), 0 ); }, esperaPorQuadroInterno);
 
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.top = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 0); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             direita = function (){
@@ -4169,13 +2795,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 while(quadrosDeAnimacaoInterno > 0){
 
-                    setTimeout(function(){ document.getElementById('mapa1').style.left = (parseInt(document.getElementById('mapa1').style.left.split('p')[0]) - (mover/quadrosDeAnimacao)); }, esperaPorQuadroInterno);
+                    setTimeout(function(){ moveMap( (mover/quadrosDeAnimacao), 1 ); }, esperaPorQuadroInterno);
 
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.left = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 1); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             baixo = function (){
@@ -4184,13 +2810,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 while(quadrosDeAnimacaoInterno > 0){
 
-                    setTimeout(function(){ document.getElementById('mapa1').style.top = (parseInt(document.getElementById('mapa1').style.top.split('p')[0]) - (mover/quadrosDeAnimacao)); }, esperaPorQuadroInterno);
+                    setTimeout(function(){ moveMap( (mover/quadrosDeAnimacao), 2 ); }, esperaPorQuadroInterno);
 
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.top = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 2); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
 
             esquerda = function (){
@@ -4199,13 +2825,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 while(quadrosDeAnimacaoInterno > 0){
 
-                    setTimeout(function(){ document.getElementById('mapa1').style.left = (parseInt(document.getElementById('mapa1').style.left.split('p')[0]) + (mover/quadrosDeAnimacao)); }, esperaPorQuadroInterno);
+                    setTimeout(function(){ moveMap( (mover/quadrosDeAnimacao), 3 ); }, esperaPorQuadroInterno);
 
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('mapa1').style.visibility = "hidden"; document.getElementById('mapa1').style.left = -60; preencherImagens(); document.getElementById('mapa1').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 3); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
             }
             
             ataqueCriatura = function (campo, distanciaDoPersonagemLinha, distanciaDoPersonagemColuna, hitDecrescimo, hitAcrescimo, morto, nomeCriatura){
@@ -4312,19 +2938,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverCima = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(-1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+39; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo23", -1, 0); } direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(-1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+39; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo-3-5", -1, 0); } direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } }
             }
 
             moverDireita = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){recompensaSacola(0,1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 54){moverJangada(0); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo("Campo33", 0, 1); } direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){recompensaSacola(0,1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 54){moverJangada(0); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo("Campo-4-6", 0, 1); } direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } }
             }
 
             moverBaixo = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+41; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo41", 1, 0); } direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+41; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo-5-5", 1, 0); } direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } }
             }
 
             moverEsquerda = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 53){moverJangada(2); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo("Campo31", 0, -1); } direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 53){moverJangada(2); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo("Campo-4-4", 0, -1); } direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } }
             }
 
             funcMoverPersonagem = function (){
@@ -4416,15 +3042,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
-                                if(parseInt(document.getElementById("barraHpCampo23").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo23").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo23").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo23").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo23").style.color = 'orange';
-                                    document.getElementById("barraHpCampo23").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo23").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo23").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo23").style.background = 'mediumseagreen';
+                                if(parseInt(document.getElementById("barraHpCampo-3-5").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo-3-5").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo-3-5").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo-3-5").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo-3-5").style.color = 'orange';
+                                    document.getElementById("barraHpCampo-3-5").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo-3-5").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo-3-5").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo-3-5").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(-1,0);
 
@@ -4445,15 +3071,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == 1){
                                 moverDireita();
-                                if(parseInt(document.getElementById("barraHpCampo33").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo33").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo33").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo33").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo33").style.color = 'orange';
-                                    document.getElementById("barraHpCampo33").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo33").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo33").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo33").style.background = 'mediumseagreen';
+                                if(parseInt(document.getElementById("barraHpCampo-4-6").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo-4-6").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo-4-6").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo-4-6").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo-4-6").style.color = 'orange';
+                                    document.getElementById("barraHpCampo-4-6").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo-4-6").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo-4-6").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo-4-6").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(0,1);
 
@@ -4473,15 +3099,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                             if(moverPersonagem[0] == 1 && moverPersonagem[1] == 0){
                                 moverBaixo();
-                                if(parseInt(document.getElementById("barraHpCampo41").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo41").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo41").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo41").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo41").style.color = 'orange';
-                                    document.getElementById("barraHpCampo41").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo41").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo41").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo41").style.background = 'mediumseagreen';
+                                if(parseInt(document.getElementById("barraHpCampo-5-5").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo-5-5").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo-5-5").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo-5-5").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo-5-5").style.color = 'orange';
+                                    document.getElementById("barraHpCampo-5-5").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo-5-5").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo-5-5").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo-5-5").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(1,0);
 
@@ -4501,15 +3127,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == -1){
                                 moverEsquerda();
-                                if(parseInt(document.getElementById("barraHpCampo31").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo31").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo31").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo31").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo31").style.color = 'orange';
-                                    document.getElementById("barraHpCampo31").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo31").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo31").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo31").style.background = 'mediumseagreen';
+                                if(parseInt(document.getElementById("barraHpCampo-4-4").style.width.split('p')[0]) <= 13){ 
+                                    document.getElementById("nomeCampo-4-4").style.color = 'tomato';
+                                    document.getElementById("barraHpCampo-4-4").style.background = 'tomato';
+                                } else if(parseInt(document.getElementById("barraHpCampo-4-4").style.width.split('p')[0]) <= 25){ 
+                                    document.getElementById("nomeCampo-4-4").style.color = 'orange';
+                                    document.getElementById("barraHpCampo-4-4").style.background = 'orange';
+                                } else if(parseInt(document.getElementById("barraHpCampo-4-4").style.width.split('p')[0]) > 25){ 
+                                    document.getElementById("nomeCampo-4-4").style.color = 'mediumseagreen';
+                                    document.getElementById("barraHpCampo-4-4").style.background = 'mediumseagreen';
                                 }
                                 verificacaoAproximacaoNPC(0,-1);
 
@@ -6084,14 +4710,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
                         setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
 
-                        ataqueCampo("Campo22",-1,-1);
-                        ataqueCampo("Campo23",-1,0);
-                        ataqueCampo("Campo24",-1,1);
-                        ataqueCampo("Campo33",0,1);
-                        ataqueCampo("Campo42",1,1);
-                        ataqueCampo("Campo41",1,0);
-                        ataqueCampo("Campo40",1,-1);
-                        ataqueCampo("Campo31",0,-1);
+                        ataqueCampo("Campo-3-4",-1,-1);
+                        ataqueCampo("Campo-3-5",-1,0);
+                        ataqueCampo("Campo-3-6",-1,1);
+                        ataqueCampo("Campo-4-6",0,1);
+                        ataqueCampo("Campo-5-6",1,1);
+                        ataqueCampo("Campo-5-5",1,0);
+                        ataqueCampo("Campo-5-4",1,-1);
+                        ataqueCampo("Campo-4-4",0,-1);
 
                     }else{
                         dataDiv2 = new Date();
@@ -6112,7 +4738,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                         for(let j = -3; j < 4; j++){
                             for(let k = -4; k < 5; k++){
-                                ataqueCampo("Campo"+i,j,k);
+                                ataqueCampo("Campo" + "-" + (j + 4) + "-" + (k + 5),j,k);
                                 i++;
                             }
                         }
@@ -6255,6 +4881,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 $conn->close();
                 
             ?>
+
+            newMap();
 
             ultim_x = posicaoDoPersonagemNaMatriz[0];
             ultim_y = posicaoDoPersonagemNaMatriz[1];
