@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <div id='conversa' title='conversa' style='position: fixed; top: 160; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
+        <div id='conversa' title='conversa' style='position: fixed; top: 160; left: 600; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao1').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao1').title; dialogo(); datainicioinatividade = new Date();}">
                 Opcao 1
             </button>
@@ -78,27 +78,27 @@
             </button>
         </div>
         
-        <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 185; left: 245; width: 50; height: 50;' onclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
-        <div id='nomePersonagem1' style='position:fixed; top: 185; left: 245; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;' onclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
+        <div id='nomePersonagem1' style='position:fixed; top: 305; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
-        <div id='barraHpVaziaPersonagem1' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: black;'>
+        <div id='barraHpVaziaPersonagem1' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: black;'>
                 
         </div>
-        <div id='barraHpPersonagem1' title='hp' style='position:fixed; top: 181; left: 245; width: 50; height: 3; background-color: mediumseagreen;'>
+        <div id='barraHpPersonagem1' title='hp' style='position:fixed; top: 301; left: 365; width: 50; height: 3; background-color: mediumseagreen;'>
     
         </div>
-        <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' style='position:fixed; top: 185; left: 245;'></img>
-        <div id='mensagemDiv3' style='position:fixed; top: 195; left: 245; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' style='position:fixed; top: 305; left: 365;'></img>
+        <div id='mensagemDiv3' style='position:fixed; top: 315; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
-        <div id='mensagemDiv2' style='position:fixed; top: 400; left: 150; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <div id='mensagemDiv2' style='position:fixed; top: 640; left: 270; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
-        <div id='mensagemDiv1' style='position:fixed; top: 100; left: 150; width: 300; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <div id='mensagemDiv1' style='position:fixed; top: 220; left: 270; width: 300; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
-        <div id='menuopcoes' style='position:fixed; top: 210; left: 270; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+        <div id='menuopcoes' style='position:fixed; top: 330; left: 390; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
             <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden'; document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';">
                 Outfit 1
             </button>
@@ -106,11 +106,11 @@
                 Outfit 2
             </button>
         </div>
-        <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 185; left: 245; visibility: hidden;'></img>
-        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 302; left: 448; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
+        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 422; left: 568; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
-        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 302; left: 495; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 422; left: 615; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
 
@@ -118,10 +118,10 @@
         <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
         <div id='painelCima1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:60; background-color: gray;'></div>
         -->
-        <div id='painelBaixo1' title='painel' style='position:fixed; top: 420; left: 0; width: 100%; height:100%; background-color: #ccffff;'></div>
-        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 540; width: 100%; height:100%; background-color: #ccffff;'></div>
+        <div id='painelBaixo1' title='painel' style='position:fixed; top: 660; left: 0; width: 100%; height:100%; background-color: #ccffff;'></div>
+        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 780; width: 100%; height:100%; background-color: #ccffff;'></div>
 
-        <div id='conversaLogout' title='logout' style='position: fixed; top: 0; left: 360; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
+        <div id='conversaLogout' title='logout' style='position: fixed; top: 0; left: 600; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                 Você tem certeza que deseja sair?
             </div>
@@ -135,11 +135,11 @@
             </button>
         </div>
 
-        <div id='inventario' title='inventario' style='position: fixed; top: 0; left: 540; width: 178; height:414; background-color: #ccffff; border-style: solid; border-color: gray;'>
+        <div id='inventario' title='inventario' style='position: fixed; top: 0; right: 0; width: 178; height:414; background-color: #ccffff; border-style: solid; border-color: gray;'>
             <div id='hp' title='hp' style='position: absolute; top: 0; left: 0; margin: 1; width: 44; height: 20; background-color: tomato;'>
                 
             </div>
-            <div id='hpvalor' title='hp' style='position: fixed; top: 9; left: 540; width: 178; height: 20; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+            <div id='hpvalor' title='hp' style='position: fixed; top: 9; right: 0; width: 178; height: 20; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 
             </div>
             <div id='skills' title='skills' style='position: absolute; top: 20; left: 0; margin: 1; width: 176; height: 74; background-color: lightgray;'>
@@ -147,28 +147,28 @@
                     Skills
                 </div>
                 <div id='campoDasSkills1' title='skills' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 62; background-color: gray;'>
-                    <div id='level' title='level' style='position: fixed; top: 50; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='level' title='level' style='position: fixed; top: 50; right: 0; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='levelvalor' title='level' style='position: fixed; top: 50; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='levelvalor' title='level' style='position: fixed; top: 50; right: 7; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='barraxp' title='xp' style='position: fixed; top: 65; left: 551; width: 100; height: 2; background-color: red;'>
+                    <div id='barraxp' title='xp' style='position: fixed; top: 65; right: 9; width: 100; height: 2; background-color: red;'>
                 
                     </div>
-                    <div id='barraxpvazia' title='xp' style='position: fixed; top: 64; left: 550; width: 165; height: 2; background-color: red; border: 1px solid white; opacity: 0.3;'>
+                    <div id='barraxpvazia' title='xp' style='position: fixed; top: 64; right: 9; width: 165; height: 2; background-color: red; border: 1px solid white; opacity: 0.3;'>
                 
                     </div>
-                    <div id='nivel' title='xp' style='position: fixed; top: 70; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='nivel' title='xp' style='position: fixed; top: 70; right: 0; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='nivelvalor' title='xp' style='position: fixed; top: 70; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='nivelvalor' title='xp' style='position: fixed; top: 70; right: 7; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='speed' title='speed' style='position: fixed; top: 85; left: 550; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='speed' title='speed' style='position: fixed; top: 85; right: 0; width: 178; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <div id='speedvalor' title='speed' style='position: fixed; top: 85; left: 540; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                    <div id='speedvalor' title='speed' style='position: fixed; top: 85; right: 7; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
                     <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick=""></img>
@@ -226,29 +226,29 @@
                 </div>
             </div>
             <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 230; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
-                <div id='tasks' title='tasks' style='position: fixed; top: 240; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+                <div id='tasks' title='tasks' style='position: fixed; top: 240; right: 0; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                 </div>
-                <div id='task' title='task' style='position: fixed; top: 255; left: 550; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                <div id='task' title='task' style='position: fixed; top: 255; right: 0; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
 
                 </div>
-                <div id='taskvalor' title='task' style='position: fixed; top: 255; left: 540; width: 178; height: 20; text-align: right; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                <div id='taskvalor' title='task' style='position: fixed; top: 255; right: 7; width: 178; height: 20; text-align: right; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
 
                 </div>
             </div>
-            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 193; left: 252; width: 10; height: 10; visibility: hidden;' onclick="visibilityEquipamentos(false);">
+            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 313; left: 372; width: 10; height: 10; visibility: hidden;' onclick="visibilityEquipamentos(false);">
         
             </div>
-            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 193; left: 325; width: 30; height: 10; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel1').style.visibility = 'visible'; document.getElementById('campoDaParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel2').style.visibility = 'visible'; document.getElementById('campoDaParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel3').style.visibility = 'visible'; document.getElementById('campoDaParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDaParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel1').style.visibility = 'hidden'; document.getElementById('campoDaParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel2').style.visibility = 'hidden'; document.getElementById('campoDaParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel3').style.visibility = 'hidden'; document.getElementById('campoDaParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDaParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();}">
+            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 313; left: 445; width: 30; height: 10; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDoParcel1').style.visibility = 'visible'; document.getElementById('campoDoParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel1').style.visibility = 'visible'; document.getElementById('campoDoParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel2').style.visibility = 'visible'; document.getElementById('campoDoParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel3').style.visibility = 'visible'; document.getElementById('campoDoParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDoParcel1').style.visibility = 'hidden'; document.getElementById('campoDoParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel1').style.visibility = 'hidden'; document.getElementById('campoDoParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel2').style.visibility = 'hidden'; document.getElementById('campoDoParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel3').style.visibility = 'hidden'; document.getElementById('campoDoParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();}">
         
             </div>
-            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 208; left: 325; width: 30; height: 30; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();}">
+            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 328; left: 445; width: 30; height: 30; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();}">
         
             </div>
-            <div id='equipamentoMaoDireita' alt='' title='' style='position:fixed; top: 244; left: 253; width: 30; height: 30; visibility: hidden;' onclick="">
+            <div id='equipamentoMaoDireita' alt='' title='' style='position:fixed; top: 364; left: 373; width: 30; height: 30; visibility: hidden;' onclick="">
         
             </div>
-            <div id='equipamentoMaoEsquerda' alt='' title='' style='position:fixed; top: 244; left: 325; width: 30; height: 30; visibility: hidden;' onclick="">
+            <div id='equipamentoMaoEsquerda' alt='' title='' style='position:fixed; top: 364; left: 445; width: 30; height: 30; visibility: hidden;' onclick="">
         
             </div>
             <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');">
@@ -262,7 +262,7 @@
             </button>
         </div>
 
-        <div id='chat' title='chat' style='position: fixed; top: 0; left: 720; width: 178; height:414; background-color: lightgray; border-style: solid; border-color: gray;'>
+        <div id='chat' title='chat' style='position: fixed; top: 417; right: 0; width: 178; height:243; background-color: lightgray; border-style: solid; border-color: gray;'>
             <div id='default' title='chat' style='position: absolute; top: 0; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
                 <button id='nomeDoChatDefault' title='default' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 50; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="identificadorDoChat = 0; document.getElementById('textareaChat').value = mensagensDoChatDefault; document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; /*document.getElementById('campoDeEscritaInput').focus();*/ document.getElementById('nomeDoChatServerLog').style.color = 'black'; document.getElementById('nomeDoChatNpc').style.color = 'black'; document.getElementById('nomeDoChatDefault').style.color = 'white'; document.getElementById('campoDoChat').title ='default'; document.getElementById('textareaChat').title ='default'; datainicioinatividade = new Date();">
                     Default
@@ -273,8 +273,8 @@
                 <button id='nomeDoChatNpc' title='npc' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 25; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="identificadorDoChat = 2; document.getElementById('textareaChat').value = mensagensDoChatNpc; document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; /*document.getElementById('campoDeEscritaInput').focus();*/ document.getElementById('nomeDoChatDefault').style.color = 'black'; document.getElementById('nomeDoChatServerLog').style.color = 'black'; document.getElementById('nomeDoChatNpc').style.color = 'white'; document.getElementById('campoDoChat').title ='npc'; document.getElementById('textareaChat').title ='npc'; datainicioinatividade = new Date();">
                     Npc
                 </button>
-                <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 365; background-color: #ccffff;'>
-                    <textarea id="textareaChat" name="textareaChat" title='default' rows="23" cols="21" style="resize: none;" disabled></textarea>
+                <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 195; background-color: #ccffff;'>
+                    <textarea id="textareaChat" name="textareaChat" title='default' rows="12" cols="21" style="resize: none;" disabled></textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 176; height: 22; background-color: #ccffff;'>
                     <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0.6;"></input>
@@ -353,12 +353,12 @@
             var ultim_mensgem;
             var ultim_json;
 
-            var posicaoDoPersonagemNaMatriz = [5,6];
+            var posicaoDoPersonagemNaMatriz = [7,8];
             var direcaoDoPersonagem = 2;
             var nivel = 0;
             var personagemMorto = false;
 
-            var posicaoJangada = [64,26];
+            var posicaoJangada = [82,28];
 
             var flagAjax = true;
             var dataAjax = new Date();
@@ -397,89 +397,109 @@
 
 var matrizDoMapa = 
 [
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27],
-[27,27,27,27,31, 0, 0,41,29,27,31, 0,41, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,45, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 0, 0, 2,29,27,31, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0,45, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 4, 0, 0,29,27,31, 4, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,45, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27],
-[27,27,27,27,31, 0, 1, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0,19, 0, 0,19, 0,19, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 0, 7, 8,29,27,31, 4, 0, 0, 0, 0,19, 0, 0, 0, 0,19, 0, 0, 0,19, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 5, 4, 1,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0,19, 0, 0,19, 0,19, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27],
-[27,27,27,27,31, 8, 7, 8,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0,16, 0, 0,16, 0,16, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 1, 0, 7,29,27,31, 5, 0, 0, 0, 0,16, 0, 0, 0, 0,16, 0, 0, 0,16, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 1, 5, 4,29,27,31, 4, 0, 0, 0, 0, 0, 0, 0,16, 0, 0,16, 0,16, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27],
-[27,27,27,27,31, 1, 8, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 8, 7, 4,29,27,31, 0, 4, 0, 0, 0, 8, 0, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,31, 1, 8, 5,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29,27,27,27,27],
-[27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 2, 7, 7, 7, 7,16, 1, 2, 7, 7, 7, 7, 8, 1, 2, 7, 7, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,38,83, 0, 0,80,37,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26],
-[26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 7, 7,82,34,81, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26],
-[26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7, 8, 7, 2,36,26,26,26,26],
-[26,26,26,26,40,19,19,19, 1,45,45,45, 1,16,16,16,36,26,40, 0, 0, 0, 0, 7, 7, 8, 1, 2, 7, 7, 7, 7, 7,19, 1, 2, 7, 7, 7,16, 1, 2, 7, 7, 7, 1,36,26,26,26,26],
-[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,80,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,81, 0, 0, 0, 0,82,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,39,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38, 0, 0,38, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0,36,26,26,26,26],
-[26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,53,52,52,54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,26,26,26,38, 0, 0,48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,53,52,52,54, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,80,37,26,26,26,26],
-[26,26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,26,26,26,26,26, 2, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26,26,38, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 2,36,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 0, 0,41,29,27,31, 0,41, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,45, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 0, 0, 2,29,27,31, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0,45, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 4, 0, 0,29,27,31, 4, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,45, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 0, 1, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0,19, 0, 0,19, 0,19, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 0, 7, 8,29,27,31, 4, 0, 0, 0, 0,19, 0, 0, 0, 0,19, 0, 0, 0,19, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 5, 4, 1,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0,19, 0, 0,19, 0,19, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 8, 7, 8,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0,16, 0, 0,16, 0,16, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 1, 0, 7,29,27,31, 5, 0, 0, 0, 0,16, 0, 0, 0, 0,16, 0, 0, 0,16, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 1, 5, 4,29,27,31, 4, 0, 0, 0, 0, 0, 0, 0,16, 0, 0,16, 0,16, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 1, 8, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 8, 7, 4,29,27,31, 0, 4, 0, 0, 0, 8, 0, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,31, 1, 8, 5,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 2, 7, 7, 7, 7,16, 1, 2, 7, 7, 7, 7, 8, 1, 2, 7, 7, 7,19, 1, 7, 1,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,38,83, 0, 0,80,37,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,16, 7, 2,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 7, 7,82,34,81, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40,19, 7,19, 7,45, 7,45, 7,16, 7,16,36,26,40, 0, 0, 0, 0, 7, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7, 8, 7, 2,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40,19,19,19, 1,45,45,45, 1,16,16,16,36,26,40, 0, 0, 0, 0, 7, 7, 8, 1, 2, 7, 7, 7, 7, 7,19, 1, 2, 7, 7, 7,16, 1, 2, 7, 7, 7, 1,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,37,26,40, 0, 0, 0, 0,80,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,81, 0, 0, 0, 0,82,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,39,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38, 0, 0,38, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,53,52,52,54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,38, 0, 0,48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,53,52,52,54, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,80,37,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,26,26,26,26,26, 2, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26,26,38, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 2,36,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
 ];
 
 var matrizDoMapaOriginal = [];
@@ -564,7 +584,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var esperaGeral = 100;
 
             //Variaveis BOT
-            var posicaoBot = [48,10];
+            var posicaoBot = [66,12];
             var botFree = true;
 
             //Variaveis JSON
@@ -579,22 +599,22 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 
                 switch(direcao){
                     case 0:
-                        for(let i = 0; i < 11; i++){
+                        for(let i = 0; i < 15; i++){
 					        //document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] + param;
 				        }
                         break;
                     case 1:
-                        for(let i = 0; i < 11; i++){
+                        for(let i = 0; i < 15; i++){
 					        document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] - param;
 				        }
                         break;
                     case 2:
-                        for(let i = 0; i < 11; i++){
+                        for(let i = 0; i < 15; i++){
 					        document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] - param;
 				        }
                         break;
                     case 3:
-                        for(let i = 0; i < 11; i++){
+                        for(let i = 0; i < 15; i++){
 					        //document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] + param;
 				        }
                         break;
@@ -603,7 +623,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             newMap = function(){
                 
-				for(let i = 0; i < 11; i++){
+				for(let i = 0; i < 15; i++){
 					newColumn();
 				}
 			}
@@ -624,7 +644,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 				let nameTop = -55;
 				let barraHpTop = -59;
 				let messageTop = -45;
-				for(let i = 0; i < 9; i++){
+				for(let i = 0; i < 13; i++){
 					const image = document.createElement("img");
 					image.setAttribute("id", "campo" + "-" + campo[0] + "-" + campo[1]);
 					image.src = "/imagens/imagemCampo.png";
@@ -632,7 +652,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					image.title = "campo";
 					image.style.width = "100%"; 
 					image.style.height = "100%";
-					image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-4),(parseInt(this.id.split('-', 3)[2])-5)]; };
+					image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-6),(parseInt(this.id.split('-', 3)[2])-7)]; };
 				
 					document.getElementById("column" + campo[1]).appendChild(image);
 
@@ -835,8 +855,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 strDados = dadosJson.json[3].quests.split(',');
                 if(strDados.length > 0 && parseInt(strDados[0])){
                     questFerramentas = true;
-                    matrizDoMapa[5][7] = 3;
-                    matrizDoMapa[44][10] = 3;
+                    matrizDoMapa[7][9] = 3;
+                    matrizDoMapa[62][12] = 3;
                 }
                 if(strDados.length > 1){
                     quest1 = parseInt(strDados[1]);
@@ -957,9 +977,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             moverJangada = function(direcao){
                 switch(direcao){
                     case 0:
-                        if(posicaoJangada[0] == 64)
+                        if(posicaoJangada[0] == 82)
                             break;
-                        if(posicaoJangada[0] == 71){
+                        if(posicaoJangada[0] == 89){
                             matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 26;
                             matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 33;
                             matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 35; 
@@ -978,9 +998,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         posicaoDoPersonagemNaMatriz[0]--;
                         break;
                     case 2:
-                        if(posicaoJangada[0] == 71)
+                        if(posicaoJangada[0] == 89)
                             break;
-                        if(posicaoJangada[0] == 64){
+                        if(posicaoJangada[0] == 82){
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
@@ -1207,7 +1227,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             funcPersonagemMorto = function(){
                 hp = 0;
                 personagemMorto = true;
-                posicaoDoPersonagemNaMatriz = [5,6];
+                posicaoDoPersonagemNaMatriz = [7,8];
                 visibilityEquipamentos(false);
                 document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                 document.getElementById('mensagem1').alt = 'mensagem';
@@ -1344,7 +1364,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         break;
                     case 1:
                         if(mochila[1] == 'Corda' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 4){
-                            posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+9; 
+                            posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+13; 
                             posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; 
                             preencherImagens();
                         }else if(mochila[1] == 'Corda'){ 
@@ -1353,7 +1373,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         break;
                     case 2:
                         if(mochila[2] == 'Pa' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 6){
-                            posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; 
+                            posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-14; 
                             posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; 
                             preencherImagens();
                         }else if(mochila[2] == 'Pa'){ 
@@ -1409,10 +1429,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 ){
                     id = 0;
                     questFerramentas = true;
-                    matrizDoMapa[5][7] = 3;
-                    matrizDoMapa[44][10] = 3;
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 24
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 26
                 &&
                     (
                         quest1 == 0 ||
@@ -1422,11 +1440,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 1;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 24){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 26){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 27 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 29 
                 &&
                     (
                         quest2 == 0 ||
@@ -1436,11 +1454,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 2;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 27){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 29){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 31 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 33 
                 &&
                     (
                         quest3 == 0 ||
@@ -1450,11 +1468,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 3;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 31){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 33){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 35 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 37 
                 &&
                     (
                         quest1 == 0 ||
@@ -1464,11 +1482,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 4;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 35){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 37){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 38 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 40 
                 &&
                     ( 
                         quest2 == 0 ||
@@ -1478,11 +1496,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 5;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 38){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 40){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 41
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 43
                 &&
                     ( 
                         quest3 == 0 ||
@@ -1492,11 +1510,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 6;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 54 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 41){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 43){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 53 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 71 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 && 
                     (
                         quest1 == 0 ||
@@ -1506,11 +1524,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 7;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 53 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 71 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 49 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 &&
                     (
                         quest2 == 0 ||
@@ -1520,11 +1538,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 8;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 49 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 45 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 63 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 && 
                     (
                         quest3 == 0 ||
@@ -1534,11 +1552,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 9;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 45 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 63 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 66 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 30 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 84 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 32 
                 && 
                     (
                         quest4 == 0 ||
@@ -1548,11 +1566,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 10;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 66 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 30){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 84 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 32){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 58 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 76 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 && 
                     (
                         quest4 == 0 ||
@@ -1562,11 +1580,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 11;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 58 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 45){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 76 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 44 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == 85 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 46 
                 && 
                     (
                         quest4 == 0 ||
@@ -1576,7 +1594,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 12;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 44){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 85 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 46){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
@@ -1868,8 +1886,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 let arrayMove = [];
                 
-                for(let i = -3; i < 4; i++){
-                    for(let j = -4; j < 5; j++){
+                for(let i = -5; i < 6; i++){
+                    for(let j = -6; j < 7; j++){
 
                         let posicaoDoCampoNaMatriz = [posicaoDoPersonagemNaMatriz[0]+i,posicaoDoPersonagemNaMatriz[1]+j];
                         let flagMove = false;
@@ -1975,17 +1993,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         matrizDoMapa[i][j] == 9 || 
                         matrizDoMapa[i][j] == 17 || 
                         matrizDoMapa[i][j] == 20 ||
-                        matrizDoMapa[i][j] == 46
+                        matrizDoMapa[i][j] == 46 ||
+                        matrizDoMapa[i][j] == 49
                     ) &&
                     (
-                        (i != posicaoDoPersonagemNaMatriz[0]-1 || j != posicaoDoPersonagemNaMatriz[1]-1) &&
-                        (i != posicaoDoPersonagemNaMatriz[0]-1 || j != posicaoDoPersonagemNaMatriz[1]) &&
-                        (i != posicaoDoPersonagemNaMatriz[0]-1 || j != posicaoDoPersonagemNaMatriz[1]+1) &&
-                        (i != posicaoDoPersonagemNaMatriz[0] || j != posicaoDoPersonagemNaMatriz[1]+1) &&
-                        (i != posicaoDoPersonagemNaMatriz[0]+1 || j != posicaoDoPersonagemNaMatriz[1]+1) &&
-                        (i != posicaoDoPersonagemNaMatriz[0]+1 || j != posicaoDoPersonagemNaMatriz[1]) &&
-                        (i != posicaoDoPersonagemNaMatriz[0]+1 || j != posicaoDoPersonagemNaMatriz[1]-1) &&
-                        (i != posicaoDoPersonagemNaMatriz[0] || j != posicaoDoPersonagemNaMatriz[1]-1)
+                        ((i < posicaoDoPersonagemNaMatriz[0]-1 || i > posicaoDoPersonagemNaMatriz[0]+1 || 
+                        j < posicaoDoPersonagemNaMatriz[1]-1 || j > posicaoDoPersonagemNaMatriz[1]+1) && matrizDoMapa[i][j] != 49) ||
+                        (i < posicaoDoPersonagemNaMatriz[0]-3 || i > posicaoDoPersonagemNaMatriz[0]+3 || 
+                        j < posicaoDoPersonagemNaMatriz[1]-4 || j > posicaoDoPersonagemNaMatriz[1]+4)
                     )
                 ){
                     switch(matrizDoMapa[i][j]){
@@ -2004,6 +2019,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         case 46:
                             matrizDoMapa[i][j] = 45;
                             document.getElementById(baseCampo).src = "imagens/imagemSpider.png";
+                            break;
+                        case 49:
+                            matrizDoMapa[i][j] = 48;
+                            document.getElementById(baseCampo).src = "imagens/imagemOrcShaman.gif";
                             break;
                     }
                 }
@@ -2300,8 +2319,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 /*run_ajax();*/
 
-                for(var i = posicaoDoPersonagemNaMatriz[0]-4, k = 0; i < posicaoDoPersonagemNaMatriz[0]+5; i++, k++){
-                    for(var j = posicaoDoPersonagemNaMatriz[1]-5, l = 0; j < posicaoDoPersonagemNaMatriz[1]+6; j++, l++){
+                for(var i = posicaoDoPersonagemNaMatriz[0]-6, k = 0; i < posicaoDoPersonagemNaMatriz[0]+7; i++, k++){
+                    for(var j = posicaoDoPersonagemNaMatriz[1]-7, l = 0; j < posicaoDoPersonagemNaMatriz[1]+8; j++, l++){
 
                         if(matrizDoMapa[i][j] == 0){
                             caminhoImagem = "imagens/imagemCampo.png";
@@ -2643,19 +2662,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverCima = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(-1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-11; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+39; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo-3-5", -1, 0); } direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 25){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(-1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-15; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+55; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo-5-7", -1, 0); } direcaoDoPersonagem = 0; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png'; } }
             }
 
             moverDireita = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){recompensaSacola(0,1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 54){moverJangada(0); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo("Campo-4-6", 0, 1); } direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 25){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 2){recompensaSacola(0,1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-14; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+56; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 54){moverJangada(0); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo("Campo-6-8", 0, 1); } direcaoDoPersonagem = 1; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png'; } }
             }
 
             moverBaixo = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-9; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+41; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo-5-5", 1, 0); } direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 25){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 2){recompensaSacola(1,0);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 5){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-13; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+57; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else{ ataqueCampo("Campo-7-7", 1, 0); } direcaoDoPersonagem = 2; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } }
             }
 
             moverEsquerda = function (){
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-10; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+40; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 53){moverJangada(2); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo("Campo-4-4", 0, -1); } direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } }
+                if(document.getElementById('mensagem1').style.visibility == 'hidden'){if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 25){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-14; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]+56; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 53){moverJangada(2); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo("Campo-6-6", 0, -1); } direcaoDoPersonagem = 3; if(outfit == "M"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; }else if(outfit == "F"){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png'; } }
             }
 
             funcMoverPersonagem = function (){
@@ -3336,31 +3355,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         
                         for(let i = 0; i < dadosResposta.players.length; i++){
                             if(
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 4 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 5 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 6 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 7 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 8 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 16 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 19 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 45 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 48 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 9 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 17 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 20 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 46 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 49 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 10 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 18 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 21 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 47 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 50 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 51 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 52 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 57 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 61 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 62 &&
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] != 63 &&
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 0 &&
                                 dadosResposta.players[i].username != username
                             ){
                                 if(dadosResposta.players[i].outfit == "M"){
@@ -3432,18 +3427,18 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     }else{
                         console.log("Ajax desnecessário");
                     }
-                    if(matrizDoMapa[4][7] == 41){
-                        matrizDoMapa[4][7] = 42;
-                        matrizDoMapa[4][12] = 42;
-                    }else if(matrizDoMapa[4][7] == 42){
-                        matrizDoMapa[4][7] = 43;
-                        matrizDoMapa[4][12] = 43;
-                    }else if(matrizDoMapa[4][7] == 43){
-                        matrizDoMapa[4][7] = 44;
-                        matrizDoMapa[4][12] = 44;
-                    }else if(matrizDoMapa[4][7] == 44){
-                        matrizDoMapa[4][7] = 41;
-                        matrizDoMapa[4][12] = 41;
+                    if(matrizDoMapa[6][9] == 41){
+                        matrizDoMapa[6][9] = 42;
+                        matrizDoMapa[6][14] = 42;
+                    }else if(matrizDoMapa[6][9] == 42){
+                        matrizDoMapa[6][9] = 43;
+                        matrizDoMapa[6][14] = 43;
+                    }else if(matrizDoMapa[6][9] == 43){
+                        matrizDoMapa[6][9] = 44;
+                        matrizDoMapa[6][14] = 44;
+                    }else if(matrizDoMapa[6][9] == 44){
+                        matrizDoMapa[6][9] = 41;
+                        matrizDoMapa[6][14] = 41;
                     }
                     moverCriaturas();
                     preencherImagens();
@@ -3496,13 +3491,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 //codigo de alerta do boss
-                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > 58 && posicaoDoPersonagemNaMatriz[1] < 18){
+                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > 76 && posicaoDoPersonagemNaMatriz[1] < 20){
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
                     document.getElementById('mensagemDiv1').style.color = "white";
                     document.getElementById('mensagemDiv1').innerHTML = 'Um boss está nas redondezas!';
                     alertaBoss = true;
-                }else if(posicaoDoPersonagemNaMatriz[0] <= 58 || posicaoDoPersonagemNaMatriz[1] >= 18){
+                }else if(posicaoDoPersonagemNaMatriz[0] <= 76 || posicaoDoPersonagemNaMatriz[1] >= 20){
                     alertaBoss = false;
                     if(document.getElementById('mensagemDiv1').innerHTML == 'Um boss está nas redondezas!'){
                         document.getElementById('mensagemDiv1').innerHTML = '';
@@ -3510,17 +3505,17 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 //codigo troca de musica
-                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 54 && posicaoDoPersonagemNaMatriz[0] > 39){
+                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 72 && posicaoDoPersonagemNaMatriz[0] > 56){
                     document.getElementById("myAudio").src = "musicas/ToPTrack02.mp3";
                     audio1 = true;
                     audio2 = false;
                     audio3 = false;
-                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 54){
+                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 72){
                     document.getElementById("myAudio").src = "musicas/ToPTrack11.mp3";
                     audio1 = false;
                     audio2 = true;
                     audio3 = false;
-                }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < 40){
+                }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < 57){
                     document.getElementById("myAudio").src = "musicas/ToPTrack05.mp3";
                     audio1 = false;
                     audio2 = false;
@@ -3751,10 +3746,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                         if(document.getElementById('campoDeEscritaInput').value.length < 32){
                             document.getElementById('mensagemDiv3').style.textAlign = 'left';
-                            document.getElementById('mensagemDiv3').style.left = 245;
+                            document.getElementById('mensagemDiv3').style.left = 365;
                         } else {
                             document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                            document.getElementById('mensagemDiv3').style.left = 200;
+                            document.getElementById('mensagemDiv3').style.left = 320;
                         }
                         document.getElementById('mensagemDiv3').style.color = 'yellow';
                         document.getElementById('mensagemDiv3').style.width = 250;
@@ -4443,7 +4438,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                         for(let j = -3; j < 4; j++){
                             for(let k = -4; k < 5; k++){
-                                ataqueCampo("Campo" + "-" + (j + 4) + "-" + (k + 5),j,k);
+                                ataqueCampo("Campo" + "-" + (j + 6) + "-" + (k + 7),j,k);
                                 i++;
                             }
                         }
@@ -4515,8 +4510,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('equipamentoMaoDireita').style.visibility = 'hidden'; 
                     document.getElementById('equipamentoMaoEsquerda').style.visibility = 'hidden'; 
                     flagEquipamento = false;
-                } 
-                datainicioinatividade = new Date();
+                }
+                if(!inativo)
+                    datainicioinatividade = new Date();
             }
 
             <?php
@@ -4655,7 +4651,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
 
-            if(posicaoDoPersonagemNaMatriz[0] > 70){
+            if(posicaoDoPersonagemNaMatriz[0] > 88){
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
@@ -4664,7 +4660,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 26;
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 26; 
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 26;
-                posicaoJangada[0] = 71;
+                posicaoJangada[0] = 89;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
@@ -4680,9 +4676,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 51 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 52 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 48){
-                posicaoDoPersonagemNaMatriz = [5,6];
+                posicaoDoPersonagemNaMatriz = [7,8];
 
-                if(posicaoJangada[0] == 71){
+                if(posicaoJangada[0] == 89){
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 26;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 26; 
@@ -4691,7 +4687,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 34;
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 34; 
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 26;
-                    posicaoJangada[0] = 64;
+                    posicaoJangada[0] = 82;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
