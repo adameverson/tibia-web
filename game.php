@@ -600,7 +600,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 switch(direcao){
                     case 0:
                         for(let i = 0; i < 15; i++){
-					        //document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] + param;
+					        document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] - (-param);
 				        }
                         break;
                     case 1:
@@ -615,7 +615,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         break;
                     case 3:
                         for(let i = 0; i < 15; i++){
-					        //document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] + param;
+					        document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] - (-param);
 				        }
                         break;
                 }
