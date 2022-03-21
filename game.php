@@ -628,7 +628,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 				}
 			}
 
-            newColumn = function(map){
+            newColumn = function(){
 
 				const column = document.createElement("div");
 				column.setAttribute("id", "column" + campo[1]);
