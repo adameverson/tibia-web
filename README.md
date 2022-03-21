@@ -1,5 +1,7 @@
 # tibia-web realizado por Adam Everson
 
+[![license](https://img.shields.io/github/license/daviduser/GraphQL-Cpp.svg)](https://github.com/adameverson/tibia-web)
+
 * Game Web semelhante ao Tibia (Magic Level v1.22.109)
 
 * Motivação: realizar um Tibia Web
