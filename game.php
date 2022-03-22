@@ -78,7 +78,7 @@
             </button>
         </div>
         
-        <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;' onclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
+        <img id='personagem1' src='imagens/imagemPersonagemDeFrente.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;' ondblclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
         <div id='nomePersonagem1' style='position:fixed; top: 305; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
