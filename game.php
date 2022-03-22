@@ -585,7 +585,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             //Variaveis BOT
             var posicaoBot = [66,12];
-            var botFree = true;
+            var botFree = false;
 
             //Variaveis JSON
             var dadosResposta = "vazio";
@@ -4584,6 +4584,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             ?>
 
             newMap();
+
+            document.body.style.userSelect = "none";
+
+            matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 51;
 
             ultim_x = posicaoDoPersonagemNaMatriz[0];
             ultim_y = posicaoDoPersonagemNaMatriz[1];
