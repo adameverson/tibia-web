@@ -234,7 +234,7 @@
         </ul>
 
         <form action="http://magiclevel.ml" method="post">
-            Usuário: <input name="usernameRegister" type='text' maxlength="20"></input>
+            Apelido: <input name="usernameRegister" type='text' maxlength="20"></input>
             Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
             <input type="radio" id="male" name="gender" value="M" checked>
             <label for="male">Masculino</label>
@@ -243,7 +243,7 @@
             <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
         <form action="game.php" method="post">
-            Usuário: <input name="username" type='text' maxlength="20"></input>
+            Apelido: <input name="username" type='text' maxlength="20"></input>
             Senha: <input type="password" name="password" type='text' maxlength="20"></input>
             <button type='submit' class="button2"><span>Entrar</span></button>
         </form>
