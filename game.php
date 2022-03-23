@@ -352,6 +352,8 @@
             var ultim_hp;
             var ultim_mensgem;
             var ultim_json;
+            var online = 1;
+            var wakeup = true;
 
             var posicaoDoPersonagemNaMatriz = [7,8];
             var direcaoDoPersonagem = 2;
@@ -3258,11 +3260,17 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         ultim_nivel != nivel ||
                         ultim_hp != hp ||
                         ultim_mensgem != mensagem ||
-                        ultim_json != JSON.stringify(dadosJson)
+                        ultim_json != JSON.stringify(dadosJson) ||
+                        (online == 0 || wakeup)
                     ){
                         dados.append('username', username);
                         dados.append('password', password);
-                        
+
+                        if(online == 0 || wakeup){
+                            dados.append('online', online);
+                            if(wakeup)
+                                wakeup = false;
+                        }
                         if(ultim_x != posicaoDoPersonagemNaMatriz[0]){
                             dados.append('x', posicaoDoPersonagemNaMatriz[0]);
                             ultim_x = posicaoDoPersonagemNaMatriz[0];
@@ -3397,6 +3405,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     // [FIM] AJAX
 
                 }
+
+                window.onunload = window.onbeforeunload = function() {
+                    online = 0;
+                    run_ajax();
+                };
 
                 let tempoinativo = 0;
                 let hitTotal = 0;
@@ -4583,9 +4596,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 
             ?>
 
-            newMap();
-
             document.body.style.userSelect = "none";
+
+            newMap();
 
             matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 51;
 

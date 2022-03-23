@@ -27,6 +27,7 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $online = $_POST['online'];
     $x = $_POST['x'];
     $y = $_POST['y'];
     $direcao = $_POST['direcao'];
@@ -54,7 +55,7 @@
     //if(isset($_POST['x']) && isset($_POST['y'])){
 
         //$sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `x` > " . ($x-8) . " AND `x` < " . ($x+8) . " AND `y` > " . ($y-10) . " AND `y` < " . ($y+10);
-        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia`";
+        $sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `online` = 1";
         //$sql = "SELECT `username`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem` FROM `ottibia` WHERE `username`<>'" . $username . "'";
         
         $result = $conn->query($sql);
@@ -103,7 +104,15 @@
 
         $sql = "UPDATE `ottibia` SET ";
 
+        if(isset($_POST['online'])){
+            $sql .= "`online`=" . $online;
+            $first_update = false;
+        }
+        
         if(isset($_POST['x'])){
+            if(!$first_update){
+                $sql .= ", ";
+            }
             $sql .= "`x`=" . $x;
             $first_update = false;
         }
