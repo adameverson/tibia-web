@@ -192,7 +192,7 @@
                 document.getElementById("cartaoId").innerHTML = '-- Monsters --<br><br>- Snake<br><br><img id="snake" src="imagens/imagemSnake.png" title="game" alt="game" class=""><br><br>XP: 1<br>Vida: 51<br>Ataque: 1~50<br><br>- Dragon<br><br><img id="dragon" src="imagens/imagemDragon.png" title="game" alt="game" class=""><br><br>XP: 2<br>Vida: 101<br>Ataque: 50~150<br><br>- Mammoth<br><br><img id="mammoth" src="imagens/imagemMammoth.png" title="game" alt="game" class=""><br><br>XP: 3<br>Vida: 201<br>Ataque: 150~450<br><br>- Spider<br><br><img id="spider" src="imagens/imagemSpider.png" title="game" alt="game" class=""><br><br>XP: 4<br>Vida: 401<br>Ataque: 450~1350<br><br><br>-- Bosses --<br><br>- Orc Shaman<br><br><img id="orcshaman" src="imagens/imagemOrcShaman.gif" title="game" alt="game" class=""><br><br>XP: 100<br>Vida: 5000<br>Ataque: 1350~4050';
             }
             function spells(){
-                document.getElementById("cartaoId").innerHTML = 'Spells:<br><br>- Exura<br>Cura: ((80)+(level*2))~((80)+(level*4))<br><br>- Exura Gran<br>Cura: ((120)+(level*3))~((120)+(level*6))<br><br>- Exori<br>Hit: Normal<br>Descrição: Ataca todos ao redor.<img id="cartaoDeVisita4" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center">- Exori Gran<br>Hit: Normal<br>Descrição: Ataca todos da tela.<img id="cartaoDeVisita5" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
+                document.getElementById("cartaoId").innerHTML = 'Spells:<br><br>- Exura<br>Cura: ((80)+(level*2))~((80)+(level*4))<br><br>- Exura Gran<br>Cura: ((120)+(level*3))~((120)+(level*6))<br><br>- Exori<br>Hit: Normal<br>Descrição: Ataca todos ao redor.<img id="cartaoDeVisita4" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center">- Exori Gran<br>Hit: Normal<br>Descrição: Ataca em área.<img id="cartaoDeVisita5" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center">';
             }
             function items(){
                 document.getElementById("cartaoId").innerHTML = 'Items:<br><br>- Poção HP<br>Cura: ((40)+(level))~((40)+(level*2))<br><br><img id="pocaohp" src="imagens/imagemPocaoHP.png" title="game" alt="game"><br><br>- Corda<br>Descrição: Utilizada para subir de um andar para o outro.<br><br><img id="corda" src="imagens/imagemCorda.png" title="game" alt="game"><br><br>- Pá<br>Descrição: Utilizada para cavar um buraco fechado para descer um andar.<br><br><img id="pa" src="imagens/imagemPa.png" title="game" alt="game"><br><br>- Spike Sword<br>Descrição: Spike Sword (Arm: 1).<br><br><img id="pa" src="imagens/Spike_Sword_Field.png" title="game" alt="game"><br><br>- Crown Shield<br>Descrição: Crown Shield (Def: 1).<br><br><img id="pa" src="imagens/Crown_Shield_Field.png" title="game" alt="game">';
@@ -210,7 +210,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
             function code(){
-                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.23.109</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.23.110</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
         </script>
     </head>
@@ -389,5 +389,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021-2022 magiclevel.ml. All rights reserved. v1.23.109
+    ©2021-2022 magiclevel.ml. All rights reserved. v1.23.110
 </div>
