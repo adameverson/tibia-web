@@ -78,7 +78,7 @@
             </button>
         </div>
         
-        <img id='personagem1' src='imagens/person1.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;' ondblclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
+        <img id='personagem1' src='imagens/person1.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;' onclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
         <div id='nomePersonagem1' style='position:fixed; top: 305; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
@@ -357,6 +357,8 @@
             var ultim_json;
             var online = 1;
             var wakeup = true;
+
+            var flagMove = [false,false,false,false];
 
             var posicaoDoPersonagemNaMatriz = [7,8];
             var direcaoDoPersonagem = 2;
@@ -2712,12 +2714,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
-                            if(outfit == "P")
-                                document.getElementById('personagem1').src = 'imagens/person3andar.gif';
-                            else if(outfit == "M")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png';
-                            else if(outfit == "F")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png';
+                            if(!flagMove[3]){
+                                if(outfit == "P")
+                                    document.getElementById('personagem1').src = 'imagens/person3andar.gif';
+                                else if(outfit == "M")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png';
+                                else if(outfit == "F")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png';
+                                flagMove = [false,false,false,true];
+                            }
                             moverEsquerda();
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 revelarCasa(3,3);
@@ -2728,12 +2733,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
-                            if(outfit == "P")
-                                document.getElementById('personagem1').src = 'imagens/person2andar.gif';
-                            else if(outfit == "M")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png';
-                            else if(outfit == "F")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png';
+                            if(!flagMove[0]){
+                                if(outfit == "P")
+                                    document.getElementById('personagem1').src = 'imagens/person2andar.gif';
+                                else if(outfit == "M")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png';
+                                else if(outfit == "F")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png';
+                                flagMove = [true,false,false,false];
+                            }
                             moverCima();
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){
                                 revelarCasa(3,1);
@@ -2746,12 +2754,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
-                            if(outfit == "P")
-                                document.getElementById('personagem1').src = 'imagens/person4andar.gif';
-                            else if(outfit == "M")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png';
-                            else if(outfit == "F")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png';
+                            if(!flagMove[1]){
+                                if(outfit == "P")
+                                    document.getElementById('personagem1').src = 'imagens/person4andar.gif';
+                                else if(outfit == "M")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png';
+                                else if(outfit == "F")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png';
+                                flagMove = [false,true,false,false];
+                            }
                             moverDireita();
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){
                                 revelarCasa(3,1);
@@ -2762,12 +2773,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
-                            if(outfit == "P")
-                                document.getElementById('personagem1').src = 'imagens/person1andar.gif';
-                            else if(outfit == "M")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';
-                            else if(outfit == "F")
-                                document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';
+                            if(!flagMove[2]){
+                                if(outfit == "P")
+                                    document.getElementById('personagem1').src = 'imagens/person1andar.gif';
+                                else if(outfit == "M")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';
+                                else if(outfit == "F")
+                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';
+                                flagMove = [false,false,true,false];
+                            }
                             moverBaixo();
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74){
                                 revelarCasa(3,1);
@@ -2964,6 +2978,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;    
                         }
+                        flagMove = [false,false,false,false];
                     }
                 }
             }
