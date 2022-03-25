@@ -210,7 +210,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
             function code(){
-                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.24.110</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.24.111</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
         </script>
     </head>
@@ -236,9 +236,9 @@
         <form action="http://magiclevel.ml" method="post">
             Apelido: <input name="usernameRegister" type='text' maxlength="20"></input>
             Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
-            <input type="radio" id="male" name="gender" value="M" checked>
+            <input type="radio" id="male" name="gender" value="P" checked>
             <label for="male">Masculino</label>
-            <input type="radio" id="female" name="gender" value="F">
+            <input type="radio" id="female" name="gender" value="W">
             <label for="female">Feminino</label>
             <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
@@ -298,7 +298,7 @@
         $result->close();
         
         if($usuarioexistente){
-            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário ja existente. Aspas simples não é um caracter válido.</div>";
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Apelido ja existente. Aspas simples não é um caracter válido.</div>";
         }else{
 
             $sql = "INSERT INTO `ottibia`(`username`, `password`, `x`, `y`, `direcao`, `nivel`, `hp`, `outfit`, `mensagem`, `json`) VALUES ('" . $username . "', '" . $password . "', 5, 6, 2, 0, 176, '" . $outfit . "', '', '{\"json\":[{\"itens\":\"0,0,0\"},{\"magias\":\"0,0,0,0\"},{\"tasks\":\"0,0\"},{\"quests\":\"0,0,0,0,0\"},{\"equipamentos\":\"0,0,0,0,0,0,0,0,0\"}]}')";
@@ -310,7 +310,7 @@
         }
 
     } else {
-        echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário e Senha devem ser preenchidos. Aspas simples não é um caracter válido.</div>";
+        echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Apelido e Senha devem ser preenchidos. Aspas simples não é um caracter válido.</div>";
     }
 
     $sql = "SET @n = 0";
@@ -389,5 +389,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021-2022 magiclevel.ml. All rights reserved. v1.24.110
+    ©2021-2022 magiclevel.ml. All rights reserved. v1.24.111
 </div>

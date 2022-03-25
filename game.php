@@ -102,18 +102,21 @@
             <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'P'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
                 Outfit 1
             </button>
-            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'W'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
                 Outfit 2
             </button>
-            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
                 Outfit 3
+            </button>
+            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+                Outfit 4
             </button>
         </div>
         <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
-        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 422; left: 568; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 422; left: 568; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
-        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 422; left: 615; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); if(outfit == 'M'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png'; }else if(outfit == 'F'){ document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png'; } document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
+        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 422; left: 615; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
         
         </div>
 
@@ -331,6 +334,7 @@
             var verificacaoDistanciamentoNPC;
             var verificacaoAproximacaoNPC;
             var verificarPosicaoValida;
+            var verificarPosicaoValidaBot;
             var recompensaSacola;
             var mensagemDoSistema;
             var moverCimaBot;
@@ -341,6 +345,9 @@
             var moverPorta;
             var revelarCasa;
             var esconderCasa;
+            var escolherOutfit;
+            var obterEquipamento;
+            var corlifecampo;
             var funcPersonagemMorto;
             var calculaLevel;
             var regeneracao;
@@ -928,7 +935,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             moverCimaBot = function(comando){
                 if(comando)
                     botFree = false;
-                if(matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 0 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 12 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 13 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 14 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 15 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 22 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 23 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 24 || matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] == 25){
+                if(verificarPosicaoValidaBot(-1, 0)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
                     posicaoBot[0] = posicaoBot[0]-1;
@@ -942,7 +949,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             moverDireitaBot = function(comando){
                 if(comando)
                     botFree = false;
-                if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 0 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 12 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 13 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 14 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 15 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 22 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 23 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 24 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] == 25){
+                if(verificarPosicaoValidaBot(0, 1)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
                     posicaoBot[1] = posicaoBot[1]+1;
@@ -956,7 +963,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             moverBaixoBot = function(comando){
                 if(comando)
                     botFree = false;
-                if(matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 0 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 12 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 13 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 14 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 15 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 22 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 23 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 24 || matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] == 25){
+                if(verificarPosicaoValidaBot(1, 0)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
                     posicaoBot[0] = posicaoBot[0]+1;
@@ -970,7 +977,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             moverEsquerdaBot = function(comando){
                 if(comando)
                     botFree = false;
-                if(matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 0 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 12 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 13 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 14 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 15 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 22 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 23 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 24 || matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] == 25){
+                if(verificarPosicaoValidaBot(0, -1)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
                     posicaoBot[1] = posicaoBot[1]-1;
@@ -1231,6 +1238,84 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
+            escolherOutfit = function(){
+                switch(direcaoDoPersonagem){
+                    case 0:
+                        if(outfit == "M"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png';
+                        }else if(outfit == "F"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png';
+                        }else if(outfit == "P"){
+                            document.getElementById('personagem1').src = 'imagens/person2.png';
+                        }else if(outfit == "W"){
+                            document.getElementById('personagem1').src = 'imagens/personF2.png';
+                        }
+                        break;
+                    case 1:
+                        if(outfit == "M"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png';
+                        }else if(outfit == "F"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png';
+                        }else if(outfit == "P"){
+                            document.getElementById('personagem1').src = 'imagens/person4.png';
+                        }else if(outfit == "W"){
+                            document.getElementById('personagem1').src = 'imagens/personF4.png';
+                        }
+                        break;
+                    case 2:
+                        if(outfit == "M"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';
+                        }else if(outfit == "F"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';
+                        }else if(outfit == "P"){
+                            document.getElementById('personagem1').src = 'imagens/person1.png';
+                        }else if(outfit == "W"){
+                            document.getElementById('personagem1').src = 'imagens/personF1.png';
+                        }
+                        break;
+                    case 3:
+                        if(outfit == "M"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png';
+                        }else if(outfit == "F"){
+                            document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png';
+                        }else if(outfit == "P"){
+                            document.getElementById('personagem1').src = 'imagens/person3.png';
+                        }else if(outfit == "W"){
+                            document.getElementById('personagem1').src = 'imagens/personF3.png';
+                        }
+                        break;    
+                }
+            }
+
+            obterEquipamento = function(i, j){
+                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == 55){
+                    equipamentos[1] = 1;
+                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
+                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
+                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == 56){
+                    equipamentos[7] = 1;
+                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
+                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
+                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                }
+            }
+
+            corlifecampo = function(i, j){
+                if(parseInt(document.getElementById("barraHpCampo-" + i + "-" + j).style.width.split('p')[0]) <= 13){ 
+                    document.getElementById("nomeCampo-" + i + "-" + j).style.color = 'tomato';
+                    document.getElementById("barraHpCampo-" + i + "-" + j).style.background = 'tomato';
+                } else if(parseInt(document.getElementById("barraHpCampo-" + i + "-" + j).style.width.split('p')[0]) <= 25){ 
+                    document.getElementById("nomeCampo-" + i + "-" + j).style.color = 'orange';
+                    document.getElementById("barraHpCampo-" + i + "-" + j).style.background = 'orange';
+                } else if(parseInt(document.getElementById("barraHpCampo-" + i + "-" + j).style.width.split('p')[0]) > 25){ 
+                    document.getElementById("nomeCampo-" + i + "-" + j).style.color = 'mediumseagreen';
+                    document.getElementById("barraHpCampo-" + i + "-" + j).style.background = 'mediumseagreen';
+                }
+            }
+
             funcPersonagemMorto = function(){
                 hp = 0;
                 personagemMorto = true;
@@ -1430,8 +1515,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 if(
                     (
-                        ((posicaoDoPersonagemNaMatriz[0]+linha) == 5 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 7) ||
-                        ((posicaoDoPersonagemNaMatriz[0]+linha) == 44 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 10)
+                        ((posicaoDoPersonagemNaMatriz[0]+linha) == 7 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 9) ||
+                        ((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 12)
                     ) && !questFerramentas
                 ){
                     id = 0;
@@ -1825,7 +1910,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             verificarPosicaoValida = function(linha, coluna){
-                return (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 25 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 84 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 85 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 86 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 87);
+                return (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 25 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 84 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 85 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 86 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 87 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 88 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 89 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 90 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 91);
+            }
+
+            verificarPosicaoValidaBot = function(linha, coluna){
+                return (matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 0 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 12 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 13 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 14 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 15 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 22 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 23 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 24 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 25 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 84 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 85 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 86 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 87 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 88 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 89 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 90 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 91);
             }
 
             verificacaoAproximacaoNPC = function(linha, coluna){
@@ -2124,7 +2213,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[i][j] == 84 ||
                     matrizDoMapa[i][j] == 85 ||
                     matrizDoMapa[i][j] == 86 ||
-                    matrizDoMapa[i][j] == 87
+                    matrizDoMapa[i][j] == 87 ||
+                    matrizDoMapa[i][j] == 88 ||
+                    matrizDoMapa[i][j] == 89 ||
+                    matrizDoMapa[i][j] == 90 ||
+                    matrizDoMapa[i][j] == 91
                 ){
                     for(let k = 0; k < dadosResposta.players.length; k++){
                         if(dadosResposta.players[k].username != username && dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
@@ -2509,6 +2602,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             caminhoImagem = "imagens/person1piso.png";
                         }else if(matrizDoMapa[i][j] == 87){
                             caminhoImagem = "imagens/person3piso.png";
+                        }else if(matrizDoMapa[i][j] == 88){
+                            caminhoImagem = "imagens/personF2piso.png";
+                        }else if(matrizDoMapa[i][j] == 89){
+                            caminhoImagem = "imagens/personF4piso.png";
+                        }else if(matrizDoMapa[i][j] == 90){
+                            caminhoImagem = "imagens/personF1piso.png";
+                        }else if(matrizDoMapa[i][j] == 91){
+                            caminhoImagem = "imagens/personF3piso.png";
                         }
 
                         auxPreencherImagens(i, j, caminhoImagem, "-" + k + "-" + l);
@@ -2710,13 +2811,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 if(document.getElementById('mensagem1').style.visibility == 'hidden'){
                     if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0 ){
                         datainicioinatividade = new Date();
-                        if(moverPersonagem[1] < 0 && verificarPosicaoValida(0,-1)){
+                        if(moverPersonagem[1] < 0 && verificarPosicaoValida(0, -1)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
                             if(!flagMove[3]){
                                 if(outfit == "P")
                                     document.getElementById('personagem1').src = 'imagens/person3andar.gif';
+                                else if(outfit == "W")
+                                    document.getElementById('personagem1').src = 'imagens/personF3andar.gif';
                                 else if(outfit == "M")
                                     document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png';
                                 else if(outfit == "F")
@@ -2729,13 +2832,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                             moverPersonagem[1]++;
                             verificacaoDistanciamentoNPC();
-                        }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1,0)){
+                        }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1, 0)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
                             if(!flagMove[0]){
                                 if(outfit == "P")
                                     document.getElementById('personagem1').src = 'imagens/person2andar.gif';
+                                else if(outfit == "W")
+                                    document.getElementById('personagem1').src = 'imagens/personF2andar.gif';
                                 else if(outfit == "M")
                                     document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png';
                                 else if(outfit == "F")
@@ -2750,13 +2855,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                             moverPersonagem[0]++;
                             verificacaoDistanciamentoNPC();
-                        }else if(moverPersonagem[1] > 0 && verificarPosicaoValida(0,1)){
+                        }else if(moverPersonagem[1] > 0 && verificarPosicaoValida(0, 1)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
                             if(!flagMove[1]){
                                 if(outfit == "P")
                                     document.getElementById('personagem1').src = 'imagens/person4andar.gif';
+                                else if(outfit == "W")
+                                    document.getElementById('personagem1').src = 'imagens/personF4andar.gif';
                                 else if(outfit == "M")
                                     document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png';
                                 else if(outfit == "F")
@@ -2769,13 +2876,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                             moverPersonagem[1]--;
                             verificacaoDistanciamentoNPC();
-                        }else if(moverPersonagem[0] > 0 && verificarPosicaoValida(1,0)){
+                        }else if(moverPersonagem[0] > 0 && verificarPosicaoValida(1, 0)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
                             }
                             if(!flagMove[2]){
                                 if(outfit == "P")
                                     document.getElementById('personagem1').src = 'imagens/person1andar.gif';
+                                else if(outfit == "W")
+                                    document.getElementById('personagem1').src = 'imagens/personF1andar.gif';
                                 else if(outfit == "M")
                                     document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';
                                 else if(outfit == "F")
@@ -2793,11 +2902,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else if(
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74 && 
                             moverPersonagem[1] < -1 && 
-                            verificarPosicaoValida(0,-2)
+                            verificarPosicaoValida(0, -2)
                             ){
                             direcaoDoPersonagem = 3;
                             if(outfit == "P"){
-                                    document.getElementById('personagem1').src = 'imagens/person3.png';
+                                document.getElementById('personagem1').src = 'imagens/person3.png';
+                            }else if(outfit == "W"){ 
+                                document.getElementById('personagem1').src = 'imagens/personF3.png'; 
                             }else if(outfit == "M"){ 
                                 document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png'; 
                             }else if(outfit == "F"){ 
@@ -2809,11 +2920,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else if(
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74 && 
                             moverPersonagem[1] > 1 && 
-                            verificarPosicaoValida(0,2)
+                            verificarPosicaoValida(0, 2)
                             ){
                             direcaoDoPersonagem = 1;
                             if(outfit == "P"){
-                                    document.getElementById('personagem1').src = 'imagens/person4.png';
+                                document.getElementById('personagem1').src = 'imagens/person4.png';
+                            }else if(outfit == "W"){
+                                document.getElementById('personagem1').src = 'imagens/personF4.png';
                             }else if(outfit == "M"){ 
                                 document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png'; 
                             }else if(outfit == "F"){ 
@@ -2825,159 +2938,33 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
-                                if(parseInt(document.getElementById("barraHpCampo-3-5").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo-3-5").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo-3-5").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo-3-5").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo-3-5").style.color = 'orange';
-                                    document.getElementById("barraHpCampo-3-5").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo-3-5").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo-3-5").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo-3-5").style.background = 'mediumseagreen';
-                                }
-                                verificacaoAproximacaoNPC(-1,0);
-
-                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 55){
-                                    equipamentos[1] = 1;
-                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
-                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
-                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 56){
-                                    equipamentos[7] = 1;
-                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
-                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
-                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }
-
+                                corlifecampo(3, 5);
+                                verificacaoAproximacaoNPC(-1, 0);
+                                obterEquipamento(-1, 0);
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == 1){
                                 moverDireita();
-                                if(parseInt(document.getElementById("barraHpCampo-4-6").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo-4-6").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo-4-6").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo-4-6").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo-4-6").style.color = 'orange';
-                                    document.getElementById("barraHpCampo-4-6").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo-4-6").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo-4-6").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo-4-6").style.background = 'mediumseagreen';
-                                }
-                                verificacaoAproximacaoNPC(0,1);
-
-                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 55){
-                                    equipamentos[1] = 1;
-                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
-                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
-                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 56){
-                                    equipamentos[7] = 1;
-                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
-                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
-                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }
+                                corlifecampo(4, 6);
+                                verificacaoAproximacaoNPC(0, 1);
+                                obterEquipamento(0, 1);
                             }
                             if(moverPersonagem[0] == 1 && moverPersonagem[1] == 0){
                                 moverBaixo();
-                                if(parseInt(document.getElementById("barraHpCampo-5-5").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo-5-5").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo-5-5").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo-5-5").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo-5-5").style.color = 'orange';
-                                    document.getElementById("barraHpCampo-5-5").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo-5-5").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo-5-5").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo-5-5").style.background = 'mediumseagreen';
-                                }
-                                verificacaoAproximacaoNPC(1,0);
-
-                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 55){
-                                    equipamentos[1] = 1;
-                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
-                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
-                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 56){
-                                    equipamentos[7] = 1;
-                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
-                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
-                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }
+                                corlifecampo(5, 5);
+                                verificacaoAproximacaoNPC(1, 0);
+                                obterEquipamento(1, 0);
                             }
                             if(moverPersonagem[0] == 0 && moverPersonagem[1] == -1){
                                 moverEsquerda();
-                                if(parseInt(document.getElementById("barraHpCampo-4-4").style.width.split('p')[0]) <= 13){ 
-                                    document.getElementById("nomeCampo-4-4").style.color = 'tomato';
-                                    document.getElementById("barraHpCampo-4-4").style.background = 'tomato';
-                                } else if(parseInt(document.getElementById("barraHpCampo-4-4").style.width.split('p')[0]) <= 25){ 
-                                    document.getElementById("nomeCampo-4-4").style.color = 'orange';
-                                    document.getElementById("barraHpCampo-4-4").style.background = 'orange';
-                                } else if(parseInt(document.getElementById("barraHpCampo-4-4").style.width.split('p')[0]) > 25){ 
-                                    document.getElementById("nomeCampo-4-4").style.color = 'mediumseagreen';
-                                    document.getElementById("barraHpCampo-4-4").style.background = 'mediumseagreen';
-                                }
-                                verificacaoAproximacaoNPC(0,-1);
-
-                                if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 55){
-                                    equipamentos[1] = 1;
-                                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
-                                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
-                                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 56){
-                                    equipamentos[7] = 1;
-                                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
-                                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
-                                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
-                                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
-                                }
+                                corlifecampo(4, 4);
+                                verificacaoAproximacaoNPC(0, -1);
+                                obterEquipamento(0, -1);
                             }
 
                             moverPersonagem = [0,0];
                         }
                     }else{
-                        switch(direcaoDoPersonagem){
-                            case 0:
-                                if(outfit == "M"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png';
-                                }else if(outfit == "F"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png';
-                                }else if(outfit == "P"){
-                                    document.getElementById('personagem1').src = 'imagens/person2.png';
-                                }
-                                break;
-                            case 1:
-                                if(outfit == "M"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png';
-                                }else if(outfit == "F"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png';
-                                }else if(outfit == "P"){
-                                    document.getElementById('personagem1').src = 'imagens/person4.png';
-                                }
-                                break;
-                            case 2:
-                                if(outfit == "M"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';
-                                }else if(outfit == "F"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';
-                                }else if(outfit == "P"){
-                                    document.getElementById('personagem1').src = 'imagens/person1.png';
-                                }
-                                break;
-                            case 3:
-                                if(outfit == "M"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png';
-                                }else if(outfit == "F"){
-                                    document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png';
-                                }else if(outfit == "P"){
-                                    document.getElementById('personagem1').src = 'imagens/person3.png';
-                                }
-                                break;    
-                        }
+                        escolherOutfit();
                         flagMove = [false,false,false,false];
                     }
                 }
@@ -3452,7 +3439,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 84 ||
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 85 ||
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 86 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 87
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 87 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 88 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 89 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 90 ||
+                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 91
                                 ){
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
                                 }
@@ -3510,6 +3501,21 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                             break;
                                         case 3:
                                             matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 87;
+                                            break;
+                                    }
+                                }else if(dadosResposta.players[i].outfit == "W"){
+                                    switch(dadosResposta.players[i].direcao){
+                                        case 0:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 88;
+                                            break;
+                                        case 1:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 89;
+                                            break;
+                                        case 2:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 90;
+                                            break;
+                                        case 3:
+                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 91;
                                             break;
                                     }
                                 }
@@ -4702,7 +4708,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 if(!$logado){
-                    echo "alert('Conta inexistente, os seus dados não serao salvos. Acesse magiclevel.ml para se registrar. Sem logar você não podera interagir com os outros players.');";
+                    echo "alert('Conta inexistente. Acesse magiclevel.ml para se registrar.');";
                     echo "window.location.replace('http://magiclevel.ml');";
                 }
 
@@ -4747,44 +4753,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1;
 
-            switch(direcaoDoPersonagem){
-                case 0:
-                    if(outfit == "M"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostas.png';
-                    }else if(outfit == "F"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeCostasF.png';
-                    }else if(outfit == "P"){
-                        document.getElementById('personagem1').src = 'imagens/person2.png';
-                    }
-                    break;
-                case 1:
-                    if(outfit == "M"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireita.png';
-                    }else if(outfit == "F"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeDireitaF.png';
-                    }else if(outfit == "P"){
-                        document.getElementById('personagem1').src = 'imagens/person4.png';
-                    }
-                    break;
-                case 2:
-                    if(outfit == "M"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrente.png';
-                    }else if(outfit == "F"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeFrenteF.png';
-                    }else if(outfit == "P"){
-                        document.getElementById('personagem1').src = 'imagens/person1.png';
-                    }
-                    break;
-                case 3:
-                    if(outfit == "M"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerda.png';
-                    }else if(outfit == "F"){
-                        document.getElementById('personagem1').src = 'imagens/imagemPersonagemDeEsquerdaF.png';
-                    }else if(outfit == "P"){
-                        document.getElementById('personagem1').src = 'imagens/person3.png';
-                    }
-                    break;    
-            }
+            escolherOutfit();
 
             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){
                 nivelDeSolo++;
@@ -4816,7 +4785,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 revelarCasa(4);
             }
 
-            if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 0 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 51 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 52 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 4 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 6 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 7 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 12 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 13 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 14 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 15 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 22 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 23 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 24 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 25 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 8 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 16 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 19 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 45 && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] != 48){
+            if(!verificarPosicaoValida(0, 0)){
                 posicaoDoPersonagemNaMatriz = [7,8];
 
                 if(posicaoJangada[0] == 89){
