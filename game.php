@@ -2809,7 +2809,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 dataMove.setMilliseconds(dataMove.getMilliseconds() + velocidade);
 
                 if(document.getElementById('mensagem1').style.visibility == 'hidden'){
-                    if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0 ){
+                    if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0){
                         datainicioinatividade = new Date();
                         if(moverPersonagem[1] < 0 && verificarPosicaoValida(0, -1)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
@@ -2963,7 +2963,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                             moverPersonagem = [0,0];
                         }
-                    }else{
+                    }
+                    if(moverPersonagem[0] == 0 && moverPersonagem[1] == 0){
                         escolherOutfit();
                         flagMove = [false,false,false,false];
                     }
