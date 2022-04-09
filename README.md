@@ -49,12 +49,13 @@ Things you may want to cover:
 
 * Server PHP
 * SQL Table
-![image](https://user-images.githubusercontent.com/24993219/143771755-9e51eb51-de2b-46fb-b191-e2c11678329c.png)
+![image](https://user-images.githubusercontent.com/24993219/162581183-3b399bc6-162e-4ac7-a3e3-6bb39b05fe2a.png)
 * SQL Code MySQL\
 CREATE TABLE `ottibia` (\
  `id` int(11) NOT NULL AUTO_INCREMENT,\
  `username` varchar(20) NOT NULL,\
  `password` varchar(20) NOT NULL,\
+ `online` bit(1) DEFAULT NULL,\
  `x` int(11) NOT NULL,\
  `y` int(11) NOT NULL,\
  `direcao` int(11) NOT NULL,\
@@ -64,4 +65,4 @@ CREATE TABLE `ottibia` (\
  `mensagem` varchar(100) NOT NULL,\
  `json` varchar(150) NOT NULL,\
  PRIMARY KEY (`id`)\
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1
