@@ -331,8 +331,12 @@
             var moverEsquerda;
             var getRandomIntInclusive;
             var animacaoMonster;
-            var verificacaoDistanciamentoNPC;
             var verificacaoAproximacaoNPC;
+            var verificacaoDistanciamentoNPC;
+            var preencherOpcoes;
+            var mensagemNivelNecessario;
+            var mensagemTaskNaoTerminada;
+            var mensagemGanhouExperiencia;
             var verificarPosicaoValida;
             var verificarPosicaoValidaBot;
             var recompensaSacola;
@@ -366,6 +370,7 @@
             var wakeup = true;
 
             var flagMove = [false,false,false,false];
+            var numOpcao = 0;
 
             var posicaoDoPersonagemNaMatriz = [7,8];
             var direcaoDoPersonagem = 2;
@@ -1714,193 +1719,73 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         quest1 += 30;
                         nivel += 30;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 30 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 30 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(30);
                         break;
                     case 2:
                         quest2 += 70;
                         nivel += 70;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 70 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 70 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(70);
                         break;
                     case 3:
                         quest3 += 100;
                         nivel += 100;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 100 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 100 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(100);
                         break;
                     case 4:
                         quest1 += 70;
                         nivel += 70;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 70 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 70 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(70);
                         break;
                     case 5:
                         quest2 += 130;
                         nivel += 130;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 130 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 130 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(130);
                         break;
                     case 6:
                         quest3 += 200;
                         nivel += 200;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 200 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 200 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(200);
                         break;
                     case 7:
                         quest1 += 10;
                         nivel += 10;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 10 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 10 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(10);
                         break;
                     case 8:
                         quest2 += 20;
                         nivel += 20;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 20 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 20 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(20);
                         break;
                     case 9:
                         quest3 += 30;
                         nivel += 30;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 30 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 30 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(30);
                         break;
                     case 10:
                         quest4 += 90;
                         nivel += 90;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 90 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 90 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(90);
                         break;
                     case 11:
                         quest4 += 130;
                         nivel += 130;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 130 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 130 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(130);
                         break;
                     case 12:
                         quest4 += 180;
                         nivel += 180;
                         calculaLevel();
-                        mensagensDoChatServerLog += "\n\nVocê ganhou 180 pontos de experiencia.";
-                        document.getElementById('mensagemDiv3').style.color = 'white';
-                        document.getElementById('mensagemDiv3').style.textAlign = 'center';
-                        document.getElementById('mensagemDiv3').style.width = 50;
-                        document.getElementById('mensagemDiv3').innerHTML = 180 + "Xp";
-                        setTimeout(
-                            function(){ 
-                                document.getElementById('mensagemDiv3').innerHTML = "";
-                                document.getElementById('mensagemDiv3').style.color = 'yellow';
-                                document.getElementById('mensagemDiv3').style.width = 250;
-                            }, 500);
+                        mensagemGanhouExperiencia(180);
                         break;
                 }
 
@@ -1969,6 +1854,82 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     nivelDeConversaNpc = 0;
                 }
+            }
+
+            preencherOpcoes = function(opHTML,opTitle){
+                
+                switch(numOpcao){
+                    case 0:
+                        document.getElementById('opcao1').innerHTML = opHTML;
+                        document.getElementById('opcao1').title = opTitle;
+                        document.getElementById('opcao1').style.height = 44;
+                        document.getElementById('opcao1').style.visibility = 'visible';
+                        numOpcao++;
+                        break;
+                    case 1:
+                        document.getElementById('opcao2').innerHTML = opHTML;
+                        document.getElementById('opcao2').title = opTitle;
+                        document.getElementById('opcao2').style.height = 44;
+                        document.getElementById('opcao2').style.visibility = 'visible';
+                        numOpcao++;
+                        break;
+                    case 2:
+                        document.getElementById('opcao3').innerHTML = opHTML;
+                        document.getElementById('opcao3').title = opTitle;
+                        document.getElementById('opcao3').style.height = 44;
+                        document.getElementById('opcao3').style.visibility = 'visible';
+                        numOpcao++;
+                        break;
+                    case 3:
+                        document.getElementById('opcao4').innerHTML = opHTML;
+                        document.getElementById('opcao4').title = opTitle;
+                        document.getElementById('opcao4').style.height = 44;
+                        document.getElementById('opcao4').style.visibility = 'visible';
+                        numOpcao++;
+                        break;
+                    case 4:
+                        document.getElementById('opcao5').innerHTML = opHTML;
+                        document.getElementById('opcao5').title = opTitle;
+                        document.getElementById('opcao5').style.height = 44;
+                        document.getElementById('opcao5').style.visibility = 'visible';
+                        numOpcao++;
+                        break;
+                }
+            }
+
+            mensagemNivelNecessario = function(textLevel){
+                let auxText = "Npc: Você precisa de level " + textLevel + " para aprender esta magia!";
+
+                mensagensDoChatNpc += "\n\n" + auxText;
+
+                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                document.getElementById('mensagemDiv1').style.color = 'white';
+                document.getElementById('mensagemDiv1').innerHTML = auxText;
+            }
+
+            mensagemTaskNaoTerminada = function(){
+                let auxText = "Npc: Você ainda não terminou a task obtida!";
+
+                mensagensDoChatNpc += "\n\n" + auxText;
+                
+                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                document.getElementById('mensagemDiv1').style.color = 'white';
+                document.getElementById('mensagemDiv1').innerHTML = auxText;
+            }
+
+            mensagemGanhouExperiencia = function(xpGanha,auxCampo){
+                mensagensDoChatServerLog += "\n\nVocê ganhou " + xpGanha + " ponto(s) de experiência."; 
+                document.getElementById('mensagemDiv3').style.color = 'white'; 
+                document.getElementById('mensagemDiv3').style.textAlign = 'center'; 
+                document.getElementById('mensagemDiv3').style.width = 50; 
+                document.getElementById('mensagemDiv3').innerHTML = xpGanha + "Xp"; 
+                setTimeout(function(){ 
+                    if(auxCampo != null)
+                        document.getElementById('mensagemDiv' + auxCampo).innerHTML = ""; 
+                    document.getElementById('mensagemDiv3').innerHTML = ""; 
+                    document.getElementById('mensagemDiv3').style.color = 'yellow'; 
+                    document.getElementById('mensagemDiv3').style.width = 250; 
+                }, 500); 
             }
 
             moverCriaturas = function(){
@@ -2725,19 +2686,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     }
 
                     document.getElementById('mensagemDiv' + campo).innerHTML = (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1; 
-                    document.getElementById('mensagemDiv3').style.color = 'white'; 
-                    document.getElementById('mensagemDiv3').style.textAlign = 'center'; 
-                    document.getElementById('mensagemDiv3').style.width = 50; 
-                    document.getElementById('mensagemDiv3').innerHTML = xp + "Xp"; 
-                    setTimeout(function(){ 
-                        document.getElementById('mensagemDiv' + campo).innerHTML = ""; 
-                        document.getElementById('mensagemDiv3').innerHTML = ""; 
-                        document.getElementById('mensagemDiv3').style.color = 'yellow'; 
-                        document.getElementById('mensagemDiv3').style.width = 250; 
-                    }, 500); 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + ((matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1) + " pontos de vida devido ao seu ataque."; 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = 0; 
-                    mensagensDoChatServerLog += "\n\nVocê ganhou " + xp + " ponto(s) de experiência."; 
+                    mensagemGanhouExperiencia(xp,campo);
                     matrizDoMapa[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = morto; 
                     nivel += xp; 
 
@@ -3937,92 +3888,36 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
 
+                    numOpcao = 0;
+                    var auxText = "";
+
                     switch(nivelDeConversaNpc){
                         case 1:
-                            if((!exura || !exuraGran || !exori || !exoriGran) && (quest1 || quest2 || quest3 || quest4)){
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task', aprender uma 'magia' ou resetar a quest principal?";
-
-                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').style.color = 'white';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task', aprender uma 'magia' ou resetar a quest principal?";
-
-                                document.getElementById('opcao1').innerHTML = "Task";
-                                document.getElementById('opcao1').title = "Task";
-                                document.getElementById('opcao1').style.height = 44;
-                                document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Magia";
-                                document.getElementById('opcao2').title = "Magia";
-                                document.getElementById('opcao2').style.height = 44;
-                                document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Reset Quest";
-                                document.getElementById('opcao3').title = "Reset Quest";
-                                document.getElementById('opcao3').style.height = 44;
-                                document.getElementById('opcao3').style.visibility = 'visible';
-                                document.getElementById('opcao4').innerHTML = "Agora não";
-                                document.getElementById('opcao4').title = "Nao";
-                                document.getElementById('opcao4').style.height = 44;
-                                document.getElementById('opcao4').style.visibility = 'visible';
-                            } else if((!exura || !exuraGran || !exori || !exoriGran) && (!quest1 && !quest2 && !quest3 && !quest4)){
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
-
-                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').style.color = 'white';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou aprender uma 'magia'?";
-
-                                document.getElementById('opcao1').innerHTML = "Task";
-                                document.getElementById('opcao1').title = "Task";
-                                document.getElementById('opcao1').style.height = 44;
-                                document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Magia";
-                                document.getElementById('opcao2').title = "Magia";
-                                document.getElementById('opcao2').style.height = 44;
-                                document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Agora não";
-                                document.getElementById('opcao3').title = "Nao";
-                                document.getElementById('opcao3').style.height = 44;
-                                document.getElementById('opcao3').style.visibility = 'visible';
-                            } else if((exura && exuraGran && exori && exoriGran) && (quest1 || quest2 || quest3 || quest4)){
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal? Não temos nenhuma magia para ensinar.";
-
-                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').style.color = 'white';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task' ou resetar a quest principal? Não temos nenhuma magia para ensinar.";
-
-                                document.getElementById('opcao1').innerHTML = "Task";
-                                document.getElementById('opcao1').title = "Task";
-                                document.getElementById('opcao1').style.height = 44;
-                                document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Reset Quest";
-                                document.getElementById('opcao2').title = "Reset Quest";
-                                document.getElementById('opcao2').style.height = 44;
-                                document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Agora não";
-                                document.getElementById('opcao3').title = "Nao";
-                                document.getElementById('opcao3').style.height = 44;
-                                document.getElementById('opcao3').style.visibility = 'visible';
-                            } else {
-                                mensagensDoChatNpc += "\n\nNpc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
-
-                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').style.color = 'white';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Oi aventureiro, você quer receber/finalizar uma 'task'? Não temos nenhuma magia para ensinar.";
-
-                                document.getElementById('opcao1').innerHTML = "Task";
-                                document.getElementById('opcao1').title = "Task";
-                                document.getElementById('opcao1').style.height = 44;
-                                document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Agora não";
-                                document.getElementById('opcao2').title = "Nao";
-                                document.getElementById('opcao2').style.height = 44;
-                                document.getElementById('opcao2').style.visibility = 'visible';
+                            auxText += "Npc: Oi aventureiro, você quer receber/finalizar uma 'task'";
+                            preencherOpcoes("Task","Task");
+                            if(!exura || !exuraGran || !exori || !exoriGran){
+                                auxText += ", aprender uma 'magia'";
+                                preencherOpcoes("Magia","Magia");
                             }
-                            //document.getElementById('conversa').style.visibility = 'visible';
+                            if(quest1 || quest2 || quest3 || quest4){
+                                auxText += ", resetar a quest principal";
+                                preencherOpcoes("Reset Quest","Reset Quest");
+                            }
+                            auxText += " ou agora não?";
+                            preencherOpcoes("Agora não","Nao");
+                            if(exura && exuraGran && exori && exoriGran){
+                                auxText += " Não temos nenhuma magia para ensinar.";
+                            }
+                            
+                            mensagensDoChatNpc += "\n\n" + auxText;
+
+                            document.getElementById('mensagemDiv1').style.color = 'white';
+                            document.getElementById('mensagemDiv1').innerHTML = auxText;
+                            
                             break;
                         case 2:
                             if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'task' ||
-                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'tarefa' ||
-                                document.getElementById('opcao1').title == "Snake Task" ||
-                                document.getElementById('opcao1').title == "Spider Task"){
+                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'tarefa'){
 
                                 let taskopcao1 = ""; 
 
@@ -4032,58 +3927,21 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     taskopcao1 = "Spider Task";
                                 }
 
-                                mensagensDoChatNpc += "\n\nNpc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
+                                auxText += "Npc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
+
+                                mensagensDoChatNpc += "\n\n" + auxText;
 
                                 //document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                 document.getElementById('mensagemDiv1').style.color = 'white';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos as seguintes tasks: " + taskopcao1 + ", 'Dragon Task' e 'Mammoth Task'. Digite o nome da task a receber/finalizar ou 'Reset Task' caso queira desistir da task atual...";
+                                document.getElementById('mensagemDiv1').innerHTML = auxText;
 
-                                document.getElementById('opcao1').innerHTML = taskopcao1;
-                                document.getElementById('opcao1').title = taskopcao1;
-                                document.getElementById('opcao1').style.height = 44;
-                                document.getElementById('opcao1').style.visibility = 'visible';
-                                document.getElementById('opcao2').innerHTML = "Dragon Task";
-                                document.getElementById('opcao2').title = "Dragon Task";
-                                document.getElementById('opcao2').style.height = 44;
-                                document.getElementById('opcao2').style.visibility = 'visible';
-                                document.getElementById('opcao3').innerHTML = "Mammoth Task";
-                                document.getElementById('opcao3').title = "Mammoth Task";
-                                document.getElementById('opcao3').style.height = 44;
-                                document.getElementById('opcao3').style.visibility = 'visible';
-                                document.getElementById('opcao4').innerHTML = "Reset Task";
-                                document.getElementById('opcao4').title = "Reset Task";
-                                document.getElementById('opcao4').style.height = 44;
-                                document.getElementById('opcao4').style.visibility = 'visible';
-                                document.getElementById('opcao5').innerHTML = "Agora não";
-                                document.getElementById('opcao5').title = "Nao";
-                                document.getElementById('opcao5').style.height = 44;
-                                document.getElementById('opcao5').style.visibility = 'visible';
+                                preencherOpcoes(taskopcao1,taskopcao1);
+                                preencherOpcoes("Dragon Task","Dragon Task");
+                                preencherOpcoes("Mammoth Task","Mammoth Task");
+                                preencherOpcoes("Reset Task","Reset Task");
+                                preencherOpcoes("Agora não","Nao");
                             }else if( document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magic' ||
-                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia' ||
-                                document.getElementById('opcao1').title == "Exura" ||
-                                document.getElementById('opcao1').title == "Exura gran" ||
-                                document.getElementById('opcao1').title == "Exori" ||
-                                document.getElementById('opcao1').title == "Exori gran"){
-                                mensagensDoChatNpc += "\n\nNpc: Temos a(s) seguinte(s) magia(s):";
-                                let magias = "";
-                                if(!exura){
-                                    magias += " 'exura'";
-                                }
-                                if(!exuraGran){
-                                    magias += " 'exura gran'";
-                                }
-                                if(!exori){
-                                    magias += " 'exori'";
-                                }
-                                if(!exoriGran){
-                                    magias += " 'exori gran'";
-                                }
-
-                                mensagensDoChatNpc += magias + ". Digite o nome da magia para aprender...";
-
-                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                document.getElementById('mensagemDiv1').style.color = 'white';
-                                document.getElementById('mensagemDiv1').innerHTML = "Npc: Temos a(s) seguinte(s) magia(s):" + magias + ". Digite o nome da magia para aprender...";
+                                document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'magia'){
 
                                 document.getElementById('opcao1').style.visibility = 'hidden';
                                 document.getElementById('opcao2').style.visibility = 'hidden';
@@ -4106,111 +3964,33 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 document.getElementById('opcao4').style.height = 0;
                                 document.getElementById('opcao5').style.height = 0;
 
+                                auxText += "Npc: Temos a(s) seguinte(s) magia(s):";
+                                let magias = "";
                                 if(!exura){
-                                    document.getElementById('opcao1').innerHTML = "Exura";
-                                    document.getElementById('opcao1').title = "Exura";
-                                    document.getElementById('opcao1').style.height = 44;
-                                    document.getElementById('opcao1').style.visibility = 'visible';
+                                    magias += " 'exura'";
+                                    preencherOpcoes("Exura","Exura");
                                 }
-                                if(!exura && !exuraGran){
-                                    document.getElementById('opcao2').innerHTML = "Exura gran";
-                                    document.getElementById('opcao2').title = "Exura gran";
-                                    document.getElementById('opcao2').style.height = 44;
-                                    document.getElementById('opcao2').style.visibility = 'visible';
-                                }else if(exura && !exuraGran){
-                                    document.getElementById('opcao1').innerHTML = "Exura gran";
-                                    document.getElementById('opcao1').title = "Exura gran";
-                                    document.getElementById('opcao1').style.height = 44;
-                                    document.getElementById('opcao1').style.visibility = 'visible';
+                                if(!exuraGran){
+                                    magias += " 'exura gran'";
+                                    preencherOpcoes("Exura gran","Exura gran");
                                 }
-                                if(!exura && !exuraGran && !exori){
-                                    document.getElementById('opcao3').innerHTML = "Exori";
-                                    document.getElementById('opcao3').title = "Exori";
-                                    document.getElementById('opcao3').style.height = 44;
-                                    document.getElementById('opcao3').style.visibility = 'visible';
-                                }else if(
-                                    (exura && !exuraGran && !exori) ||
-                                    (!exura && exuraGran && !exori)
-                                    ){
-                                    document.getElementById('opcao2').innerHTML = "Exori";
-                                    document.getElementById('opcao2').title = "Exori";
-                                    document.getElementById('opcao2').style.height = 44;
-                                    document.getElementById('opcao2').style.visibility = 'visible';
-                                }else if(exura && exuraGran && !exori){
-                                    document.getElementById('opcao1').innerHTML = "Exori";
-                                    document.getElementById('opcao1').title = "Exori";
-                                    document.getElementById('opcao1').style.height = 44;
-                                    document.getElementById('opcao1').style.visibility = 'visible';
+                                if(!exori){
+                                    magias += " 'exori'";
+                                    preencherOpcoes("Exori","Exori");
                                 }
-                                if(!exura && !exuraGran && !exori && !exoriGran){
-                                    document.getElementById('opcao4').innerHTML = "Exori gran";
-                                    document.getElementById('opcao4').title = "Exori gran";
-                                    document.getElementById('opcao4').style.height = 44;
-                                    document.getElementById('opcao4').style.visibility = 'visible';
-                                    document.getElementById('opcao5').innerHTML = "Agora não";
-                                    document.getElementById('opcao5').title = "Nao";
-                                    document.getElementById('opcao5').style.height = 44;
-                                    document.getElementById('opcao5').style.visibility = 'visible';
-                                }else if(
-                                    (exura && !exuraGran && !exori && !exoriGran) ||
-                                    (!exura && exuraGran && !exori && !exoriGran) ||
-                                    (!exura && !exuraGran && exori && !exoriGran)
-                                    ){
-                                    document.getElementById('opcao3').innerHTML = "Exori gran";
-                                    document.getElementById('opcao3').title = "Exori gran";
-                                    document.getElementById('opcao3').style.height = 44;
-                                    document.getElementById('opcao3').style.visibility = 'visible';
-                                    document.getElementById('opcao4').innerHTML = "Agora não";
-                                    document.getElementById('opcao4').title = "Nao";
-                                    document.getElementById('opcao4').style.height = 44;
-                                    document.getElementById('opcao4').style.visibility = 'visible';
-                                }else if(
-                                    (!exura && exuraGran && exori && !exoriGran) ||
-                                    (exura && !exuraGran && exori && !exoriGran) ||
-                                    (exura && exuraGran && !exori && !exoriGran)
-                                    ){
-                                    document.getElementById('opcao2').innerHTML = "Exori gran";
-                                    document.getElementById('opcao2').title = "Exori gran";
-                                    document.getElementById('opcao2').style.height = 44;
-                                    document.getElementById('opcao2').style.visibility = 'visible';
-                                    document.getElementById('opcao3').innerHTML = "Agora não";
-                                    document.getElementById('opcao3').title = "Nao";
-                                    document.getElementById('opcao3').style.height = 44;
-                                    document.getElementById('opcao3').style.visibility = 'visible';
-                                }else if(exura && exuraGran && exori && !exoriGran){
-                                    document.getElementById('opcao1').innerHTML = "Exori gran";
-                                    document.getElementById('opcao1').title = "Exori gran";
-                                    document.getElementById('opcao1').style.height = 44;
-                                    document.getElementById('opcao1').style.visibility = 'visible';
-                                    document.getElementById('opcao2').innerHTML = "Agora não";
-                                    document.getElementById('opcao2').title = "Nao";
-                                    document.getElementById('opcao2').style.height = 44;
-                                    document.getElementById('opcao2').style.visibility = 'visible';
+                                if(!exoriGran){
+                                    magias += " 'exori gran'";
+                                    preencherOpcoes("Exori gran","Exori gran");
                                 }
-                                if(!exura && !exuraGran && !exori && exoriGran){
-                                    document.getElementById('opcao4').innerHTML = "Agora não";
-                                    document.getElementById('opcao4').title = "Nao";
-                                    document.getElementById('opcao4').style.height = 44;
-                                    document.getElementById('opcao4').style.visibility = 'visible';
-                                }else if(
-                                    (!exura && !exuraGran && exori && exoriGran) ||
-                                    (!exura && exuraGran && !exori && exoriGran) ||
-                                    (exura && !exuraGran && !exori && exoriGran)
-                                    ){
-                                    document.getElementById('opcao3').innerHTML = "Agora não";
-                                    document.getElementById('opcao3').title = "Nao";
-                                    document.getElementById('opcao3').style.height = 44;
-                                    document.getElementById('opcao3').style.visibility = 'visible';
-                                }else if(
-                                    (!exura && exuraGran && exori && exoriGran) ||
-                                    (exura && !exuraGran && exori && exoriGran) ||
-                                    (exura && exuraGran && !exori && exoriGran)
-                                ){
-                                    document.getElementById('opcao2').innerHTML = "Agora não";
-                                    document.getElementById('opcao2').title = "Nao";
-                                    document.getElementById('opcao2').style.height = 44;
-                                    document.getElementById('opcao2').style.visibility = 'visible';
-                                }
+                                preencherOpcoes("Agora não","Nao");
+
+                                auxText += magias + ". Digite o nome da magia para aprender...";
+
+                                mensagensDoChatNpc += "\n\n" + auxText;
+
+                                //document.getElementById('mensagemDiv1').style.color = '#00ccff';
+                                document.getElementById('mensagemDiv1').style.color = 'white';
+                                document.getElementById('mensagemDiv1').innerHTML = auxText;
                             }
                             //document.getElementById('conversa').style.visibility = 'visible';
                             break;
@@ -4304,30 +4084,22 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     case 1: //Snake
                                         nivel += 100;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVocê ganhou 100 pontos de experiencia.";
-                                        document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 100 + "Xp";
-                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
+                                        mensagemGanhouExperiencia(100);
                                         break;
                                     case 2: //Dragon
                                         nivel += 200;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVocê ganhou 200 pontos de experiencia.";
-                                        document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 200 + "Xp";
-                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
+                                        mensagemGanhouExperiencia(200);
                                         break;
                                     case 3: //Mammoth
                                         nivel += 300;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVocê ganhou 300 pontos de experiencia.";
-                                        document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 300 + "Xp";
-                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
+                                        mensagemGanhouExperiencia(300);
                                         break;
                                     case 4: //Spider
                                         nivel += 400;
                                         calculaLevel();
-                                        mensagensDoChatServerLog += "\n\nVocê ganhou 400 pontos de experiencia.";
-                                        document.getElementById('mensagemDiv3').style.color = 'white'; document.getElementById('mensagemDiv3').style.textAlign = 'center'; document.getElementById('mensagemDiv3').style.width = 50; document.getElementById('mensagemDiv3').innerHTML = 400 + "Xp";
-                setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.color = 'yellow'; document.getElementById('mensagemDiv3').style.width = 250;}, 500);
+                                        mensagemGanhouExperiencia(400);
                                         break;
                                 }
                                 document.getElementById('task').style.visibility = 'hidden';
@@ -4393,11 +4165,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             document.getElementById('opcao4').style.height = 0;
                             document.getElementById('opcao5').style.height = 0;
 
-                            mensagensDoChatNpc += "\n\nNpc: Até mais!";
+                            auxText += "Npc: Até mais!";
+
+                            mensagensDoChatNpc += "\n\n" + auxText;
 
                             //document.getElementById('mensagemDiv1').style.color = '#00ccff';
                             document.getElementById('mensagemDiv1').style.color = 'white';
-                            document.getElementById('mensagemDiv1').innerHTML = "Npc: Até mais!";
+                            document.getElementById('mensagemDiv1').innerHTML = auxText;
 
                             nivelDeConversaNpc = 0;
                             break;
@@ -4426,67 +4200,34 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                             switch(document.getElementById('campoDeEscritaInput').value.toLowerCase()){
                                 case 'exura gran':
-                                    mensagensDoChatNpc += "\n\nNpc: Você precisa de level 50+ para aprender esta magia!";
-
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 50+ para aprender esta magia!";
-
+                                    mensagemNivelNecessario("50+");
                                     break;
                                 case 'exori':
-                                    mensagensDoChatNpc += "\n\nNpc: Você precisa de level 100+ para aprender esta magia!";
-
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 100+ para aprender esta magia!";
-
+                                    mensagemNivelNecessario("100+");
                                     break;
                                 case 'exori gran':
-                                    mensagensDoChatNpc += "\n\nNpc: Você precisa de level 200+ para aprender esta magia!";
-
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você precisa de level 200+ para aprender esta magia!";
-
+                                    mensagemNivelNecessario("200+");
                                     break;
                                 case 'snake task':
-                                    mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
-                                    
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
-
+                                    mensagemTaskNaoTerminada();
                                     break;
                                 case 'dragon task':
-                                    mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
-                                    
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
-
+                                    mensagemTaskNaoTerminada();
                                     break;
                                 case 'mammoth task':
-                                    mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
-                                    
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
-
+                                    mensagemTaskNaoTerminada();
                                     break;
                                 case 'spider task':
-                                    mensagensDoChatNpc += "\n\nNpc: Você ainda não terminou a task obtida!";
-                                    
-                                    //document.getElementById('mensagemDiv1').style.color = '#00ccff';
-                                    document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não terminou a task obtida!";
-
+                                    mensagemTaskNaoTerminada();
                                     break;
                                 case 'reset task':
-                                    mensagensDoChatNpc += "\n\nNpc: Você ainda não recebeu uma task!";
+                                    auxText += "Npc: Você ainda não recebeu uma task!";
+
+                                    mensagensDoChatNpc += "\n\n" + auxText;
                                     
                                     //document.getElementById('mensagemDiv1').style.color = '#00ccff';
                                     document.getElementById('mensagemDiv1').style.color = 'white';
-                                    document.getElementById('mensagemDiv1').innerHTML = "Npc: Você ainda não recebeu uma task!";
+                                    document.getElementById('mensagemDiv1').innerHTML = auxText;
 
                                     break;
                             }
@@ -4595,23 +4336,23 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 datainicioinatividade = new Date();
 
                 if(tecla != 13){
-                    tecla = String.fromCharCode(tecla);
-                    if(tecla == "1" && exura && document.getElementById('campoDeEscritaInput').value == ''){
+                    //tecla = String.fromCharCode(tecla);
+                    if(tecla == 49 && exura && document.getElementById('campoDeEscritaInput').value == ''){
                         document.getElementById('campoDeEscritaInput').value = 'exura';
                         dialogo();
                         document.getElementById('campoDeEscritaInput').value = '';
                     }
-                    if(tecla == "2" && exuraGran && document.getElementById('campoDeEscritaInput').value == ''){
+                    if(tecla == 50 && exuraGran && document.getElementById('campoDeEscritaInput').value == ''){
                         document.getElementById('campoDeEscritaInput').value = 'exura gran';
                         dialogo();
                         document.getElementById('campoDeEscritaInput').value = '';
                     }
-                    if(tecla == "3" && exori && document.getElementById('campoDeEscritaInput').value == ''){
+                    if(tecla == 51 && exori && document.getElementById('campoDeEscritaInput').value == ''){
                         document.getElementById('campoDeEscritaInput').value = 'exori';
                         dialogo();
                         document.getElementById('campoDeEscritaInput').value = '';
                     }
-                    if(tecla == "4" && exoriGran && document.getElementById('campoDeEscritaInput').value == ''){
+                    if(tecla == 52 && exoriGran && document.getElementById('campoDeEscritaInput').value == ''){
                         document.getElementById('campoDeEscritaInput').value = 'exori gran';
                         dialogo();
                         document.getElementById('campoDeEscritaInput').value = '';
@@ -4621,8 +4362,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         dialogo();
                     }
                 }
-
-                datainicioinatividade = new Date();
 
             }
 
