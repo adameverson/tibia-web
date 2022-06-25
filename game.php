@@ -286,13 +286,13 @@
                     <textarea id="textareaChat" name="textareaChat" title='default' rows="12" cols="21" style="resize: none;" disabled></textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 176; height: 22; background-color: #ccffff;'>
-                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0;"></input>
+                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0.6;"></input>
                 </div>
             </div>
         </div>
 
-        <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: black; border-style: solid; border-color: gray; visibility: hidden;'>
-            <textarea id="cmd" name="tablete" title='default' rows="16" cols="21" style="resize: none;" disabled>C:\Acesso negado!</textarea>
+        <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: blue; border-style: solid; border-color: gray; visibility: hidden;'>
+            <textarea id="cmd" name="tablete" title='default' rows="16" cols="21" style="resize: none; opacity: 0.6;" disabled>C:\Acesso negado!</textarea>
         </div>
 
         <audio id="myAudio" src="" type="audio/mpeg" preload autoplay loop>
