@@ -290,7 +290,7 @@
 
         <audio id="myAudio" src="" type="audio/mpeg" preload autoplay loop>
             <!--<source id="myAudioSrc" src="musicas/ToPTrack02.mp3" type="audio/mpeg">-->
-            Your browser does not support the audio tag.
+            <!--Your browser does not support the audio tag.-->
         </audio>
 
         <!--

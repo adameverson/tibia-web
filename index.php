@@ -385,7 +385,7 @@
 
 <audio id="myAudio" preload autoplay loop>
   <source src="musicas/ToPTrack01.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
+  <!--Your browser does not support the audio tag.-->
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
