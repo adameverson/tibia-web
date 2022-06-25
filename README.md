@@ -10,7 +10,7 @@
 
 # DEPLOY
 
-http://magiclevel.ml
+https://magiclevel.ml
 
 # FEATURES
 
