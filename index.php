@@ -4,6 +4,8 @@
         <title>Magic Level</title>
         <meta charset="UTF-8">
         <script data-ad-client="ca-pub-2702297921966374" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
+     crossorigin="anonymous"></script>
         <style>
             ul {
                 list-style-type: none;
@@ -210,7 +212,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
             function code(){
-                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.24.111</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.25.111</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
         </script>
     </head>
@@ -389,5 +391,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021-2022 magiclevel.ml. All rights reserved. v1.24.111
+    ©2021-2022 magiclevel.ml. All rights reserved. v1.25.111
 </div>

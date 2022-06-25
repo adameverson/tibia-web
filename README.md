@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/daviduser/GraphQL-Cpp.svg)](https://github.com/adameverson/tibia-web)
 
-* Game Web semelhante ao Tibia (Magic Level v1.24.111)
+* Game Web semelhante ao Tibia (Magic Level v1.25.111)
 
 * Motivação: realizar um Tibia Web
 

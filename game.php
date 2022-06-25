@@ -3,6 +3,9 @@
         <link rel="shortcut icon" href="imagens/magic.ico" type="image/x-icon">
         <title>Magic Level</title>
         <meta charset="UTF-8">
+        <script data-ad-client="ca-pub-2702297921966374" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
+     crossorigin="anonymous"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <script>
 
@@ -283,9 +286,13 @@
                     <textarea id="textareaChat" name="textareaChat" title='default' rows="12" cols="21" style="resize: none;" disabled></textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 176; height: 22; background-color: #ccffff;'>
-                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0.6;"></input>
+                    <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100" style="opacity: 0;"></input>
                 </div>
             </div>
+        </div>
+
+        <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: black; border-style: solid; border-color: gray; visibility: hidden;'>
+            <textarea id="cmd" name="tablete" title='default' rows="16" cols="21" style="resize: none;" disabled>C:\Acesso negado!</textarea>
         </div>
 
         <audio id="myAudio" src="" type="audio/mpeg" preload autoplay loop>
@@ -507,11 +514,11 @@ var matrizDoMapa =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,33,35,26,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,26,26,26,26,26,26],
-[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
-[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
-[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
-[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
-[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,58,59,59,60,66, 0, 0, 0, 0, 0, 0,58,59,60,66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,57,61,67, 0, 0, 0, 0, 0, 0,65,57,61,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,65,57,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,64,63,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
+[26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
 [26,26,26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -526,6 +533,8 @@ var matrizDoMapaOriginal = [];
 for(let i = 0; i < matrizDoMapa.length; i++){
     matrizDoMapaOriginal.push(matrizDoMapa[i].slice());
 }
+
+matrizDoMapaOriginal[92][25] = 92;
 
 var matrizCriaturasVida = [];
 
@@ -1108,20 +1117,32 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 77;
                                 linha++;
                                 while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 62){
-                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    else
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                     linha++;
                                 }
-                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                else
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                 coluna--;
                                 continue;
                             }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 59){
                                 matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 76;
                                 linha++;
                                 while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 63){
-                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    else
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                     linha++;
                                 }
-                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                else
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                 coluna--;
                                 continue;
                             }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 64){
@@ -1159,20 +1180,32 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 77;
                                 linha++;
                                 while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 62){
-                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    else
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                     linha++;
                                 }
-                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                else
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                 coluna--;
                                 continue;
                             }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 59){
                                 matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 76;
                                 linha++;
                                 while(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] != 63){
-                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                    else
+                                        matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                     linha++;
                                 }
-                                matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                if(matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna] != 92)
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 0;
+                                else
+                                    matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = matrizDoMapaOriginal[linhaInicial+linha][colunaInicial+coluna];
                                 coluna--;
                                 continue;
                             }else if(matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] == 64){
@@ -1305,6 +1338,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
                     document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
                     visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == 92){
+                    if(document.getElementById("tablet").style.visibility == "hidden")
+                        document.getElementById("tablet").style.visibility = "visible";
+                    else if(document.getElementById("tablet").style.visibility == "visible")
+                        document.getElementById("tablet").style.visibility = "hidden";
                 }
             }
 
@@ -2371,6 +2409,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 ){
                     document.getElementById(baseCampo).alt = "Crown Shield (Def: 1)";
                     document.getElementById(baseCampo).title = "Crown Shield (Def: 1)";
+                }else if(
+                    matrizDoMapa[i][j] == 92 
+                ){
+                    document.getElementById(baseCampo).alt = "tablete";
+                    document.getElementById(baseCampo).title = "tablete";
                 }else{
                     document.getElementById(barraHpCampo).style.width = 50;
                     if(document.getElementById("mensagemDivCampo" + campo).innerHTML != ""){
@@ -2571,8 +2614,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             caminhoImagem = "imagens/personF1piso.png";
                         }else if(matrizDoMapa[i][j] == 91){
                             caminhoImagem = "imagens/personF3piso.png";
+                        }else if(matrizDoMapa[i][j] == 92){
+                            caminhoImagem = "imagens/tablet.png";
                         }
-
                         auxPreencherImagens(i, j, caminhoImagem, "-" + k + "-" + l);
 
                     }
