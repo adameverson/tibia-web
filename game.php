@@ -131,7 +131,7 @@
             <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                 Você tem certeza que deseja sair?
             </div>
-            <form action="http://magiclevel.ml">
+            <form action="https://magiclevel.ml">
                 <button type="submit" id='logoutOpcao1' title='Sim' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                     Sim
                 </button>
@@ -4449,7 +4449,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 if(!$logado){
                     echo "alert('Conta inexistente. Acesse magiclevel.ml para se registrar.');";
-                    echo "window.location.replace('http://magiclevel.ml');";
+                    echo "window.location.replace('https://magiclevel.ml');";
                 }
 
                 $result->close();

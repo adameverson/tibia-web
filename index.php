@@ -233,7 +233,7 @@
             <li><a id="op14" href="#code" onclick="menuCheck('op14'); code();">Code</a></li>
         </ul>
 
-        <form action="http://magiclevel.ml" method="post">
+        <form action="https://magiclevel.ml" method="post">
             Apelido: <input name="usernameRegister" type='text' maxlength="20"></input>
             Senha: <input type="password" name="passwordRegister" type='text' maxlength="20"></input>
             <input type="radio" id="male" name="gender" value="P" checked>
