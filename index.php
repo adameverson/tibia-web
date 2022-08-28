@@ -3,7 +3,6 @@
         <link rel="shortcut icon" href="imagens/magic.ico" type="image/x-icon">
         <title>Magic Level</title>
         <meta charset="UTF-8">
-        <script data-ad-client="ca-pub-2702297921966374" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
      crossorigin="anonymous"></script>
         <style>
@@ -173,16 +172,16 @@
                 document.getElementById(id).classList.add('active');
             }
             function home(){
-                document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br>- Ei alguém criou um teleporte para pular esta fase!<br>- «silêncio!»<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita11.png" title="game" alt="game" class="center">Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br>- A magia exura gran é para os mais experientes;<br>- A magia exori é a nova sensação;<br>- O historiador está em busca de novos dados...<br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br>- A magia exori gran chegou para ajudar nas suas tasks;<br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;<br>- Hotkeys números de 1-4, sem estar escrevendo algo;<br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!<br>- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.';
+                document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br>- Ei alguém criou um teleporte para pular esta fase!<br>- «silêncio!»<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita11.png" title="game" alt="game" class="center">Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br>- A magia exura gran é para os mais experientes;<br>- A magia exori é a nova sensação;<br>- O historiador está em busca de novos dados...<br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br>- A magia exori gran chegou para ajudar nas suas tasks;<br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;<br>- Hotkeys números de 1-4, sem estar escrevendo algo;<br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!<br>- Sistema de jogador versus jogador adicionado!<br>- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.';
             }
             function news(){
-                document.getElementById("cartaoId").innerHTML = 'Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br><br>- A magia exura gran é para os mais experientes;<br><br>- A magia exori é a nova sensação;<br><br>- O historiador está em busca de novos dados...<br><br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br><br>- A magia exori gran chegou para ajudar nas suas tasks;<br><br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;<br><br>- Hotkeys números de 1-4, sem estar escrevendo algo;<br><br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!<br><br>- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.';
+                document.getElementById("cartaoId").innerHTML = 'Novidades:<br><br>- A magia exura é a base de uma longa jornada;<br><br>- A magia exura gran é para os mais experientes;<br><br>- A magia exori é a nova sensação;<br><br>- O historiador está em busca de novos dados...<br><br>- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!<br><br>- A magia exori gran chegou para ajudar nas suas tasks;<br><br>- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;<br><br>- Hotkeys números de 1-4, sem estar escrevendo algo;<br><br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!<br><br>- Sistema de jogador versus jogador adicionado!<br><br>- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.';
             }
             function story(){
                 document.getElementById("cartaoId").innerHTML = 'História:<br><br>Este mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)<br><br>- Ei alguém criou um teleporte para pular esta fase!<br><br>- «silêncio!»';
             }
             function photos(){
-                document.getElementById("cartaoId").innerHTML = '<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita9.png" title="game" alt="game" class="center"><img id="cartaoDeVisita3" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita2" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center"><img id="cartaoDeVisita4" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center"><img id="cartaoDeVisita5" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center"><img id="cartaoDeVisita6" src="imagens/imagemCartaoDeVisita6.png" title="game" alt="game" class="center"><img id="cartaoDeVisita7" src="imagens/imagemCartaoDeVisita7.png" title="game" alt="game" class="center"><img id="cartaoDeVisita8" src="imagens/imagemCartaoDeVisita8.png" title="game" alt="game" class="center"><img id="cartaoDeVisita8" src="imagens/imagemCartaoDeVisita10.png" title="game" alt="game" class="center">';
+                document.getElementById("cartaoId").innerHTML = '<img id="cartaoDeVisita" src="imagens/imagemCartaoDeVisita9.png" title="game" alt="game" class="center"><img id="cartaoDeVisita3" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita2" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center"><img id="cartaoDeVisita4" src="imagens/imagemCartaoDeVisita4.png" title="game" alt="game" class="center"><img id="cartaoDeVisita5" src="imagens/imagemCartaoDeVisita5.png" title="game" alt="game" class="center"><img id="cartaoDeVisita6" src="imagens/imagemCartaoDeVisita6.png" title="game" alt="game" class="center"><img id="cartaoDeVisita7" src="imagens/imagemCartaoDeVisita7.png" title="game" alt="game" class="center"><img id="cartaoDeVisita8" src="imagens/imagemCartaoDeVisita8.png" title="game" alt="game" class="center"><img id="cartaoDeVisita8" src="imagens/imagemCartaoDeVisita10.png" title="game" alt="game" class="center"><img id="cartaoDeVisita8" src="imagens/imagemCartaoDeVisita12.png" title="game" alt="game" class="center">';
             }
             function quests(){
                 document.getElementById("cartaoId").innerHTML = 'Quests:<br><br>- Quest 1: Equipamentos Iniciais (Poção HP, Corda e Pá);<br><br>- Quest 2: Snake man (30xp, 70xp, 10xp);<br><br>- Quest 3: Dragon man (70xp, 130xp, 20xp);<br><br>- Quest 4: Mammoth man (100xp, 200xp, 30xp);<br><br>- Quest 5: Spider man (90xp, 130xp, 180xp).<img id="cartaoDeVisita3" src="imagens/imagemCartaoDeVisita3.png" title="game" alt="game" class="center"><img id="cartaoDeVisita2" src="imagens/imagemCartaoDeVisita2.png" title="game" alt="game" class="center"><img id="cartaoDeVisita6" src="imagens/imagemCartaoDeVisita6.png" title="game" alt="game" class="center">';
@@ -212,7 +211,7 @@
                 document.getElementById("cartaoId").innerHTML = 'Download Android:<br><br><a href="https://drive.google.com/file/d/1dijuEBdXMptRIwxZ2yalLrpwjv2PXa6b/view?usp=sharing">Magic Level v0.2.8</a><br><br><a href="https://drive.google.com/file/d/1AJLxTFEEDtUb0dgdJawerWbmcNdVvJBs/view?usp=sharing">Magic Level v0.1.8</a>';
             }
             function code(){
-                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.25.111</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
+                document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.26.111</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
         </script>
     </head>
@@ -382,6 +381,8 @@
 
     <br>- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!
 
+    <br>- Sistema de jogador versus jogador adicionado!
+
     <br>- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.
 </div>
 
@@ -391,5 +392,5 @@
 </audio>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
-    ©2021-2022 magiclevel.ml. All rights reserved. v1.25.111
+    ©2021-2022 magiclevel.ml. All rights reserved. v1.26.111
 </div>
