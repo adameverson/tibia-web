@@ -6,6 +6,20 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
      crossorigin="anonymous"></script>
         <style>
+            body::-webkit-scrollbar {
+                width: 12px;               /* width of the entire scrollbar */
+            }
+
+            body::-webkit-scrollbar-track {
+                background: #ccffff;        /* color of the tracking area */
+            }
+
+            body::-webkit-scrollbar-thumb {
+                background-color: #4CAF50;    /* color of the scroll thumb */
+                border-radius: 20px;       /* roundness of the scroll thumb */
+                border: 3px solid #ccffff;  /* creates padding around scroll thumb */
+            }
+            
             ul {
                 list-style-type: none;
                 margin: 0;
