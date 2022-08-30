@@ -18,7 +18,7 @@
 
             var moverPersonagem = [0,0];
             var nivelDeSolo = 1;
-            var outfit = "M";
+            var outfit = "P";
 
             var inativo = false;
             var datainicioinatividade = new Date();
@@ -382,13 +382,6 @@
             var flagMove = [false,false,false,false];
             var numOpcao = 0;
 
-            var posicaoDoPersonagemNaMatriz = [7,8];
-            var direcaoDoPersonagem = 2;
-            var nivel = 0;
-            var personagemMorto = false;
-
-            var posicaoJangada = [82,28];
-
             var flagAjax = true;
             var dataAjax = new Date();
             var dataLoop = new Date();
@@ -424,7 +417,7 @@
             var username = "";
             var password = "";
 
-var matrizDoMapa = 
+var matrizDoMapaSubsolo = 
 [
 [27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
 [27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
@@ -481,7 +474,11 @@ var matrizDoMapa =
 [27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
 [27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
 [27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27]
+];
+
+var matrizDoMapaTerreo = 
+[
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -528,7 +525,11 @@ var matrizDoMapa =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
+];
+
+var matrizDoMapaPvp = 
+[
 [26,26,26,26,26,26,33,41,35,26,33,41,35,26,33,41,35,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,40, 0,36,26,40, 0,36,26,40, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,40, 0,36,26,40, 0,36,26,40, 0,36,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -540,13 +541,35 @@ var matrizDoMapa =
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
 ];
 
+//Indices Mapa 
+var linhaInicioSubsolo = (0 + 5); //Mapa subsolo
+var linhaInicioTerreo = (matrizDoMapaSubsolo.length + 5); //Mapa terreo
+var linhaInicioPvp = (matrizDoMapaSubsolo.length + matrizDoMapaTerreo.length); //Mapa pvp
+
+var matrizDoMapa = [];
+var matrizDoMapaLength = (
+    matrizDoMapaSubsolo.length + 
+    matrizDoMapaTerreo.length +
+    matrizDoMapaPvp.length
+    );
+
+for(let i = 0; i < matrizDoMapaSubsolo.length; i++){
+    matrizDoMapa.push(matrizDoMapaSubsolo[i].slice());
+}
+for(let i = 0; i < matrizDoMapaTerreo.length; i++){
+    matrizDoMapa.push(matrizDoMapaTerreo[i].slice());
+}
+for(let i = 0; i < matrizDoMapaPvp.length; i++){
+    matrizDoMapa.push(matrizDoMapaPvp[i].slice());
+}
+
 var matrizDoMapaOriginal = [];
 
 for(let i = 0; i < matrizDoMapa.length; i++){
     matrizDoMapaOriginal.push(matrizDoMapa[i].slice());
 }
 
-matrizDoMapaOriginal[92][25] = 92;
+matrizDoMapaOriginal[(linhaInicioTerreo+31)][25] = 92;
 
 var matrizCriaturasVida = [];
 
@@ -566,6 +589,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             matrizCriaturasVida[i][j] = 50;
     }
 }
+
+            var posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo+2),8];
+            var direcaoDoPersonagem = 2;
+            var nivel = 0;
+            var personagemMorto = false;
+
+            var posicaoJangada = [(linhaInicioTerreo+21),28];
 
             var lvlatual = 0;
             var lvlantigo = 0;
@@ -624,11 +654,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var flagBaixoEsquerda = false;
             var esperaGeral = 100;
 
-            //Map pvp
-            var linhaInicioPvp = 103;
-
             //Variaveis BOT
-            var posicaoBot = [66,12];
+            var posicaoBot = [(linhaInicioTerreo+5),12];
             var botFree = false;
 
             //Variaveis JSON
@@ -899,8 +926,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 strDados = dadosJson.json[3].quests.split(',');
                 if(strDados.length > 0 && parseInt(strDados[0])){
                     questFerramentas = true;
-                    matrizDoMapa[7][9] = 3;
-                    matrizDoMapa[62][12] = 3;
+                    matrizDoMapa[(linhaInicioSubsolo+2)][9] = 3;
+                    matrizDoMapa[(linhaInicioTerreo+1)][12] = 3;
                 }
                 if(strDados.length > 1){
                     quest1 = parseInt(strDados[1]);
@@ -1021,9 +1048,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             moverJangada = function(direcao){
                 switch(direcao){
                     case 0:
-                        if(posicaoJangada[0] == 82)
+                        if(posicaoJangada[0] == (linhaInicioTerreo+21))
                             break;
-                        if(posicaoJangada[0] == 89){
+                        if(posicaoJangada[0] == (linhaInicioTerreo+28)){
                             matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 26;
                             matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 33;
                             matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 35; 
@@ -1042,9 +1069,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         posicaoDoPersonagemNaMatriz[0]--;
                         break;
                     case 2:
-                        if(posicaoJangada[0] == 89)
+                        if(posicaoJangada[0] == (linhaInicioTerreo+28))
                             break;
-                        if(posicaoJangada[0] == 82){
+                        if(posicaoJangada[0] == (linhaInicioTerreo+21)){
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
@@ -1382,7 +1409,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             funcPersonagemMorto = function(){
                 hp = 0;
                 personagemMorto = true;
-                posicaoDoPersonagemNaMatriz = [7,8];
+                posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo+2),8];
                 visibilityEquipamentos(false);
                 document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
                 document.getElementById('mensagem1').alt = 'mensagem';
@@ -1578,14 +1605,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 if(
                     (
-                        ((posicaoDoPersonagemNaMatriz[0]+linha) == 7 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 9) ||
-                        ((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 12)
+                        ((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioSubsolo+2) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 9) ||
+                        ((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 12)
                     ) && !questFerramentas
                 ){
                     id = 0;
                     questFerramentas = true;
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 26
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 26
                 &&
                     (
                         quest1 == 0 ||
@@ -1595,11 +1622,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 1;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 26){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 26){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 29 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+11) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 29 
                 &&
                     (
                         quest2 == 0 ||
@@ -1609,11 +1636,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 2;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 29){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+11) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 29){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 33 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 33 
                 &&
                     (
                         quest3 == 0 ||
@@ -1623,11 +1650,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 3;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 33){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 33){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 37 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+11) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 37 
                 &&
                     (
                         quest1 == 0 ||
@@ -1637,11 +1664,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 4;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 37){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+11) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 37){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 40 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 40 
                 &&
                     ( 
                         quest2 == 0 ||
@@ -1651,11 +1678,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 5;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 62 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 40){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 40){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 43
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+11) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 43
                 &&
                     ( 
                         quest3 == 0 ||
@@ -1665,11 +1692,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 6;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 72 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 43){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+11) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 43){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 71 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+10) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 && 
                     (
                         quest1 == 0 ||
@@ -1679,11 +1706,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 7;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 71 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+10) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+6) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 &&
                     (
                         quest2 == 0 ||
@@ -1693,11 +1720,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 8;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 67 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+6) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 63 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+2) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 && 
                     (
                         quest3 == 0 ||
@@ -1707,11 +1734,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 9;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 63 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+2) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 84 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 32 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+23) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 32 
                 && 
                     (
                         quest4 == 0 ||
@@ -1721,11 +1748,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 10;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 84 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 32){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+23) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 32){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 76 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+15) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47 
                 && 
                     (
                         quest4 == 0 ||
@@ -1735,11 +1762,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 11;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 76 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+15) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 47){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == 85 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 46 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+24) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 46 
                 && 
                     (
                         quest4 == 0 ||
@@ -1749,7 +1776,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 12;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == 85 && (posicaoDoPersonagemNaMatriz[1]+coluna) == 46){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+24) && (posicaoDoPersonagemNaMatriz[1]+coluna) == 46){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
@@ -2797,7 +2824,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             entradaPvp = function (linha, coluna){
-                return (linha == 62 && coluna == 23) || (linha == 63 && coluna == 23);
+                return (linha == (linhaInicioTerreo+1) && coluna == 23) || (linha == (linhaInicioTerreo+2) && coluna == 23);
             }
 
             saidaPvp = function (linha, coluna){
@@ -2835,7 +2862,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 if(entradaPvp(linha, coluna)){
                     entrarNoPvp();
                 }else if(saidaPvp(linha, coluna)){
-                    posicaoDoPersonagemNaMatriz[0] = 63; 
+                    posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
                     posicaoDoPersonagemNaMatriz[1] = 22; 
                 }else {
                     switch(direcao){
@@ -3427,12 +3454,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         ultim_hp != hp ||
                         ultim_mensgem != mensagem ||
                         ultim_json != JSON.stringify(dadosJson) ||
-                        (online == 0 || wakeup)
+                        (!online || wakeup)
                     ){
                         dados.append('username', username);
                         dados.append('password', password);
 
-                        if(online == 0 || wakeup){
+                        if(!online || wakeup){
                             dados.append('online', online);
                             if(wakeup)
                                 wakeup = false;
@@ -3609,9 +3636,34 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     // [FIM] AJAX
 
                 }
+
+                window.onblur = function() { 
+                    online = 0;
+                    if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                        posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
+                        posicaoDoPersonagemNaMatriz[1] = 22; 
+                    }
+                    run_ajax();
+                    //console.log("desconectado!"); 
+                };
+
+                window.onfocus = function() { 
+                    online =
+                    wakeup = 1;
+                    if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                        posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
+                        posicaoDoPersonagemNaMatriz[1] = 22; 
+                    }
+                    run_ajax();
+                    //console.log("conectado!"); 
+                };
                 
                 window.onunload = window.onbeforeunload = function() {
                     online = 0;
+                    if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                        posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
+                        posicaoDoPersonagemNaMatriz[1] = 22; 
+                    }
                     run_ajax();
                 };
 
@@ -3631,7 +3683,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         let lvlAdversario = parseInt(document.getElementById("campo-7-7").title.split(' ')[2]);
                         let hitAdversario = getRandomIntInclusive(Math.ceil(lvlAdversario),Math.floor(lvlAdversario*2)); 
                         
-                        hitTotal += animacaoMonster(12,12,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //H (normal,atacando,morto,hitmin,hitmax)
+                        hitTotal += animacaoMonster(12,12,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //M (normal,atacando,morto,hitmin,hitmax)
                         hitTotal += animacaoMonster(22,22,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //F (normal,atacando,morto,hitmin,hitmax)
                         hitTotal += animacaoMonster(84,84,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //P (normal,atacando,morto,hitmin,hitmax)
                         hitTotal += animacaoMonster(88,88,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //W (normal,atacando,morto,hitmin,hitmax)
@@ -3639,7 +3691,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         let lvlAdversario = parseInt(document.getElementById("campo-5-7").title.split(' ')[2]);
                         let hitAdversario = getRandomIntInclusive(Math.ceil(lvlAdversario),Math.floor(lvlAdversario*2)); 
                         
-                        hitTotal += animacaoMonster(14,14,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //H (normal,atacando,morto,hitmin,hitmax)
+                        hitTotal += animacaoMonster(14,14,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //M (normal,atacando,morto,hitmin,hitmax)
                         hitTotal += animacaoMonster(24,24,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //F (normal,atacando,morto,hitmin,hitmax)
                         hitTotal += animacaoMonster(86,86,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //P (normal,atacando,morto,hitmin,hitmax)
                         hitTotal += animacaoMonster(90,90,18,Math.ceil(hitAdversario/(equipamentos[7]+1)),Math.floor(hitAdversario/(equipamentos[7]+1)),true); //W (normal,atacando,morto,hitmin,hitmax)
@@ -3657,20 +3709,20 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     mensagensDoChatServerLog += "\n\nVocê perdeu " + hitTotal + " pontos de vida.";
                 }
 
-                if(!inativo){
+                if(!inativo && online){
                     if(flagAjax){
                         run_ajax();
                         flagAjax = false;
                         regeneracao(1, "regenerou");
                     }else{
-                        console.log("Ajax desnecessário");
+                        //console.log("Ajax desnecessário");
                     }
-                    switch(matrizDoMapa[6][9]){
+                    switch(matrizDoMapa[(linhaInicioSubsolo+1)][9]){
                         case 41:
-                            matrizDoMapa[6][9] = 42;
-                            matrizDoMapa[6][14] = 42;
-                            matrizDoMapa[62][23] = 42;
-                            matrizDoMapa[63][23] = 42;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][9] = 42;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][14] = 42;
+                            matrizDoMapa[(linhaInicioTerreo+1)][23] = 42;
+                            matrizDoMapa[(linhaInicioTerreo+2)][23] = 42;
                             matrizDoMapa[linhaInicioPvp][7] = 42;
                             matrizDoMapa[linhaInicioPvp + 3][7] = 42;
                             matrizDoMapa[linhaInicioPvp][11] = 42;
@@ -3679,10 +3731,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             matrizDoMapa[linhaInicioPvp + 3][15] = 42;
                             break;
                         case 42:
-                            matrizDoMapa[6][9] = 43;
-                            matrizDoMapa[6][14] = 43;
-                            matrizDoMapa[62][23] = 43;
-                            matrizDoMapa[63][23] = 43;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][9] = 43;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][14] = 43;
+                            matrizDoMapa[(linhaInicioTerreo+1)][23] = 43;
+                            matrizDoMapa[(linhaInicioTerreo+2)][23] = 43;
                             matrizDoMapa[linhaInicioPvp][7] = 43;
                             matrizDoMapa[linhaInicioPvp + 3][7] = 43;
                             matrizDoMapa[linhaInicioPvp][11] = 43;
@@ -3691,10 +3743,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             matrizDoMapa[linhaInicioPvp + 3][15] = 43;
                             break;
                         case 43:
-                            matrizDoMapa[6][9] = 44;
-                            matrizDoMapa[6][14] = 44;
-                            matrizDoMapa[62][23] = 44;
-                            matrizDoMapa[63][23] = 44;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][9] = 44;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][14] = 44;
+                            matrizDoMapa[(linhaInicioTerreo+1)][23] = 44;
+                            matrizDoMapa[(linhaInicioTerreo+2)][23] = 44;
                             matrizDoMapa[linhaInicioPvp][7] = 44;
                             matrizDoMapa[linhaInicioPvp + 3][7] = 44;
                             matrizDoMapa[linhaInicioPvp][11] = 44;
@@ -3703,10 +3755,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             matrizDoMapa[linhaInicioPvp + 3][15] = 44;
                             break;
                         case 44:
-                            matrizDoMapa[6][9] = 41;
-                            matrizDoMapa[6][14] = 41;
-                            matrizDoMapa[62][23] = 41;
-                            matrizDoMapa[63][23] = 41;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][9] = 41;
+                            matrizDoMapa[(linhaInicioSubsolo+1)][14] = 41;
+                            matrizDoMapa[(linhaInicioTerreo+1)][23] = 41;
+                            matrizDoMapa[(linhaInicioTerreo+2)][23] = 41;
                             matrizDoMapa[linhaInicioPvp][7] = 41;
                             matrizDoMapa[linhaInicioPvp + 3][7] = 41;
                             matrizDoMapa[linhaInicioPvp][11] = 41;
@@ -3768,13 +3820,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 //codigo de alerta do boss
-                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > 76 && posicaoDoPersonagemNaMatriz[1] < 20 && posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp){
+                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+15) && posicaoDoPersonagemNaMatriz[1] < 20 && posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo+25)){
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
                     document.getElementById('mensagemDiv1').style.color = "white";
                     document.getElementById('mensagemDiv1').innerHTML = 'Um boss está nas redondezas!';
                     alertaBoss = true;
-                }else if(posicaoDoPersonagemNaMatriz[0] <= 76 || posicaoDoPersonagemNaMatriz[1] >= 20  || posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                }else if(posicaoDoPersonagemNaMatriz[0] <= (linhaInicioTerreo+15) || posicaoDoPersonagemNaMatriz[1] >= 20  || posicaoDoPersonagemNaMatriz[0] >= (linhaInicioTerreo+25)){
                     alertaBoss = false;
                     if(document.getElementById('mensagemDiv1').innerHTML == 'Um boss está nas redondezas!'){
                         document.getElementById('mensagemDiv1').innerHTML = '';
@@ -3796,17 +3848,17 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 //codigo troca de musica
-                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= 72 && posicaoDoPersonagemNaMatriz[0] > 56){
+                if(!audio1 && posicaoDoPersonagemNaMatriz[0] <= (linhaInicioTerreo+11) && posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo)){
                     document.getElementById("myAudio").src = "musicas/ToPTrack02.mp3";
                     audio1 = true;
                     audio2 = false;
                     audio3 = false;
-                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > 72){
+                }else if(!audio2 && posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+11)){
                     document.getElementById("myAudio").src = "musicas/ToPTrack11.mp3";
                     audio1 = false;
                     audio2 = true;
                     audio3 = false;
-                }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < 57){
+                }else if(!audio3 && posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo)){
                     document.getElementById("myAudio").src = "musicas/ToPTrack05.mp3";
                     audio1 = false;
                     audio2 = false;
@@ -4705,7 +4757,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
 
-            if(posicaoDoPersonagemNaMatriz[0] > 88){
+            if(posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+27)){
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
@@ -4714,7 +4766,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 26;
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 26; 
                 matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 26;
-                posicaoJangada[0] = 89;
+                posicaoJangada[0] = (linhaInicioTerreo+28);
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
                 matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
@@ -4730,9 +4782,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             if(!verificarPosicaoValida(0, 0)){
-                posicaoDoPersonagemNaMatriz = [7,8];
+                posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo+2),8];
 
-                if(posicaoJangada[0] == 89){
+                if(posicaoJangada[0] == (linhaInicioTerreo+28)){
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 26;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 26; 
@@ -4741,7 +4793,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 34;
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 34; 
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 26;
-                    posicaoJangada[0] = 82;
+                    posicaoJangada[0] = (linhaInicioTerreo+21);
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
@@ -4751,6 +4803,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 52; 
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 54;
                 }
+            }else if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
+                posicaoDoPersonagemNaMatriz[1] = 22; 
             }
 
             if(dadosJson){
