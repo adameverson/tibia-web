@@ -7,7 +7,7 @@
      crossorigin="anonymous"></script>
         <style>
             body::-webkit-scrollbar {
-                width: 12px;               /* width of the entire scrollbar */
+                width: 16px;               /* width of the entire scrollbar */
             }
 
             body::-webkit-scrollbar-track {
@@ -15,7 +15,13 @@
             }
 
             body::-webkit-scrollbar-thumb {
-                background-color: #4CAF50;    /* color of the scroll thumb */
+                background-color: #3CB371;    /* color of the scroll thumb */
+                border-radius: 20px;       /* roundness of the scroll thumb */
+                border: 3px solid #ccffff;  /* creates padding around scroll thumb */
+            }
+
+            body::-webkit-scrollbar-thumb:hover {
+                background-color: #8FBC8F;    /* color of the scroll thumb */
                 border-radius: 20px;       /* roundness of the scroll thumb */
                 border: 3px solid #ccffff;  /* creates padding around scroll thumb */
             }
