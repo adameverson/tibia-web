@@ -3,9 +3,40 @@
         <link rel="shortcut icon" href="imagens/magic.ico" type="image/x-icon">
         <title>Magic Level</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
      crossorigin="anonymous"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <style>
+            .alertRed {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 15px 50px;
+            }
+
+            .alertYellow {
+            padding: 20px;
+            background-color: #FFCC00;
+            color: white;
+            border-radius: 15px 50px;
+            }
+
+            .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            }
+
+            .closebtn:hover {
+            color: black;
+            }
+        </style>
         <script>
 
             var funcMoverPersonagem;
@@ -113,6 +144,18 @@
             <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
                 Outfit 4
             </button>
+        </div>
+        <div id='alertRedId' class="alertRed" alt='mensagem' title='mensagem' style="position:fixed; bottom: 100; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none'; document.getElementById('mensagem1').style.visibility = 'hidden';">&times;</span> 
+            <h3>You are dead</h3>
+            <p>Ai de mim! Bravo aventureiro, você se encontrou com um triste destino. Mas não se desespere, pois os deuses lhe trará de volta ao mundo em troca de pequenos sacrifícios.</p>
+            <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
+        </div>
+        <div id='alertYellowId' class="alertYellow" alt='mensagem' title='mensagem' style="position:fixed; bottom: 100; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none'; document.getElementById('mensagem1').style.visibility = 'hidden';">&times;</span> 
+            <h3>You are inactive</h3>
+            <p>Você ficou inativo por muito tempo no jogo.</p>
+            <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
         <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
         <div id='ok' alt='ok' title='ok' style='position:fixed; top: 422; left: 568; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
@@ -1476,12 +1519,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 personagemMorto = true;
                 posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo+2),8];
                 visibilityEquipamentos(false);
-                document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemMorto.png';
+                document.getElementById('mensagem1').src = 'imagens/imagemFalaVoceJaTemBless.png';
                 document.getElementById('mensagem1').alt = 'mensagem';
                 document.getElementById('mensagem1').title = 'mensagem';
                 document.getElementById('mensagem1').style.visibility = 'visible';
-                document.getElementById('ok').style.visibility = 'visible'; 
-                document.getElementById('cancel').style.visibility = 'visible';
+                //document.getElementById('ok').style.visibility = 'visible'; 
+                //document.getElementById('cancel').style.visibility = 'visible';
+                document.getElementById('alertRedId').style.visibility = 'visible';
             }
             
             calculaLevel = function(){
@@ -3870,10 +3914,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 if(tempoinativo > 3){
                     inativo = true;
                     visibilityEquipamentos(false);
-                    document.getElementById('mensagem1').src = 'imagens/imagemMensagemPersonagemInativo.png';
+                    document.getElementById('mensagem1').src = 'imagens/imagemFalaVoceJaTemBless.png';
+                    document.getElementById('mensagem1').alt = 'mensagem';
+                    document.getElementById('mensagem1').title = 'mensagem';
                     document.getElementById('mensagem1').style.visibility = 'visible';
-                    document.getElementById('ok').style.visibility = 'visible'; 
-                    document.getElementById('cancel').style.visibility = 'visible';
+                    //document.getElementById('ok').style.visibility = 'visible'; 
+                    //document.getElementById('cancel').style.visibility = 'visible';
+                    document.getElementById('alertYellowId').style.visibility = 'visible';
                 }else{
                     inativo = false;
                 }
