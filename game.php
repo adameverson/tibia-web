@@ -3,7 +3,6 @@
         <link rel="shortcut icon" href="imagens/magic.ico" type="image/x-icon">
         <title>Magic Level</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
      crossorigin="anonymous"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -46,6 +45,7 @@
             var dialogo;
             var pressKey;
             var visibilityEquipamentos;
+            var esconderComponentes;
 
             var moverPersonagem = [0,0];
             var nivelDeSolo = 1;
@@ -145,14 +145,14 @@
                 Outfit 4
             </button>
         </div>
-        <div id='alertRedId' class="alertRed" alt='mensagem' title='mensagem' style="position:fixed; bottom: 100; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
-            <span class="closebtn" onclick="this.parentElement.style.display='none'; document.getElementById('mensagem1').style.visibility = 'hidden';">&times;</span> 
+        <div id='alertRedId' class="alertRed" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
+            <span class="closebtn" onclick="document.getElementById('alertRedId').style.visibility = 'hidden'; esconderComponentes();">&times;</span> 
             <h3>You are dead</h3>
             <p>Ai de mim! Bravo aventureiro, você se encontrou com um triste destino. Mas não se desespere, pois os deuses lhe trará de volta ao mundo em troca de pequenos sacrifícios.</p>
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
-        <div id='alertYellowId' class="alertYellow" alt='mensagem' title='mensagem' style="position:fixed; bottom: 100; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
-            <span class="closebtn" onclick="this.parentElement.style.display='none'; document.getElementById('mensagem1').style.visibility = 'hidden';">&times;</span> 
+        <div id='alertYellowId' class="alertYellow" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
+            <span class="closebtn" onclick="document.getElementById('alertYellowId').style.visibility = 'hidden'; esconderComponentes();">&times;</span> 
             <h3>You are inactive</h3>
             <p>Você ficou inativo por muito tempo no jogo.</p>
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
@@ -422,6 +422,7 @@
             var ultim_json;
             var online = 1;
             var wakeup = true;
+            var inativoAnterior = false;
 
             var flagMove = [false,false,false,false];
             var numOpcao = 0;
@@ -1518,6 +1519,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 hp = 0;
                 personagemMorto = true;
                 posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo+2),8];
+                hp++; 
+                if(nivelDeSolo == 2){ 
+                    nivelDeSolo--; 
+                    document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10;
+                    document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;
+                }
                 visibilityEquipamentos(false);
                 document.getElementById('mensagem1').src = 'imagens/imagemFalaVoceJaTemBless.png';
                 document.getElementById('mensagem1').alt = 'mensagem';
@@ -3748,7 +3755,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 }
 
-                window.onblur = function() { 
+                var desconectar = function() {
                     online = 0;
                     if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
                         posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
@@ -3756,9 +3763,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     }
                     run_ajax();
                     //console.log("desconectado!"); 
-                };
+                }
 
-                window.onfocus = function() { 
+                var conectar = function() {
                     online =
                     wakeup = 1;
                     if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
@@ -3767,15 +3774,22 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     }
                     run_ajax();
                     //console.log("conectado!"); 
+                }
+
+                window.onblur = function() { 
+                    desconectar();
+                };
+
+                window.onfocus = function() { 
+                    if(!inativo && !online){
+                        conectar();
+                    }else if(inativo && document.getElementById('alertRedId').style.visibility == 'hidden'){
+                        document.getElementById('alertYellowId').style.visibility = 'visible';
+                    }
                 };
                 
                 window.onunload = window.onbeforeunload = function() {
-                    online = 0;
-                    if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
-                        posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
-                        posicaoDoPersonagemNaMatriz[1] = 22; 
-                    }
-                    run_ajax();
+                    desconectar();
                 };
 
                 let tempoinativo = 0;
@@ -3882,6 +3896,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     }
                     moverCriaturas();
                     preencherImagens();
+                }else if(inativo && online){
+                    desconectar();
+                }else if(inativoAnterior && !inativo && !online){
+                    inativoAnterior = inativo;
+                    conectar();
                 }
 
                 if(hitTotal > 0){
@@ -3912,7 +3931,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     tempoinativo += dataLoop.getMinutes();
                 }
                 if(tempoinativo > 3){
-                    inativo = true;
+                    inativo = 
+                    inativoAnterior = true;
                     visibilityEquipamentos(false);
                     document.getElementById('mensagem1').src = 'imagens/imagemFalaVoceJaTemBless.png';
                     document.getElementById('mensagem1').alt = 'mensagem';
@@ -3920,7 +3940,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('mensagem1').style.visibility = 'visible';
                     //document.getElementById('ok').style.visibility = 'visible'; 
                     //document.getElementById('cancel').style.visibility = 'visible';
-                    document.getElementById('alertYellowId').style.visibility = 'visible';
+                    if(document.getElementById('alertRedId').style.visibility == 'hidden')
+                        document.getElementById('alertYellowId').style.visibility = 'visible';
                 }else{
                     inativo = false;
                 }
@@ -4758,6 +4779,21 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
                 if(!inativo)
                     datainicioinatividade = new Date();
+            }
+
+            esconderComponentes = function(){
+                if(document.getElementById('mensagem1').style.visibility == 'visible'){
+                    document.getElementById('mensagem1').style.visibility = 'hidden'; 
+                    document.getElementById('conversa').style.visibility = 'hidden'; 
+                    document.getElementById('opcao1').style.visibility = 'hidden'; 
+                    document.getElementById('opcao2').style.visibility = 'hidden'; 
+                    document.getElementById('opcao3').style.visibility = 'hidden'; 
+                    document.getElementById('opcao4').style.visibility = 'hidden'; 
+                    document.getElementById('opcao5').style.visibility = 'hidden'; 
+                    nivelDeConversaNpc = 0; 
+                    datainicioinatividade = new Date();
+                    inativo = false;
+                }
             }
 
             <?php
