@@ -1560,6 +1560,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('hpvalor').innerHTML = hp;
                     document.getElementById('hp').style.width = (176 * hp) / hpmax;
                     document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
+                    document.getElementById('personagem1').title = username + " level: " + lvlatual.toString() + " hp: " + hp.toString();
                 } else {
                     document.getElementById('mensagemDiv3').style.color = '#ccffcc';
                     document.getElementById('mensagemDiv3').style.textAlign = 'center';
@@ -1571,6 +1572,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('hpvalor').innerHTML = hp;
                     document.getElementById('hp').style.width = 176;
                     document.getElementById('barraHpPersonagem1').style.width = 50;
+                    document.getElementById('personagem1').title = username + " level: " + lvlatual.toString() + " hp: " + hp.toString();
                 }
                 if(parseInt(document.getElementById('hp').style.width.split('p')[0]) <= 44){ 
                     document.getElementById('hp').style.background = 'tomato';
