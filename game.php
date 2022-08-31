@@ -318,6 +318,7 @@
 
         function main(){
 
+            var preloadContentImages;
             var newColumn;
             var newMap;
             var moveMap;
@@ -690,6 +691,70 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 				        }
                         break;
                 }
+            }
+
+            preloadContentImages = function(){
+                    
+                var preloadContent = 0;
+                var imagesPreload = new Array(
+                    "imagens/person1.png", "imagens/person2.png", "imagens/person3.png", "imagens/person4.png",
+                    "imagens/person1andar.gif", "imagens/person2andar.gif", "imagens/person3andar.gif", "imagens/person4andar.gif",
+                    "imagens/personF1.png", "imagens/personF2.png", "imagens/personF3.png", "imagens/personF4.png",
+                    "imagens/personF1andar.gif", "imagens/personF2andar.gif", "imagens/personF3andar.gif", "imagens/personF4andar.gif",
+                    "imagens/imagemPersonagemDeCostas.png", "imagens/imagemPersonagemDeDireita.png", "imagens/imagemPersonagemDeFrente.png", "imagens/imagemPersonagemDeEsquerda.png",
+                    "imagens/imagemPersonagemDeCostasF.png", "imagens/imagemPersonagemDeDireitaF.png", "imagens/imagemPersonagemDeFrenteF.png", "imagens/imagemPersonagemDeEsquerdaF.png",
+                    "imagens/imagemEquipamentos.png", "imagens/imagemMensagemPersonagemInativo.png","imagens/imagemMensagemPersonagemMorto.png",
+                    "imagens/imagemPocaoHP.png", "imagens/imagemCorda.png", "imagens/imagemPa.png",
+                    "imagens/Ultimate_Healing.png", "imagens/Restoration.png", "imagens/Berserk.png", "imagens/Fierce_Berserk.png",
+                    "imagens/Spike_Sword_Equip.png", "imagens/Crown_Shield_Equip.png",
+                    "imagens/imagemFalaItemVazio.png", "imagens/imagemFalaDeposit.png",
+                    /*"imagens/imagemCampo.png", "imagens/imagemLixeira.png", "imagens/imagemSacola.png", "imagens/imagemSacola.png",
+                    "imagens/imagemFundoBuraco.png", "imagens/imagemBuracoAberto.png", "imagens/imagemBuracoFechado.png", "imagens/imagemParcel.png",
+                    "imagens/imagemSnake.png", "imagens/imagemSnakeAtacando.png", "imagens/imagemSnakeMorta.png", "imagens/imagemNpcDeDireitaCampo.png",
+                    "imagens/imagemPersonagemDeCostasComPiso.png", "imagens/imagemPersonagemDeDireitaComPiso.png",
+                    "imagens/imagemPersonagemDeFrenteComPiso.png", "imagens/imagemPersonagemDeEsquerdaComPiso.png", "imagens/imagemDragon.png",
+                    "imagens/imagemDragonAtacando.png", "imagens/imagemCaveira.png", "imagens/imagemMammoth.png", "imagens/imagemMammothAtacando.png",
+                    "imagens/imagemCaveira.png", "imagens/imagemPersonagemDeCostasFComPiso.png", "imagens/imagemPersonagemDeDireitaFComPiso.png",
+                    "imagens/imagemPersonagemDeFrenteFComPiso.png", "imagens/imagemPersonagemDeEsquerdaFComPiso.png", "imagens/imagemAgua.png",
+                    "imagens/imagemTetoCaverna.png", "imagens/imagemTetoCavernaBaixo.png", "imagens/imagemTetoCavernaDireita.png",
+                    "imagens/imagemTetoCavernaCima.png", "imagens/imagemTetoCavernaEsquerda.png", "imagens/imagemTetoCavernaCimaEsquerda.png",
+                    "imagens/imagemAguaCimaEsquerda.png", "imagens/imagemAguaCima.png", "imagens/imagemAguaCimaDireita.png", "imagens/imagemAguaDireita.png",
+                    "imagens/imagemAguaBaixoDireita.png", "imagens/imagemAguaBaixo.png", "imagens/imagemAguaBaixoEsquerda.png",
+                    "imagens/imagemAguaEsquerda.png", "imagens/imagemTeleport1.png", "imagens/imagemTeleport2.png", "imagens/imagemTeleport3.png",
+                    "imagens/imagemTeleport2.png", "imagens/imagemSpider.png", "imagens/imagemSpiderAtacando.png", "imagens/imagemCaveira.png",
+                    "imagens/imagemOrcShaman.gif", "imagens/imagemOrcShamanAtacando.png", "imagens/imagemCaveira.png", "imagens/imagemBot.png",
+                    "imagens/imagemJangada.png", "imagens/imagemRemo.png", "imagens/imagemRemo2.png", "imagens/Spike_Sword_Field.png",
+                    "imagens/Crown_Shield_Field.png", "imagens/TetoCasa.png", "imagens/TetoCasaUpLeft.png", "imagens/TetoCasaUp.png",
+                    "imagens/TetoCasaUpRight.png", "imagens/TetoCasaRight.png", "imagens/TetoCasaDownRight.png", "imagens/TetoCasaDown.png",
+                    "imagens/TetoCasaDownLeft.png", "imagens/TetoCasaLeft.png", "imagens/CasaUpRight.png", "imagens/CasaRight.png",
+                    "imagens/CasaDownRight.png", "imagens/CasaDown.png", "imagens/CasaDownLeft.png", "imagens/PortaUp.png", "imagens/PortaDown.png",
+                    "imagens/PortaOpenUp.png", "imagens/PortaOpenDown.png", "imagens/CasaIntoUpLeft.png", "imagens/CasaIntoUp.png",
+                    "imagens/CasaIntoUpRight.png", "imagens/CasaIntoDownLeft.png", "imagens/CasaIntoLeft.png", "imagens/imagemAguaBaixoDireita2.png",
+                    "imagens/imagemAguaCimaEsquerda2.png", "imagens/imagemAguaCimaDireita2.png", "imagens/imagemAguaBaixoEsquerda2.png",
+                    "imagens/person2piso.png", "imagens/person4piso.png", "imagens/person1piso.png", "imagens/person3piso.png", "imagens/personF2piso.png",
+                    "imagens/personF4piso.png", "imagens/personF1piso.png", "imagens/personF3piso.png", "imagens/tablet.png",*/
+                    );
+
+                function preLoader(e){
+                    for(var i = 0; i < imagesPreload.length; i++){
+                        var tempImage = new Image();
+
+                        tempImage.addEventListener("load", progress, true);
+                        tempImage.src = imagesPreload[i];
+                    }
+                }
+
+                function progress(){
+                    preloadContent++;
+
+                    if(preloadContent == imagesPreload.length){
+                        //console.log("carregou todas as imagens necessárias");
+                        newMap();
+                    }
+                }
+
+                this.addEventListener("DOMContentLoaded", preLoader, true);
+
             }
 
             newMap = function(){
@@ -4716,7 +4781,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             document.body.style.userSelect = "none";
 
-            newMap();
+            preloadContentImages();
 
             matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 51;
 
