@@ -8,70 +8,38 @@
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <style>
             .alertRed {
-            padding: 20px;
-            background-color: #f44336;
-            color: white;
-            border-radius: 15px 50px;
+                padding: 20px;
+                background-color: #f44336;
+                color: white;
+                border-radius: 15px 50px;
             }
-
             .alertYellow {
-            padding: 20px;
-            background-color: #FFCC00;
-            color: white;
-            border-radius: 15px 50px;
+                padding: 20px;
+                background-color: #FFCC00;
+                color: white;
+                border-radius: 15px 50px;
             }
-
             .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
             }
-
             .closebtn:hover {
-            color: black;
+                color: black;
             }
         </style>
         <script>
-
             var funcMoverPersonagem;
             var loop;
-            var utilizarIten;
-            var utilizarMagia;
-            var dialogo;
-            var pressKey;
-            var visibilityEquipamentos;
-            var esconderComponentes;
-
-            var moverPersonagem = [0,0];
-            var nivelDeSolo = 1;
-            var outfit = "P";
-
-            var inativo = false;
-            var datainicioinatividade = new Date();
-
-            var  flagEquipamento = false;
-            
-            var identificadorDoChat = 0;
-            var mensagensDoChatDefault = "Bem Vindo!";
-            var mensagensDoChatServerLog = "";
-            var mensagensDoChatNpc = "";
-            var nivelDeConversaNpc = 0;
-
-            var mensagensDoChatHistoria1 = "";
-            //mensagensDoChatHistoria1 += "Servidor em Manutenção!\n\n";
-            mensagensDoChatHistoria1 += "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)\n\n- Ei alguém criou um teleporte para pular esta fase!\n\n- «silêncio!»";
-            var mensagensDoChatHistoriaNovidades1 = "";
-            //mensagensDoChatHistoriaNovidades1 += "Servidor em Manutenção!\n\n";
-            mensagensDoChatHistoriaNovidades1 += "Novidades:\n\n- A magia exura é a base de uma longa jornada;\n\n- A magia exura gran é para os mais experientes;\n\n- A magia exori é a nova sensação;\n\n- O historiador está em busca de novos dados...\n\n- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!\n\n- A magia exori gran chegou para ajudar nas suas tasks;\n\n- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;\n\n- Hotkeys números de 1-4, sem estar escrevendo algo;\n\n- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!\n\n- Sistema de jogador versus jogador adicionado!\n\n- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.";
-
         </script>
     </head>
-    <body onload="setInterval('loop()', 1000); setInterval('funcMoverPersonagem()', 10);" onKeyPress="pressKey(event)">
+    <!-- load, keypress -->
+    <body onload="setInterval('loop()', 1000); setInterval('funcMoverPersonagem()', 10);">
         <div id='map'>
             
         </div>
@@ -81,37 +49,46 @@
                 <textarea id="textareaChatHistoria" name="textareaChatHistoria" title='historia' rows="24" cols="21" style="resize: none;" disabled></textarea>
             </div>
             <div id='opcoesHistoria' title='opcoes historia' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 176; height: 20; background-color: #ccffff;'>
-                <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('chathistoria').style.visibility = 'hidden'; datainicioinatividade = new Date();">
+                <!-- click -->
+                <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Pular
                 </button>
-                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1; datainicioinatividade = new Date();">
+                <!-- click -->
+                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Historia
                 </button>
-                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="document.getElementById('textareaChatHistoria').scrollTop = 0; document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoriaNovidades1; datainicioinatividade = new Date();">
+                <!-- click -->
+                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Novidades
                 </button>
             </div>
         </div>
 
         <div id='conversa' title='conversa' style='position: fixed; top: 160; left: 600; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
-            <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao1').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao1').title; dialogo(); datainicioinatividade = new Date();}">
+            <!-- click -->
+            <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Opcao 1
             </button>
-            <button type="submit" id='opcao2' title='opcao2' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao2').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao2').title; dialogo(); datainicioinatividade = new Date();}">
+            <!-- click -->
+            <button type="submit" id='opcao2' title='opcao2' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Opcao 2
             </button>
-            <button type="submit" id='opcao3' title='opcao3' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao3').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao3').title; dialogo(); datainicioinatividade = new Date();}">
+            <!-- click -->
+            <button type="submit" id='opcao3' title='opcao3' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Opcao 3
             </button>
-            <button type="submit" id='opcao4' title='opcao4' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao4').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao4').title; dialogo(); datainicioinatividade = new Date();}">
+            <!-- click -->
+            <button type="submit" id='opcao4' title='opcao4' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Opcao 4
             </button>
-            <button type="submit" id='opcao5' title='opcao5' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('opcao5').style.visibility == 'visible'){ document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao5').title; dialogo(); datainicioinatividade = new Date();}">
+            <!-- click -->
+            <button type="submit" id='opcao5' title='opcao5' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Opcao 5
             </button>
         </div>
         
-        <img id='personagem1' src='imagens/person1.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;' onclick="document.getElementById('menuopcoes').style.visibility = 'visible';"></img>
+        <!-- click -->
+        <img id='personagem1' src='imagens/person1.png' alt='personagem' title='personagem' style='position:fixed; top: 305; left: 365; width: 50; height: 50;'></img>
         <div id='nomePersonagem1' style='position:fixed; top: 305; left: 365; color: mediumseagreen; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
@@ -132,38 +109,38 @@
         
         </div>
         <div id='menuopcoes' style='position:fixed; top: 330; left: 390; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
-            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'P'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+            <!-- click -->
+            <button id='outfit1' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
                 Outfit 1
             </button>
-            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'W'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+            <!-- click -->
+            <button id='outfit2' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
                 Outfit 2
             </button>
-            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+            <!-- click -->
+            <button id='outfit3' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
                 Outfit 3
             </button>
-            <button style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;' onclick="outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';">
+            <!-- click -->
+            <button id='outfit4' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
                 Outfit 4
             </button>
         </div>
         <div id='alertRedId' class="alertRed" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
-            <span class="closebtn" onclick="document.getElementById('alertRedId').style.visibility = 'hidden'; esconderComponentes();">&times;</span> 
+            <!-- click -->
+            <span id='closeAlertRed' class="closebtn">&times;</span>
             <h3>You are dead</h3>
             <p>Ai de mim! Bravo aventureiro, você se encontrou com um triste destino. Mas não se desespere, pois os deuses lhe trará de volta ao mundo em troca de pequenos sacrifícios.</p>
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
         <div id='alertYellowId' class="alertYellow" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
-            <span class="closebtn" onclick="document.getElementById('alertYellowId').style.visibility = 'hidden'; esconderComponentes();">&times;</span> 
+            <!-- click -->
+            <span id='closeAlertYellow' class="closebtn">&times;</span>
             <h3>You are inactive</h3>
             <p>Você ficou inativo por muito tempo no jogo.</p>
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
         <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
-        <div id='ok' alt='ok' title='ok' style='position:fixed; top: 422; left: 568; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
-        
-        </div>
-        <div id='cancel' alt='cancel' title='cancel' style='position:fixed; top: 422; left: 615; width: 35; height: 16; visibility: hidden;' onclick="if(document.getElementById('mensagem1').style.visibility == 'visible'){document.getElementById('mensagem1').style.visibility = 'hidden'; document.getElementById('ok').style.visibility = 'hidden'; document.getElementById('cancel').style.visibility = 'hidden'; if(!inativo){ hp++; if(nivelDeSolo == 2){ nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}} document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png'; setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000); document.getElementById('conversa').style.visibility = 'hidden'; document.getElementById('opcao1').style.visibility = 'hidden'; document.getElementById('opcao2').style.visibility = 'hidden'; document.getElementById('opcao3').style.visibility = 'hidden'; document.getElementById('opcao4').style.visibility = 'hidden'; document.getElementById('opcao5').style.visibility = 'hidden'; nivelDeConversaNpc = 0; datainicioinatividade = new Date();}">
-        
-        </div>
 
         <!--
         <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
@@ -181,7 +158,8 @@
                     Sim
                 </button>
             </form>
-            <button type="submit" id='logoutOpcao2' title='Não' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;' onclick="if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ document.getElementById('logoutPergunta1').style.visibility = 'hidden'; document.getElementById('logoutOpcao1').style.visibility = 'hidden'; document.getElementById('logoutOpcao2').style.visibility = 'hidden'; datainicioinatividade = new Date();}">
+            <!-- click -->
+            <button type="submit" id='logoutOpcao2' title='Não' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Não
             </button>
         </div>
@@ -222,7 +200,7 @@
                     <div id='speedvalor' title='speed' style='position: fixed; top: 85; right: 7; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick=""></img>
+                    <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
             <div id='mochila' title='mochila' style='position: absolute; top: 100; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: visible;'>
@@ -230,15 +208,19 @@
                     Mochila
                 </div>
                 <div id='campoDaMochila1' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarIten(0); }"></img>
+                    <!-- click -->
+                    <img id='itemCampoDaMochila1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDaMochila2' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarIten(1); }"></img>
+                    <!-- click -->
+                    <img id='itemCampoDaMochila2' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDaMochila3' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='itemCampoDaMochila3' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarIten(2); }"></img>
+                    <!-- click -->
+                    <img id='itemCampoDaMochila3' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDaMochila4' title='mochila' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
+                    <!-- click -->
                     <img id='itemCampoDaMochila4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
@@ -247,16 +229,20 @@
                     Magias
                 </div>
                 <div id='campoDaMagia1' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExura' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(0); }"></img>
+                    <!-- click -->
+                    <img id='magiaExura' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDaMagia2' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExuraGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(1); }"></img>
+                    <!-- click -->
+                    <img id='magiaExuraGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDaMagia3' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExori' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(2); }"></img>
+                    <!-- click -->
+                    <img id='magiaExori' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%'></img>
                 </div>
                 <div id='campoDaMagia4' title='magia' style='float: left; top: 0; left: 0; margin: 1; width: 42; height: 42; background-color: gray;'>
-                    <img id='magiaExoriGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%' onclick="if(document.getElementById('mensagem1').style.visibility == 'hidden'){ utilizarMagia(3); }"></img>
+                    <!-- click -->
+                    <img id='magiaExoriGran' src='imagens/imagemCampoItem.png' alt='magia' title='magia' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
             <div id='parcel' title='parcel' style='position: absolute; top: 160; left: 0; margin: 1; width: 176; height: 44; background-color: lightgray; visibility: hidden;'>
@@ -287,41 +273,52 @@
 
                 </div>
             </div>
-            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 313; left: 372; width: 10; height: 10; visibility: hidden;' onclick="visibilityEquipamentos(false);">
+            <!-- click -->
+            <div id='equipamentoMenos' alt='menos' title='menos' style='position:fixed; top: 313; left: 372; width: 10; height: 10; visibility: hidden;'>
         
             </div>
-            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 313; left: 445; width: 30; height: 10; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('parcel').style.visibility == 'hidden'){document.getElementById('parcel').style.visibility = 'visible'; document.getElementById('nomeDoParcel1').style.visibility = 'visible'; document.getElementById('campoDoParcel1').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel1').style.visibility = 'visible'; document.getElementById('campoDoParcel2').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel2').style.visibility = 'visible'; document.getElementById('campoDoParcel3').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel3').style.visibility = 'visible'; document.getElementById('campoDoParcel4').style.visibility = 'visible'; document.getElementById('itemCampoDoParcel4').style.visibility = 'visible';}else{document.getElementById('parcel').style.visibility = 'hidden'; document.getElementById('nomeDoParcel1').style.visibility = 'hidden'; document.getElementById('campoDoParcel1').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel1').style.visibility = 'hidden'; document.getElementById('campoDoParcel2').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel2').style.visibility = 'hidden'; document.getElementById('campoDoParcel3').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel3').style.visibility = 'hidden'; document.getElementById('campoDoParcel4').style.visibility = 'hidden'; document.getElementById('itemCampoDoParcel4').style.visibility = 'hidden';} datainicioinatividade = new Date();}">
+            <!-- click -->
+            <div id='equipamentoParcel' alt='caixa' title='caixa' style='position:fixed; top: 313; left: 445; width: 30; height: 10; visibility: hidden;'>
         
             </div>
-            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 328; left: 445; width: 30; height: 30; visibility: hidden;' onclick="if(flagEquipamento){if(document.getElementById('mochila').style.visibility == 'hidden'){document.getElementById('mochila').style.visibility = 'visible'; document.getElementById('nomeDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila1').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; document.getElementById('campoDaMochila2').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; document.getElementById('campoDaMochila3').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; document.getElementById('campoDaMochila4').style.visibility = 'visible'; document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; document.getElementById('magias').style.top = 160;}else{document.getElementById('mochila').style.visibility = 'hidden'; document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila1').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; document.getElementById('campoDaMochila2').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; document.getElementById('campoDaMochila3').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; document.getElementById('campoDaMochila4').style.visibility = 'hidden'; document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; document.getElementById('magias').style.top = 100;} datainicioinatividade = new Date();}">
+            <!-- click -->
+            <div id='equipamentoMochila' alt='mochila' title='mochila' style='position:fixed; top: 328; left: 445; width: 30; height: 30; visibility: hidden;'>
         
             </div>
-            <div id='equipamentoMaoDireita' alt='' title='' style='position:fixed; top: 364; left: 373; width: 30; height: 30; visibility: hidden;' onclick="">
+            <!-- click -->
+            <div id='equipamentoMaoDireita' alt='' title='' style='position:fixed; top: 364; left: 373; width: 30; height: 30; visibility: hidden;'>
         
             </div>
-            <div id='equipamentoMaoEsquerda' alt='' title='' style='position:fixed; top: 364; left: 445; width: 30; height: 30; visibility: hidden;' onclick="">
+            <!-- click -->
+            <div id='equipamentoMaoEsquerda' alt='' title='' style='position:fixed; top: 364; left: 445; width: 30; height: 30; visibility: hidden;'>
         
             </div>
-            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');">
+            <!-- click -->
+            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 Equipamentos
             </button>
-            <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('chathistoria').style.visibility == 'hidden'){document.getElementById('chathistoria').style.visibility = 'visible';}else{document.getElementById('chathistoria').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+            <!-- click -->
+            <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 História
             </button>
-            <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;' onclick="if(document.getElementById('logoutPergunta1').style.visibility == 'hidden'){document.getElementById('logoutPergunta1').style.visibility = 'visible'; document.getElementById('logoutOpcao1').style.visibility = 'visible'; document.getElementById('logoutOpcao2').style.visibility = 'visible';}else{document.getElementById('logoutPergunta1').style.visibility = 'hidden'; document.getElementById('logoutOpcao1').style.visibility = 'hidden'; document.getElementById('logoutOpcao2').style.visibility = 'hidden';} datainicioinatividade = new Date();">
+            <!-- click -->
+            <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 Sair
             </button>
         </div>
 
         <div id='chat' title='chat' style='position: fixed; top: 417; right: 0; width: 178; height:243; background-color: lightgray; border-style: solid; border-color: gray;'>
             <div id='default' title='chat' style='position: absolute; top: 0; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
-                <button id='nomeDoChatDefault' title='default' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 50; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="identificadorDoChat = 0; document.getElementById('textareaChat').value = mensagensDoChatDefault; document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; /*document.getElementById('campoDeEscritaInput').focus();*/ document.getElementById('nomeDoChatServerLog').style.color = 'black'; document.getElementById('nomeDoChatNpc').style.color = 'black'; document.getElementById('nomeDoChatDefault').style.color = 'white'; document.getElementById('campoDoChat').title ='default'; document.getElementById('textareaChat').title ='default'; datainicioinatividade = new Date();">
+                <!-- click -->
+                <button id='nomeDoChatDefault' title='default' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 50; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Default
                 </button>
-                <button id='nomeDoChatServerLog' title='server log' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="identificadorDoChat = 1; document.getElementById('textareaChat').value = mensagensDoChatServerLog; document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; document.getElementById('nomeDoChatDefault').style.color = 'black'; document.getElementById('nomeDoChatNpc').style.color = 'black'; document.getElementById('nomeDoChatServerLog').style.color = 'white'; document.getElementById('campoDoChat').title ='server log'; document.getElementById('textareaChat').title ='server log'; datainicioinatividade = new Date();">
+                <!-- click -->
+                <button id='nomeDoChatServerLog' title='server log' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Server Log
                 </button>
-                <button id='nomeDoChatNpc' title='npc' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 25; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;' onclick="identificadorDoChat = 2; document.getElementById('textareaChat').value = mensagensDoChatNpc; document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; /*document.getElementById('campoDeEscritaInput').focus();*/ document.getElementById('nomeDoChatDefault').style.color = 'black'; document.getElementById('nomeDoChatServerLog').style.color = 'black'; document.getElementById('nomeDoChatNpc').style.color = 'white'; document.getElementById('campoDoChat').title ='npc'; document.getElementById('textareaChat').title ='npc'; datainicioinatividade = new Date();">
+                <!-- click -->
+                <button id='nomeDoChatNpc' title='npc' style='float: left; top: 0; left: 10; margin: 1; padding: 2; width: 25; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Npc
                 </button>
                 <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 195; background-color: #ccffff;'>
@@ -342,25 +339,16 @@
             <!--Your browser does not support the audio tag.-->
         </audio>
 
-        <!--
-        <div style="position: fixed; top: 240; left: 60; width: 180;">
-            <div style="position: fixed; left: 140; width: 180;">
-                <button id='botaoCima' onclick='if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 0){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; preencherImagens();}'>^</button>
-            </div>
-            <div style="position: fixed; top: 260; left: 125; width: 180;">
-                <button id='botaoEsquerda' onclick='if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 0){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; preencherImagens();}'><</button>
-                <button id='botaoDireita' onclick='if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 0){ posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; preencherImagens();}' style='left: 150;'>></button>
-            </div>
-            <div style="position: fixed; top: 280; left: 140; width: 180;">
-                <button id='botaoBaixo' onclick='if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 0){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; preencherImagens();}'>v</button>
-            </div>
-        </div>
-        -->
-
         <script>
 
         function main(){
 
+            var utilizarIten;
+            var utilizarMagia;
+            var dialogo;
+            var pressKey;
+            var visibilityEquipamentos;
+            var esconderComponentes;
             var preloadContentImages;
             var newColumn;
             var newMap;
@@ -411,6 +399,29 @@
             var regeneracao;
             var updateDadosJson;
             var readDadosJson;
+            var addEventos;
+
+            var moverPersonagem = [0,0];
+            var nivelDeSolo = 1;
+            var outfit = "P";
+
+            var inativo = false;
+            var datainicioinatividade = new Date();
+
+            var  flagEquipamento = false;
+            
+            var identificadorDoChat = 0;
+            var mensagensDoChatDefault = "Bem Vindo!";
+            var mensagensDoChatServerLog = "";
+            var mensagensDoChatNpc = "";
+            var nivelDeConversaNpc = 0;
+
+            var mensagensDoChatHistoria1 = "";
+            //mensagensDoChatHistoria1 += "Servidor em Manutenção!\n\n";
+            mensagensDoChatHistoria1 += "História:\n\nEste mundo foi criado após muitos acontecimentos, e os dados coletados até hoje são que a sacola ao lado nos fornece uma poção de vida infinita, uma corda para sairmos desta escuridão e uma pá que ainda não sabemos onde utiliza-la, mas com certeza será útil... Segundo rumores ela será útil ao sairmos destas cavernas, mas viajantes disseram que há perigos pelo caminho e como recompensa no topo existe um NPC mestre em magias com tarefas que dão muita experiencia, e ele reinicia uma quest misteriosa... (por esta poção de vida infinita acredito que teremos muitos desafios pela frente)\n\n- Ei alguém criou um teleporte para pular esta fase!\n\n- «silêncio!»";
+            var mensagensDoChatHistoriaNovidades1 = "";
+            //mensagensDoChatHistoriaNovidades1 += "Servidor em Manutenção!\n\n";
+            mensagensDoChatHistoriaNovidades1 += "Novidades:\n\n- A magia exura é a base de uma longa jornada;\n\n- A magia exura gran é para os mais experientes;\n\n- A magia exori é a nova sensação;\n\n- O historiador está em busca de novos dados...\n\n- Quest pricipal adicionada! Procure por ela a direita do mapa, mas tome cuidado!\n\n- A magia exori gran chegou para ajudar nas suas tasks;\n\n- A regeneração natural está a todo vapor, ela melhora de acordo ao seu level;\n\n- Hotkeys números de 1-4, sem estar escrevendo algo;\n\n- Um boss observando toda essa magia acontecendo, veio para mostrar o que é magia!\n\n- Sistema de jogador versus jogador adicionado!\n\n- Equipamentos disponíveis, procure pelo mapa, uma jangada pode te ajudar.";
 
             var ultim_x;
             var ultim_y;
@@ -1530,8 +1541,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 document.getElementById('mensagem1').alt = 'mensagem';
                 document.getElementById('mensagem1').title = 'mensagem';
                 document.getElementById('mensagem1').style.visibility = 'visible';
-                //document.getElementById('ok').style.visibility = 'visible'; 
-                //document.getElementById('cancel').style.visibility = 'visible';
                 document.getElementById('alertRedId').style.visibility = 'visible';
             }
             
@@ -3938,8 +3947,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('mensagem1').alt = 'mensagem';
                     document.getElementById('mensagem1').title = 'mensagem';
                     document.getElementById('mensagem1').style.visibility = 'visible';
-                    //document.getElementById('ok').style.visibility = 'visible'; 
-                    //document.getElementById('cancel').style.visibility = 'visible';
                     if(document.getElementById('alertRedId').style.visibility == 'hidden')
                         document.getElementById('alertYellowId').style.visibility = 'visible';
                 }else{
@@ -4515,21 +4522,21 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     (quest1 || quest2 || quest3 || quest4)
                             ){
                                 quest1 = 0;
-                                matrizDoMapa[44][24] = matrizDoMapaOriginal[44][24];
-                                matrizDoMapa[54][35] = matrizDoMapaOriginal[54][35];
-                                matrizDoMapa[45][45] = matrizDoMapaOriginal[45][45];
+                                matrizDoMapa[(linhaInicioTerreo+1)][26] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][26];
+                                matrizDoMapa[(linhaInicioTerreo+11)][37] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][37];
+                                matrizDoMapa[(linhaInicioTerreo+2)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+2)][47];
                                 quest2 = 0;
-                                matrizDoMapa[54][27] = matrizDoMapaOriginal[54][27];
-                                matrizDoMapa[44][38] = matrizDoMapaOriginal[44][38];
-                                matrizDoMapa[49][45] = matrizDoMapaOriginal[49][45];
+                                matrizDoMapa[(linhaInicioTerreo+11)][29] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][29];
+                                matrizDoMapa[(linhaInicioTerreo+1)][40] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][40];
+                                matrizDoMapa[(linhaInicioTerreo+6)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+6)][47];
                                 quest3 = 0;
-                                matrizDoMapa[44][31] = matrizDoMapaOriginal[44][31];
-                                matrizDoMapa[54][41] = matrizDoMapaOriginal[54][41];
-                                matrizDoMapa[53][45] = matrizDoMapaOriginal[53][45];
+                                matrizDoMapa[(linhaInicioTerreo+1)][33] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][33];
+                                matrizDoMapa[(linhaInicioTerreo+11)][43] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][43];
+                                matrizDoMapa[(linhaInicioTerreo+10)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+10)][47];
                                 quest4 = 0;
-                                matrizDoMapa[66][30] = matrizDoMapaOriginal[66][30];
-                                matrizDoMapa[58][45] = matrizDoMapaOriginal[58][45];
-                                matrizDoMapa[67][44] = matrizDoMapaOriginal[67][44];
+                                matrizDoMapa[(linhaInicioTerreo+23)][32] = matrizDoMapaOriginal[(linhaInicioTerreo+23)][32];
+                                matrizDoMapa[(linhaInicioTerreo+15)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+15)][47];
+                                matrizDoMapa[(linhaInicioTerreo+24)][46] = matrizDoMapaOriginal[(linhaInicioTerreo+24)][46];
                             }
                             nivelDeConversaNpc = 0;
                             break;
@@ -4678,14 +4685,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         document.getElementById('fala1').src = 'imagens/imagemFalaExori.png';
                         setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
 
-                        ataqueCampo("Campo-3-4",-1,-1);
-                        ataqueCampo("Campo-3-5",-1,0);
-                        ataqueCampo("Campo-3-6",-1,1);
-                        ataqueCampo("Campo-4-6",0,1);
-                        ataqueCampo("Campo-5-6",1,1);
-                        ataqueCampo("Campo-5-5",1,0);
-                        ataqueCampo("Campo-5-4",1,-1);
-                        ataqueCampo("Campo-4-4",0,-1);
+                        ataqueCampo("Campo-5-6",-1,-1);
+                        ataqueCampo("Campo-5-7",-1,0);
+                        ataqueCampo("Campo-5-8",-1,1);
+                        ataqueCampo("Campo-6-8",0,1);
+                        ataqueCampo("Campo-7-8",1,1);
+                        ataqueCampo("Campo-7-7",1,0);
+                        ataqueCampo("Campo-7-6",1,-1);
+                        ataqueCampo("Campo-6-6",0,-1);
 
                     }else{
                         dataDiv2 = new Date();
@@ -4796,6 +4803,258 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
+            addEventos = function(){
+                /*document.body.addEventListener("load", function(){
+                    setInterval('loop()', 1000); 
+                    setInterval('funcMoverPersonagem()', 10);
+                });*/
+                document.body.addEventListener("keypress", function(){
+                    pressKey(event);
+                });
+                document.getElementById('opcaoPular').addEventListener("click", function(){
+                    document.getElementById('chathistoria').style.visibility = 'hidden'; datainicioinatividade = new Date();
+                });
+                document.getElementById('opcaoProxima').addEventListener("click", function(){
+                    document.getElementById('textareaChatHistoria').scrollTop = 0; 
+                    document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1; 
+                    datainicioinatividade = new Date();
+                });
+                document.getElementById('opcaoNovidades').addEventListener("click", function(){
+                    document.getElementById('textareaChatHistoria').scrollTop = 0; 
+                    document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoriaNovidades1; 
+                    datainicioinatividade = new Date();
+                });
+                document.getElementById('opcao1').addEventListener("click", function(){
+                    if(document.getElementById('opcao1').style.visibility == 'visible'){ 
+                        document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao1').title; 
+                        dialogo(); 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('opcao2').addEventListener("click", function(){
+                    if(document.getElementById('opcao2').style.visibility == 'visible'){ 
+                        document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao2').title; 
+                        dialogo(); 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('opcao3').addEventListener("click", function(){
+                    if(document.getElementById('opcao3').style.visibility == 'visible'){ 
+                        document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao3').title; 
+                        dialogo(); 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('opcao4').addEventListener("click", function(){
+                    if(document.getElementById('opcao4').style.visibility == 'visible'){ 
+                        document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao4').title; 
+                        dialogo(); 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('opcao5').addEventListener("click", function(){
+                    if(document.getElementById('opcao5').style.visibility == 'visible'){ 
+                        document.getElementById('campoDeEscritaInput').value = document.getElementById('opcao5').title; 
+                        dialogo(); 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('personagem1').addEventListener("click", function(){
+                    document.getElementById('menuopcoes').style.visibility = 'visible';
+                });
+                document.getElementById('outfit1').addEventListener("click", function(){
+                    outfit = 'P'; document.getElementById('menuopcoes').style.visibility = 'hidden';
+                });
+                document.getElementById('outfit2').addEventListener("click", function(){
+                    outfit = 'W'; document.getElementById('menuopcoes').style.visibility = 'hidden';
+                });
+                document.getElementById('outfit3').addEventListener("click", function(){
+                    outfit = 'M'; document.getElementById('menuopcoes').style.visibility = 'hidden';
+                });
+                document.getElementById('outfit4').addEventListener("click", function(){
+                    outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';
+                });
+                document.getElementById('closeAlertRed').addEventListener("click", function(){
+                    document.getElementById('alertRedId').style.visibility = 'hidden'; 
+                    esconderComponentes();
+                });
+                document.getElementById('closeAlertYellow').addEventListener("click", function(){
+                    document.getElementById('alertYellowId').style.visibility = 'hidden'; 
+                    esconderComponentes();
+                });
+                document.getElementById('logoutOpcao2').addEventListener("click", function(){
+                    if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ 
+                        document.getElementById('logoutPergunta1').style.visibility = 'hidden'; 
+                        document.getElementById('logoutOpcao1').style.visibility = 'hidden'; 
+                        document.getElementById('logoutOpcao2').style.visibility = 'hidden'; 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('campoDaMochila1').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarIten(0); 
+                    }
+                });
+                document.getElementById('campoDaMochila2').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarIten(1); 
+                    }
+                });
+                document.getElementById('campoDaMochila3').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarIten(2); 
+                    }
+                });
+                document.getElementById('campoDaMochila4').addEventListener("click", function(){
+                    
+                });
+                document.getElementById('campoDaMagia1').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarMagia(0); 
+                    }
+                });
+                document.getElementById('campoDaMagia2').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarMagia(1); 
+                    }
+                });
+                document.getElementById('campoDaMagia3').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarMagia(2); 
+                    }
+                });
+                document.getElementById('campoDaMagia4').addEventListener("click", function(){
+                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                        utilizarMagia(3); 
+                    }
+                });
+                document.getElementById('equipamentoMenos').addEventListener("click", function(){
+                    visibilityEquipamentos(false);
+                });
+                document.getElementById('equipamentoParcel').addEventListener("click", function(){
+                    if(flagEquipamento){
+                        if(document.getElementById('parcel').style.visibility == 'hidden'){
+                            document.getElementById('parcel').style.visibility = 'visible'; 
+                            document.getElementById('nomeDoParcel1').style.visibility = 'visible'; 
+                            document.getElementById('campoDoParcel1').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDoParcel1').style.visibility = 'visible'; 
+                            document.getElementById('campoDoParcel2').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDoParcel2').style.visibility = 'visible'; 
+                            document.getElementById('campoDoParcel3').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDoParcel3').style.visibility = 'visible'; 
+                            document.getElementById('campoDoParcel4').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDoParcel4').style.visibility = 'visible';
+                        }else{
+                            document.getElementById('parcel').style.visibility = 'hidden'; 
+                            document.getElementById('nomeDoParcel1').style.visibility = 'hidden'; 
+                            document.getElementById('campoDoParcel1').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDoParcel1').style.visibility = 'hidden'; 
+                            document.getElementById('campoDoParcel2').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDoParcel2').style.visibility = 'hidden'; 
+                            document.getElementById('campoDoParcel3').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDoParcel3').style.visibility = 'hidden'; 
+                            document.getElementById('campoDoParcel4').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDoParcel4').style.visibility = 'hidden';
+                        } 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('equipamentoMochila').addEventListener("click", function(){
+                    if(flagEquipamento){
+                        if(document.getElementById('mochila').style.visibility == 'hidden'){
+                            document.getElementById('mochila').style.visibility = 'visible'; 
+                            document.getElementById('nomeDaMochila1').style.visibility = 'visible'; 
+                            document.getElementById('campoDaMochila1').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDaMochila1').style.visibility = 'visible'; 
+                            document.getElementById('campoDaMochila2').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDaMochila2').style.visibility = 'visible'; 
+                            document.getElementById('campoDaMochila3').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDaMochila3').style.visibility = 'visible'; 
+                            document.getElementById('campoDaMochila4').style.visibility = 'visible'; 
+                            document.getElementById('itemCampoDaMochila4').style.visibility = 'visible'; 
+                            document.getElementById('magias').style.top = 160;
+                        }else{
+                            document.getElementById('mochila').style.visibility = 'hidden'; 
+                            document.getElementById('nomeDaMochila1').style.visibility = 'hidden'; 
+                            document.getElementById('campoDaMochila1').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDaMochila1').style.visibility = 'hidden'; 
+                            document.getElementById('campoDaMochila2').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDaMochila2').style.visibility = 'hidden'; 
+                            document.getElementById('campoDaMochila3').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDaMochila3').style.visibility = 'hidden'; 
+                            document.getElementById('campoDaMochila4').style.visibility = 'hidden'; 
+                            document.getElementById('itemCampoDaMochila4').style.visibility = 'hidden'; 
+                            document.getElementById('magias').style.top = 100;
+                        } 
+                        datainicioinatividade = new Date();
+                    }
+                });
+                document.getElementById('equipamentoMaoDireita').addEventListener("click", function(){
+                    
+                });
+                document.getElementById('equipamentoMaoEsquerda').addEventListener("click", function(){
+                    
+                });
+                document.getElementById('equipment').addEventListener("click", function(){
+                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                });
+                document.getElementById('story').addEventListener("click", function(){
+                    if(document.getElementById('chathistoria').style.visibility == 'hidden'){
+                        document.getElementById('chathistoria').style.visibility = 'visible';
+                    }else{
+                        document.getElementById('chathistoria').style.visibility = 'hidden';
+                    } 
+                    datainicioinatividade = new Date();
+                });
+                document.getElementById('logout').addEventListener("click", function(){
+                    if(document.getElementById('logoutPergunta1').style.visibility == 'hidden'){
+                        document.getElementById('logoutPergunta1').style.visibility = 'visible'; 
+                        document.getElementById('logoutOpcao1').style.visibility = 'visible'; 
+                        document.getElementById('logoutOpcao2').style.visibility = 'visible';
+                    }else{
+                        document.getElementById('logoutPergunta1').style.visibility = 'hidden'; 
+                        document.getElementById('logoutOpcao1').style.visibility = 'hidden'; 
+                        document.getElementById('logoutOpcao2').style.visibility = 'hidden';
+                    } 
+                    datainicioinatividade = new Date();
+                });
+                document.getElementById('nomeDoChatDefault').addEventListener("click", function(){
+                    identificadorDoChat = 0; 
+                    document.getElementById('textareaChat').value = mensagensDoChatDefault; 
+                    document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; 
+                    /*document.getElementById('campoDeEscritaInput').focus();*/ 
+                    document.getElementById('nomeDoChatServerLog').style.color = 'black'; 
+                    document.getElementById('nomeDoChatNpc').style.color = 'black'; 
+                    document.getElementById('nomeDoChatDefault').style.color = 'white'; 
+                    document.getElementById('campoDoChat').title ='default'; 
+                    document.getElementById('textareaChat').title ='default'; 
+                    datainicioinatividade = new Date();
+                });
+                document.getElementById('nomeDoChatServerLog').addEventListener("click", function(){
+                    identificadorDoChat = 1; 
+                    document.getElementById('textareaChat').value = mensagensDoChatServerLog; 
+                    document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; 
+                    document.getElementById('nomeDoChatDefault').style.color = 'black'; 
+                    document.getElementById('nomeDoChatNpc').style.color = 'black'; 
+                    document.getElementById('nomeDoChatServerLog').style.color = 'white'; 
+                    document.getElementById('campoDoChat').title ='server log'; 
+                    document.getElementById('textareaChat').title ='server log'; 
+                    datainicioinatividade = new Date();
+                });
+                document.getElementById('nomeDoChatNpc').addEventListener("click", function(){
+                    identificadorDoChat = 2; 
+                    document.getElementById('textareaChat').value = mensagensDoChatNpc; 
+                    document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight; 
+                    /*document.getElementById('campoDeEscritaInput').focus();*/ 
+                    document.getElementById('nomeDoChatDefault').style.color = 'black'; 
+                    document.getElementById('nomeDoChatServerLog').style.color = 'black'; 
+                    document.getElementById('nomeDoChatNpc').style.color = 'white'; 
+                    document.getElementById('campoDoChat').title ='npc'; 
+                    document.getElementById('textareaChat').title ='npc'; 
+                    datainicioinatividade = new Date();
+                });
+            }
+
             <?php
 
                 /*
@@ -4867,6 +5126,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             document.body.style.userSelect = "none";
 
             preloadContentImages();
+
+            window.addEventListener("load", addEventos);
 
             matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 51;
 
