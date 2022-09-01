@@ -34,12 +34,10 @@
             }
         </style>
         <script>
-            var funcMoverPersonagem;
-            var loop;
         </script>
     </head>
     <!-- load, keypress -->
-    <body onload="setInterval('loop()', 1000); setInterval('funcMoverPersonagem()', 10);">
+    <body>
         <div id='map'>
             
         </div>
@@ -343,6 +341,8 @@
 
         function main(){
 
+            var funcMoverPersonagem;
+            var loop;
             var utilizarIten;
             var utilizarMagia;
             var dialogo;
@@ -3032,7 +3032,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && document.getElementById('mensagem1').style.visibility == 'hidden'){if(verificarPosicaoValida(0, -1)){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 7){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 2){recompensaSacola(0,-1);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 3){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 5){ posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0]-14; posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 41 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 42 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 43 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 44){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 53){moverJangada(2); preencherImagens();}else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 71 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 72 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 73 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo("Campo-6-6", 0, -1); } direcaoDoPersonagem = 3; }
             }
 
-            funcMoverPersonagem = function (){
+funcMoverPersonagem = function() {
+    setInterval(
+            function (){
 
                 if(dataMove > new Date()){
                     return;
@@ -3204,7 +3206,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         flagMove = [false,false,false,false];
                     }
                 }
-            }
+            },
+        10
+    );
+}
 
             getRandomIntInclusive = function (min, max) {
                 min = Math.ceil(min);
@@ -3549,7 +3554,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             }
 
-            loop = function (){
+loop = function() {
+    setInterval(
+            function() {
 
                 dataLoop = new Date();
 
@@ -4028,7 +4035,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 
                 //document.getElementById('campoDeEscritaInput').focus();
 
-            }
+            },
+        1000
+    );
+}
 
             dialogo = function (){
                 var conjurarExura = false;
@@ -4804,10 +4814,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             addEventos = function(){
-                /*document.body.addEventListener("load", function(){
-                    setInterval('loop()', 1000); 
-                    setInterval('funcMoverPersonagem()', 10);
-                });*/
+                loop();
+                funcMoverPersonagem();
+                
                 document.body.addEventListener("keypress", function(){
                     pressKey(event);
                 });
