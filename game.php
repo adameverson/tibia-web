@@ -176,18 +176,18 @@
                 Outfit 4
             </button>
         </div>
-        <div id='alertRedId' class="alertRed" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
-            <!-- click -->
-            <span id='closeAlertRed' class="closebtn">&times;</span>
-            <h3>You are dead</h3>
-            <p>Ai de mim! Bravo aventureiro, você se encontrou com um triste destino. Mas não se desespere, pois os deuses lhe trará de volta ao mundo em troca de pequenos sacrifícios.</p>
-            <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
-        </div>
         <div id='alertYellowId' class="alertYellow" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
             <!-- click -->
             <span id='closeAlertYellow' class="closebtn">&times;</span>
             <h3>You are inactive</h3>
             <p>Você ficou inativo por muito tempo no jogo.</p>
+            <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
+        </div>
+        <div id='alertRedId' class="alertRed" alt='mensagem' title='mensagem' style="position:fixed; top: 500; left: 80; width: 600; font-family: 'Lucida Console', 'Courier New', monospace; font-size: x-small; visibility: hidden;">
+            <!-- click -->
+            <span id='closeAlertRed' class="closebtn">&times;</span>
+            <h3>You are dead</h3>
+            <p>Ai de mim! Bravo aventureiro, você se encontrou com um triste destino. Mas não se desespere, pois os deuses lhe trará de volta ao mundo em troca de pequenos sacrifícios.</p>
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
         <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
@@ -477,9 +477,6 @@
             var nivelDeSolo = 1;
             var outfit = "P";
 
-            var inativo = false;
-            var datainicioinatividade = new Date();
-
             var  flagEquipamento = false;
             
             var identificadorDoChat = 0;
@@ -503,9 +500,14 @@
             var ultim_hp;
             var ultim_mensgem;
             var ultim_json;
+
             var online = 1;
             var wakeup = true;
+            var inativo = false;
+            var datainicioinatividade = new Date();
             var inativoAnterior = false;
+
+            var chatScrollHeight;
 
             var flagMove = [false,false,false,false];
             var numOpcao = 0;
@@ -3996,7 +3998,10 @@ loop = function() {
                     document.getElementById('mensagemDiv3').style.textAlign = 'center';
                     document.getElementById('mensagemDiv3').style.width = 50;
                     document.getElementById('mensagemDiv3').innerHTML = hitTotal;
-                    setTimeout(function(){ document.getElementById('mensagemDiv3').innerHTML = ""; document.getElementById('mensagemDiv3').style.width = 250; }, 500);
+                    setTimeout(function(){ 
+                        document.getElementById('mensagemDiv3').innerHTML = ""; 
+                        document.getElementById('mensagemDiv3').style.width = 250;
+                        }, 500);
                 }
 
                 switch(identificadorDoChat){
@@ -4010,7 +4015,10 @@ loop = function() {
                         document.getElementById('textareaChat').value = mensagensDoChatNpc;
                         break;
                 }
-                document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
+                if(chatScrollHeight != document.getElementById('textareaChat').scrollHeight){
+                    document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
+                    chatScrollHeight = document.getElementById('textareaChat').scrollHeight;
+                }
                 
                 if((dataLoop.getMinutes() - datainicioinatividade.getMinutes()) > 0){
                     tempoinativo = dataLoop.getMinutes() - datainicioinatividade.getMinutes();
@@ -4326,7 +4334,7 @@ loop = function() {
                         setTimeout(function(){
                             mensagem = ""; document.getElementById('mensagemDiv3').innerHTML = "";
                             document.getElementById('mensagemDiv3').style.textAlign = 'left';
-                            document.getElementById('mensagemDiv3').style.left = 245;
+                            document.getElementById('mensagemDiv3').style.left = 365;
                         }, 5000);
                     }
                     document.getElementById('campoDeEscritaInput').value = "";
@@ -4963,12 +4971,13 @@ loop = function() {
                 document.getElementById('outfit4').addEventListener("click", function(){
                     outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';
                 });
-                document.getElementById('closeAlertRed').addEventListener("click", function(){
-                    document.getElementById('alertRedId').style.visibility = 'hidden'; 
-                    esconderComponentes();
-                });
                 document.getElementById('closeAlertYellow').addEventListener("click", function(){
                     document.getElementById('alertYellowId').style.visibility = 'hidden'; 
+                    esconderComponentes();
+                });
+                document.getElementById('closeAlertRed').addEventListener("click", function(){
+                    document.getElementById('alertRedId').style.visibility = 'hidden';
+                    document.getElementById('alertYellowId').style.visibility = 'hidden';
                     esconderComponentes();
                 });
                 document.getElementById('logoutOpcao2').addEventListener("click", function(){
@@ -5085,7 +5094,11 @@ loop = function() {
                     
                 });
                 document.getElementById('equipment').addEventListener("click", function(){
-                    visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
+                    if(
+                        document.getElementById('alertRedId').style.visibility == 'hidden' && 
+                        document.getElementById('alertYellowId').style.visibility == 'hidden'
+                        )
+                        visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
                 });
                 document.getElementById('story').addEventListener("click", function(){
                     if(document.getElementById('chathistoria').style.visibility == 'hidden'){
