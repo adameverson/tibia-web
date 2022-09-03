@@ -158,21 +158,21 @@
         <div id='mensagemDiv1' style='position:fixed; top: 220; left: 270; width: 300; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
-        <div id='menuopcoes' style='position:fixed; top: 330; left: 390; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+        <div id='menuopcoes' style='position:fixed; top: 330; left: 390; visibility: hidden;'>
             <!-- click -->
-            <button id='outfit1' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
+            <button id='outfit1' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 Outfit 1
             </button>
             <!-- click -->
-            <button id='outfit2' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
+            <button id='outfit2' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 Outfit 2
             </button>
             <!-- click -->
-            <button id='outfit3' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
+            <button id='outfit3' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 Outfit 3
             </button>
             <!-- click -->
-            <button id='outfit4' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none;'>
+            <button id='outfit4' style='margin: 1; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 Outfit 4
             </button>
         </div>
@@ -4888,6 +4888,9 @@ loop = function() {
             addEventos = function(){
                 loop();
                 funcMoverPersonagem();
+
+                document.onclick = hideMenu;
+                document.oncontextmenu = rightClick;
                 
                 document.body.addEventListener("keypress", function(){
                     pressKey(event);
@@ -5226,9 +5229,6 @@ loop = function() {
             ?>
 
             document.body.style.userSelect = "none";
-
-            document.onclick = hideMenu;
-            document.oncontextmenu = rightClick;
 
             preloadContentImages();
 
