@@ -7,6 +7,26 @@
      crossorigin="anonymous"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <style>
+            *::-webkit-scrollbar {
+                width: 16px;               /* width of the entire scrollbar */
+            }
+
+            *::-webkit-scrollbar-track {
+                background: #ccffff;        /* color of the tracking area */
+            }
+
+            *::-webkit-scrollbar-thumb {
+                background-color: #3CB371;    /* color of the scroll thumb */
+                border-radius: 20px;       /* roundness of the scroll thumb */
+                border: 3px solid #ccffff;  /* creates padding around scroll thumb */
+            }
+
+            *::-webkit-scrollbar-thumb:hover {
+                background-color: #8FBC8F;    /* color of the scroll thumb */
+                border-radius: 20px;       /* roundness of the scroll thumb */
+                border: 3px solid #ccffff;  /* creates padding around scroll thumb */
+            }
+
             .alertRed {
                 padding: 20px;
                 background-color: #f44336;
@@ -32,6 +52,38 @@
             .closebtn:hover {
                 color: black;
             }
+
+            .context-menu {
+                position: absolute;
+                text-align: center;
+                background: #3CB371;
+                border-radius: 15px 50px;
+                font-family: "Lucida Console", "Courier New", monospace; 
+                font-size: x-small;
+            }
+    
+            .context-menu ul {
+                padding: 0px;
+                margin: 0px;
+                min-width: 150px;
+                list-style: none;
+            }
+    
+            .context-menu ul li {
+                
+            }
+    
+            .context-menu ul li div {
+                padding-bottom: 7px;
+                padding-top: 7px;
+                text-decoration: none;
+                color: white;
+            }
+    
+            .context-menu ul li:hover {
+                background: #8FBC8F;
+                border-radius: 15px 50px;
+            }
         </style>
         <script>
         </script>
@@ -48,15 +100,15 @@
             </div>
             <div id='opcoesHistoria' title='opcoes historia' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 176; height: 20; background-color: #ccffff;'>
                 <!-- click -->
-                <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
+                <button id='opcaoPular' title='pular' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 40; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Pular
                 </button>
                 <!-- click -->
-                <button id='opcaoProxima' title='proxima' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
+                <button id='opcaoProxima' title='história' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 55; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Historia
                 </button>
                 <!-- click -->
-                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
+                <button id='opcaoNovidades' title='novidades' style='float: left; bottom: 0; left: 10; margin: 1; padding: 2; width: 75; height: 20; background-color: gray; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Novidades
                 </button>
             </div>
@@ -139,6 +191,24 @@
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
         <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
+
+        <div id="contextMenu" class="context-menu" 
+            style="display:none">
+            <ul>
+                <li>
+                    <!-- click -->
+                    <div type="submit" id='equipment' title='equipamentos' style=''>
+                        Equipamentos
+                    </div>
+                </li>
+                <li>
+                    <!-- click -->
+                    <div type="submit" id='story' title='história' style=''>
+                        História
+                    </div>
+                </li>
+            </ul>
+        </div>
 
         <!--
         <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
@@ -260,14 +330,14 @@
                     <img id='itemCampoDoParcel4' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
                 </div>
             </div>
-            <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 230; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
-                <div id='tasks' title='tasks' style='position: fixed; top: 240; right: 0; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+            <div id='campoDasTasks1' title='tasks' style='position: absolute; top: 330; left: 0; margin: 1; width: 176; height: 44; background-color: #ccffff;'>
+                <div id='tasks' title='tasks' style='position: fixed; top: 340; right: 0; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                 </div>
-                <div id='task' title='task' style='position: fixed; top: 255; right: 0; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                <div id='task' title='task' style='position: fixed; top: 355; right: 0; width: 178; height: 20; text-align: left; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
 
                 </div>
-                <div id='taskvalor' title='task' style='position: fixed; top: 255; right: 7; width: 178; height: 20; text-align: right; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
+                <div id='taskvalor' title='task' style='position: fixed; top: 355; right: 7; width: 178; height: 20; text-align: right; color: black; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
 
                 </div>
             </div>
@@ -292,13 +362,13 @@
         
             </div>
             <!-- click -->
-            <button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
+            <!--<button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 Equipamentos
-            </button>
+            </button>-->
             <!-- click -->
-            <button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
+            <!--<button type="submit" id='story' title='história' style='position: absolute; bottom: 45; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 História
-            </button>
+            </button>-->
             <!-- click -->
             <button type="submit" id='logout' title='sair' style='position: absolute; bottom: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 Sair
@@ -400,6 +470,8 @@
             var updateDadosJson;
             var readDadosJson;
             var addEventos;
+            var hideMenu;
+            var rightClick;
 
             var moverPersonagem = [0,0];
             var nivelDeSolo = 1;
@@ -4821,16 +4893,21 @@ loop = function() {
                     pressKey(event);
                 });
                 document.getElementById('opcaoPular').addEventListener("click", function(){
-                    document.getElementById('chathistoria').style.visibility = 'hidden'; datainicioinatividade = new Date();
+                    document.getElementById('chathistoria').style.visibility = 'hidden'; 
+                    datainicioinatividade = new Date();
                 });
                 document.getElementById('opcaoProxima').addEventListener("click", function(){
                     document.getElementById('textareaChatHistoria').scrollTop = 0; 
                     document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1; 
+                    document.getElementById('opcaoProxima').style.color = 'white';
+                    document.getElementById('opcaoNovidades').style.color = 'black';
                     datainicioinatividade = new Date();
                 });
                 document.getElementById('opcaoNovidades').addEventListener("click", function(){
                     document.getElementById('textareaChatHistoria').scrollTop = 0; 
                     document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoriaNovidades1; 
+                    document.getElementById('opcaoProxima').style.color = 'black';
+                    document.getElementById('opcaoNovidades').style.color = 'white';
                     datainicioinatividade = new Date();
                 });
                 document.getElementById('opcao1').addEventListener("click", function(){
@@ -5063,6 +5140,22 @@ loop = function() {
                     datainicioinatividade = new Date();
                 });
             }
+    
+            hideMenu = function () {
+                document.getElementById(
+                    "contextMenu").style.display = "none"
+            }
+    
+            rightClick = function (e) {
+                e.preventDefault();
+
+                var menu = document
+                    .getElementById("contextMenu")
+                    
+                menu.style.display = 'block';
+                menu.style.left = e.pageX + "px";
+                menu.style.top = e.pageY + "px";
+            }
 
             <?php
 
@@ -5133,6 +5226,9 @@ loop = function() {
             ?>
 
             document.body.style.userSelect = "none";
+
+            document.onclick = hideMenu;
+            document.oncontextmenu = rightClick;
 
             preloadContentImages();
 

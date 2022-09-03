@@ -171,6 +171,36 @@
                 font-family: "Lucida Console", "Courier New", monospace;
                 margin-bottom: 50px; 
             }
+
+            .context-menu {
+                position: absolute;
+                text-align: center;
+                background: lightgray;
+                border: 1px solid black;
+            }
+    
+            .context-menu ul {
+                padding: 0px;
+                margin: 0px;
+                min-width: 150px;
+                list-style: none;
+            }
+    
+            .context-menu ul li {
+                padding-bottom: 7px;
+                padding-top: 7px;
+                border: 1px solid black;
+            }
+    
+            .context-menu ul li a {
+                text-decoration: none;
+                color: white;
+            }
+    
+            .context-menu ul li:hover {
+                background: darkgray;
+            }
+            
         </style>
         <script>
             function menuCheck(id){
@@ -233,9 +263,53 @@
             function code(){
                 document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v1.26.113</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
+
+            document.onclick = hideMenu;
+            document.oncontextmenu = rightClick;
+    
+            function hideMenu() {
+                document.getElementById(
+                    "contextMenu").style.display = "none"
+            }
+    
+            function rightClick(e) {
+                e.preventDefault();
+    
+                if (document.getElementById(
+                    "contextMenu").style.display == "block")
+                    hideMenu();
+                else {
+                    var menu = document
+                        .getElementById("contextMenu")
+                        
+                    menu.style.display = 'block';
+                    menu.style.left = e.pageX + "px";
+                    menu.style.top = e.pageY + "px";
+                }
+            }
         </script>
     </head>
     <body style="background-color: #ccffff;">
+
+        <div id="contextMenu" class="context-menu" 
+            style="display:none">
+            <ul>
+                <li><a id="op1" class="active" href="#home" onclick="menuCheck('op1'); home();">Home</a></li>
+                <li><a id="op2" href="#news" onclick="menuCheck('op2'); news();">News</a></li>
+                <li><a id="op3" href="#story" onclick="menuCheck('op3'); story();">Story</a></li>
+                <li><a id="op4" href="#photos" onclick="menuCheck('op4'); photos();">Photos</a></li>
+                <li><a id="op5" href="#quests" onclick="menuCheck('op5'); quests();">Quests</a></li>
+                <li><a id="op6" href="#tasks" onclick="menuCheck('op6'); tasks();">Tasks</a></li>
+                <li><a id="op7" href="#monsters" onclick="menuCheck('op7'); monsters();">Monsters</a></li>
+                <li><a id="op8" href="#spells" onclick="menuCheck('op8'); spells();">Spells</a></li>
+                <li><a id="op9" href="#items" onclick="menuCheck('op9'); items();">Items</a></li>
+                <li><a id="op10" href="#fields" onclick="menuCheck('op10'); fields();">Fields</a></li>
+                <li><a id="op11" href="#mechanics" onclick="menuCheck('op11'); mechanics();">Mechanics</a></li>
+                <li><a id="op12" href="#movies" onclick="menuCheck('op12'); movies();">Movies</a></li>
+                <li><a id="op13" href="#downloads" onclick="menuCheck('op13'); downloads();">Download</a></li>
+                <li><a id="op14" href="#code" onclick="menuCheck('op14'); code();">Code</a></li>
+            </ul>
+        </div>
 
         <ul>
             <li><a id="op1" class="active" href="#home" onclick="menuCheck('op1'); home();">Home</a></li>
