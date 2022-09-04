@@ -381,7 +381,7 @@
             </button>-->
         </div>
 
-        <div id='chat' title='chat' style='position: fixed; top: 530; right: 20; width: 278; height:243;'>
+        <div id='chat' title='chat' style='position: fixed; top: 520; right: 20; width: 278; height:243;'>
             <div id='default' title='chat' style='position: absolute; top: 0; left: 0; margin: 1; width: 276; height: 44;'>
                 <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 274; height: 195;'>
                     <textarea id="textareaChat" name="textareaChat" title='default' rows="12" cols="33" style="resize: none;" disabled></textarea>
@@ -744,7 +744,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             var posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo + 2),(colunaInicio + 2)];
             var resolucaoLarguraAltura = [0, 0];
-            if(window.innerWidth >= 1085)
+            if(window.innerWidth >= 1200)
                 resolucaoLarguraAltura = [15, 23];
             else
                 resolucaoLarguraAltura = [15, 19];
@@ -1639,7 +1639,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;
                 }
                 visibilityEquipamentos(false);
-                document.getElementById('mensagem1').src = 'imagens/imagemFalaVoceJaTemBless.png';
+                document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
+                setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
+                document.getElementById('mensagem1').src = 'imagens/imagemFalaVazia.png';
                 document.getElementById('mensagem1').alt = 'mensagem';
                 document.getElementById('mensagem1').title = 'mensagem';
                 document.getElementById('mensagem1').style.visibility = 'visible';
@@ -5188,7 +5190,7 @@ loop = function() {
                 document.getElementById('fala1').style.left = (((posicaoDoPersonagemNaTela[1]-1) * 60) + 5);
                 document.getElementById('mensagemDiv3').style.top = (((posicaoDoPersonagemNaTela[0]-1) * 60) + 15);
                 document.getElementById('mensagemDiv3').style.left = (((posicaoDoPersonagemNaTela[1]-1) * 60) + 5);
-                document.getElementById('mensagemDiv2').style.top = (((resolucaoLarguraAltura[0] - 2) * 60) - 20);
+                document.getElementById('mensagemDiv2').style.top = (((resolucaoLarguraAltura[0] - 2) * 60) - 30);
                 document.getElementById('mensagemDiv2').style.left = ((Math.trunc(resolucaoLarguraAltura[1] / 3)) * 60);
                 document.getElementById('mensagemDiv1').style.top = ((Math.trunc(resolucaoLarguraAltura[0] / 3) - 1) * 60);
                 document.getElementById('mensagemDiv1').style.left = ((Math.trunc(resolucaoLarguraAltura[1] / 3)) * 60);
