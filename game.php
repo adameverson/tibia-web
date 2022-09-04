@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div id='conversa' title='conversa' style='position: fixed; top: 160; left: 600; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
+        <div id='conversa' title='conversa' style='position: fixed; top: 300; left: 600; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <!-- click -->
             <button type="submit" id='opcao1' title='opcao1' style='top: 0; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 15px 50px; border: none; visibility: hidden;'>
                 Opcao 1
@@ -681,8 +681,8 @@ var linhaInicioSubsolo = (0 + telaAreaMax[0]); //Mapa subsolo
 var linhaInicioTerreo = (matrizDoMapaSubsolo.length + telaAreaMax[0]); //Mapa terreo
 var linhaInicioPvp = (matrizDoMapaSubsolo.length + matrizDoMapaTerreo.length); //Mapa pvp
 
-matrizDoMapa = [];
-matrizDoMapaLength = (
+var matrizDoMapa = [];
+var matrizDoMapaLength = (
     matrizDoMapaSubsolo.length + 
     matrizDoMapaTerreo.length +
     matrizDoMapaPvp.length
@@ -698,7 +698,7 @@ for(let i = 0; i < matrizDoMapaPvp.length; i++){
     matrizDoMapa.push(matrizDoMapaPvp[i].slice());
 }
 
-matrizDoMapaOriginal = [];
+var matrizDoMapaOriginal = [];
 
 for(let i = 0; i < matrizDoMapa.length; i++){
     matrizDoMapaOriginal.push(matrizDoMapa[i].slice());
@@ -706,7 +706,7 @@ for(let i = 0; i < matrizDoMapa.length; i++){
 
 matrizDoMapaOriginal[(linhaInicioTerreo + 31)][(colunaInicio + 19)] = 92;
 
-matrizCriaturasVida = [];
+var matrizCriaturasVida = [];
 
 for(let i = 0; i < matrizDoMapa.length; i++){
     matrizCriaturasVida.push(matrizDoMapa[i].slice());
