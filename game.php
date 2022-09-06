@@ -90,7 +90,7 @@
     </head>
     <!-- load, keypress -->
     <body>
-        <div id='map'>
+        <div id='map' style="position: fixed;">
             
         </div>
 
@@ -820,32 +820,27 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var dadosResposta = "vazio";
 
             //Variaveis Map
-            let campo = [0,0];
+            //let campo = [0,0];
             let columnLeft = -60;
             let intoLeft = -55;
+            var arrayColunasElementos = [];
+            var arrayColunasTela = [];
+            var arrayLinhasTela;
 
             moveMap = function(param, direcao){
                 
                 switch(direcao){
                     case 0:
-                        for(let i = 0; i < resolucaoLarguraAltura[1]; i++){
-					        document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] - (-param);
-				        }
+                        document.getElementById("map").style.top = document.getElementById("map").style.top.split('p')[0] - (-param);
                         break;
                     case 1:
-                        for(let i = 0; i < resolucaoLarguraAltura[1]; i++){
-					        document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] - param;
-				        }
+                        document.getElementById("map").style.left = document.getElementById("map").style.left.split('p')[0] - param;
                         break;
                     case 2:
-                        for(let i = 0; i < resolucaoLarguraAltura[1]; i++){
-					        document.getElementById("column" + i).style.top = document.getElementById("column" + i).style.top.split('p')[0] - param;
-				        }
+                        document.getElementById("map").style.top = document.getElementById("map").style.top.split('p')[0] - param;
                         break;
                     case 3:
-                        for(let i = 0; i < resolucaoLarguraAltura[1]; i++){
-					        document.getElementById("column" + i).style.left = document.getElementById("column" + i).style.left.split('p')[0] - (-param);
-				        }
+                        document.getElementById("map").style.left = document.getElementById("map").style.left.split('p')[0] - (-param);
                         break;
                 }
             }
@@ -924,8 +919,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             newColumn = function(){
 
 				const column = document.createElement("div");
-				column.setAttribute("id", "column" + campo[1]);
-				column.style.position = "fixed";
+                arrayColunasElementos.push(column);
+				column.setAttribute("id", "column" + arrayColunasElementos.indexOf(column));
+				column.style.position = "absolute";
 				column.style.top = "-60";
 				column.style.left = columnLeft;
 				column.style.width = "60";
@@ -933,24 +929,41 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 				document.getElementById("map").appendChild(column);
 	
-				campo[0] = 0;
+				//campo[0] = 0;
 				let nameTop = -55;
 				let barraHpTop = -59;
 				let messageTop = -45;
+                arrayLinhasTela = new Array();
+                arrayColunasTela.push(arrayLinhasTela);
 				for(let i = 0; i < resolucaoLarguraAltura[0]; i++){
-					const image = document.createElement("img");
-					image.setAttribute("id", "campo" + "-" + campo[0] + "-" + campo[1]);
+
+					let image = document.createElement("img");
+                    arrayLinhasTela.push(image);
+					image.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
 					image.src = "/imagens/imagemCampo.png";
 					image.alt = "campo";
 					image.title = "campo";
 					image.style.width = "100%"; 
 					image.style.height = "100%";
-					image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-posicaoDoPersonagemNaTela[0]),(parseInt(this.id.split('-', 3)[2])-posicaoDoPersonagemNaTela[1])]; };
-				
-					document.getElementById("column" + campo[1]).appendChild(image);
+					//image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-posicaoDoPersonagemNaTela[0]),(parseInt(this.id.split('-', 3)[2])-posicaoDoPersonagemNaTela[1])]; };
+                    image.onclick = function(){ 
+                        let linhaTela;
+                        let colunaTela;
+                        for(let i = 0; i < arrayColunasTela.length; i++){
+                            if(arrayColunasTela[i].indexOf(this) != -1){
+                                linhaTela = arrayColunasTela[i].indexOf(this);
+                                colunaTela = i;
+                                break;
+                            }
+                        }
+                        //console.log(linhaTela + " " + colunaTela);
+                        moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
+                    };
+
+					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(image);
 
 					const name = document.createElement("div");
-					name.setAttribute("id", "nomeCampo" + "-" + campo[0] + "-" + campo[1]);
+					name.setAttribute("id", "nomeCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
 					name.style.position = "fixed";
 					name.style.top = nameTop;
 					name.style.left = intoLeft;
@@ -959,10 +972,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					name.style.fontSize = "small";
 					name.style.visibility = "hidden";
 				
-					document.getElementById("column" + campo[1]).appendChild(name);
+					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(name);
 
 					const barraHpVazia = document.createElement("div");
-					barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + campo[0] + "-" + campo[1]);
+					barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
 					barraHpVazia.style.position = "fixed";
 					barraHpVazia.style.top = barraHpTop;
 					barraHpVazia.style.left = intoLeft;
@@ -971,10 +984,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					barraHpVazia.style.backgroundColor = "black";
 					barraHpVazia.style.visibility = "hidden";
 				
-					document.getElementById("column" + campo[1]).appendChild(barraHpVazia);
+					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(barraHpVazia);
 
 					const barraHp = document.createElement("div");
-					barraHp.setAttribute("id", "barraHpCampo" + "-" + campo[0] + "-" + campo[1]);
+					barraHp.setAttribute("id", "barraHpCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
 					barraHp.style.position = "fixed";
 					barraHp.style.top = barraHpTop;
 					barraHp.style.left = intoLeft;
@@ -983,10 +996,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					barraHp.style.backgroundColor = "mediumseagreen";
 					barraHp.style.visibility = "hidden";
 				
-					document.getElementById("column" + campo[1]).appendChild(barraHp);
+					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(barraHp);
 
 					const message = document.createElement("div");
-					message.setAttribute("id", "mensagemDivCampo" + "-" + campo[0] + "-" + campo[1]);
+					message.setAttribute("id", "mensagemDivCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
 					message.style.position = "fixed";
 					message.style.top = messageTop;
 					message.style.left = intoLeft;
@@ -996,14 +1009,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					message.style.fontFamily = "Lucida Console,Courier New,monospace";
 					message.style.fontSize = "small";
 				
-					document.getElementById("column" + campo[1]).appendChild(message);
+					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(message);
 
-					campo[0] = campo[0] + 1;
+					//campo[0] = campo[0] + 1;
 					nameTop = nameTop + 60;
 					barraHpTop = barraHpTop + 60;
 					messageTop = messageTop + 60;
 				}
-				campo[1] = campo[1] + 1;
+				//campo[1] = campo[1] + 1;
 				columnLeft = columnLeft + 60;
 				intoLeft = intoLeft + 60;
 			}
@@ -2914,8 +2927,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     quadrosDeAnimacaoInterno--;
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
+                
+                setTimeout(function(){
+                    document.getElementById('map').style.visibility = "hidden"; 
 
-                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 0); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                    moveMap(-60, 0); 
+                    preencherImagens();
+
+                    document.getElementById('map').style.visibility = "visible"; 
+                }, esperaPorQuadroInterno);
             }
 
             direita = function (){
@@ -2930,7 +2950,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 1); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ 
+                    document.getElementById('map').style.visibility = "hidden"; 
+
+                    moveMap(-60, 1); 
+                    preencherImagens(); 
+
+                    document.getElementById('map').style.visibility = "visible"; 
+                }, esperaPorQuadroInterno);
             }
 
             baixo = function (){
@@ -2945,7 +2972,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 2); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ 
+                    document.getElementById('map').style.visibility = "hidden"; 
+
+                    moveMap(-60, 2); 
+                    preencherImagens(); 
+
+                    document.getElementById('map').style.visibility = "visible"; 
+                }, esperaPorQuadroInterno);
             }
 
             esquerda = function (){
@@ -2960,7 +2994,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     esperaPorQuadroInterno = esperaPorQuadroInterno + esperaPorQuadro;
                 }
 
-                setTimeout(function(){ document.getElementById('map').style.visibility = "hidden"; moveMap(-60, 3); preencherImagens(); document.getElementById('map').style.visibility = "visible"; }, esperaPorQuadroInterno);
+                setTimeout(function(){ 
+                    document.getElementById('map').style.visibility = "hidden"; 
+
+                    moveMap(-60, 3); 
+                    preencherImagens(); 
+
+                    document.getElementById('map').style.visibility = "visible"; 
+                }, esperaPorQuadroInterno);
             }
             
             ataqueCriatura = function (distanciaDoPersonagemLinha, distanciaDoPersonagemColuna, hitDecrescimo, hitAcrescimo, morto, nomeCriatura){
