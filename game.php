@@ -84,6 +84,24 @@
                 background: #8FBC8F;
                 border-radius: 15px 50px;
             }
+
+            #fs-toggle:not(:fullscreen) {
+                background-color: #ccffff;
+                padding: 7px;
+                border-radius: 15px 50px;
+                font-family: "Lucida Console", "Courier New", monospace; 
+                font-size: x-small;
+                opacity: 0.5;
+            }
+
+            #fs-toggle:fullscreen {
+                background-color: #ccffff;
+                padding: 7px;
+                border-radius: 15px 50px;
+                font-family: "Lucida Console", "Courier New", monospace; 
+                font-size: x-small;
+                opacity: 0.5;
+            }
         </style>
         <script>
         </script>
@@ -93,6 +111,8 @@
         <div id='map' style="position: fixed;">
             
         </div>
+
+        <div id="fs-toggle" style='position: fixed; top: 10; left: 300;'>Fullscreen</div>
 
         <div id='chathistoria' title='historia' style='position: fixed; top:75; left: 0; width: 178; height:414; opacity: 1; visibility: hidden;'>
             <div id='campoDoChatHistoria' title='historia' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 390;'>
@@ -211,6 +231,12 @@
                     <!-- click -->
                     <div type="submit" id='logout' title='sair' style=''>
                         Sair
+                    </div>
+                </li>
+                <li>
+                    <!-- click -->
+                    <div type="submit" id='fullscreen' title='tela cheia' style=''>
+                        Tela Cheia
                     </div>
                 </li>
             </ul>
@@ -381,10 +407,10 @@
             </button>-->
         </div>
 
-        <div id='chat' title='chat' style='position: fixed; top: 520; right: 20; width: 278; height:243;'>
+        <div id='chat' title='chat' style='position: fixed; top: 600; right: 20; width: 278; height:243;'>
             <div id='default' title='chat' style='position: absolute; top: 0; left: 0; margin: 1; width: 276; height: 44;'>
-                <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 274; height: 195;'>
-                    <textarea id="textareaChat" name="textareaChat" title='default' rows="12" cols="33" style="resize: none;" disabled></textarea>
+                <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 274; height: 100;'>
+                    <textarea id="textareaChat" name="textareaChat" title='default' rows="6" cols="33" style="resize: none;" disabled></textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 276; height: 22;'>
                     <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100"  size="31" placeholder="Digite aqui..." style="opacity: 0.6;"></input>
@@ -417,6 +443,7 @@
 
         function main(){
 
+            var openFullscreen;
             var funcMoverPersonagem;
             var loop;
             var utilizarIten;
@@ -826,6 +853,26 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var arrayColunasElementos = [];
             var arrayColunasTela = [];
             var arrayLinhasTela;
+
+            //screen
+            var flagFullScreen = false;
+            var elem = document.body;
+
+            openFullscreen = function () {
+                if(!flagFullScreen){
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen();
+                    } else if (elem.webkitRequestFullscreen) { /* Safari */
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.msRequestFullscreen) { /* IE11 */
+                        elem.msRequestFullscreen();
+                    }
+                    flagFullScreen = true;
+                } else {
+                    document.exitFullscreen();
+                    flagFullScreen = false;
+                }
+            }
 
             moveMap = function(param, direcao){
                 
@@ -5159,6 +5206,12 @@ loop = function() {
                         document.getElementById('logoutOpcao2').style.visibility = 'hidden';
                     } 
                     datainicioinatividade = new Date();
+                });
+                document.getElementById('fullscreen').addEventListener("click", function(){
+                    openFullscreen();
+                });
+                document.getElementById('fs-toggle').addEventListener("click", function(){
+                    openFullscreen();
                 });
                 document.getElementById('nomeDoChatDefault').addEventListener("click", function(){
                     identificadorDoChat = 0; 
