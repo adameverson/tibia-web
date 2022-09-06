@@ -108,7 +108,7 @@
     </head>
     <!-- load, keypress -->
     <body>
-        <div id='map' style="position: fixed;">
+        <div id='map' style="position: fixed; top: 0; left: 0;">
             
         </div>
 
@@ -948,7 +948,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     if(preloadContent == imagesPreload.length){
                         //console.log("carregou todas as imagens necessárias");
-                        resolucao();
                     }
                 }
 
@@ -5372,6 +5371,8 @@ loop = function() {
                 $conn->close();
                 
             ?>
+
+            resolucao();
 
             document.body.style.userSelect = "none";
 
