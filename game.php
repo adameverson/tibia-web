@@ -5016,8 +5016,8 @@ loop = function() {
                 loop();
                 funcMoverPersonagem();
 
-                //document.onclick = hideMenu;
-                //document.oncontextmenu = rightClick;
+                document.onclick = hideMenu;
+                document.oncontextmenu = rightClick;
                 
                 document.body.addEventListener("keypress", function(){
                     pressKey(event);
