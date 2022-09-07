@@ -849,7 +849,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             //Variaveis Map
             //let campo = [0,0];
             let columnLeft = -60;
-            let intoLeft = -55;
+            //let intoLeft = -55;
             var arrayColunasElementos = [];
             var arrayColunasTela = [];
             var arrayLinhasTela;
@@ -968,31 +968,31 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 arrayColunasElementos.push(column);
 				column.setAttribute("id", "column" + arrayColunasElementos.indexOf(column));
 				column.style.position = "absolute";
-				column.style.top = "-60";
+				//column.style.top = "-60";
 				column.style.left = columnLeft;
-				column.style.width = "60";
-				column.style.height = "60";
+				//column.style.width = "60";
+				//column.style.height = "60";
 
 				document.getElementById("map").appendChild(column);
 	
 				//campo[0] = 0;
-				let nameTop = -55;
-				let barraHpTop = -59;
-				let messageTop = -45;
+				//let nameTop = -55;
+				//let barraHpTop = -59;
+				//let messageTop = -45;
+                let rowTop = -60;
                 arrayLinhasTela = new Array();
                 arrayColunasTela.push(arrayLinhasTela);
 				for(let i = 0; i < resolucaoLarguraAltura[0]; i++){
 
-					let image = document.createElement("img");
-                    arrayLinhasTela.push(image);
-					image.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
-					image.src = "/imagens/imagemCampo.png";
-					image.alt = "campo";
-					image.title = "campo";
-					image.style.width = "100%"; 
-					image.style.height = "100%";
-					//image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-posicaoDoPersonagemNaTela[0]),(parseInt(this.id.split('-', 3)[2])-posicaoDoPersonagemNaTela[1])]; };
-                    image.onclick = function(){ 
+                    let field = document.createElement("div");
+                    column.appendChild(field);
+                    arrayLinhasTela.push(field);
+                    field.style.position = "absolute";
+                    //field.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+                    field.style.width = "60";
+				    field.style.height = "60";
+                    field.style.top = rowTop;
+                    field.onclick = function(){ 
                         let linhaTela;
                         let colunaTela;
                         for(let i = 0; i < arrayColunasTela.length; i++){
@@ -1006,65 +1006,98 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
                     };
 
-					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(image);
+					let image = document.createElement("img");
+                    field.appendChild(image);
+                    //arrayLinhasTela.push(image);
+				    image.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					image.src = "/imagens/imagemCampo.png";
+					image.alt = "campo";
+					image.title = "campo";
+					image.style.width = "100%"; 
+					image.style.height = "100%";
+					//image.onclick = function(){ moverPersonagem = [(parseInt(this.id.split('-', 3)[1])-posicaoDoPersonagemNaTela[0]),(parseInt(this.id.split('-', 3)[2])-posicaoDoPersonagemNaTela[1])]; };
+                    /*image.onclick = function(){ 
+                        let linhaTela;
+                        let colunaTela;
+                        for(let i = 0; i < arrayColunasTela.length; i++){
+                            if(arrayColunasTela[i].indexOf(this) != -1){
+                                linhaTela = arrayColunasTela[i].indexOf(this);
+                                colunaTela = i;
+                                break;
+                            }
+                        }
+                        //console.log(linhaTela + " " + colunaTela);
+                        moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
+                    };*/
+
+					//arrayColunasElementos[arrayColunasElementos.length-1].appendChild(image);
 
 					const name = document.createElement("div");
-					name.setAttribute("id", "nomeCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
-					name.style.position = "fixed";
-					name.style.top = nameTop;
-					name.style.left = intoLeft;
+                    field.appendChild(name);
+					name.setAttribute("id", "nomeCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+                    name.style.position = "absolute";
+					//name.style.position = "fixed";
+					name.style.top = "5";
+					name.style.left = "5";
 					name.style.color = "mediumseagreen";
 					name.style.fontFamily = "Lucida Console,Courier New,monospace";
 					name.style.fontSize = "small";
 					name.style.visibility = "hidden";
 				
-					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(name);
+					//arrayColunasElementos[arrayColunasElementos.length-1].appendChild(name);
 
 					const barraHpVazia = document.createElement("div");
-					barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
-					barraHpVazia.style.position = "fixed";
-					barraHpVazia.style.top = barraHpTop;
-					barraHpVazia.style.left = intoLeft;
+                    field.appendChild(barraHpVazia);
+					barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+                    barraHpVazia.style.position = "absolute";
+					//barraHpVazia.style.position = "fixed";
+					barraHpVazia.style.top = "1";
+					barraHpVazia.style.left = "5";
 					barraHpVazia.style.width = "50"; 
 					barraHpVazia.style.height = "3";
 					barraHpVazia.style.backgroundColor = "black";
 					barraHpVazia.style.visibility = "hidden";
 				
-					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(barraHpVazia);
+					//arrayColunasElementos[arrayColunasElementos.length-1].appendChild(barraHpVazia);
 
 					const barraHp = document.createElement("div");
-					barraHp.setAttribute("id", "barraHpCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
-					barraHp.style.position = "fixed";
-					barraHp.style.top = barraHpTop;
-					barraHp.style.left = intoLeft;
+                    field.appendChild(barraHp);
+					barraHp.setAttribute("id", "barraHpCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					barraHp.style.position = "absolute";
+                    //barraHp.style.position = "fixed";
+					barraHp.style.top = "1";
+					barraHp.style.left = "5";
 					barraHp.style.width = "50"; 
 					barraHp.style.height = "3";
 					barraHp.style.backgroundColor = "mediumseagreen";
 					barraHp.style.visibility = "hidden";
 				
-					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(barraHp);
+					//arrayColunasElementos[arrayColunasElementos.length-1].appendChild(barraHp);
 
 					const message = document.createElement("div");
-					message.setAttribute("id", "mensagemDivCampo" + "-" + arrayLinhasTela.indexOf(image) + "-" + arrayColunasElementos.indexOf(column));
-					message.style.position = "fixed";
-					message.style.top = messageTop;
-					message.style.left = intoLeft;
+                    field.appendChild(message);
+					message.setAttribute("id", "mensagemDivCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					message.style.position = "absolute";
+                    //message.style.position = "fixed";
+					message.style.top = "15";
+					message.style.left = "5";
 					message.style.width = "250";
 					message.style.textAlign = "left";
 					message.style.color = "yellow";
 					message.style.fontFamily = "Lucida Console,Courier New,monospace";
 					message.style.fontSize = "small";
 				
-					arrayColunasElementos[arrayColunasElementos.length-1].appendChild(message);
+					//arrayColunasElementos[arrayColunasElementos.length-1].appendChild(message);
 
 					//campo[0] = campo[0] + 1;
-					nameTop = nameTop + 60;
-					barraHpTop = barraHpTop + 60;
-					messageTop = messageTop + 60;
+					//nameTop = nameTop + 60;
+					//barraHpTop = barraHpTop + 60;
+					//messageTop = messageTop + 60;
+                    rowTop = rowTop + 60;
 				}
 				//campo[1] = campo[1] + 1;
 				columnLeft = columnLeft + 60;
-				intoLeft = intoLeft + 60;
+				//intoLeft = intoLeft + 60;
 			}
 
             updateDadosJson = function(){
@@ -4983,8 +5016,8 @@ loop = function() {
                 loop();
                 funcMoverPersonagem();
 
-                document.onclick = hideMenu;
-                document.oncontextmenu = rightClick;
+                //document.onclick = hideMenu;
+                //document.oncontextmenu = rightClick;
                 
                 document.body.addEventListener("keypress", function(){
                     pressKey(event);
