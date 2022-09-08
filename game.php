@@ -906,7 +906,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     "imagens/imagemPocaoHP.png", "imagens/imagemCorda.png", "imagens/imagemPa.png",
                     "imagens/Ultimate_Healing.png", "imagens/Restoration.png", "imagens/Berserk.png", "imagens/Fierce_Berserk.png",
                     "imagens/Spike_Sword_Equip.png", "imagens/Crown_Shield_Equip.png",
-                    "imagens/imagemFalaItemVazio.png", "imagens/imagemFalaDeposit.png",
+                    "imagens/imagemFalaVazia.png", "imagens/imagemFalaItemVazio.png", "imagens/imagemFalaDeposit.png",
                     /*"imagens/imagemCampo.png", "imagens/imagemLixeira.png", "imagens/imagemSacola.png", "imagens/imagemSacola.png",
                     "imagens/imagemFundoBuraco.png", "imagens/imagemBuracoAberto.png", "imagens/imagemBuracoFechado.png", "imagens/imagemParcel.png",
                     "imagens/imagemSnake.png", "imagens/imagemSnakeAtacando.png", "imagens/imagemSnakeMorta.png", "imagens/imagemNpcDeDireitaCampo.png",
