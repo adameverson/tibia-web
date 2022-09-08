@@ -1032,6 +1032,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 					//arrayColunasElementos[arrayColunasElementos.length-1].appendChild(image);
 
+                    let image2 = document.createElement("img");
+                    field.appendChild(image2);
+                    //arrayLinhasTela.push(image);
+				    image2.setAttribute("id", "imagem" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					image2.style.position = "absolute";
+                    image2.src = "/imagens/imagemFalaVazia.png";
+					image2.alt = "campo";
+					image2.title = "campo";
+                    image2.style.top = "5";
+					image2.style.left = "5";
+					image2.style.width = "50"; 
+					image2.style.height = "50";
+
 					const name = document.createElement("div");
                     field.appendChild(name);
 					name.setAttribute("id", "nomeCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
@@ -2563,12 +2576,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             auxPreencherImagens = function (i, j, caminhoImagem, campo){
                 let baseCampo = "campo" + campo;
+                let imagemCampo = "imagem" + campo;
                 let nomeCampo = "nomeCampo" + campo;
                 let barraHpCampo = "barraHpCampo" + campo;
                 let barraHpVaziaCampo = "barraHpVaziaCampo" + campo;
                 
                 document.getElementById(baseCampo).src = caminhoImagem;
                 document.getElementById(baseCampo).title = "campo";
+                document.getElementById(imagemCampo).style.visibility = "hidden";
                 document.getElementById(nomeCampo).style.visibility = "hidden";
                 document.getElementById(barraHpCampo).style.visibility = "hidden";
                 document.getElementById(barraHpVaziaCampo).style.visibility = "hidden";
@@ -2588,8 +2603,50 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[i][j] == 88 ||
                     matrizDoMapa[i][j] == 89 ||
                     matrizDoMapa[i][j] == 90 ||
-                    matrizDoMapa[i][j] == 91
+                    matrizDoMapa[i][j] == 91 ||
+                    matrizDoMapa[i][j] == 10 ||
+                    matrizDoMapa[i][j] == 18 ||
+                    matrizDoMapa[i][j] == 21 ||
+                    matrizDoMapa[i][j] == 47 ||
+                    matrizDoMapa[i][j] == 50 ||
+                    matrizDoMapa[i][j] == 4 ||
+                    matrizDoMapa[i][j] == 5 ||
+                    matrizDoMapa[i][j] == 6 ||
+                    matrizDoMapa[i][j] == 7
                 ){
+                    if(matrizDoMapa[i][j] == 10){
+
+                        auxPreencherImagensCriaturas("Snake", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+                        
+                    }else if(matrizDoMapa[i][j] == 18){
+
+                        auxPreencherImagensCriaturas("Dragon", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+
+                    }else if(matrizDoMapa[i][j] == 21){
+
+                        auxPreencherImagensCriaturas("Mammoth", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+
+                    }else if(matrizDoMapa[i][j] == 47){
+
+                        auxPreencherImagensCriaturas("Spider", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+
+                    }else if(matrizDoMapa[i][j] == 50){
+
+                        auxPreencherImagensCriaturas("Orc Shaman", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+
+                    }else if(matrizDoMapa[i][j] == 4){
+                        document.getElementById(baseCampo).alt = "terra";
+                        document.getElementById(baseCampo).title = "terra";
+                    }else if(matrizDoMapa[i][j] == 5){
+                        document.getElementById(baseCampo).alt = "buraco";
+                        document.getElementById(baseCampo).title = "buraco";
+                    }else if(matrizDoMapa[i][j] == 6){
+                        document.getElementById(baseCampo).alt = "buraco";
+                        document.getElementById(baseCampo).title = "buraco";
+                    }else if(matrizDoMapa[i][j] == 7){
+                        document.getElementById(baseCampo).alt = "caixa";
+                        document.getElementById(baseCampo).title = "caixa";
+                    }
                     for(let k = 0; k < dadosResposta.players.length; k++){
                         if(dadosResposta.players[k].username != username && dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
 
@@ -2602,6 +2659,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             lvl--;
                             document.getElementById(baseCampo).alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                             document.getElementById(baseCampo).title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                            document.getElementById(imagemCampo).alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                            document.getElementById(imagemCampo).title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                             document.getElementById(nomeCampo).innerHTML = dadosResposta.players[k].username;
 
                             let xpercent = ( dadosResposta.players[k].hp * 100 / (((lvl-1)* 15) + 176) );
@@ -2618,6 +2677,69 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                             document.getElementById(barraHpCampo).style.width = 50 * xpercent / 100;
 
+                            if(dadosResposta.players[k].outfit == "M"){
+                                switch(dadosResposta.players[k].direcao){
+                                    case 0:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeCostas.png";
+                                        break;
+                                    case 1:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeDireita.png";
+                                        break;
+                                    case 2:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeFrente.png";
+                                        break;
+                                    case 3:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeEsquerda.png";
+                                        break;
+                                }
+                            }else if(dadosResposta.players[k].outfit == "F"){
+                                switch(dadosResposta.players[k].direcao){
+                                    case 0:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeCostasF.png";
+                                        break;
+                                    case 1:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeDireitaF.png";
+                                        break;
+                                    case 2:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeFrenteF.png";
+                                        break;
+                                    case 3:
+                                        document.getElementById(imagemCampo).src = "imagens/imagemPersonagemDeEsquerdaF.png";
+                                        break;
+                                }
+                            }else if(dadosResposta.players[k].outfit == "P"){
+                                switch(dadosResposta.players[k].direcao){
+                                    case 0:
+                                        document.getElementById(imagemCampo).src = "imagens/person2.png";
+                                        break;
+                                    case 1:
+                                        document.getElementById(imagemCampo).src = "imagens/person4.png";
+                                        break;
+                                    case 2:
+                                        document.getElementById(imagemCampo).src = "imagens/person1.png";
+                                        break;
+                                    case 3:
+                                        document.getElementById(imagemCampo).src = "imagens/person3.png";
+                                        break;
+                                }
+                            }else if(dadosResposta.players[k].outfit == "W"){
+                                switch(dadosResposta.players[k].direcao){
+                                    case 0:
+                                        document.getElementById(imagemCampo).src = "imagens/personF2.png";
+                                        break;
+                                    case 1:
+                                        document.getElementById(imagemCampo).src = "imagens/personF4.png";
+                                        break;
+                                    case 2:
+                                        document.getElementById(imagemCampo).src = "imagens/personF1.png";
+                                        break;
+                                    case 3:
+                                        document.getElementById(imagemCampo).src = "imagens/personF3.png";
+                                        break;
+                                }
+                            }
+
+                            document.getElementById(imagemCampo).style.visibility = "visible";
                             document.getElementById(nomeCampo).style.visibility = "visible";
                             document.getElementById(barraHpCampo).style.visibility = "visible";
                             document.getElementById(barraHpVaziaCampo).style.visibility = "visible";
@@ -2640,23 +2762,23 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }
                         }
                     }
-                }else if(matrizDoMapa[i][j] == 8 || matrizDoMapa[i][j] == 9 || matrizDoMapa[i][j] == 10){
+                }else if(matrizDoMapa[i][j] == 8 || matrizDoMapa[i][j] == 9){
 
                     auxPreencherImagensCriaturas("Snake", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
                     
-                }else if(matrizDoMapa[i][j] == 16 || matrizDoMapa[i][j] == 17 || matrizDoMapa[i][j] == 18){
+                }else if(matrizDoMapa[i][j] == 16 || matrizDoMapa[i][j] == 17){
 
                     auxPreencherImagensCriaturas("Dragon", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
 
-                }else if(matrizDoMapa[i][j] == 19 || matrizDoMapa[i][j] == 20 || matrizDoMapa[i][j] == 21){
+                }else if(matrizDoMapa[i][j] == 19 || matrizDoMapa[i][j] == 20){
 
                     auxPreencherImagensCriaturas("Mammoth", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
 
-                }else if(matrizDoMapa[i][j] == 45 || matrizDoMapa[i][j] == 46 || matrizDoMapa[i][j] == 47){
+                }else if(matrizDoMapa[i][j] == 45 || matrizDoMapa[i][j] == 46){
 
                     auxPreencherImagensCriaturas("Spider", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
 
-                }else if(matrizDoMapa[i][j] == 48 || matrizDoMapa[i][j] == 49 || matrizDoMapa[i][j] == 50){
+                }else if(matrizDoMapa[i][j] == 48 || matrizDoMapa[i][j] == 49){
 
                     auxPreencherImagensCriaturas("Orc Shaman", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
 
@@ -2675,18 +2797,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }else if(matrizDoMapa[i][j] == 2 || matrizDoMapa[i][j] == 3){
                     document.getElementById(baseCampo).alt = "sacola";
                     document.getElementById(baseCampo).title = "sacola";
-                }else if(matrizDoMapa[i][j] == 4){
-                    document.getElementById(baseCampo).alt = "terra";
-                    document.getElementById(baseCampo).title = "terra";
-                }else if(matrizDoMapa[i][j] == 5){
-                    document.getElementById(baseCampo).alt = "buraco";
-                    document.getElementById(baseCampo).title = "buraco";
-                }else if(matrizDoMapa[i][j] == 6){
-                    document.getElementById(baseCampo).alt = "buraco";
-                    document.getElementById(baseCampo).title = "buraco";
-                }else if(matrizDoMapa[i][j] == 7){
-                    document.getElementById(baseCampo).alt = "caixa";
-                    document.getElementById(baseCampo).title = "caixa";
                 }else if(matrizDoMapa[i][j] == 26){
                     document.getElementById(baseCampo).alt = "água";
                     document.getElementById(baseCampo).title = "água";
@@ -2827,13 +2937,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else if(matrizDoMapa[i][j] == 11){
                             caminhoImagem = "imagens/imagemNpcDeDireitaCampo.png";
                         }else if(matrizDoMapa[i][j] == 12){
-                            caminhoImagem = "imagens/imagemPersonagemDeCostasComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 13){
-                            caminhoImagem = "imagens/imagemPersonagemDeDireitaComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 14){
-                            caminhoImagem = "imagens/imagemPersonagemDeFrenteComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 15){
-                            caminhoImagem = "imagens/imagemPersonagemDeEsquerdaComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 16){
                             caminhoImagem = "imagens/imagemDragon.png";
                         }else if(matrizDoMapa[i][j] == 17){
@@ -2847,13 +2957,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else if(matrizDoMapa[i][j] == 21){
                             caminhoImagem = "imagens/imagemCaveira.png";
                         }else if(matrizDoMapa[i][j] == 22){
-                            caminhoImagem = "imagens/imagemPersonagemDeCostasFComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 23){
-                            caminhoImagem = "imagens/imagemPersonagemDeDireitaFComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 24){
-                            caminhoImagem = "imagens/imagemPersonagemDeFrenteFComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 25){
-                            caminhoImagem = "imagens/imagemPersonagemDeEsquerdaFComPiso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 26){
                             caminhoImagem = "imagens/imagemAgua.png";
                         }else if(matrizDoMapa[i][j] == 27){
@@ -2971,21 +3081,21 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }else if(matrizDoMapa[i][j] == 83){
                             caminhoImagem = "imagens/imagemAguaBaixoEsquerda2.png";
                         }else if(matrizDoMapa[i][j] == 84){
-                            caminhoImagem = "imagens/person2piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 85){
-                            caminhoImagem = "imagens/person4piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 86){
-                            caminhoImagem = "imagens/person1piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 87){
-                            caminhoImagem = "imagens/person3piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 88){
-                            caminhoImagem = "imagens/personF2piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 89){
-                            caminhoImagem = "imagens/personF4piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 90){
-                            caminhoImagem = "imagens/personF1piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 91){
-                            caminhoImagem = "imagens/personF3piso.png";
+                            caminhoImagem = "imagens/imagemCampo.png";
                         }else if(matrizDoMapa[i][j] == 92){
                             caminhoImagem = "imagens/tablet.png";
                         }
