@@ -2587,6 +2587,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 document.getElementById(nomeCampo).style.visibility = "hidden";
                 document.getElementById(barraHpCampo).style.visibility = "hidden";
                 document.getElementById(barraHpVaziaCampo).style.visibility = "hidden";
+
+                
+                document.getElementById(imagemCampo).style.top = 5;
+                document.getElementById(imagemCampo).style.left = 5;
+                
                 if(
                     matrizDoMapa[i][j] == 12 ||
                     matrizDoMapa[i][j] == 13 ||
@@ -2737,6 +2742,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                         document.getElementById(imagemCampo).src = "imagens/personF3.png";
                                         break;
                                 }
+                            }
+
+                            if(matrizDoMapa[i][j] == 7){
+                                document.getElementById(imagemCampo).style.top = -5;
+                                document.getElementById(imagemCampo).style.left = -5;
                             }
 
                             document.getElementById(imagemCampo).style.visibility = "visible";
@@ -2912,192 +2922,286 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 for(var i = (posicaoDoPersonagemNaMatriz[0]-(posicaoDoPersonagemNaTela[0])), k = 0; i < (posicaoDoPersonagemNaMatriz[0]+(posicaoDoPersonagemNaTela[0]+1)); i++, k++){
                     for(var j = (posicaoDoPersonagemNaMatriz[1]-(posicaoDoPersonagemNaTela[1])), l = 0; j < (posicaoDoPersonagemNaMatriz[1]+(posicaoDoPersonagemNaTela[1]+1)); j++, l++){
 
-                        if(matrizDoMapa[i][j] == 0){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 1){
-                            caminhoImagem = "imagens/imagemLixeira.png";
-                        }else if(matrizDoMapa[i][j] == 2){
-                            caminhoImagem = "imagens/imagemSacola.png";
-                        }else if(matrizDoMapa[i][j] == 3){
-                            caminhoImagem = "imagens/imagemSacola.png";
-                        }else if(matrizDoMapa[i][j] == 4){
-                            caminhoImagem = "imagens/imagemFundoBuraco.png";
-                        }else if(matrizDoMapa[i][j] == 5){
-                            caminhoImagem = "imagens/imagemBuracoAberto.png";
-                        }else if(matrizDoMapa[i][j] == 6){
-                            caminhoImagem = "imagens/imagemBuracoFechado.png";
-                        }else if(matrizDoMapa[i][j] == 7){
-                            caminhoImagem = "imagens/imagemParcel.png";
-                        }else if(matrizDoMapa[i][j] == 8){
-                            caminhoImagem = "imagens/imagemSnake.png";
-                        }else if(matrizDoMapa[i][j] == 9){
-                            caminhoImagem = "imagens/imagemSnakeAtacando.png";
-                        }else if(matrizDoMapa[i][j] == 10){
-                            caminhoImagem = "imagens/imagemSnakeMorta.png";
-                        }else if(matrizDoMapa[i][j] == 11){
-                            caminhoImagem = "imagens/imagemNpcDeDireitaCampo.png";
-                        }else if(matrizDoMapa[i][j] == 12){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 13){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 14){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 15){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 16){
-                            caminhoImagem = "imagens/imagemDragon.png";
-                        }else if(matrizDoMapa[i][j] == 17){
-                            caminhoImagem = "imagens/imagemDragonAtacando.png";
-                        }else if(matrizDoMapa[i][j] == 18){
-                            caminhoImagem = "imagens/imagemCaveira.png";
-                        }else if(matrizDoMapa[i][j] == 19){
-                            caminhoImagem = "imagens/imagemMammoth.png";
-                        }else if(matrizDoMapa[i][j] == 20){
-                            caminhoImagem = "imagens/imagemMammothAtacando.png";
-                        }else if(matrizDoMapa[i][j] == 21){
-                            caminhoImagem = "imagens/imagemCaveira.png";
-                        }else if(matrizDoMapa[i][j] == 22){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 23){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 24){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 25){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 26){
-                            caminhoImagem = "imagens/imagemAgua.png";
-                        }else if(matrizDoMapa[i][j] == 27){
-                            caminhoImagem = "imagens/imagemTetoCaverna.png";
-                        }else if(matrizDoMapa[i][j] == 28){
-                            caminhoImagem = "imagens/imagemTetoCavernaBaixo.png";
-                        }else if(matrizDoMapa[i][j] == 29){
-                            caminhoImagem = "imagens/imagemTetoCavernaDireita.png";
-                        }else if(matrizDoMapa[i][j] == 30){
-                            caminhoImagem = "imagens/imagemTetoCavernaCima.png";
-                        }else if(matrizDoMapa[i][j] == 31){
-                            caminhoImagem = "imagens/imagemTetoCavernaEsquerda.png";
-                        }else if(matrizDoMapa[i][j] == 32){
-                            caminhoImagem = "imagens/imagemTetoCavernaCimaEsquerda.png";
-                        }else if(matrizDoMapa[i][j] == 33){
-                            caminhoImagem = "imagens/imagemAguaCimaEsquerda.png";
-                        }else if(matrizDoMapa[i][j] == 34){
-                            caminhoImagem = "imagens/imagemAguaCima.png";
-                        }else if(matrizDoMapa[i][j] == 35){
-                            caminhoImagem = "imagens/imagemAguaCimaDireita.png";
-                        }else if(matrizDoMapa[i][j] == 36){
-                            caminhoImagem = "imagens/imagemAguaDireita.png";
-                        }else if(matrizDoMapa[i][j] == 37){
-                            caminhoImagem = "imagens/imagemAguaBaixoDireita.png";
-                        }else if(matrizDoMapa[i][j] == 38){
-                            caminhoImagem = "imagens/imagemAguaBaixo.png";
-                        }else if(matrizDoMapa[i][j] == 39){
-                            caminhoImagem = "imagens/imagemAguaBaixoEsquerda.png";
-                        }else if(matrizDoMapa[i][j] == 40){
-                            caminhoImagem = "imagens/imagemAguaEsquerda.png";
-                        }else if(matrizDoMapa[i][j] == 41){
-                            caminhoImagem = "imagens/imagemTeleport1.png";
-                        }else if(matrizDoMapa[i][j] == 42){
-                            caminhoImagem = "imagens/imagemTeleport2.png";
-                        }else if(matrizDoMapa[i][j] == 43){
-                            caminhoImagem = "imagens/imagemTeleport3.png";
-                        }else if(matrizDoMapa[i][j] == 44){
-                            caminhoImagem = "imagens/imagemTeleport2.png";
-                        }else if(matrizDoMapa[i][j] == 45){
-                            caminhoImagem = "imagens/imagemSpider.png";
-                        }else if(matrizDoMapa[i][j] == 46){
-                            caminhoImagem = "imagens/imagemSpiderAtacando.png";
-                        }else if(matrizDoMapa[i][j] == 47){
-                            caminhoImagem = "imagens/imagemCaveira.png";
-                        }else if(matrizDoMapa[i][j] == 48){
-                            caminhoImagem = "imagens/imagemOrcShaman.gif";
-                        }else if(matrizDoMapa[i][j] == 49){
-                            caminhoImagem = "imagens/imagemOrcShamanAtacando.png";
-                        }else if(matrizDoMapa[i][j] == 50){
-                            caminhoImagem = "imagens/imagemCaveira.png";
-                        }else if(matrizDoMapa[i][j] == 51){
-                            caminhoImagem = "imagens/imagemBot.png";
-                        }else if(matrizDoMapa[i][j] == 52){
-                            caminhoImagem = "imagens/imagemJangada.png";
-                        }else if(matrizDoMapa[i][j] == 53){
-                            caminhoImagem = "imagens/imagemRemo.png";
-                        }else if(matrizDoMapa[i][j] == 54){
-                            caminhoImagem = "imagens/imagemRemo2.png";
-                        }else if(matrizDoMapa[i][j] == 55){
-                            caminhoImagem = "imagens/Spike_Sword_Field.png";
-                        }else if(matrizDoMapa[i][j] == 56){
-                            caminhoImagem = "imagens/Crown_Shield_Field.png";
-                        }else if(matrizDoMapa[i][j] == 57){
-                            caminhoImagem = "imagens/TetoCasa.png";
-                        }else if(matrizDoMapa[i][j] == 58){
-                            caminhoImagem = "imagens/TetoCasaUpLeft.png";
-                        }else if(matrizDoMapa[i][j] == 59){
-                            caminhoImagem = "imagens/TetoCasaUp.png";
-                        }else if(matrizDoMapa[i][j] == 60){
-                            caminhoImagem = "imagens/TetoCasaUpRight.png";
-                        }else if(matrizDoMapa[i][j] == 61){
-                            caminhoImagem = "imagens/TetoCasaRight.png";
-                        }else if(matrizDoMapa[i][j] == 62){
-                            caminhoImagem = "imagens/TetoCasaDownRight.png";
-                        }else if(matrizDoMapa[i][j] == 63){
-                            caminhoImagem = "imagens/TetoCasaDown.png";
-                        }else if(matrizDoMapa[i][j] == 64){
-                            caminhoImagem = "imagens/TetoCasaDownLeft.png";
-                        }else if(matrizDoMapa[i][j] == 65){
-                            caminhoImagem = "imagens/TetoCasaLeft.png";
-                        }else if(matrizDoMapa[i][j] == 66){
-                            caminhoImagem = "imagens/CasaUpRight.png";
-                        }else if(matrizDoMapa[i][j] == 67){
-                            caminhoImagem = "imagens/CasaRight.png";
-                        }else if(matrizDoMapa[i][j] == 68){
-                            caminhoImagem = "imagens/CasaDownRight.png";
-                        }else if(matrizDoMapa[i][j] == 69){
-                            caminhoImagem = "imagens/CasaDown.png";
-                        }else if(matrizDoMapa[i][j] == 70){
-                            caminhoImagem = "imagens/CasaDownLeft.png";
-                        }else if(matrizDoMapa[i][j] == 71){
-                            caminhoImagem = "imagens/PortaUp.png";
-                        }else if(matrizDoMapa[i][j] == 72){
-                            caminhoImagem = "imagens/PortaDown.png";
-                        }else if(matrizDoMapa[i][j] == 73){
-                            caminhoImagem = "imagens/PortaOpenUp.png";
-                        }else if(matrizDoMapa[i][j] == 74){
-                            caminhoImagem = "imagens/PortaOpenDown.png";
-                        }else if(matrizDoMapa[i][j] == 75){
-                            caminhoImagem = "imagens/CasaIntoUpLeft.png";
-                        }else if(matrizDoMapa[i][j] == 76){
-                            caminhoImagem = "imagens/CasaIntoUp.png";
-                        }else if(matrizDoMapa[i][j] == 77){
-                            caminhoImagem = "imagens/CasaIntoUpRight.png";
-                        }else if(matrizDoMapa[i][j] == 78){
-                            caminhoImagem = "imagens/CasaIntoDownLeft.png";
-                        }else if(matrizDoMapa[i][j] == 79){
-                            caminhoImagem = "imagens/CasaIntoLeft.png";
-                        }else if(matrizDoMapa[i][j] == 80){
-                            caminhoImagem = "imagens/imagemAguaBaixoDireita2.png";
-                        }else if(matrizDoMapa[i][j] == 81){
-                            caminhoImagem = "imagens/imagemAguaCimaEsquerda2.png";
-                        }else if(matrizDoMapa[i][j] == 82){
-                            caminhoImagem = "imagens/imagemAguaCimaDireita2.png";
-                        }else if(matrizDoMapa[i][j] == 83){
-                            caminhoImagem = "imagens/imagemAguaBaixoEsquerda2.png";
-                        }else if(matrizDoMapa[i][j] == 84){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 85){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 86){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 87){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 88){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 89){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 90){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 91){
-                            caminhoImagem = "imagens/imagemCampo.png";
-                        }else if(matrizDoMapa[i][j] == 92){
-                            caminhoImagem = "imagens/tablet.png";
+                        switch(matrizDoMapa[i][j]){
+                            case 0:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 1:
+                                caminhoImagem = "imagens/imagemLixeira.png";
+                                break;
+                            case 2:
+                                caminhoImagem = "imagens/imagemSacola.png";
+                                break;
+                            case 3:
+                                caminhoImagem = "imagens/imagemSacola.png";
+                                break;
+                            case 4:
+                                caminhoImagem = "imagens/imagemFundoBuraco.png";
+                                break;
+                            case 5:
+                                caminhoImagem = "imagens/imagemBuracoAberto.png";
+                                break;
+                            case 6:
+                                caminhoImagem = "imagens/imagemBuracoFechado.png";
+                                break;
+                            case 7:
+                                caminhoImagem = "imagens/imagemParcel.png";
+                                break;
+                            case 8:
+                                caminhoImagem = "imagens/imagemSnake.png";
+                                break;
+                            case 9:
+                                caminhoImagem = "imagens/imagemSnakeAtacando.png";
+                                break;
+                            case 10:
+                                caminhoImagem = "imagens/imagemSnakeMorta.png";
+                                break;
+                            case 11:
+                                caminhoImagem = "imagens/imagemNpcDeDireitaCampo.png";
+                                break;
+                            case 12:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 13:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 14:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 15:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 16:
+                                caminhoImagem = "imagens/imagemDragon.png";
+                                break;
+                            case 17:
+                                caminhoImagem = "imagens/imagemDragonAtacando.png";
+                                break;
+                            case 18:
+                                caminhoImagem = "imagens/imagemCaveira.png";
+                                break;
+                            case 19:
+                                caminhoImagem = "imagens/imagemMammoth.png";
+                                break;
+                            case 20:
+                                caminhoImagem = "imagens/imagemMammothAtacando.png";
+                                break;
+                            case 21:
+                                caminhoImagem = "imagens/imagemCaveira.png";
+                                break;
+                            case 22:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 23:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 24:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 25:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 26:
+                                caminhoImagem = "imagens/imagemAgua.png";
+                                break;
+                            case 27:
+                                caminhoImagem = "imagens/imagemTetoCaverna.png";
+                                break;
+                            case 28:
+                                caminhoImagem = "imagens/imagemTetoCavernaBaixo.png";
+                                break;
+                            case 29:
+                                caminhoImagem = "imagens/imagemTetoCavernaDireita.png";
+                                break;
+                            case 30:
+                                caminhoImagem = "imagens/imagemTetoCavernaCima.png";
+                                break;
+                            case 31:
+                                caminhoImagem = "imagens/imagemTetoCavernaEsquerda.png";
+                                break;
+                            case 32:
+                                caminhoImagem = "imagens/imagemTetoCavernaCimaEsquerda.png";
+                                break;
+                            case 33:
+                                caminhoImagem = "imagens/imagemAguaCimaEsquerda.png";
+                                break;
+                            case 34:
+                                caminhoImagem = "imagens/imagemAguaCima.png";
+                                break;
+                            case 35:
+                                caminhoImagem = "imagens/imagemAguaCimaDireita.png";
+                                break;
+                            case 36:
+                                caminhoImagem = "imagens/imagemAguaDireita.png";
+                                break;
+                            case 37:
+                                caminhoImagem = "imagens/imagemAguaBaixoDireita.png";
+                                break;
+                            case 38:
+                                caminhoImagem = "imagens/imagemAguaBaixo.png";
+                                break;
+                            case 39:
+                                caminhoImagem = "imagens/imagemAguaBaixoEsquerda.png";
+                                break;
+                            case 40:
+                                caminhoImagem = "imagens/imagemAguaEsquerda.png";
+                                break;
+                            case 41:
+                                caminhoImagem = "imagens/imagemTeleport1.png";
+                                break;
+                            case 42:
+                                caminhoImagem = "imagens/imagemTeleport2.png";
+                                break;
+                            case 43:
+                                caminhoImagem = "imagens/imagemTeleport3.png";
+                                break;
+                            case 44:
+                                caminhoImagem = "imagens/imagemTeleport2.png";
+                                break;
+                            case 45:
+                                caminhoImagem = "imagens/imagemSpider.png";
+                                break;
+                            case 46:
+                                caminhoImagem = "imagens/imagemSpiderAtacando.png";
+                                break;
+                            case 47:
+                                caminhoImagem = "imagens/imagemCaveira.png";
+                                break;
+                            case 48:
+                                caminhoImagem = "imagens/imagemOrcShaman.gif";
+                                break;
+                            case 49:
+                                caminhoImagem = "imagens/imagemOrcShamanAtacando.png";
+                                break;
+                            case 50:
+                                caminhoImagem = "imagens/imagemCaveira.png";
+                                break;
+                            case 51:
+                                caminhoImagem = "imagens/imagemBot.png";
+                                break;
+                            case 52:
+                                caminhoImagem = "imagens/imagemJangada.png";
+                                break;
+                            case 53:
+                                caminhoImagem = "imagens/imagemRemo.png";
+                                break;
+                            case 54:
+                                caminhoImagem = "imagens/imagemRemo2.png";
+                                break;
+                            case 55:
+                                caminhoImagem = "imagens/Spike_Sword_Field.png";
+                                break;
+                            case 56:
+                                caminhoImagem = "imagens/Crown_Shield_Field.png";
+                                break;
+                            case 57:
+                                caminhoImagem = "imagens/TetoCasa.png";
+                                break;
+                            case 58:
+                                caminhoImagem = "imagens/TetoCasaUpLeft.png";
+                                break;
+                            case 59:
+                                caminhoImagem = "imagens/TetoCasaUp.png";
+                                break;
+                            case 60:
+                                caminhoImagem = "imagens/TetoCasaUpRight.png";
+                                break;
+                            case 61:
+                                caminhoImagem = "imagens/TetoCasaRight.png";
+                                break;
+                            case 62:
+                                caminhoImagem = "imagens/TetoCasaDownRight.png";
+                                break;
+                            case 63:
+                                caminhoImagem = "imagens/TetoCasaDown.png";
+                                break;
+                            case 64:
+                                caminhoImagem = "imagens/TetoCasaDownLeft.png";
+                                break;
+                            case 65:
+                                caminhoImagem = "imagens/TetoCasaLeft.png";
+                                break;
+                            case 66:
+                                caminhoImagem = "imagens/CasaUpRight.png";
+                                break;
+                            case 67:
+                                caminhoImagem = "imagens/CasaRight.png";
+                                break;
+                            case 68:
+                                caminhoImagem = "imagens/CasaDownRight.png";
+                                break;
+                            case 69:
+                                caminhoImagem = "imagens/CasaDown.png";
+                                break;
+                            case 70:
+                                caminhoImagem = "imagens/CasaDownLeft.png";
+                                break;
+                            case 71:
+                                caminhoImagem = "imagens/PortaUp.png";
+                                break;
+                            case 72:
+                                caminhoImagem = "imagens/PortaDown.png";
+                                break;
+                            case 73:
+                                caminhoImagem = "imagens/PortaOpenUp.png";
+                                break;
+                            case 74:
+                                caminhoImagem = "imagens/PortaOpenDown.png";
+                                break;
+                            case 75:
+                                caminhoImagem = "imagens/CasaIntoUpLeft.png";
+                                break;
+                            case 76:
+                                caminhoImagem = "imagens/CasaIntoUp.png";
+                                break;
+                            case 77:
+                                caminhoImagem = "imagens/CasaIntoUpRight.png";
+                                break;
+                            case 78:
+                                caminhoImagem = "imagens/CasaIntoDownLeft.png";
+                                break;
+                            case 79:
+                                caminhoImagem = "imagens/CasaIntoLeft.png";
+                                break;
+                            case 80:
+                                caminhoImagem = "imagens/imagemAguaBaixoDireita2.png";
+                                break;
+                            case 81:
+                                caminhoImagem = "imagens/imagemAguaCimaEsquerda2.png";
+                                break;
+                            case 82:
+                                caminhoImagem = "imagens/imagemAguaCimaDireita2.png";
+                                break;
+                            case 83:
+                                caminhoImagem = "imagens/imagemAguaBaixoEsquerda2.png";
+                                break;
+                            case 84:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 85:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 86:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 87:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 88:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 89:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 90:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 91:
+                                caminhoImagem = "imagens/imagemCampo.png";
+                                break;
+                            case 92:
+                                caminhoImagem = "imagens/tablet.png";
+                                break;
                         }
                         auxPreencherImagens(i, j, caminhoImagem, "-" + k + "-" + l);
 
