@@ -2591,6 +2591,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 
                 document.getElementById(imagemCampo).style.top = 5;
                 document.getElementById(imagemCampo).style.left = 5;
+                document.getElementById(imagemCampo).src = "imagens/imagemFalaVazia.png";
                 
                 if(
                     matrizDoMapa[i][j] == 12 ||
@@ -2622,22 +2623,32 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     if(matrizDoMapa[i][j] == 10){
 
                         auxPreencherImagensCriaturas("Snake", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+                        document.getElementById(imagemCampo).src = "imagens/Atordoamento.png";
+                        document.getElementById(imagemCampo).style.visibility = "visible";
                         
                     }else if(matrizDoMapa[i][j] == 18){
 
                         auxPreencherImagensCriaturas("Dragon", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+                        document.getElementById(imagemCampo).src = "imagens/Atordoamento.png";
+                        document.getElementById(imagemCampo).style.visibility = "visible";
 
                     }else if(matrizDoMapa[i][j] == 21){
 
                         auxPreencherImagensCriaturas("Mammoth", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+                        document.getElementById(imagemCampo).src = "imagens/Atordoamento.png";
+                        document.getElementById(imagemCampo).style.visibility = "visible";
 
                     }else if(matrizDoMapa[i][j] == 47){
 
                         auxPreencherImagensCriaturas("Spider", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+                        document.getElementById(imagemCampo).src = "imagens/Atordoamento.png";
+                        document.getElementById(imagemCampo).style.visibility = "visible";
 
                     }else if(matrizDoMapa[i][j] == 50){
 
                         auxPreencherImagensCriaturas("Orc Shaman", i, j, nomeCampo, barraHpCampo, barraHpVaziaCampo, baseCampo);
+                        document.getElementById(imagemCampo).src = "imagens/Atordoamento.png";
+                        document.getElementById(imagemCampo).style.visibility = "visible";
 
                     }else if(matrizDoMapa[i][j] == 4){
                         document.getElementById(baseCampo).alt = "terra";
@@ -2954,7 +2965,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemSnakeAtacando.png";
                                 break;
                             case 10:
-                                caminhoImagem = "imagens/imagemSnakeMorta.png";
+                                caminhoImagem = "imagens/imagemSnake.png";
                                 break;
                             case 11:
                                 caminhoImagem = "imagens/imagemNpcDeDireitaCampo.png";
@@ -2978,7 +2989,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemDragonAtacando.png";
                                 break;
                             case 18:
-                                caminhoImagem = "imagens/imagemCaveira.png";
+                                caminhoImagem = "imagens/imagemDragon.png";
                                 break;
                             case 19:
                                 caminhoImagem = "imagens/imagemMammoth.png";
@@ -2987,7 +2998,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemMammothAtacando.png";
                                 break;
                             case 21:
-                                caminhoImagem = "imagens/imagemCaveira.png";
+                                caminhoImagem = "imagens/imagemMammoth.png";
                                 break;
                             case 22:
                                 caminhoImagem = "imagens/imagemCampo.png";
@@ -3065,7 +3076,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemSpiderAtacando.png";
                                 break;
                             case 47:
-                                caminhoImagem = "imagens/imagemCaveira.png";
+                                caminhoImagem = "imagens/imagemSpider.png";
                                 break;
                             case 48:
                                 caminhoImagem = "imagens/imagemOrcShaman.gif";
@@ -3074,7 +3085,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemOrcShamanAtacando.png";
                                 break;
                             case 50:
-                                caminhoImagem = "imagens/imagemCaveira.png";
+                                caminhoImagem = "imagens/imagemOrcShaman.gif";
                                 break;
                             case 51:
                                 caminhoImagem = "imagens/imagemBot.png";
