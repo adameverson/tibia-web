@@ -3363,8 +3363,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 { 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0); 
 
-                    document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
-
                     document.getElementById('mensagemDiv' + campo).innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + hit + " pontos de vida devido ao seu ataque."; 
                     setTimeout(function(){ 
@@ -3375,8 +3373,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] + ((hit*hitDecrescimo) | 0)) < 50 )
                 { 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] + ((hit*hitDecrescimo) | 0); 
-
-                    document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
 
                     document.getElementById('mensagemDiv' + campo).innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " ganhou " + hit + " pontos de vida devido ao seu carinho."; 
@@ -3428,6 +3424,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         document.getElementById('taskvalor').innerHTML = taskvalor + "/100";
                     }
                 }
+
+                document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
 
                 if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 13){ 
                     document.getElementById('nome' + campo).style.color = 'tomato';
