@@ -482,6 +482,7 @@
             var verificarPosicaoValidaBot;
             var recompensaSacola;
             var mensagemDoSistema;
+            var posicaoInicial;
             var entradaPvp;
             var saidaPvp;
             var entrarNoPvp;
@@ -491,6 +492,7 @@
             var moverBaixoBot;
             var moverEsquerdaBot;
             var moverJangada;
+            var jangadaPosicaoInicial;
             var moverPorta;
             var revelarCasa;
             var esconderCasa;
@@ -694,8 +696,8 @@ var matrizDoMapaTerreo =
 [26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0,45, 0, 0, 0, 0, 0,16, 0, 0, 0, 0, 0,64,63,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0, 0, 0, 7, 0, 0, 0,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,26,26,26,26, 0, 0, 0, 0, 0, 0,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,26,26,26,26,26],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -1373,6 +1375,28 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 else{
                     if(comando)
                         mensagemDoSistema('Bot: Caminho bloqueado.');
+                }
+            }
+
+            jangadaPosicaoInicial = function(){
+                if(posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+27)){
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 26;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 26;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 26;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 26; 
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 26;
+                    posicaoJangada[0] = (linhaInicioTerreo+28);
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 54;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 53;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 52;
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 52; 
+                    matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 54;
                 }
             }
 
@@ -3340,6 +3364,16 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0); 
 
                     document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
+                    if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 13){ 
+                        document.getElementById('nome' + campo).style.color = 'tomato';
+                        document.getElementById('barraHp' + campo).style.background = 'tomato';
+                    } else if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 25){ 
+                        document.getElementById('nome' + campo).style.color = 'orange';
+                        document.getElementById('barraHp' + campo).style.background = 'orange';
+                    } else if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] > 25){ 
+                        document.getElementById('nome' + campo).style.color = 'mediumseagreen';
+                        document.getElementById('barraHp' + campo).style.background = 'mediumseagreen';
+                    }
 
                     document.getElementById('mensagemDiv' + campo).innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + hit + " pontos de vida devido ao seu ataque."; 
@@ -3353,6 +3387,16 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] + ((hit*hitDecrescimo) | 0); 
 
                     document.getElementById('barraHp' + campo).style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
+                    if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 13){ 
+                        document.getElementById('nome' + campo).style.color = 'tomato';
+                        document.getElementById('barraHp' + campo).style.background = 'tomato';
+                    } else if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] <= 25){ 
+                        document.getElementById('nome' + campo).style.color = 'orange';
+                        document.getElementById('barraHp' + campo).style.background = 'orange';
+                    } else if(matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] > 25){ 
+                        document.getElementById('nome' + campo).style.color = 'mediumseagreen';
+                        document.getElementById('barraHp' + campo).style.background = 'mediumseagreen';
+                    }
 
                     document.getElementById('mensagemDiv' + campo).innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " ganhou " + hit + " pontos de vida devido ao seu carinho."; 
@@ -3454,6 +3498,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 return (linha == linhaInicioPvp) || (linha == (linhaInicioPvp + 3));
             }
 
+            posicaoInicial = function (linha, coluna){
+                return (linha == (linhaInicioSubsolo + 1)) && (coluna == (colunaInicio + 3));
+            }
+
             entrarNoPvp = function (){
                 if(!matrizDoMapa[linhaInicioPvp+2][(colunaInicio + 5)]){
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioPvp + 2); 
@@ -3487,6 +3535,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }else if(saidaPvp(linha, coluna)){
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
                     posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 16); 
+                }else if(posicaoInicial(linha, coluna)){
+                    posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+32); 
+                    posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 39); 
+                    jangadaPosicaoInicial();
                 }else {
                     switch(direcao){
                         case 0:
@@ -5724,25 +5776,7 @@ loop = function() {
                 document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;
             }
 
-            if(posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+27)){
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 26;
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 26;
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 26;
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 26; 
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 26;
-                posicaoJangada[0] = (linhaInicioTerreo+28);
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 53;
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 52;
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 52; 
-                matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 54;
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 53;
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 52;
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 52; 
-                matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+3] = 54;
-            }
+            jangadaPosicaoInicial();
 
             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 57 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 61 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 62 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 63){
                 revelarCasa(4);
