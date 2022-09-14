@@ -2267,7 +2267,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let idNPC = 11;
                 if(
                     nivelDeConversaNpc > 0 &&
-                    !verificacaoObjetoNasProximidades(idNPC)
+                    !verificacaoIdNasProximidades(idNPC)
                 ){
                     document.getElementById('conversa').style.visibility = 'hidden';
                     document.getElementById('opcao1').style.visibility = 'hidden';
@@ -2307,7 +2307,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let idTablete = 92;
                 if( 
                     (document.getElementById("tablet").style.visibility == "visible") &&
-                    !verificacaoObjetoNasProximidades(idTablete)
+                    !verificacaoIdNasProximidades(idTablete)
                 ){
                     document.getElementById("tablet").style.visibility = "hidden";
                 }
@@ -2318,7 +2318,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 verificacaoDistanciamentoTablete();
             }
 
-            verificacaoObjetoNasProximidades = function(id){
+            verificacaoIdNasProximidades = function(id){
                 return (
                         matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == id || 
                         matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == id || 
@@ -4621,14 +4621,8 @@ loop = function() {
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'exori gran' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'no' || 
                 document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'nao'){
-                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == 11){
+                    let idNPC = 11;
+                    if(verificacaoIdNasProximidades(idNPC)){
                         if(document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'hi' || 
                         document.getElementById('campoDeEscritaInput').value.toLowerCase() == 'oi'){
                             identificadorDoChat = 2;
