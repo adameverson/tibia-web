@@ -2267,7 +2267,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let idNPC = 11;
                 if(
                     nivelDeConversaNpc > 0 &&
-                    verificacaoObjetoNasProximidades(idNPC)
+                    !verificacaoObjetoNasProximidades(idNPC)
                 ){
                     document.getElementById('conversa').style.visibility = 'hidden';
                     document.getElementById('opcao1').style.visibility = 'hidden';
@@ -2307,7 +2307,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let idTablete = 92;
                 if( 
                     (document.getElementById("tablet").style.visibility == "visible") &&
-                    verificacaoObjetoNasProximidades(idTablete)
+                    !verificacaoObjetoNasProximidades(idTablete)
                 ){
                     document.getElementById("tablet").style.visibility = "hidden";
                 }
@@ -2319,7 +2319,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             verificacaoObjetoNasProximidades = function(id){
-                return !(
+                return (
                         matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == id || 
                         matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == id || 
                         matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == id || 
