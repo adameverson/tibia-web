@@ -2496,20 +2496,20 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 let arrayMove = [];
                 
-                for(let i = -5; i < 6; i++){
-                    for(let j = -6; j < 7; j++){
+                for(let i = (-telaAreaMax[0]); i < (telaAreaMax[0] + 1); i++){
+                    for(let j = (-telaAreaMax[1]); j < (telaAreaMax[1] + 1); j++){
 
                         let posicaoDoCampoNaMatriz = [posicaoDoPersonagemNaMatriz[0]+i,posicaoDoPersonagemNaMatriz[1]+j];
-                        let flagMove = false;
+                        let flagMoveC = false;
                         
                         for(let k = 0; k < arrayMove.length; k++){
-                            if(arrayMove[k] == posicaoDoCampoNaMatriz){
-                                flagMove = true;
+                            if(arrayMove[k][0] == posicaoDoCampoNaMatriz[0] && arrayMove[k][1] == posicaoDoCampoNaMatriz[1]){
+                                flagMoveC = true;
                                 break;
                             }
                         }
                         
-                        if(flagMove){
+                        if(flagMoveC){
                             continue;
                         }
 
@@ -2543,7 +2543,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         
                         switch(randomDirecao){
                             case 0:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]-1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i-1 > -4){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]-1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i-1 > (-telaAreaMax[0] - 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2556,7 +2556,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;
                             case 1:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]+1) != posicaoDoPersonagemNaMatriz[1]) && j+1 < 5){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]+1) != posicaoDoPersonagemNaMatriz[1]) && j+1 < (telaAreaMax[1] + 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2568,7 +2568,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;
                             case 2:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]+1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i+1 < 4){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]+1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i+1 < (telaAreaMax[0] + 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2580,7 +2580,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;
                             case 3:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]-1) != posicaoDoPersonagemNaMatriz[1]) && j-1 > -5){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]-1) != posicaoDoPersonagemNaMatriz[1]) && j-1 > (-telaAreaMax[1] - 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -4572,13 +4572,13 @@ loop = function() {
                 }
 
                 //codigo de alerta do boss
-                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+15) && posicaoDoPersonagemNaMatriz[1] < (colunaInicio + 14) && posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo+25)){
+                if(!alertaBoss && posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+11) && posicaoDoPersonagemNaMatriz[1] < (colunaInicio + 21) && posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo+25)){
                     dataDiv1 = new Date();
                     dataDiv1.setMilliseconds(dataDiv1.getMilliseconds() + 10000);
                     document.getElementById('mensagemDiv1').style.color = "white";
                     document.getElementById('mensagemDiv1').innerHTML = 'Um boss está nas redondezas!';
                     alertaBoss = true;
-                }else if(posicaoDoPersonagemNaMatriz[0] <= (linhaInicioTerreo+15) || posicaoDoPersonagemNaMatriz[1] >= (colunaInicio + 14)  || posicaoDoPersonagemNaMatriz[0] >= (linhaInicioTerreo+25)){
+                }else if(posicaoDoPersonagemNaMatriz[0] <= (linhaInicioTerreo+11) || posicaoDoPersonagemNaMatriz[1] >= (colunaInicio + 21)  || posicaoDoPersonagemNaMatriz[0] >= (linhaInicioTerreo+25)){
                     alertaBoss = false;
                     if(document.getElementById('mensagemDiv1').innerHTML == 'Um boss está nas redondezas!'){
                         document.getElementById('mensagemDiv1').innerHTML = '';
