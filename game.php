@@ -430,7 +430,7 @@
             </div>
         </div>
 
-        <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: blue; border-style: solid; border-color: gray; visibility: hidden;'>
+        <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: blue; border-style: solid; border-color: white; border-radius: 3px; visibility: hidden;'>
             <textarea id="cmd" name="tablete" title='default' rows="16" cols="21" style="resize: none; opacity: 0.6;" disabled>C:\Acesso negado!</textarea>
         </div>
 
@@ -474,6 +474,9 @@
             var animacaoMonster;
             var verificacaoAproximacaoNPC;
             var verificacaoDistanciamentoNPC;
+            var verificacaoDistanciamentoTablete;
+            var verificacaoDistanciamento;
+            var verificacaoObjetoNasProximidades;
             var preencherOpcoes;
             var mensagemNivelNecessario;
             var mensagemTaskNaoTerminada;
@@ -2261,17 +2264,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             verificacaoDistanciamentoNPC = function(){
-                if(nivelDeConversaNpc > 0 &&
-                    !(
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == 11 || 
-                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == 11
-                    )
+                let idNPC = 11;
+                if(
+                    nivelDeConversaNpc > 0 &&
+                    verificacaoObjetoNasProximidades(idNPC)
                 ){
                     document.getElementById('conversa').style.visibility = 'hidden';
                     document.getElementById('opcao1').style.visibility = 'hidden';
@@ -2305,6 +2301,34 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     nivelDeConversaNpc = 0;
                 }
+            }
+
+            verificacaoDistanciamentoTablete = function(){
+                let idTablete = 92;
+                if( 
+                    (document.getElementById("tablet").style.visibility == "visible") &&
+                    verificacaoObjetoNasProximidades(idTablete)
+                ){
+                    document.getElementById("tablet").style.visibility = "hidden";
+                }
+            }
+
+            verificacaoDistanciamento = function(){
+                verificacaoDistanciamentoNPC();
+                verificacaoDistanciamentoTablete();
+            }
+
+            verificacaoObjetoNasProximidades = function(id){
+                return !(
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] == id || 
+                        matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] == id
+                    );
             }
 
             preencherOpcoes = function(opHTML,opTitle){
@@ -3594,7 +3618,7 @@ funcMoverPersonagem = function() {
                                 revelarCasa(3,3);
                             }
                             moverPersonagem[1]++;
-                            verificacaoDistanciamentoNPC();
+                            verificacaoDistanciamento();
                         }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1, 0)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
@@ -3617,7 +3641,7 @@ funcMoverPersonagem = function() {
                                 revelarCasa(3,3);
                             }
                             moverPersonagem[0]++;
-                            verificacaoDistanciamentoNPC();
+                            verificacaoDistanciamento();
                         }else if(moverPersonagem[1] > 0 && verificarPosicaoValida(0, 1)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
@@ -3638,7 +3662,7 @@ funcMoverPersonagem = function() {
                                 revelarCasa(3,1);
                             }
                             moverPersonagem[1]--;
-                            verificacaoDistanciamentoNPC();
+                            verificacaoDistanciamento();
                         }else if(moverPersonagem[0] > 0 && verificarPosicaoValida(1, 0)){
                             if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74){
                                 esconderCasa(3);
@@ -3661,7 +3685,7 @@ funcMoverPersonagem = function() {
                                 revelarCasa(3,3);
                             }
                             moverPersonagem[0]--;
-                            verificacaoDistanciamentoNPC();
+                            verificacaoDistanciamento();
                         }else if(
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] == 74 && 
                             moverPersonagem[1] < -1 && 
@@ -3679,7 +3703,7 @@ funcMoverPersonagem = function() {
                             }
                             posicaoDoPersonagemNaMatriz[1] -= 2;
                             moverPersonagem[1] += 2;
-                            verificacaoDistanciamentoNPC();
+                            verificacaoDistanciamento();
                         }else if(
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] == 74 && 
                             moverPersonagem[1] > 1 && 
@@ -3697,7 +3721,7 @@ funcMoverPersonagem = function() {
                             }
                             posicaoDoPersonagemNaMatriz[1] += 2;
                             moverPersonagem[1] -= 2;
-                            verificacaoDistanciamentoNPC();
+                            verificacaoDistanciamento();
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
