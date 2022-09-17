@@ -115,7 +115,7 @@
         <!-- click -->
         <div id="fs-toggle" style='position: fixed; top: 40; left: 300;'>Fullscreen</div>
 
-        <div id='chathistoria' title='historia' style='position: fixed; top:75; left: 0; width: 178; height:414; opacity: 1; visibility: hidden;'>
+        <div id='chathistoria' title='historia' style='position: fixed; top:100; left: 50; width: 178; height:414; opacity: 1; visibility: hidden;'>
             <div id='campoDoChatHistoria' title='historia' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 390;'>
                 <textarea id="textareaChatHistoria" name="textareaChatHistoria" title='historia' rows="24" cols="21" style="resize: none;" disabled></textarea>
             </div>
@@ -1068,7 +1068,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 				const column = document.createElement("div");
                 arrayColunasElementos.push(column);
-				column.setAttribute("id", "column" + arrayColunasElementos.indexOf(column));
+				//column.setAttribute("id", "column" + arrayColunasElementos.indexOf(column));
 				column.style.position = "absolute";
 				//column.style.top = "-60";
 				column.style.left = columnLeft;
@@ -1090,7 +1090,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     column.appendChild(field);
                     arrayLinhasTela.push(field);
                     field.style.position = "absolute";
-                    //field.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+                    //field.setAttribute("id", "field" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
                     field.style.width = "60";
 				    field.style.height = "60";
                     field.style.top = rowTop;
@@ -1098,8 +1098,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         let linhaTela;
                         let colunaTela;
                         for(let i = 0; i < arrayColunasTela.length; i++){
-                            if(arrayColunasTela[i].indexOf(this) != -1){
-                                linhaTela = arrayColunasTela[i].indexOf(this);
+                            let indexResult = arrayColunasTela[i].indexOf(this);
+                            if(indexResult != -1){
+                                linhaTela = indexResult;
                                 colunaTela = i;
                                 break;
                             }
@@ -1111,7 +1112,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					let image = document.createElement("img");
                     field.appendChild(image);
                     //arrayLinhasTela.push(image);
-				    image.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+				    //image.setAttribute("id", "campo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					image.src = "/imagens/imagemCampo.png";
 					image.alt = "campo";
 					image.title = "campo";
@@ -1137,7 +1138,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     let image2 = document.createElement("img");
                     field.appendChild(image2);
                     //arrayLinhasTela.push(image);
-				    image2.setAttribute("id", "imagem" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+				    //image2.setAttribute("id", "imagem" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					image2.style.position = "absolute";
                     image2.src = "/imagens/imagemFalaVazia.png";
 					image2.alt = "campo";
@@ -1149,7 +1150,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 					const name = document.createElement("div");
                     field.appendChild(name);
-					name.setAttribute("id", "nomeCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					//name.setAttribute("id", "nomeCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
                     name.style.position = "absolute";
 					//name.style.position = "fixed";
 					name.style.top = "5";
@@ -1163,7 +1164,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 					const barraHpVazia = document.createElement("div");
                     field.appendChild(barraHpVazia);
-					barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					//barraHpVazia.setAttribute("id", "barraHpVaziaCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
                     barraHpVazia.style.position = "absolute";
 					//barraHpVazia.style.position = "fixed";
 					barraHpVazia.style.top = "1";
@@ -1177,7 +1178,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 					const barraHp = document.createElement("div");
                     field.appendChild(barraHp);
-					barraHp.setAttribute("id", "barraHpCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					//barraHp.setAttribute("id", "barraHpCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					barraHp.style.position = "absolute";
                     //barraHp.style.position = "fixed";
 					barraHp.style.top = "1";
@@ -1191,7 +1192,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
 					const message = document.createElement("div");
                     field.appendChild(message);
-					message.setAttribute("id", "mensagemDivCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					//message.setAttribute("id", "mensagemDivCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					message.style.position = "absolute";
                     //message.style.position = "fixed";
 					message.style.top = "15";
@@ -3549,8 +3550,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 setTimeout(function(){ 
                     //document.getElementById('map').style.visibility = "hidden"; 
 
-                    arrayColunasElementos[0].style.left = parseInt(arrayColunasElementos[(arrayColunasElementos.length - 1)].style.left.split('p')[0]) + 60;
-                    arrayColunasElementos.push(arrayColunasElementos.shift());
+                    arrayColunasTela[0][0].parentNode.style.left = parseInt(arrayColunasTela[(arrayColunasTela.length - 1)][0].parentNode.style.left.split('p')[0]) + 60;
                     arrayColunasTela.push(arrayColunasTela.shift());
                     
                     preencherImagens(1); 
@@ -3600,8 +3600,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 setTimeout(function(){ 
                     //document.getElementById('map').style.visibility = "hidden"; 
 
-                    arrayColunasElementos[(arrayColunasElementos.length - 1)].style.left = parseInt(arrayColunasElementos[0].style.left.split('p')[0]) - 60;
-                    arrayColunasElementos.unshift(arrayColunasElementos.pop());
+                    arrayColunasTela[(arrayColunasTela.length - 1)][0].parentNode.style.left = parseInt(arrayColunasTela[0][0].parentNode.style.left.split('p')[0]) - 60;
                     arrayColunasTela.unshift(arrayColunasTela.pop());
 
                     preencherImagens(3); 
