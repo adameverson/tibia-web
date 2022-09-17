@@ -2839,6 +2839,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[i][j] == 6 ||
                     matrizDoMapa[i][j] == 7
                 ){
+                    setTimeout(
+                        function(){
+                            mensagemDivCampo.innerHTML = "";
+                        }, 5000
+                    );
+
                     let imagemEfeito = "";
                     if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) ){
                         imagemEfeito = "imagens/Atordoamento.png";
@@ -2888,6 +2894,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         baseCampo.alt = "caixa";
                         baseCampo.title = "caixa";
                     }
+                    
                     for(let k = 0; dadosResposta != "vazio" && k < dadosResposta.players.length; k++){
                         if(dadosResposta.players[k].username != username && dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
 
@@ -4655,8 +4662,10 @@ loop = function() {
                         default:
                             break;
                     }
-                    moverCriaturas();
-                    preencherImagens();
+                    if(!moverPersonagem[0] && !moverPersonagem[1]){
+                        moverCriaturas();
+                        preencherImagens();
+                    }
                 }else if(inativo && online){
                     desconectar();
                 }else if(inativoAnterior && !inativo && !online){
