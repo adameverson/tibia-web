@@ -3521,7 +3521,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
                 
                 setTimeout(function(){
-                    document.getElementById('map').style.visibility = "hidden"; 
+                    //document.getElementById('map').style.visibility = "hidden"; 
 
                     for(var i = 0; i < arrayColunasTela.length; i++){
                         arrayColunasTela[i][(arrayLinhasTela.length - 1)].style.top = parseInt(arrayColunasTela[i][0].style.top.split('p')[0]) - 60;
@@ -3530,7 +3530,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     
                     preencherImagens(0);
 
-                    document.getElementById('map').style.visibility = "visible"; 
+                    //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
             }
 
@@ -3547,7 +3547,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 setTimeout(function(){ 
-                    document.getElementById('map').style.visibility = "hidden"; 
+                    //document.getElementById('map').style.visibility = "hidden"; 
 
                     arrayColunasElementos[0].style.left = parseInt(arrayColunasElementos[(arrayColunasElementos.length - 1)].style.left.split('p')[0]) + 60;
                     arrayColunasElementos.push(arrayColunasElementos.shift());
@@ -3555,7 +3555,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     
                     preencherImagens(1); 
 
-                    document.getElementById('map').style.visibility = "visible"; 
+                    //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
             }
 
@@ -3572,7 +3572,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 setTimeout(function(){ 
-                    document.getElementById('map').style.visibility = "hidden"; 
+                    //document.getElementById('map').style.visibility = "hidden"; 
 
                     for(var i = 0; i < arrayColunasTela.length; i++){
                         arrayColunasTela[i][0].style.top = parseInt(arrayColunasTela[i][(arrayLinhasTela.length - 1)].style.top.split('p')[0]) + 60;
@@ -3581,7 +3581,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     preencherImagens(2); 
 
-                    document.getElementById('map').style.visibility = "visible"; 
+                    //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
             }
 
@@ -3598,7 +3598,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
 
                 setTimeout(function(){ 
-                    document.getElementById('map').style.visibility = "hidden"; 
+                    //document.getElementById('map').style.visibility = "hidden"; 
 
                     arrayColunasElementos[(arrayColunasElementos.length - 1)].style.left = parseInt(arrayColunasElementos[0].style.left.split('p')[0]) - 60;
                     arrayColunasElementos.unshift(arrayColunasElementos.pop());
@@ -3606,7 +3606,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     preencherImagens(3); 
 
-                    document.getElementById('map').style.visibility = "visible"; 
+                    //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
             }
             
