@@ -6,7 +6,7 @@
 
 * Motivação: realizar um Tibia Web
 
-[![image](https://user-images.githubusercontent.com/24993219/188323167-6223744c-f4f5-403c-956f-6f8ae37ddc77.png)](https://magiclevel.ml)
+[![image](https://user-images.githubusercontent.com/24993219/190931332-5194cb92-34c6-4145-ac4a-aa2134163dc8.png)](https://magiclevel.ml)
 
 # DEPLOY
 
