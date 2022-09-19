@@ -1138,28 +1138,28 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     let image1 = document.createElement("img");
                     field.appendChild(image1);
                     //arrayLinhasTela.push(image);
-				    //image2.setAttribute("id", "imagem" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+				    //image2.setAttribute("id", "imagem1" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					image1.style.position = "absolute";
                     image1.src = "/imagens/imagemFalaVazia.png";
 					image1.alt = "campo";
 					image1.title = "campo";
-                    image1.style.top = "7";
-					image1.style.left = "7";
-					image1.style.width = "46"; 
-					image1.style.height = "46";
+                    image1.style.top = "5";
+					image1.style.left = "5";
+					image1.style.width = "50"; 
+					image1.style.height = "50";
 
                     let image2 = document.createElement("img");
                     field.appendChild(image2);
                     //arrayLinhasTela.push(image);
-				    //image2.setAttribute("id", "imagem" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+				    //image2.setAttribute("id", "imagem2" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					image2.style.position = "absolute";
                     image2.src = "/imagens/imagemFalaVazia.png";
 					image2.alt = "campo";
 					image2.title = "campo";
-                    image2.style.top = "5";
-					image2.style.left = "5";
-					image2.style.width = "50"; 
-					image2.style.height = "50";
+                    image2.style.top = "3";
+					image2.style.left = "3";
+					image2.style.width = "54"; 
+					image2.style.height = "54";
 
 					const name = document.createElement("div");
                     field.appendChild(name);
@@ -2935,8 +2935,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             imagemCampo.style.visibility = "visible";
 
                     }else if(matrizDoMapa[i][j] == 4){
-                        baseCampo.alt = "terra";
-                        baseCampo.title = "terra";
+                        baseCampo.alt = "pedras";
+                        baseCampo.title = "pedras";
                     }else if(matrizDoMapa[i][j] == 5){
                         baseCampo.alt = "buraco";
                         baseCampo.title = "buraco";
@@ -2981,61 +2981,61 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(dadosResposta.players[k].outfit == "M"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeCostas.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeCostas.png";
                                         break;
                                     case 1:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeDireita.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeDireita.png";
                                         break;
                                     case 2:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeFrente.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeFrente.png";
                                         break;
                                     case 3:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeEsquerda.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeEsquerda.png";
                                         break;
                                 }
                             }else if(dadosResposta.players[k].outfit == "F"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeCostasF.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeCostasF.png";
                                         break;
                                     case 1:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeDireitaF.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeDireitaF.png";
                                         break;
                                     case 2:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeFrenteF.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeFrenteF.png";
                                         break;
                                     case 3:
-                                        imagemCampo.src = "imagens/imagemPersonagemDeEsquerdaF.png";
+                                        imagem1Campo.src = "imagens/imagemPersonagemDeEsquerdaF.png";
                                         break;
                                 }
                             }else if(dadosResposta.players[k].outfit == "P"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagemCampo.src = "imagens/person2.png";
+                                        imagem1Campo.src = "imagens/person2.png";
                                         break;
                                     case 1:
-                                        imagemCampo.src = "imagens/person4.png";
+                                        imagem1Campo.src = "imagens/person4.png";
                                         break;
                                     case 2:
-                                        imagemCampo.src = "imagens/person1.png";
+                                        imagem1Campo.src = "imagens/person1.png";
                                         break;
                                     case 3:
-                                        imagemCampo.src = "imagens/person3.png";
+                                        imagem1Campo.src = "imagens/person3.png";
                                         break;
                                 }
                             }else if(dadosResposta.players[k].outfit == "W"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagemCampo.src = "imagens/personF2.png";
+                                        imagem1Campo.src = "imagens/personF2.png";
                                         break;
                                     case 1:
-                                        imagemCampo.src = "imagens/personF4.png";
+                                        imagem1Campo.src = "imagens/personF4.png";
                                         break;
                                     case 2:
-                                        imagemCampo.src = "imagens/personF1.png";
+                                        imagem1Campo.src = "imagens/personF1.png";
                                         break;
                                     case 3:
-                                        imagemCampo.src = "imagens/personF3.png";
+                                        imagem1Campo.src = "imagens/personF3.png";
                                         break;
                                 }
                             }
@@ -3045,7 +3045,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 imagemCampo.style.left = -5;
                             }
 
-                            imagemCampo.style.visibility = "visible";
+                            imagem1Campo.style.visibility = "visible";
                             nomeCampo.style.visibility = "visible";
                             barraHpCampo.style.visibility = "visible";
                             barraHpVaziaCampo.style.visibility = "visible";
