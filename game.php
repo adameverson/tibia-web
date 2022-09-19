@@ -211,7 +211,7 @@
             <p>Ai de mim! Bravo aventureiro, você se encontrou com um triste destino. Mas não se desespere, pois os deuses lhe trará de volta ao mundo em troca de pequenos sacrifícios.</p>
             <p>Basta clicar no "X" para retornar as suas aventuras no Magic Level!</p>
         </div>
-        <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden;'></img>
+        <img id='mensagem1' src='imagens/imagemEquipamentos.png' alt='mensagem' title='mensagem' style='position:fixed; top: 305; left: 365; visibility: hidden; opacity: 0.7;'></img>
 
         <div id="contextMenu" class="context-menu" 
             style="display:none">
@@ -387,13 +387,13 @@
         
             </div>
             <!-- click -->
-            <div id='equipamentoMaoDireita' alt='' title='' style='position:fixed; top: 364; left: 373; width: 30; height: 30; visibility: hidden;'>
+            <img id='equipamentoMaoDireita' alt='' title='equipamentos' style='position:fixed; top: 364; left: 373; width: 30; height: 30; visibility: hidden;'>
         
-            </div>
+            </img>
             <!-- click -->
-            <div id='equipamentoMaoEsquerda' alt='' title='' style='position:fixed; top: 364; left: 445; width: 30; height: 30; visibility: hidden;'>
+            <img id='equipamentoMaoEsquerda' alt='' title='equipamentos' style='position:fixed; top: 364; left: 445; width: 30; height: 30; visibility: hidden;'>
         
-            </div>
+            </img>
             <!-- click -->
             <!--<button type="submit" id='equipment' title='equipamentos' style='position: absolute; bottom: 90; left: 0; margin: 1; width: 174; height: 44; background-color: #4CAF50; color: white; border-radius: 4px; border: none; visibility: visible;'>
                 Equipamentos
@@ -715,13 +715,13 @@ var matrizDoMapaTerreo =
 [40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0, 0,36],
 [40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,36],
 [40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36],
-[39,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
-[26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,38, 0, 0,38, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0,36],
-[26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,53,52,52,54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
-[26,26,26,38, 0, 0,48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,53,52,52,54, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,80,37],
-[26,26,26,26,38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,38,26,26,26,26,26, 2, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26],
-[26,26,26,26,26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,26,26,26,26,26,26,38, 0, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 2,36,26],
-[26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,26,26,26,26,26,26,26,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26],
+[39,83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
+[26,39,83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,83, 0, 0,80,83, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0,36],
+[26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,53,52,52,54,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
+[26,26,39,83, 0, 0,48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,53,52,52,54,40, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,80,37],
+[26,26,26,39,83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,37,26,26,26,26,40, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0, 0, 0, 0,36,26],
+[26,26,26,26,40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36,26,26,26,26,26,40, 2, 0,45, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 2,36,26],
+[26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26,26,26,26,26,39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -731,9 +731,9 @@ var matrizDoMapaTerreo =
 [40,48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0,65,57,57,61,71, 0, 0, 0, 0, 0, 0,65,57,61,71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
 [40, 0, 0, 0, 0,45, 0, 0, 0, 0, 0,16, 0, 0, 0, 0, 0,64,63,63,62,72, 0, 0, 0, 0, 0, 0,65,57,61,72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
 [40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
-[39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38, 0, 0, 0, 7, 0, 0, 0,38,38,38,38, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,38,26,26,26,26, 0, 0, 0, 0, 0, 0,38,38,38,38,38,38,38,38,38,37],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,38,38,38,38,38,38,26,26,26,26,26,26,26,26,26,26],
+[39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,83, 0, 0, 0, 7, 0, 0, 0,80,38,38,83, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,39,38,38,38,38,38,38,38,37,26,26,40, 0, 0, 0, 0, 0, 0,80,38,38,38,38,38,38,38,38,37],
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,39,38,38,38,38,38,38,37,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
@@ -1007,7 +1007,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     "imagens/imagemEquipamentos.png", "imagens/imagemMensagemPersonagemInativo.png","imagens/imagemMensagemPersonagemMorto.png",
                     "imagens/imagemPocaoHP.png", "imagens/imagemCorda.png", "imagens/imagemPa.png",
                     "imagens/Ultimate_Healing.png", "imagens/Restoration.png", "imagens/Berserk.png", "imagens/Fierce_Berserk.png",
-                    "imagens/Spike_Sword_Equip.png", "imagens/Crown_Shield_Equip.png",
+                    "imagens/Sword.png", "imagens/Shield.png",
                     "imagens/imagemFalaVazia.png", "imagens/imagemFalaItemVazio.png", "imagens/imagemFalaDeposit.png",
                     /*"imagens/imagemCampo.png", "imagens/imagemLixeira.png", "imagens/imagemSacola.png", "imagens/imagemSacola.png",
                     "imagens/imagemFundoBuraco.png", "imagens/imagemBuracoAberto.png", "imagens/imagemBuracoFechado.png", "imagens/imagemParcel.png",
@@ -1391,9 +1391,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         equipamentos[0] = parseInt(strDados[0]);
                         equipamentos[1] = parseInt(strDados[1]);
                         if(equipamentos[1] == 1){
-                            document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
-                            document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
-                            document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                            document.getElementById("equipamentoMaoDireita").src = 'imagens/Sword.png';
+                            document.getElementById('equipamentoMaoDireita').alt = 'Sword (Arm: 1)';
+                            document.getElementById('equipamentoMaoDireita').title = 'Sword (Arm: 1)';
                         }
                         equipamentos[2] = parseInt(strDados[2]);
                         equipamentos[3] = parseInt(strDados[3]);
@@ -1402,9 +1402,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         equipamentos[6] = parseInt(strDados[6]);
                         equipamentos[7] = parseInt(strDados[7]);
                         if(equipamentos[7] == 1){
-                            document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
-                            document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
-                            document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                            document.getElementById("equipamentoMaoEsquerda").src = 'imagens/Shield.png';
+                            document.getElementById('equipamentoMaoEsquerda').alt = 'Shield (Def: 1)';
+                            document.getElementById('equipamentoMaoEsquerda').title = 'Shield (Def: 1)';
                         }
                         equipamentos[8] = parseInt(strDados[8]);
                     }
@@ -1490,10 +1490,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             jangadaPosicaoInicial = function(){
                 if(posicaoDoPersonagemNaMatriz[0] > (linhaInicioTerreo+27)){
-                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 39;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
-                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 26;
+                    matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 37;
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]] = 26;
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+1] = 26;
                     matrizDoMapa[posicaoJangada[0]+1][posicaoJangada[1]+2] = 26; 
@@ -1537,10 +1537,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         if(posicaoJangada[0] == (linhaInicioTerreo+28))
                             break;
                         if(posicaoJangada[0] == (linhaInicioTerreo+21)){
-                            matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
+                            matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 39;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 38;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+2] = 38; 
-                            matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 26;
+                            matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+3] = 37;
                         } else{
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
                             matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]+1] = 26;
@@ -1840,15 +1840,15 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             obterEquipamento = function(i, j){
                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == 55){
                     equipamentos[1] = 1;
-                    document.getElementById("equipamentoMaoDireita").style.backgroundImage = "url('imagens/Spike_Sword_Equip.png')";
-                    document.getElementById('equipamentoMaoDireita').alt = 'Spike Sword (Arm: 1)';
-                    document.getElementById('equipamentoMaoDireita').title = 'Spike Sword (Arm: 1)';
+                    document.getElementById("equipamentoMaoDireita").src = 'imagens/Sword.png';
+                    document.getElementById('equipamentoMaoDireita').alt = 'Sword (Arm: 1)';
+                    document.getElementById('equipamentoMaoDireita').title = 'Sword (Arm: 1)';
                     visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
                 }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == 56){
                     equipamentos[7] = 1;
-                    document.getElementById("equipamentoMaoEsquerda").style.backgroundImage = "url('imagens/Crown_Shield_Equip.png')";
-                    document.getElementById('equipamentoMaoEsquerda').alt = 'Crown Shield (Def: 1)';
-                    document.getElementById('equipamentoMaoEsquerda').title = 'Crown Shield (Def: 1)';
+                    document.getElementById("equipamentoMaoEsquerda").src = 'imagens/Shield.png';
+                    document.getElementById('equipamentoMaoEsquerda').alt = 'Shield (Def: 1)';
+                    document.getElementById('equipamentoMaoEsquerda').title = 'Shield (Def: 1)';
                     visibilityEquipamentos(document.getElementById('mensagem1').style.visibility == 'hidden');
                 }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == 92){
                     if(document.getElementById("tablet").style.visibility == "hidden")
@@ -2214,7 +2214,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
-                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+23) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 26) 
+                if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+24) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 27) 
                 && 
                     (
                         quest4 == 0 ||
@@ -2224,7 +2224,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     )
                 ){
                     id = 10;
-                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+23) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 26)){
+                }else if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+24) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 27)){
                     document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png';
                     setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);
                 }
@@ -3170,13 +3170,21 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }else if(
                     matrizDoMapa[i][j] == 55 
                 ){
-                    baseCampo.alt = "Spike Sword (Arm: 1)";
-                    baseCampo.title = "Spike Sword (Arm: 1)";
+                    imagem1Campo.src = "imagens/Sword.png";
+                    imagem1Campo.alt = "Sword (Arm: 1)";
+                    imagem1Campo.title = "Sword (Arm: 1)";
+                    baseCampo.alt = "Sword (Arm: 1)";
+                    baseCampo.title = "Sword (Arm: 1)";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(
                     matrizDoMapa[i][j] == 56 
                 ){
-                    baseCampo.alt = "Crown Shield (Def: 1)";
-                    baseCampo.title = "Crown Shield (Def: 1)";
+                    imagem1Campo.src = "imagens/Shield.png";
+                    imagem1Campo.alt = "Shield (Def: 1)";
+                    imagem1Campo.title = "Shield (Def: 1)";
+                    baseCampo.alt = "Shield (Def: 1)";
+                    baseCampo.title = "Shield (Def: 1)";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(
                     matrizDoMapa[i][j] == 92 
                 ){
@@ -3423,10 +3431,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemRemo2.png";
                                 break;
                             case 55:
-                                caminhoImagem = "imagens/Spike_Sword_Field.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //sword
                                 break;
                             case 56:
-                                caminhoImagem = "imagens/Crown_Shield_Field.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //shield
                                 break;
                             case 57:
                                 caminhoImagem = "imagens/TetoCasa.png";
