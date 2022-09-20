@@ -170,7 +170,7 @@
     
         </div>
         <img id='fala1' src='imagens/imagemFalaVazia.png' alt='fala' style='position:fixed; top: 305; left: 365;'></img>
-        <div id='mensagemDiv3' style='position:fixed; top: 315; left: 365; width: 250; text-align: left; color: yellow; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+        <div id='mensagemDiv3' style='position:fixed; top: 315; left: 365; width: 250; text-align: left; color: red; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
         
         </div>
         <div id='mensagemDiv2' style='position:fixed; top: 640; left: 270; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
@@ -1212,7 +1212,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					message.style.left = "5";
 					message.style.width = "250";
 					message.style.textAlign = "left";
-					message.style.color = "yellow";
+					message.style.color = "red";
 					message.style.fontFamily = "Lucida Console,Courier New,monospace";
 					message.style.fontSize = "small";
 				
@@ -1958,7 +1958,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
                 if(hp + cura < hpmax){
                     hp = hp + cura;
-                    document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                    document.getElementById('mensagemDiv3').style.color = 'SpringGreen';
                     document.getElementById('mensagemDiv3').style.textAlign = 'center';
                     document.getElementById('mensagemDiv3').style.width = 50;
                     document.getElementById('mensagemDiv3').innerHTML = cura;
@@ -1969,7 +1969,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     document.getElementById('barraHpPersonagem1').style.width = (50 * hp) / hpmax;
                     document.getElementById('personagem1').title = username + " level: " + lvlatual.toString() + " hp: " + hp.toString();
                 } else {
-                    document.getElementById('mensagemDiv3').style.color = '#ccffcc';
+                    document.getElementById('mensagemDiv3').style.color = 'SpringGreen';
                     document.getElementById('mensagemDiv3').style.textAlign = 'center';
                     document.getElementById('mensagemDiv3').style.width = 50;
                     document.getElementById('mensagemDiv3').innerHTML = (hpmax - hp);
@@ -2581,7 +2581,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     if(ataqueLinha != null && ataqueColuna != null)
                         arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = ""; 
                     document.getElementById('mensagemDiv3').innerHTML = ""; 
-                    document.getElementById('mensagemDiv3').style.color = 'yellow'; 
+                    document.getElementById('mensagemDiv3').style.color = 'red'; 
                     document.getElementById('mensagemDiv3').style.width = 250; 
                 }, 500); 
             }
@@ -2935,17 +2935,33 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             imagemCampo.style.visibility = "visible";
 
                     }else if(matrizDoMapa[i][j] == 4){
-                        baseCampo.alt = "pedras";
-                        baseCampo.title = "pedras";
+                        imagem1Campo.src = "imagens/imagemFundoBuraco.png";
+                        imagem1Campo.alt = "buraco";
+                        imagem1Campo.title = "buraco";
+                        baseCampo.alt = "buraco";
+                        baseCampo.title = "buraco";
+                        imagem1Campo.style.visibility = "visible";
                     }else if(matrizDoMapa[i][j] == 5){
+                        imagem1Campo.src = "imagens/imagemBuracoAberto.png";
+                        imagem1Campo.alt = "buraco";
+                        imagem1Campo.title = "buraco";
                         baseCampo.alt = "buraco";
                         baseCampo.title = "buraco";
+                        imagem1Campo.style.visibility = "visible";
                     }else if(matrizDoMapa[i][j] == 6){
+                        imagem1Campo.src = "imagens/imagemBuracoFechado.png";
+                        imagem1Campo.alt = "buraco";
+                        imagem1Campo.title = "buraco";
                         baseCampo.alt = "buraco";
                         baseCampo.title = "buraco";
+                        imagem1Campo.style.visibility = "visible";
                     }else if(matrizDoMapa[i][j] == 7){
+                        imagem1Campo.src = "imagens/Caixa.png";
+                        imagem1Campo.alt = "caixa";
+                        imagem1Campo.title = "caixa";
                         baseCampo.alt = "caixa";
                         baseCampo.title = "caixa";
+                        imagem1Campo.style.visibility = "visible";
                     }
                     
                     for(let k = 0; dadosResposta != "vazio" && k < dadosResposta.players.length; k++){
@@ -3072,17 +3088,29 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     nomeCampo.innerHTML = "NPC";
                     nomeCampo.style.color = 'white';
                     nomeCampo.style.visibility = "visible";
-                    baseCampo.alt = "NPC";
-                    baseCampo.title = "NPC";
+                    imagem1Campo.src = "imagens/imagemNpcDeDireitaRecortado.png";
+                    imagem1Campo.alt = "npc";
+                    imagem1Campo.title = "npc";
+                    baseCampo.alt = "npc";
+                    baseCampo.title = "npc";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(matrizDoMapa[i][j] == 0){
                     baseCampo.alt = "piso";
                     baseCampo.title = "piso";
                 }else if(matrizDoMapa[i][j] == 1){
-                    baseCampo.alt = "barreira";
-                    baseCampo.title = "barreira";
+                    imagem1Campo.src = "imagens/Arvore.png";
+                    imagem1Campo.alt = "árvore";
+                    imagem1Campo.title = "árvore";
+                    baseCampo.alt = "árvore";
+                    baseCampo.title = "árvore";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(matrizDoMapa[i][j] == 2 || matrizDoMapa[i][j] == 3){
+                    imagem1Campo.src = "imagens/imagemSacola.png";
+                    imagem1Campo.alt = "sacola";
+                    imagem1Campo.title = "sacola";
                     baseCampo.alt = "sacola";
                     baseCampo.title = "sacola";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(matrizDoMapa[i][j] == 26){
                     baseCampo.alt = "água";
                     baseCampo.title = "água";
@@ -3165,8 +3193,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }else if(
                     matrizDoMapa[i][j] == 51 
                 ){
+                    imagem1Campo.src = "imagens/imagemBot.png";
+                    imagem1Campo.alt = "Bot";
+                    imagem1Campo.title = "Bot";
                     baseCampo.alt = "Bot";
                     baseCampo.title = "Bot";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(
                     matrizDoMapa[i][j] == 55 
                 ){
@@ -3269,25 +3301,25 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemCampo.png";
                                 break;
                             case 1:
-                                caminhoImagem = "imagens/imagemLixeira.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //arvore
                                 break;
                             case 2:
-                                caminhoImagem = "imagens/imagemSacola.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //sacola
                                 break;
                             case 3:
-                                caminhoImagem = "imagens/imagemSacola.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //sacola
                                 break;
                             case 4:
-                                caminhoImagem = "imagens/imagemFundoBuraco.png";
+                                caminhoImagem = "imagens/imagemCampo.png";//buraco
                                 break;
                             case 5:
-                                caminhoImagem = "imagens/imagemBuracoAberto.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //buraco
                                 break;
                             case 6:
-                                caminhoImagem = "imagens/imagemBuracoFechado.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //buraco
                                 break;
                             case 7:
-                                caminhoImagem = "imagens/imagemParcel.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //caixa
                                 break;
                             case 8:
                                 caminhoImagem = "imagens/imagemCampo.png"; //snake
@@ -3299,7 +3331,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemCampo.png"; //snake
                                 break;
                             case 11:
-                                caminhoImagem = "imagens/imagemNpcDeDireitaCampo.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //npc
                                 break;
                             case 12:
                                 caminhoImagem = "imagens/imagemCampo.png";
@@ -3419,7 +3451,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemCampo.png"; //orcshaman
                                 break;
                             case 51:
-                                caminhoImagem = "imagens/imagemBot.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //bot
                                 break;
                             case 52:
                                 caminhoImagem = "imagens/imagemJangada.png";
@@ -3664,11 +3696,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let hit = getRandomIntInclusive(Math.ceil(lvlatual*(equipamentos[1]+1)),Math.floor(lvlatual*2*(equipamentos[1]+1))); 
                 
                 if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) ){
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.color = 'yellow';
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.color = 'red';
                     arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.textAlign = 'center';
                     arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.width = 50;
                 }else{
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.color = '#ccffcc';
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.color = 'SpringGreen';
                     arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.textAlign = 'center';
                     arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.width = 50;
                 }
@@ -4706,7 +4738,7 @@ loop = function() {
                 }
 
                 if(hitTotal > 0){
-                    document.getElementById('mensagemDiv3').style.color = 'yellow';
+                    document.getElementById('mensagemDiv3').style.color = 'red';
                     document.getElementById('mensagemDiv3').style.textAlign = 'center';
                     document.getElementById('mensagemDiv3').style.width = 50;
                     document.getElementById('mensagemDiv3').innerHTML = hitTotal;
@@ -5032,7 +5064,7 @@ loop = function() {
                             document.getElementById('mensagemDiv3').style.textAlign = 'center';
                             //document.getElementById('mensagemDiv3').style.left = 320;
                         }
-                        document.getElementById('mensagemDiv3').style.color = 'yellow';
+                        document.getElementById('mensagemDiv3').style.color = 'red';
                         document.getElementById('mensagemDiv3').style.width = 250;
 
                         mensagem = document.getElementById('campoDeEscritaInput').value;
@@ -5498,7 +5530,6 @@ loop = function() {
 
                 }
                 if(conjurarExoriGran){
-                    let i = 1;
 
                     if(dataMagia <= new Date()){
                         dataMagia = new Date();
@@ -5510,7 +5541,6 @@ loop = function() {
                         for(let j = -3; j < 4; j++){
                             for(let k = -4; k < 5; k++){
                                 ataqueCampo(j,k);
-                                i++;
                             }
                         }
                         
