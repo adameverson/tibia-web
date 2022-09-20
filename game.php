@@ -494,6 +494,7 @@
             var mensagemGanhouExperiencia;
             var verificarPosicaoValida;
             var verificarPosicaoValidaBot;
+            var verificarJogoHabilitado;
             var recompensaSacola;
             var mensagemDoSistema;
             var posicaoInicial;
@@ -2363,6 +2364,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 return (matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 0 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 12 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 13 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 14 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 15 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 22 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 23 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 24 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 25 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 84 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 85 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 86 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 87 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 88 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 89 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 90 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 91);
             }
 
+            verificarJogoHabilitado = function(){
+                return (document.getElementById('alertYellowId').style.visibility == 'hidden' && document.getElementById('alertRedId').style.visibility == 'hidden');
+            }
+
             verificacaoAproximacaoNPC = function(linha, coluna){
                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 11){
                     document.getElementById('campoDeEscritaInput').value = 'Oi';
@@ -3765,7 +3770,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     calculaLevel();
 
-                    preencherImagens(); 
+                    auxPreencherImagens((posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha), (posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna), "imagens/imagemCampo.png", ataqueLinha, ataqueColuna); 
 
                     if(nomeCriaturaTask == nomeCriatura && taskvalor < 100){
                         taskvalor++; 
@@ -3775,7 +3780,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 arrayColunasTela[ataqueColuna][ataqueLinha].children[5].style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
 
-                corlifecampo(ataqueColuna, ataqueLinha);
+                corlifecampo(ataqueLinha, ataqueColuna);
             }
 
             ataqueCampo = function (distanciaDoPersonagemLinha, distanciaDoPersonagemColuna){
@@ -3864,19 +3869,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverCima = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1])) && document.getElementById('mensagem1').style.visibility == 'hidden'){if(verificarPosicaoValida(-1, 0)){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdBaixo(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdCima(2)){recompensaSacola(-1,0);}else if(verificacaoIdCima(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdCima(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 6); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(0)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1], 0); }else{ ataqueCampo(-1, 0); } direcaoDoPersonagem = 0; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(-1, 0)){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdBaixo(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdCima(2)){recompensaSacola(-1,0);}else if(verificacaoIdCima(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdCima(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 6); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(0)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1], 0); }else{ ataqueCampo(-1, 0); } direcaoDoPersonagem = 0; }
             }
 
             moverDireita = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && document.getElementById('mensagem1').style.visibility == 'hidden'){if(verificarPosicaoValida(0, 1)){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdEsquerda(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdEsquerda(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
             }
 
             moverBaixo = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1])) && document.getElementById('mensagem1').style.visibility == 'hidden'){if(verificarPosicaoValida(1, 0)){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdCima(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdBaixo(2)){recompensaSacola(1,0);}else if(verificacaoIdBaixo(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdBaixo(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 4); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(2)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1], 2); }else{ ataqueCampo(1, 0); } direcaoDoPersonagem = 2; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(1, 0)){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdCima(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdBaixo(2)){recompensaSacola(1,0);}else if(verificacaoIdBaixo(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdBaixo(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 4); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(2)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1], 2); }else{ ataqueCampo(1, 0); } direcaoDoPersonagem = 2; }
             }
 
             moverEsquerda = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && document.getElementById('mensagem1').style.visibility == 'hidden'){if(verificarPosicaoValida(0, -1)){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdDireita(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdDireita(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
             }
 
 funcMoverPersonagem = function() {
@@ -3892,7 +3897,7 @@ funcMoverPersonagem = function() {
                 dataMove = new Date();
                 dataMove.setMilliseconds(dataMove.getMilliseconds() + velocidade);
 
-                if(document.getElementById('mensagem1').style.visibility == 'hidden'){
+                if(verificarJogoHabilitado()){
                     if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0){
                         datainicioinatividade = new Date();
                         if(moverPersonagem[1] < 0 && verificarPosicaoValida(0, -1)){
@@ -5582,7 +5587,7 @@ loop = function() {
                         document.getElementById('campoDeEscritaInput').value = '';
                     }
                 } else {
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){
+                    if(verificarJogoHabilitado()){
                         dialogo();
                     }
                 }
@@ -5615,7 +5620,7 @@ loop = function() {
             }
 
             esconderComponentes = function(){
-                if(document.getElementById('mensagem1').style.visibility == 'visible'){
+                if(document.getElementById('alertYellowId').style.visibility == 'visible' || document.getElementById('alertRedId').style.visibility == 'visible'){
                     document.getElementById('mensagem1').style.visibility = 'hidden'; 
                     document.getElementById('conversa').style.visibility = 'hidden'; 
                     document.getElementById('opcao1').style.visibility = 'hidden'; 
@@ -5725,17 +5730,17 @@ loop = function() {
                     }
                 });
                 document.getElementById('campoDaMochila1').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarIten(0); 
                     }
                 });
                 document.getElementById('campoDaMochila2').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarIten(1); 
                     }
                 });
                 document.getElementById('campoDaMochila3').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarIten(2); 
                     }
                 });
@@ -5743,22 +5748,22 @@ loop = function() {
                     
                 });
                 document.getElementById('campoDaMagia1').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarMagia(0); 
                     }
                 });
                 document.getElementById('campoDaMagia2').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarMagia(1); 
                     }
                 });
                 document.getElementById('campoDaMagia3').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarMagia(2); 
                     }
                 });
                 document.getElementById('campoDaMagia4').addEventListener("click", function(){
-                    if(document.getElementById('mensagem1').style.visibility == 'hidden'){ 
+                    if(verificarJogoHabilitado()){ 
                         utilizarMagia(3); 
                     }
                 });
