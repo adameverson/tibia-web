@@ -5620,7 +5620,7 @@ loop = function() {
             }
 
             esconderComponentes = function(){
-                if(document.getElementById('alertYellowId').style.visibility == 'visible' || document.getElementById('alertRedId').style.visibility == 'visible'){
+                if(!verificarJogoHabilitado()){
                     document.getElementById('mensagem1').style.visibility = 'hidden'; 
                     document.getElementById('conversa').style.visibility = 'hidden'; 
                     document.getElementById('opcao1').style.visibility = 'hidden'; 
@@ -5713,13 +5713,12 @@ loop = function() {
                     outfit = 'F'; document.getElementById('menuopcoes').style.visibility = 'hidden';
                 });
                 document.getElementById('closeAlertYellow').addEventListener("click", function(){
-                    document.getElementById('alertYellowId').style.visibility = 'hidden'; 
                     esconderComponentes();
+                    document.getElementById('alertYellowId').style.visibility = 'hidden'; 
                 });
                 document.getElementById('closeAlertRed').addEventListener("click", function(){
-                    document.getElementById('alertRedId').style.visibility = 'hidden';
-                    document.getElementById('alertYellowId').style.visibility = 'hidden';
                     esconderComponentes();
+                    document.getElementById('alertRedId').style.visibility = 'hidden';
                 });
                 document.getElementById('logoutOpcao2').addEventListener("click", function(){
                     if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ 
