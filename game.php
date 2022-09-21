@@ -5355,21 +5355,21 @@ loop = function() {
                                     (quest1 || quest2 || quest3 || quest4)
                             ){
                                 quest1 = 0;
-                                matrizDoMapa[(linhaInicioTerreo+1)][26] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][26];
-                                matrizDoMapa[(linhaInicioTerreo+11)][37] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][37];
-                                matrizDoMapa[(linhaInicioTerreo+2)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+2)][47];
+                                matrizDoMapa[(linhaInicioTerreo+1)][colunaInicio+20] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][colunaInicio+20];
+                                matrizDoMapa[(linhaInicioTerreo+11)][colunaInicio+31] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][colunaInicio+31];
+                                matrizDoMapa[(linhaInicioTerreo+2)][colunaInicio+41] = matrizDoMapaOriginal[(linhaInicioTerreo+2)][colunaInicio+41];
                                 quest2 = 0;
-                                matrizDoMapa[(linhaInicioTerreo+11)][29] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][29];
-                                matrizDoMapa[(linhaInicioTerreo+1)][40] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][40];
-                                matrizDoMapa[(linhaInicioTerreo+6)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+6)][47];
+                                matrizDoMapa[(linhaInicioTerreo+11)][colunaInicio+23] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][colunaInicio+23];
+                                matrizDoMapa[(linhaInicioTerreo+1)][colunaInicio+34] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][colunaInicio+34];
+                                matrizDoMapa[(linhaInicioTerreo+6)][colunaInicio+41] = matrizDoMapaOriginal[(linhaInicioTerreo+6)][colunaInicio+41];
                                 quest3 = 0;
-                                matrizDoMapa[(linhaInicioTerreo+1)][33] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][33];
-                                matrizDoMapa[(linhaInicioTerreo+11)][43] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][43];
-                                matrizDoMapa[(linhaInicioTerreo+10)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+10)][47];
+                                matrizDoMapa[(linhaInicioTerreo+1)][colunaInicio+27] = matrizDoMapaOriginal[(linhaInicioTerreo+1)][colunaInicio+27];
+                                matrizDoMapa[(linhaInicioTerreo+11)][colunaInicio+37] = matrizDoMapaOriginal[(linhaInicioTerreo+11)][colunaInicio+37];
+                                matrizDoMapa[(linhaInicioTerreo+10)][colunaInicio+41] = matrizDoMapaOriginal[(linhaInicioTerreo+10)][colunaInicio+41];
                                 quest4 = 0;
-                                matrizDoMapa[(linhaInicioTerreo+23)][32] = matrizDoMapaOriginal[(linhaInicioTerreo+23)][32];
-                                matrizDoMapa[(linhaInicioTerreo+15)][47] = matrizDoMapaOriginal[(linhaInicioTerreo+15)][47];
-                                matrizDoMapa[(linhaInicioTerreo+24)][46] = matrizDoMapaOriginal[(linhaInicioTerreo+24)][46];
+                                matrizDoMapa[(linhaInicioTerreo+24)][colunaInicio+27] = matrizDoMapaOriginal[(linhaInicioTerreo+24)][colunaInicio+27];
+                                matrizDoMapa[(linhaInicioTerreo+15)][colunaInicio+41] = matrizDoMapaOriginal[(linhaInicioTerreo+15)][colunaInicio+41];
+                                matrizDoMapa[(linhaInicioTerreo+24)][colunaInicio+40] = matrizDoMapaOriginal[(linhaInicioTerreo+24)][colunaInicio+40];
                             }
                             nivelDeConversaNpc = 0;
                             break;
