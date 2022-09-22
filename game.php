@@ -495,6 +495,7 @@
             var verificarPosicaoValida;
             var verificarPosicaoValidaBot;
             var verificarJogoHabilitado;
+            var verificarJogadorNaTela;
             var recompensaSacola;
             var mensagemDoSistema;
             var posicaoInicial;
@@ -1148,19 +1149,32 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					image1.style.left = "5";
 					image1.style.width = "50"; 
 					image1.style.height = "50";
-
+                    
                     let image2 = document.createElement("img");
                     field.appendChild(image2);
                     //arrayLinhasTela.push(image);
-				    //image2.setAttribute("id", "imagem2" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+				    //image2.setAttribute("id", "imagem1" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					image2.style.position = "absolute";
                     image2.src = "/imagens/imagemFalaVazia.png";
 					image2.alt = "campo";
 					image2.title = "campo";
-                    image2.style.top = "3";
-					image2.style.left = "3";
-					image2.style.width = "54"; 
-					image2.style.height = "54";
+                    image2.style.top = "5";
+					image2.style.left = "5";
+					image2.style.width = "50"; 
+					image2.style.height = "50";
+
+                    let image3 = document.createElement("img");
+                    field.appendChild(image3);
+                    //arrayLinhasTela.push(image);
+				    //image2.setAttribute("id", "imagem2" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
+					image3.style.position = "absolute";
+                    image3.src = "/imagens/imagemFalaVazia.png";
+					image3.alt = "campo";
+					image3.title = "campo";
+                    image3.style.top = "3";
+					image3.style.left = "3";
+					image3.style.width = "54"; 
+					image3.style.height = "54";
 
 					const name = document.createElement("div");
                     field.appendChild(name);
@@ -1860,35 +1874,22 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             corlifecampo = function(i, j){
-                if(parseInt(arrayColunasTela[j][i].children[5].style.width.split('p')[0]) <= 13){ 
-                    arrayColunasTela[j][i].children[3].style.color = 'tomato';
-                    arrayColunasTela[j][i].children[5].style.background = 'tomato';
-                } else if(parseInt(arrayColunasTela[j][i].children[5].style.width.split('p')[0]) <= 25){ 
-                    arrayColunasTela[j][i].children[3].style.color = 'orange';
-                    arrayColunasTela[j][i].children[5].style.background = 'orange';
-                } else if(parseInt(arrayColunasTela[j][i].children[5].style.width.split('p')[0]) > 25){ 
-                    arrayColunasTela[j][i].children[3].style.color = 'mediumseagreen';
-                    arrayColunasTela[j][i].children[5].style.background = 'mediumseagreen';
+                if(parseInt(arrayColunasTela[j][i].children[6].style.width.split('p')[0]) <= 13){ 
+                    arrayColunasTela[j][i].children[4].style.color = 'tomato';
+                    arrayColunasTela[j][i].children[6].style.background = 'tomato';
+                } else if(parseInt(arrayColunasTela[j][i].children[6].style.width.split('p')[0]) <= 25){ 
+                    arrayColunasTela[j][i].children[4].style.color = 'orange';
+                    arrayColunasTela[j][i].children[6].style.background = 'orange';
+                } else if(parseInt(arrayColunasTela[j][i].children[6].style.width.split('p')[0]) > 25){ 
+                    arrayColunasTela[j][i].children[4].style.color = 'mediumseagreen';
+                    arrayColunasTela[j][i].children[6].style.background = 'mediumseagreen';
                 }
             }
 
             funcPersonagemMorto = function(){
                 hp = 0;
-                personagemMorto = true;
                 posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo + 2),(colunaInicio + 2)];
-                hp++; 
-                if(nivelDeSolo == 2){ 
-                    nivelDeSolo--; 
-                    document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10;
-                    document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;
-                }
-                visibilityEquipamentos(false);
-                document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
-                setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
-                document.getElementById('mensagem1').src = 'imagens/imagemFalaVazia.png';
-                document.getElementById('mensagem1').alt = 'mensagem';
-                document.getElementById('mensagem1').title = 'mensagem';
-                document.getElementById('mensagem1').style.visibility = 'visible';
+                personagemMorto = true;
                 document.getElementById('alertRedId').style.visibility = 'visible';
             }
             
@@ -1948,6 +1949,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             regeneracao = function(curaPadrao, tipoDeCura){
                 let cura;
+
+                if(personagemMorto)
+                    return;
                 
                 if(tipoDeCura == "curou"){
                     cura = getRandomIntInclusive(((40*curaPadrao)+(lvlatual*curaPadrao)),((40*curaPadrao)+(lvlatual*curaPadrao*2))); 
@@ -2368,6 +2372,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 return (document.getElementById('alertYellowId').style.visibility == 'hidden' && document.getElementById('alertRedId').style.visibility == 'hidden');
             }
 
+            verificarJogadorNaTela = function(x, y){
+                let distanciaX = Math.abs(x - posicaoDoPersonagemNaMatriz[0]);
+                let distanciaY = Math.abs(y - posicaoDoPersonagemNaMatriz[1]);
+
+                return ( distanciaX <= (resolucaoLarguraAltura[0] / 2) ) && ( distanciaY <= (resolucaoLarguraAltura[1] / 2) )
+            }
+
             verificacaoAproximacaoNPC = function(linha, coluna){
                 if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 11){
                     document.getElementById('campoDeEscritaInput').value = 'Oi';
@@ -2584,7 +2595,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 document.getElementById('mensagemDiv3').innerHTML = xpGanha + "Xp"; 
                 setTimeout(function(){ 
                     if(ataqueLinha != null && ataqueColuna != null)
-                        arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = ""; 
+                        arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = ""; 
                     document.getElementById('mensagemDiv3').innerHTML = ""; 
                     document.getElementById('mensagemDiv3').style.color = 'red'; 
                     document.getElementById('mensagemDiv3').style.width = 250; 
@@ -2602,8 +2613,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 let arrayMove = [];
                 
-                for(let i = (-telaAreaMax[0]); i < (telaAreaMax[0] + 1); i++){
-                    for(let j = (-telaAreaMax[1]); j < (telaAreaMax[1] + 1); j++){
+                for(let i = (-((resolucaoLarguraAltura[0]/2) | 0) + 1); i < ((resolucaoLarguraAltura[0]/2) | 0); i++){
+                    for(let j = (-((resolucaoLarguraAltura[1]/2) | 0) + 1); j < ((resolucaoLarguraAltura[1]/2) | 0); j++){
 
                         let posicaoDoCampoNaMatriz = [posicaoDoPersonagemNaMatriz[0]+i,posicaoDoPersonagemNaMatriz[1]+j];
                         let flagMoveC = false;
@@ -2654,9 +2665,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
-                                    
+
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
 
                                     posicaoDoCampoNaMatriz[0]--;
+
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
 
                                     arrayMove.push(posicaoDoCampoNaMatriz);
                                 }
@@ -2668,7 +2682,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
 
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
+
                                     posicaoDoCampoNaMatriz[1]++;
+
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
 
                                     arrayMove.push(posicaoDoCampoNaMatriz);
                                 }
@@ -2680,7 +2698,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
 
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
+
                                     posicaoDoCampoNaMatriz[0]++;
+
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
 
                                     arrayMove.push(posicaoDoCampoNaMatriz);
                                 }
@@ -2692,7 +2714,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
 
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
+
                                     posicaoDoCampoNaMatriz[1]--;
+
+                                    preencherImagens(null, posicaoDoCampoNaMatriz[0], posicaoDoCampoNaMatriz[1]);
 
                                     arrayMove.push(posicaoDoCampoNaMatriz);
                                 }
@@ -2814,27 +2840,28 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
-            auxPreencherImagens = function (i, j, caminhoImagem, k, l){
+            auxPreencherImagens = function (i, j, caminhoImagem, k, l, limpar){
                 let baseCampo = arrayColunasTela[l][k].children[0];
                 let imagem1Campo = arrayColunasTela[l][k].children[1];
-                let imagemCampo = arrayColunasTela[l][k].children[2];
-                let nomeCampo = arrayColunasTela[l][k].children[3];
-                let barraHpCampo = arrayColunasTela[l][k].children[5];
-                let barraHpVaziaCampo = arrayColunasTela[l][k].children[4];
-                let mensagemDivCampo = arrayColunasTela[l][k].children[6];
+                let imagem2Campo = arrayColunasTela[l][k].children[2];
+                let imagemCampo = arrayColunasTela[l][k].children[3];
+                let nomeCampo = arrayColunasTela[l][k].children[4];
+                let barraHpCampo = arrayColunasTela[l][k].children[6];
+                let barraHpVaziaCampo = arrayColunasTela[l][k].children[5];
+                let mensagemDivCampo = arrayColunasTela[l][k].children[7];
                 
                 baseCampo.src = caminhoImagem;
                 baseCampo.title = "campo";
                 imagem1Campo.style.visibility = "hidden";
+                imagem2Campo.style.visibility = "hidden";
                 imagemCampo.style.visibility = "hidden";
                 nomeCampo.style.visibility = "hidden";
                 barraHpCampo.style.visibility = "hidden";
                 barraHpVaziaCampo.style.visibility = "hidden";
 
                 
-                imagemCampo.style.top = 5;
-                imagemCampo.style.left = 5;
-                imagemCampo.src = "imagens/imagemFalaVazia.png";
+                imagem2Campo.style.top = 5;
+                imagem2Campo.style.left = 5;
                 
                 if(
                     matrizDoMapa[i][j] == 12 ||
@@ -2981,8 +3008,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             lvl--;
                             baseCampo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                             baseCampo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                            imagemCampo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                            imagemCampo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                            imagem2Campo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                            imagem2Campo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
                             nomeCampo.innerHTML = dadosResposta.players[k].username;
 
                             let xpercent = ( dadosResposta.players[k].hp * 100 / (((lvl-1)* 15) + 176) );
@@ -3002,74 +3029,76 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(dadosResposta.players[k].outfit == "M"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeCostas.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeCostas.png";
                                         break;
                                     case 1:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeDireita.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeDireita.png";
                                         break;
                                     case 2:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeFrente.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeFrente.png";
                                         break;
                                     case 3:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeEsquerda.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeEsquerda.png";
                                         break;
                                 }
                             }else if(dadosResposta.players[k].outfit == "F"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeCostasF.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeCostasF.png";
                                         break;
                                     case 1:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeDireitaF.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeDireitaF.png";
                                         break;
                                     case 2:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeFrenteF.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeFrenteF.png";
                                         break;
                                     case 3:
-                                        imagem1Campo.src = "imagens/imagemPersonagemDeEsquerdaF.png";
+                                        imagem2Campo.src = "imagens/imagemPersonagemDeEsquerdaF.png";
                                         break;
                                 }
                             }else if(dadosResposta.players[k].outfit == "P"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagem1Campo.src = "imagens/person2.png";
+                                        imagem2Campo.src = "imagens/person2.png";
                                         break;
                                     case 1:
-                                        imagem1Campo.src = "imagens/person4.png";
+                                        imagem2Campo.src = "imagens/person4.png";
                                         break;
                                     case 2:
-                                        imagem1Campo.src = "imagens/person1.png";
+                                        imagem2Campo.src = "imagens/person1.png";
                                         break;
                                     case 3:
-                                        imagem1Campo.src = "imagens/person3.png";
+                                        imagem2Campo.src = "imagens/person3.png";
                                         break;
                                 }
                             }else if(dadosResposta.players[k].outfit == "W"){
                                 switch(dadosResposta.players[k].direcao){
                                     case 0:
-                                        imagem1Campo.src = "imagens/personF2.png";
+                                        imagem2Campo.src = "imagens/personF2.png";
                                         break;
                                     case 1:
-                                        imagem1Campo.src = "imagens/personF4.png";
+                                        imagem2Campo.src = "imagens/personF4.png";
                                         break;
                                     case 2:
-                                        imagem1Campo.src = "imagens/personF1.png";
+                                        imagem2Campo.src = "imagens/personF1.png";
                                         break;
                                     case 3:
-                                        imagem1Campo.src = "imagens/personF3.png";
+                                        imagem2Campo.src = "imagens/personF3.png";
                                         break;
                                 }
                             }
 
                             if(matrizDoMapa[i][j] == 7){
-                                imagemCampo.style.top = -5;
-                                imagemCampo.style.left = -5;
+                                imagem2Campo.style.top = -5;
+                                imagem2Campo.style.left = -5;
                             }
 
-                            imagem1Campo.style.visibility = "visible";
-                            nomeCampo.style.visibility = "visible";
-                            barraHpCampo.style.visibility = "visible";
-                            barraHpVaziaCampo.style.visibility = "visible";
+                            if(!limpar){
+                                imagem2Campo.style.visibility = "visible";
+                                nomeCampo.style.visibility = "visible";
+                                barraHpCampo.style.visibility = "visible";
+                                barraHpVaziaCampo.style.visibility = "visible";
+                            }
 
                             if(ultimamensagem != "vazio"){
                                 for(let l = 0; l < ultimamensagem.players.length; l++){
@@ -3235,7 +3264,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
-            preencherImagens = function (direcao){
+            preencherImagens = function (direcao, linhaAtualizacao, colunaAtualizacao, limpar){
                 var caminhoImagem = "";
                 var posicaoLinhaInicio = (posicaoDoPersonagemNaMatriz[0]-(posicaoDoPersonagemNaTela[0]));
                 var posicaoLinhaFim = (posicaoDoPersonagemNaMatriz[0]+(posicaoDoPersonagemNaTela[0] + 1));
@@ -3294,6 +3323,20 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             flagColuna = true;
                             break;
                     }
+                }
+
+                if(linhaAtualizacao != null && colunaAtualizacao != null){
+
+                    posicaoLinhaInicio = (linhaAtualizacao);
+                    posicaoLinhaFim = (linhaAtualizacao + 1);
+                    posicaoColunaInicio = (colunaAtualizacao);
+                    posicaoColunaFim = (colunaAtualizacao + 1);
+
+                    posicaoLinhaTelaInicio = (posicaoDoPersonagemNaTela[0] + (linhaAtualizacao - posicaoDoPersonagemNaMatriz[0]));
+                    posicaoColunaTelaInicio = (posicaoDoPersonagemNaTela[1] + (colunaAtualizacao - posicaoDoPersonagemNaMatriz[1]));
+
+                    flagLinha = 
+                    flagColuna = true;
                 }
                 
                 /*run_ajax();*/
@@ -3589,6 +3632,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             auxPreencherImagens(posicaoLinhaInicio, j, caminhoImagem, posicaoLinhaTelaInicio, l);
                         else if(!flagLinha && flagColuna)
                             auxPreencherImagens(i, posicaoColunaInicio, caminhoImagem, k, posicaoColunaTelaInicio);
+                        else if(flagLinha && flagColuna && limpar == null)
+                            auxPreencherImagens(posicaoLinhaInicio, posicaoColunaInicio, caminhoImagem, posicaoLinhaTelaInicio, posicaoColunaTelaInicio);
+                        else if(flagLinha && flagColuna && limpar != null)
+                            auxPreencherImagens(posicaoLinhaInicio, posicaoColunaInicio, caminhoImagem, posicaoLinhaTelaInicio, posicaoColunaTelaInicio, limpar);
 
                     }
                 }
@@ -3701,13 +3748,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let hit = getRandomIntInclusive(Math.ceil(lvlatual*(equipamentos[1]+1)),Math.floor(lvlatual*2*(equipamentos[1]+1))); 
                 
                 if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) ){
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.color = 'red';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.textAlign = 'center';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.width = 50;
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.color = 'red';
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.textAlign = 'center';
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.width = 50;
                 }else{
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.color = 'SpringGreen';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.textAlign = 'center';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.width = 50;
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.color = 'SpringGreen';
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.textAlign = 'center';
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.width = 50;
                 }
                 
                 if( 
@@ -3716,10 +3763,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 { 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0); 
 
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = hit; 
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + hit + " pontos de vida devido ao seu ataque."; 
                     setTimeout(function(){ 
-                        arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = ""; 
+                        arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = ""; 
                     }, 500);
                 }else if( 
                     posicaoDoPersonagemNaMatriz[0] >= (linhaInicioTerreo + 29) &&
@@ -3727,10 +3774,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 { 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] + ((hit*hitDecrescimo) | 0); 
 
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = hit; 
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " ganhou " + hit + " pontos de vida devido ao seu carinho."; 
                     setTimeout(function(){ 
-                        arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = ""; 
+                        arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = ""; 
                     }, 500);
                 }else{ 
 
@@ -3754,7 +3801,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             break;
                     }
 
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[6].innerHTML = (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1; 
+                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1; 
                     
                     if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) ){
                         mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + ((matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1) + " pontos de vida devido ao seu ataque.";
@@ -3778,7 +3825,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     }
                 }
 
-                arrayColunasTela[ataqueColuna][ataqueLinha].children[5].style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
+                arrayColunasTela[ataqueColuna][ataqueLinha].children[6].style.width = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna]; 
 
                 corlifecampo(ataqueLinha, ataqueColuna);
             }
@@ -4110,6 +4157,8 @@ funcMoverPersonagem = function() {
                         matrizDoMapa[posicaoLinhaCima][posicaoColunaCima] = normal;
                     }
 
+                    preencherImagens(null, posicaoLinhaCima, posicaoColunaCima);
+
                 }
 
                 //Animacao Monster Atacando da Esquerda
@@ -4145,6 +4194,8 @@ funcMoverPersonagem = function() {
                     } else if(matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] == atacando){
                         matrizDoMapa[posicaoLinhaEsquerda][posicaoColunaEsquerda] = normal;
                     }
+
+                    preencherImagens(null, posicaoLinhaEsquerda, posicaoColunaEsquerda);
 
                 }
 
@@ -4182,6 +4233,8 @@ funcMoverPersonagem = function() {
                         matrizDoMapa[posicaoLinhaDireita][posicaoColunaDireita] = normal;
                     }
 
+                    preencherImagens(null, posicaoLinhaDireita, posicaoColunaDireita);
+
                 }
 
                 //Animacao Monster Atacando de Baixo
@@ -4217,6 +4270,8 @@ funcMoverPersonagem = function() {
                     } else if(matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] == atacando){
                         matrizDoMapa[posicaoLinhaBaixo][posicaoColunaBaixo] = normal;
                     }
+
+                    preencherImagens(null, posicaoLinhaBaixo, posicaoColunaBaixo);
 
                 }
 
@@ -4254,6 +4309,8 @@ funcMoverPersonagem = function() {
                         matrizDoMapa[posicaoLinhaCimaEsquerda][posicaoColunaCimaEsquerda] = normal;
                     }
 
+                    preencherImagens(null, posicaoLinhaCimaEsquerda, posicaoColunaCimaEsquerda);
+
                 }
 
                 //Animacao Monster Atacando de Cima Direita
@@ -4290,6 +4347,8 @@ funcMoverPersonagem = function() {
                         matrizDoMapa[posicaoLinhaCimaDireita][posicaoColunaCimaDireita] = normal;
                     }
 
+                    preencherImagens(null, posicaoLinhaCimaDireita, posicaoColunaCimaDireita);
+
                 }
 
                 //Animacao Monster Atacando de Baixo Direita
@@ -4325,6 +4384,8 @@ funcMoverPersonagem = function() {
                     } else if(matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] == atacando){
                         matrizDoMapa[posicaoLinhaBaixoDireita][posicaoColunaBaixoDireita] = normal;
                     }
+                    
+                    preencherImagens(null, posicaoLinhaBaixoDireita, posicaoColunaBaixoDireita);
 
                 }
 
@@ -4362,6 +4423,8 @@ funcMoverPersonagem = function() {
                         matrizDoMapa[posicaoLinhaBaixoEsquerda][posicaoColunaBaixoEsquerda] = normal;
                     }
 
+                    preencherImagens(null, posicaoLinhaBaixoEsquerda, posicaoColunaBaixoEsquerda);
+
                 }
 
                 }else{
@@ -4396,6 +4459,8 @@ funcMoverPersonagem = function() {
                         }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == atacando || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == morto){
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] = normal;
                         }
+
+                        preencherImagens(null, posicaoDoPersonagemNaMatriz[0]+i, posicaoDoPersonagemNaMatriz[1]+j);
                     
                     }
                 }
@@ -4542,6 +4607,12 @@ loop = function() {
                                 ){
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
                                 }
+
+                                if(
+                                    verificarJogadorNaTela(dadosResposta.players[i].x, dadosResposta.players[i].y)
+                                ) 
+                                    preencherImagens(null, dadosResposta.players[i].x, dadosResposta.players[i].y, true);
+
                             }
                             ultimamensagem = dadosResposta;
                         }
@@ -4614,6 +4685,13 @@ loop = function() {
                                             break;
                                     }
                                 }
+
+                            }
+                            if(
+                                dadosResposta.players[i].username != username &&
+                                verificarJogadorNaTela(dadosResposta.players[i].x, dadosResposta.players[i].y)
+                            ){
+                                preencherImagens(null, dadosResposta.players[i].x, dadosResposta.players[i].y);
                             }
                         }
 
@@ -4662,7 +4740,6 @@ loop = function() {
 
                 let tempoinativo = 0;
                 let hitTotal = 0;
-                personagemMorto = false;
 
                 if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) )
                 {
@@ -4731,10 +4808,9 @@ loop = function() {
                         default:
                             break;
                     }
-                    if(!moverPersonagem[0] && !moverPersonagem[1]){
+                    //if(!moverPersonagem[0] && !moverPersonagem[1]){
                         moverCriaturas();
-                        preencherImagens();
-                    }
+                    //}
                 }else if(inativo && online){
                     desconectar();
                 }else if(inativoAnterior && !inativo && !online){
@@ -5719,6 +5795,20 @@ loop = function() {
                 document.getElementById('closeAlertRed').addEventListener("click", function(){
                     esconderComponentes();
                     document.getElementById('alertRedId').style.visibility = 'hidden';
+                    
+                    personagemMorto = false;
+
+                    preencherImagens();
+
+                    hp++; 
+                    if(nivelDeSolo == 2){ 
+                        nivelDeSolo--; 
+                        document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10;
+                        document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;
+                    }
+                    visibilityEquipamentos(false);
+                    document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
+                    setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
                 });
                 document.getElementById('logoutOpcao2').addEventListener("click", function(){
                     if(document.getElementById('logoutOpcao2').style.visibility == 'visible'){ 
@@ -6115,6 +6205,8 @@ loop = function() {
             if(dadosJson){
                 readDadosJson();
             }
+
+            preencherImagens();
 
         }
 
