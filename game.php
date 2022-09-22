@@ -526,6 +526,7 @@
             var rightClick;
             var resolucao;
             var alterarTeleport;
+            var desativarEfeitos;
 
             var moverPersonagem = [0,0];
             var nivelDeSolo = 1;
@@ -958,6 +959,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var arrayColunasElementos = [];
             var arrayColunasTela = [];
             var arrayLinhasTela;
+            var listaEfeitos = [];
 
             //screen
             var flagFullScreen = false;
@@ -2843,7 +2845,31 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             preencherJogadores = function(){
 
-                preencherImagens();
+                for(let k = 0; ultimamensagem != "vazio" && k < ultimamensagem.players.length; k++){
+                    if(
+                        ultimamensagem.players[k].username == username ||
+                        !verificarJogadorNaTela(ultimamensagem.players[k].x, ultimamensagem.players[k].y) 
+                    )
+                        continue;
+
+                    let l = (posicaoDoPersonagemNaTela[0] + (ultimamensagem.players[k].x - posicaoDoPersonagemNaMatriz[0]));
+                    let m = (posicaoDoPersonagemNaTela[1] + (ultimamensagem.players[k].y - posicaoDoPersonagemNaMatriz[1]));
+
+                    let baseCampo = arrayColunasTela[m][l].children[0];
+                    let imagem2Campo = arrayColunasTela[m][l].children[2];
+                    let nomeCampo = arrayColunasTela[m][l].children[4];
+                    let barraHpCampo = arrayColunasTela[m][l].children[6];
+                    let barraHpVaziaCampo = arrayColunasTela[m][l].children[5];
+                    let mensagemDivCampo = arrayColunasTela[m][l].children[7];
+                    
+                    imagem2Campo.style.visibility = "hidden";
+                    nomeCampo.style.visibility = "hidden";
+                    barraHpCampo.style.visibility = "hidden";
+                    barraHpVaziaCampo.style.visibility = "hidden";
+                    
+                    imagem2Campo.style.top = 5;
+                    imagem2Campo.style.left = 5;
+                }
 
                 for(let k = 0; dadosResposta != "vazio" && k < dadosResposta.players.length; k++){
                     if(
@@ -3054,6 +3080,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     let imagemEfeito = "";
 
                     if(
+                        matrizDoMapa[i][j] == 8 ||
+                        matrizDoMapa[i][j] == 16 ||
+                        matrizDoMapa[i][j] == 19 ||
+                        matrizDoMapa[i][j] == 45 ||
+                        matrizDoMapa[i][j] == 48 
+                    ){
+
+                    }else if(
                         matrizDoMapa[i][j] == 9 ||
                         matrizDoMapa[i][j] == 17 ||
                         matrizDoMapa[i][j] == 20 ||
@@ -3681,6 +3715,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         arrayColunasTela[i][(arrayLinhasTela.length - 1)].style.top = parseInt(arrayColunasTela[i][0].style.top.split('p')[0]) - 60;
                         arrayColunasTela[i].unshift(arrayColunasTela[i].pop());
                     }
+
+                    posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1;
+
+                    desativarEfeitos();
+
+                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdBaixo(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
                     
                     preencherImagens(0);
 
@@ -3705,6 +3745,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     arrayColunasTela[0][0].parentNode.style.left = parseInt(arrayColunasTela[(arrayColunasTela.length - 1)][0].parentNode.style.left.split('p')[0]) + 60;
                     arrayColunasTela.push(arrayColunasTela.shift());
+
+                    posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1;
+
+                    desativarEfeitos();
+
+                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdEsquerda(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
                     
                     preencherImagens(1); 
 
@@ -3732,6 +3778,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         arrayColunasTela[i].push(arrayColunasTela[i].shift());
                     }
 
+                    posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1;
+
+                    desativarEfeitos();
+
+                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdCima(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
+
                     preencherImagens(2); 
 
                     //document.getElementById('map').style.visibility = "visible"; 
@@ -3755,6 +3807,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     arrayColunasTela[(arrayColunasTela.length - 1)][0].parentNode.style.left = parseInt(arrayColunasTela[0][0].parentNode.style.left.split('p')[0]) - 60;
                     arrayColunasTela.unshift(arrayColunasTela.pop());
+
+                    posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1;
+
+                    desativarEfeitos();
+
+                    if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdDireita(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
 
                     preencherImagens(3); 
 
@@ -3937,19 +3995,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverCima = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(-1, 0)){ cima(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdBaixo(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdCima(2)){recompensaSacola(-1,0);}else if(verificacaoIdCima(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdCima(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 6); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(0)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1], 0); }else{ ataqueCampo(-1, 0); } direcaoDoPersonagem = 0; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(-1, 0)){ cima(); }else if(verificacaoIdCima(2)){recompensaSacola(-1,0);}else if(verificacaoIdCima(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdCima(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 6); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(0)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1], 0); }else{ ataqueCampo(-1, 0); } direcaoDoPersonagem = 0; }
             }
 
             moverDireita = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdEsquerda(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); }else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
             }
 
             moverBaixo = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(1, 0)){ baixo(); posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdCima(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdBaixo(2)){recompensaSacola(1,0);}else if(verificacaoIdBaixo(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdBaixo(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 4); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(2)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1], 2); }else{ ataqueCampo(1, 0); } direcaoDoPersonagem = 2; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(1, 0)){ baixo(); }else if(verificacaoIdBaixo(2)){recompensaSacola(1,0);}else if(verificacaoIdBaixo(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdBaixo(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 4); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(2)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1], 2); }else{ ataqueCampo(1, 0); } direcaoDoPersonagem = 2; }
             }
 
             moverEsquerda = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1; if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdDireita(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}}else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); }else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
             }
 
 funcMoverPersonagem = function() {
@@ -4141,6 +4199,7 @@ funcMoverPersonagem = function() {
 
                 let hitTotal = 0;
                 let hit = 0;
+                let flagEfeito;
 
                 if(!ataqueADistancia ){
 
@@ -4180,6 +4239,17 @@ funcMoverPersonagem = function() {
 
                     preencherImagens(null, posicaoLinhaCima, posicaoColunaCima);
 
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaCima == listaEfeitos[i][0] &&
+                            posicaoColunaCima == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaCima, posicaoColunaCima]);
+
                 }
 
                 //Animacao Monster Atacando da Esquerda
@@ -4217,6 +4287,17 @@ funcMoverPersonagem = function() {
                     }
 
                     preencherImagens(null, posicaoLinhaEsquerda, posicaoColunaEsquerda);
+
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaEsquerda == listaEfeitos[i][0] &&
+                            posicaoColunaEsquerda == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaEsquerda, posicaoColunaEsquerda]);
 
                 }
 
@@ -4256,6 +4337,17 @@ funcMoverPersonagem = function() {
 
                     preencherImagens(null, posicaoLinhaDireita, posicaoColunaDireita);
 
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaDireita == listaEfeitos[i][0] &&
+                            posicaoColunaDireita == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaDireita, posicaoColunaDireita]);
+
                 }
 
                 //Animacao Monster Atacando de Baixo
@@ -4293,6 +4385,17 @@ funcMoverPersonagem = function() {
                     }
 
                     preencherImagens(null, posicaoLinhaBaixo, posicaoColunaBaixo);
+
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaBaixo == listaEfeitos[i][0] &&
+                            posicaoColunaBaixo == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaBaixo, posicaoColunaBaixo]);
 
                 }
 
@@ -4332,6 +4435,17 @@ funcMoverPersonagem = function() {
 
                     preencherImagens(null, posicaoLinhaCimaEsquerda, posicaoColunaCimaEsquerda);
 
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaCimaEsquerda == listaEfeitos[i][0] &&
+                            posicaoColunaCimaEsquerda == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaCimaEsquerda, posicaoColunaCimaEsquerda]);
+
                 }
 
                 //Animacao Monster Atacando de Cima Direita
@@ -4369,6 +4483,17 @@ funcMoverPersonagem = function() {
                     }
 
                     preencherImagens(null, posicaoLinhaCimaDireita, posicaoColunaCimaDireita);
+
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaCimaDireita == listaEfeitos[i][0] &&
+                            posicaoColunaCimaDireita == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaCimaDireita, posicaoColunaCimaDireita]);
 
                 }
 
@@ -4408,6 +4533,17 @@ funcMoverPersonagem = function() {
                     
                     preencherImagens(null, posicaoLinhaBaixoDireita, posicaoColunaBaixoDireita);
 
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaBaixoDireita == listaEfeitos[i][0] &&
+                            posicaoColunaBaixoDireita == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaBaixoDireita, posicaoColunaBaixoDireita]);
+
                 }
 
                 //Animacao Monster Atacando de Baixo Esquerda
@@ -4446,6 +4582,17 @@ funcMoverPersonagem = function() {
 
                     preencherImagens(null, posicaoLinhaBaixoEsquerda, posicaoColunaBaixoEsquerda);
 
+                    flagEfeito = false;
+                    for(let i = 0; i < listaEfeitos.length; i++){
+                        if(
+                            posicaoLinhaBaixoEsquerda == listaEfeitos[i][0] &&
+                            posicaoColunaBaixoEsquerda == listaEfeitos[i][1]
+                        )
+                            flagEfeito = true;
+                    }
+                    if(!flagEfeito)
+                        listaEfeitos.push([posicaoLinhaBaixoEsquerda, posicaoColunaBaixoEsquerda]);
+
                 }
 
                 }else{
@@ -4482,6 +4629,17 @@ funcMoverPersonagem = function() {
                         }
 
                         preencherImagens(null, posicaoDoPersonagemNaMatriz[0]+i, posicaoDoPersonagemNaMatriz[1]+j);
+
+                        flagEfeito = false;
+                        for(let i = 0; i < listaEfeitos.length; i++){
+                            if(
+                                (posicaoDoPersonagemNaMatriz[0]+i) == listaEfeitos[i][0] &&
+                                (posicaoDoPersonagemNaMatriz[1]+j) == listaEfeitos[i][1]
+                            )
+                                flagEfeito = true;
+                        }
+                        if(!flagEfeito)
+                            listaEfeitos.push([(posicaoDoPersonagemNaMatriz[0]+i), (posicaoDoPersonagemNaMatriz[1]+j)]);
                     
                     }
                 }
@@ -6062,6 +6220,32 @@ loop = function() {
                 matrizDoMapa[linhaInicioPvp + 3][(colunaInicio + 5)] = id;
                 matrizDoMapa[linhaInicioPvp][(colunaInicio + 9)] = id;
                 matrizDoMapa[linhaInicioPvp + 3][(colunaInicio + 9)] = id;
+            }
+
+            desativarEfeitos = function(){
+                while(listaEfeitos != null && listaEfeitos.length > 0){
+                    let itemEfeito = listaEfeitos.shift();
+
+                    switch(matrizDoMapa[itemEfeito[0]][itemEfeito[1]]){
+                        case 9:
+                            matrizDoMapa[itemEfeito[0]][itemEfeito[1]] = 8;
+                            break;
+                        case 17:
+                            matrizDoMapa[itemEfeito[0]][itemEfeito[1]] = 16;
+                            break;
+                        case 20:
+                            matrizDoMapa[itemEfeito[0]][itemEfeito[1]] = 19;
+                            break;
+                        case 46:
+                            matrizDoMapa[itemEfeito[0]][itemEfeito[1]] = 45;
+                            break;
+                        case 49:
+                            matrizDoMapa[itemEfeito[0]][itemEfeito[1]] = 48;
+                            break;
+                    }
+
+                    preencherImagens(null, itemEfeito[0], itemEfeito[1]);
+                }
             }
 
             <?php
