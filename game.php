@@ -448,6 +448,9 @@
 
         function main(){
 
+            var audio = document.getElementById("myAudio");
+            audio.volume = 0.02;
+
             var openFullscreen;
             var funcMoverPersonagem;
             var loop;

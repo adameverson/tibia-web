@@ -485,6 +485,11 @@
   <!--Your browser does not support the audio tag.-->
 </audio>
 
+<script>
+  var audio = document.getElementById("myAudio");
+  audio.volume = 0.01;
+</script>
+
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
     ©2021-2022 magiclevel.ml. All rights reserved. v2.0.0
 </div>
