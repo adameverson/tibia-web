@@ -463,6 +463,7 @@
             var moveMap;
             var moverCriaturas;
             var auxPreencherImagensCriaturas;
+            var preencherJogadores;
             var auxPreencherImagens;
             var preencherImagens;
             var cima;
@@ -2660,7 +2661,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         
                         switch(randomDirecao){
                             case 0:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]-1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i-1 > (-telaAreaMax[0] - 1)){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]-1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i-1 > (-((resolucaoLarguraAltura[0]/2) | 0) - 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]-1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2676,7 +2677,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;
                             case 1:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]+1) != posicaoDoPersonagemNaMatriz[1]) && j+1 < (telaAreaMax[1] + 1)){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]+1) != posicaoDoPersonagemNaMatriz[1]) && j+1 < (((resolucaoLarguraAltura[0]/2) | 0) + 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]+1] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2692,7 +2693,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;
                             case 2:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]+1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i+1 < (telaAreaMax[0] + 1)){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] == 0 && ((posicaoDoCampoNaMatriz[0]+1) != posicaoDoPersonagemNaMatriz[0] || posicaoDoCampoNaMatriz[1] != posicaoDoPersonagemNaMatriz[1]) && i+1 < (((resolucaoLarguraAltura[0]/2) | 0) + 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]+1][posicaoDoCampoNaMatriz[1]] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2708,7 +2709,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 }
                                 break;
                             case 3:
-                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]-1) != posicaoDoPersonagemNaMatriz[1]) && j-1 > (-telaAreaMax[1] - 1)){
+                                if(matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] == 0 && (posicaoDoCampoNaMatriz[0] != posicaoDoPersonagemNaMatriz[0] || (posicaoDoCampoNaMatriz[1]-1) != posicaoDoPersonagemNaMatriz[1]) && j-1 > (-((resolucaoLarguraAltura[0]/2) | 0) - 1)){
                                     matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] = matrizCriaturasVida[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]-1] = matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]];
                                     matrizDoMapa[posicaoDoCampoNaMatriz[0]][posicaoDoCampoNaMatriz[1]] = 0;
@@ -2840,7 +2841,155 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
-            auxPreencherImagens = function (i, j, caminhoImagem, k, l, limpar){
+            preencherJogadores = function(){
+
+                preencherImagens();
+
+                for(let k = 0; dadosResposta != "vazio" && k < dadosResposta.players.length; k++){
+                    if(
+                        dadosResposta.players[k].username == username ||
+                        !verificarJogadorNaTela(dadosResposta.players[k].x, dadosResposta.players[k].y) 
+                    )
+                        continue;
+
+                    let l = (posicaoDoPersonagemNaTela[0] + (dadosResposta.players[k].x - posicaoDoPersonagemNaMatriz[0]));
+                    let m = (posicaoDoPersonagemNaTela[1] + (dadosResposta.players[k].y - posicaoDoPersonagemNaMatriz[1]));
+
+                    let baseCampo = arrayColunasTela[m][l].children[0];
+                    let imagem2Campo = arrayColunasTela[m][l].children[2];
+                    let nomeCampo = arrayColunasTela[m][l].children[4];
+                    let barraHpCampo = arrayColunasTela[m][l].children[6];
+                    let barraHpVaziaCampo = arrayColunasTela[m][l].children[5];
+                    let mensagemDivCampo = arrayColunasTela[m][l].children[7];
+                    
+                    imagem2Campo.style.visibility = "hidden";
+                    nomeCampo.style.visibility = "hidden";
+                    barraHpCampo.style.visibility = "hidden";
+                    barraHpVaziaCampo.style.visibility = "hidden";
+                    
+                    imagem2Campo.style.top = 5;
+                    imagem2Campo.style.left = 5;
+
+                    let expaux = dadosResposta.players[k].nivel;
+                    let lvl=0;
+
+                    for(lvl=1; expaux >= 0; lvl++){
+                        expaux = expaux - lvl;
+                    }
+                    lvl--;
+                    baseCampo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                    baseCampo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                    imagem2Campo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                    imagem2Campo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
+                    nomeCampo.innerHTML = dadosResposta.players[k].username;
+
+                    let xpercent = ( dadosResposta.players[k].hp * 100 / (((lvl-1)* 15) + 176) );
+                    if( xpercent <= 25){ 
+                        nomeCampo.style.color = 'tomato';
+                        barraHpCampo.style.background = 'tomato';
+                    } else if( xpercent <= 50){ 
+                        nomeCampo.style.color = 'orange';
+                        barraHpCampo.style.background = 'orange';
+                    } else if( xpercent > 50){ 
+                        nomeCampo.style.color = 'mediumseagreen';
+                        barraHpCampo.style.background = 'mediumseagreen';
+                    }
+
+                    barraHpCampo.style.width = 50 * xpercent / 100;
+
+                    if(dadosResposta.players[k].outfit == "M"){
+                        switch(dadosResposta.players[k].direcao){
+                            case 0:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeCostas.png";
+                                break;
+                            case 1:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeDireita.png";
+                                break;
+                            case 2:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeFrente.png";
+                                break;
+                            case 3:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeEsquerda.png";
+                                break;
+                        }
+                    }else if(dadosResposta.players[k].outfit == "F"){
+                        switch(dadosResposta.players[k].direcao){
+                            case 0:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeCostasF.png";
+                                break;
+                            case 1:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeDireitaF.png";
+                                break;
+                            case 2:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeFrenteF.png";
+                                break;
+                            case 3:
+                                imagem2Campo.src = "imagens/imagemPersonagemDeEsquerdaF.png";
+                                break;
+                        }
+                    }else if(dadosResposta.players[k].outfit == "P"){
+                        switch(dadosResposta.players[k].direcao){
+                            case 0:
+                                imagem2Campo.src = "imagens/person2.png";
+                                break;
+                            case 1:
+                                imagem2Campo.src = "imagens/person4.png";
+                                break;
+                            case 2:
+                                imagem2Campo.src = "imagens/person1.png";
+                                break;
+                            case 3:
+                                imagem2Campo.src = "imagens/person3.png";
+                                break;
+                        }
+                    }else if(dadosResposta.players[k].outfit == "W"){
+                        switch(dadosResposta.players[k].direcao){
+                            case 0:
+                                imagem2Campo.src = "imagens/personF2.png";
+                                break;
+                            case 1:
+                                imagem2Campo.src = "imagens/personF4.png";
+                                break;
+                            case 2:
+                                imagem2Campo.src = "imagens/personF1.png";
+                                break;
+                            case 3:
+                                imagem2Campo.src = "imagens/personF3.png";
+                                break;
+                        }
+                    }
+
+                    if(matrizDoMapa[dadosResposta.players[k].x][dadosResposta.players[k].y] == 7){
+                        imagem2Campo.style.top = -5;
+                        imagem2Campo.style.left = -5;
+                    }
+                    
+                    imagem2Campo.style.visibility = "visible";
+                    nomeCampo.style.visibility = "visible";
+                    barraHpCampo.style.visibility = "visible";
+                    barraHpVaziaCampo.style.visibility = "visible";
+
+                    if(ultimamensagem != "vazio"){
+                        for(let l = 0; l < ultimamensagem.players.length; l++){
+                            if(ultimamensagem.players[l].username != dadosResposta.players[k].username)
+                                continue;
+
+                            if(dadosResposta.players[k].mensagem == ultimamensagem.players[l].mensagem)
+                                break;
+
+                            if(dadosResposta.players[k].mensagem != ""){
+                                let data = new Date();
+                                mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
+                                mensagemDivCampo.innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
+                                setTimeout(function(){mensagemDivCampo.innerHTML = "";}, 5000);
+                                ultimamensagem.players[k].mensagem = dadosResposta.players[k].mensagem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            auxPreencherImagens = function (i, j, caminhoImagem, k, l){
                 let baseCampo = arrayColunasTela[l][k].children[0];
                 let imagem1Campo = arrayColunasTela[l][k].children[1];
                 let imagem2Campo = arrayColunasTela[l][k].children[2];
@@ -2858,10 +3007,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 nomeCampo.style.visibility = "hidden";
                 barraHpCampo.style.visibility = "hidden";
                 barraHpVaziaCampo.style.visibility = "hidden";
-
-                
-                imagem2Campo.style.top = 5;
-                imagem2Campo.style.left = 5;
                 
                 if(
                     matrizDoMapa[i][j] == 12 ||
@@ -2995,129 +3140,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         baseCampo.title = "caixa";
                         imagem1Campo.style.visibility = "visible";
                     }
-                    
-                    for(let k = 0; dadosResposta != "vazio" && k < dadosResposta.players.length; k++){
-                        if(dadosResposta.players[k].username != username && dadosResposta.players[k].x == i && dadosResposta.players[k].y == j){
 
-                            let expaux = dadosResposta.players[k].nivel;
-                            let lvl=0;
-
-                            for(lvl=1; expaux >= 0; lvl++){
-                                expaux = expaux - lvl;
-                            }
-                            lvl--;
-                            baseCampo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                            baseCampo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                            imagem2Campo.alt = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                            imagem2Campo.title = dadosResposta.players[k].username + " level: " + lvl.toString() + " hp: " + dadosResposta.players[k].hp.toString();
-                            nomeCampo.innerHTML = dadosResposta.players[k].username;
-
-                            let xpercent = ( dadosResposta.players[k].hp * 100 / (((lvl-1)* 15) + 176) );
-                            if( xpercent <= 25){ 
-                                nomeCampo.style.color = 'tomato';
-                                barraHpCampo.style.background = 'tomato';
-                            } else if( xpercent <= 50){ 
-                                nomeCampo.style.color = 'orange';
-                                barraHpCampo.style.background = 'orange';
-                            } else if( xpercent > 50){ 
-                                nomeCampo.style.color = 'mediumseagreen';
-                                barraHpCampo.style.background = 'mediumseagreen';
-                            }
-
-                            barraHpCampo.style.width = 50 * xpercent / 100;
-
-                            if(dadosResposta.players[k].outfit == "M"){
-                                switch(dadosResposta.players[k].direcao){
-                                    case 0:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeCostas.png";
-                                        break;
-                                    case 1:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeDireita.png";
-                                        break;
-                                    case 2:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeFrente.png";
-                                        break;
-                                    case 3:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeEsquerda.png";
-                                        break;
-                                }
-                            }else if(dadosResposta.players[k].outfit == "F"){
-                                switch(dadosResposta.players[k].direcao){
-                                    case 0:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeCostasF.png";
-                                        break;
-                                    case 1:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeDireitaF.png";
-                                        break;
-                                    case 2:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeFrenteF.png";
-                                        break;
-                                    case 3:
-                                        imagem2Campo.src = "imagens/imagemPersonagemDeEsquerdaF.png";
-                                        break;
-                                }
-                            }else if(dadosResposta.players[k].outfit == "P"){
-                                switch(dadosResposta.players[k].direcao){
-                                    case 0:
-                                        imagem2Campo.src = "imagens/person2.png";
-                                        break;
-                                    case 1:
-                                        imagem2Campo.src = "imagens/person4.png";
-                                        break;
-                                    case 2:
-                                        imagem2Campo.src = "imagens/person1.png";
-                                        break;
-                                    case 3:
-                                        imagem2Campo.src = "imagens/person3.png";
-                                        break;
-                                }
-                            }else if(dadosResposta.players[k].outfit == "W"){
-                                switch(dadosResposta.players[k].direcao){
-                                    case 0:
-                                        imagem2Campo.src = "imagens/personF2.png";
-                                        break;
-                                    case 1:
-                                        imagem2Campo.src = "imagens/personF4.png";
-                                        break;
-                                    case 2:
-                                        imagem2Campo.src = "imagens/personF1.png";
-                                        break;
-                                    case 3:
-                                        imagem2Campo.src = "imagens/personF3.png";
-                                        break;
-                                }
-                            }
-
-                            if(matrizDoMapa[i][j] == 7){
-                                imagem2Campo.style.top = -5;
-                                imagem2Campo.style.left = -5;
-                            }
-
-                            if(!limpar){
-                                imagem2Campo.style.visibility = "visible";
-                                nomeCampo.style.visibility = "visible";
-                                barraHpCampo.style.visibility = "visible";
-                                barraHpVaziaCampo.style.visibility = "visible";
-                            }
-
-                            if(ultimamensagem != "vazio"){
-                                for(let l = 0; l < ultimamensagem.players.length; l++){
-                                    if(ultimamensagem.players[l].username != dadosResposta.players[k].username)
-                                        continue;
-                                    else if(dadosResposta.players[k].mensagem == ultimamensagem.players[l].mensagem)
-                                        break;
-
-                                    if(dadosResposta.players[k].mensagem != ""){
-                                        let data = new Date();
-                                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
-                                        mensagemDivCampo.innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
-                                        setTimeout(function(){mensagemDivCampo.innerHTML = "";}, 5000);
-                                        ultimamensagem.players[k].mensagem = dadosResposta.players[k].mensagem;
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }else if(matrizDoMapa[i][j] == 11){
                     nomeCampo.innerHTML = "NPC";
                     nomeCampo.style.color = 'white';
@@ -3264,7 +3287,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
-            preencherImagens = function (direcao, linhaAtualizacao, colunaAtualizacao, limpar){
+            preencherImagens = function (direcao, linhaAtualizacao, colunaAtualizacao){
                 var caminhoImagem = "";
                 var posicaoLinhaInicio = (posicaoDoPersonagemNaMatriz[0]-(posicaoDoPersonagemNaTela[0]));
                 var posicaoLinhaFim = (posicaoDoPersonagemNaMatriz[0]+(posicaoDoPersonagemNaTela[0] + 1));
@@ -3632,10 +3655,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             auxPreencherImagens(posicaoLinhaInicio, j, caminhoImagem, posicaoLinhaTelaInicio, l);
                         else if(!flagLinha && flagColuna)
                             auxPreencherImagens(i, posicaoColunaInicio, caminhoImagem, k, posicaoColunaTelaInicio);
-                        else if(flagLinha && flagColuna && limpar == null)
+                        else if(flagLinha && flagColuna)
                             auxPreencherImagens(posicaoLinhaInicio, posicaoColunaInicio, caminhoImagem, posicaoLinhaTelaInicio, posicaoColunaTelaInicio);
-                        else if(flagLinha && flagColuna && limpar != null)
-                            auxPreencherImagens(posicaoLinhaInicio, posicaoColunaInicio, caminhoImagem, posicaoLinhaTelaInicio, posicaoColunaTelaInicio, limpar);
 
                     }
                 }
@@ -4608,11 +4629,6 @@ loop = function() {
                                     matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
                                 }
 
-                                if(
-                                    verificarJogadorNaTela(dadosResposta.players[i].x, dadosResposta.players[i].y)
-                                ) 
-                                    preencherImagens(null, dadosResposta.players[i].x, dadosResposta.players[i].y, true);
-
                             }
                             ultimamensagem = dadosResposta;
                         }
@@ -4687,13 +4703,9 @@ loop = function() {
                                 }
 
                             }
-                            if(
-                                dadosResposta.players[i].username != username &&
-                                verificarJogadorNaTela(dadosResposta.players[i].x, dadosResposta.players[i].y)
-                            ){
-                                preencherImagens(null, dadosResposta.players[i].x, dadosResposta.players[i].y);
-                            }
                         }
+
+                        preencherJogadores();
 
                     })
 
@@ -4808,9 +4820,7 @@ loop = function() {
                         default:
                             break;
                     }
-                    //if(!moverPersonagem[0] && !moverPersonagem[1]){
-                        moverCriaturas();
-                    //}
+                    moverCriaturas();
                 }else if(inativo && online){
                     desconectar();
                 }else if(inativoAnterior && !inativo && !online){
