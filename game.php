@@ -2616,8 +2616,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 let arrayMove = [];
                 
-                for(let i = (-((resolucaoLarguraAltura[0]/2) | 0) + 1); i < ((resolucaoLarguraAltura[0]/2) | 0); i++){
-                    for(let j = (-((resolucaoLarguraAltura[1]/2) | 0) + 1); j < ((resolucaoLarguraAltura[1]/2) | 0); j++){
+                for(let i = (-((resolucaoLarguraAltura[0]/2) | 0)); i < (((resolucaoLarguraAltura[0]/2) | 0) + 1); i++){
+                    for(let j = (-((resolucaoLarguraAltura[1]/2) | 0)); j < (((resolucaoLarguraAltura[1]/2) | 0) + 1); j++){
 
                         let posicaoDoCampoNaMatriz = [posicaoDoPersonagemNaMatriz[0]+i,posicaoDoPersonagemNaMatriz[1]+j];
                         let flagMoveC = false;
