@@ -1591,7 +1591,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(verificacaoIdEsquerda(71)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 73;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] = 74;
-                                revelarCasa(3);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1]-1);
+                                //revelarCasa(3);
                             }else if(verificacaoIdEsquerda(72)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] = 73;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 74;
@@ -1599,7 +1601,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             }else if(verificacaoIdEsquerda(73)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 71;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]-1] = 72;
-                                esconderCasa(3);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1]-1);
+                                //esconderCasa(3);
                             }else if(verificacaoIdEsquerda(74)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]-1] = 71;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]-1] = 72;
@@ -1753,9 +1757,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 75;
                         break;
                 }
+                preencherImagens();
             }
 
-            esconderCasa = function(direcao){
+            esconderCasa = function(direcao){1
                 let linhaInicial = posicaoDoPersonagemNaMatriz[0], colunaInicial = posicaoDoPersonagemNaMatriz[1], linha = 0, coluna = 0;
                 switch(direcao){
                     case 0:
@@ -1803,6 +1808,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         matrizDoMapa[linhaInicial+linha][colunaInicial+coluna] = 58;
                         break;
                 }
+                preencherImagens();
             }
 
             escolherOutfit = function(){
@@ -3265,6 +3271,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 ){
                     baseCampo.alt = "teleport";
                     baseCampo.title = "teleport";
+                    imagem1Campo.alt = "teleport";
+                    imagem1Campo.title = "teleport";
+                    imagem1Campo.src = "imagens/imagemTeleport.png";
+                    imagem1Campo.style.visibility = "visible";
                 }else if(
                     matrizDoMapa[i][j] == 52
                 ){
@@ -3316,6 +3326,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 ){
                     baseCampo.alt = "tablete";
                     baseCampo.title = "tablete";
+                    imagem1Campo.alt = "tablete";
+                    imagem1Campo.title = "tablete";
+                    imagem1Campo.src = "imagens/tablet.png";
+                    imagem1Campo.style.visibility = "visible";
                 }else{
                     barraHpCampo.style.width = 50;
                     if(mensagemDivCampo.innerHTML != ""){
@@ -3529,16 +3543,16 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemAguaEsquerda.png";
                                 break;
                             case 41:
-                                caminhoImagem = "imagens/imagemTeleport1.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
                                 break;
                             case 42:
-                                caminhoImagem = "imagens/imagemTeleport2.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
                                 break;
                             case 43:
-                                caminhoImagem = "imagens/imagemTeleport3.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
                                 break;
                             case 44:
-                                caminhoImagem = "imagens/imagemTeleport2.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
                                 break;
                             case 45:
                                 caminhoImagem = "imagens/imagemCampo.png"; //spider
@@ -3580,28 +3594,28 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 58:
-                                caminhoImagem = "imagens/TetoCasaUpLeft.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 59:
-                                caminhoImagem = "imagens/TetoCasaUp.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 60:
-                                caminhoImagem = "imagens/TetoCasaUpRight.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 61:
-                                caminhoImagem = "imagens/TetoCasaRight.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 62:
-                                caminhoImagem = "imagens/TetoCasaDownRight.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 63:
-                                caminhoImagem = "imagens/TetoCasaDown.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 64:
-                                caminhoImagem = "imagens/TetoCasaDownLeft.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 65:
-                                caminhoImagem = "imagens/TetoCasaLeft.png";
+                                caminhoImagem = "imagens/TetoCasa.png";
                                 break;
                             case 66:
                                 caminhoImagem = "imagens/CasaUpRight.png";
@@ -3637,10 +3651,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/CasaIntoUp.png";
                                 break;
                             case 77:
-                                caminhoImagem = "imagens/CasaIntoUpRight.png";
+                                caminhoImagem = "imagens/CasaIntoUp.png";
                                 break;
                             case 78:
-                                caminhoImagem = "imagens/CasaIntoDownLeft.png";
+                                caminhoImagem = "imagens/CasaIntoLeft.png";
                                 break;
                             case 79:
                                 caminhoImagem = "imagens/CasaIntoLeft.png";
@@ -3682,7 +3696,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemCampo.png";
                                 break;
                             case 92:
-                                caminhoImagem = "imagens/tablet.png";
+                                caminhoImagem = "imagens/imagemCampo.png"; //tablete
                                 break;
                         }
 
@@ -3727,6 +3741,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     
                     preencherImagens(0);
 
+                    if(verificacaoIdDireita(74)){
+                        revelarCasa(3,1);
+                    }else if(verificacaoIdEsquerda(74)){
+                        revelarCasa(3,3);
+                    }
+
                     //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
             }
@@ -3756,6 +3776,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdEsquerda(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
                     
                     preencherImagens(1); 
+
+                    if(verificacaoIdDireita(74)){
+                        revelarCasa(3,1);
+                    }
 
                     //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
@@ -3789,6 +3813,12 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     preencherImagens(2); 
 
+                    if(verificacaoIdDireita(74)){
+                        revelarCasa(3,1);
+                    }else if(verificacaoIdEsquerda(74)){
+                        revelarCasa(3,3);
+                    }
+
                     //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
             }
@@ -3818,6 +3848,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdDireita(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
 
                     preencherImagens(3); 
+
+                    if(verificacaoIdEsquerda(74)){
+                        revelarCasa(3,3);
+                    }
 
                     //document.getElementById('map').style.visibility = "visible"; 
                 }, esperaPorQuadroInterno);
@@ -4002,7 +4036,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverDireita = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); }else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); preencherImagens();}else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); }else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); }else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
             }
 
             moverBaixo = function (){
@@ -4010,7 +4044,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverEsquerda = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); }else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); preencherImagens();}else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); }else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); }else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
             }
 
 funcMoverPersonagem = function() {
@@ -4045,9 +4079,6 @@ funcMoverPersonagem = function() {
                                 flagMove = [false,false,false,true];
                             }
                             moverEsquerda();
-                            if(verificacaoIdEsquerda(74)){
-                                revelarCasa(3,3);
-                            }
                             moverPersonagem[1]++;
                             verificacaoDistanciamento();
                         }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1, 0)){
@@ -4066,11 +4097,6 @@ funcMoverPersonagem = function() {
                                 flagMove = [true,false,false,false];
                             }
                             moverCima();
-                            if(verificacaoIdDireita(74)){
-                                revelarCasa(3,1);
-                            }else if(verificacaoIdEsquerda(74)){
-                                revelarCasa(3,3);
-                            }
                             moverPersonagem[0]++;
                             verificacaoDistanciamento();
                         }else if(moverPersonagem[1] > 0 && verificarPosicaoValida(0, 1)){
@@ -4089,9 +4115,6 @@ funcMoverPersonagem = function() {
                                 flagMove = [false,true,false,false];
                             }
                             moverDireita();
-                            if(verificacaoIdDireita(74)){
-                                revelarCasa(3,1);
-                            }
                             moverPersonagem[1]--;
                             verificacaoDistanciamento();
                         }else if(moverPersonagem[0] > 0 && verificarPosicaoValida(1, 0)){
@@ -4110,11 +4133,6 @@ funcMoverPersonagem = function() {
                                 flagMove = [false,false,true,false];
                             }
                             moverBaixo();
-                            if(verificacaoIdDireita(74)){
-                                revelarCasa(3,1);
-                            }else if(verificacaoIdEsquerda(74)){
-                                revelarCasa(3,3);
-                            }
                             moverPersonagem[0]--;
                             verificacaoDistanciamento();
                         }else if(
@@ -4135,6 +4153,7 @@ funcMoverPersonagem = function() {
                             posicaoDoPersonagemNaMatriz[1] -= 2;
                             moverPersonagem[1] += 2;
                             verificacaoDistanciamento();
+                            preencherImagens();
                         }else if(
                             verificacaoIdDireita(74) && 
                             moverPersonagem[1] > 1 && 
@@ -4153,6 +4172,7 @@ funcMoverPersonagem = function() {
                             posicaoDoPersonagemNaMatriz[1] += 2;
                             moverPersonagem[1] -= 2;
                             verificacaoDistanciamento();
+                            preencherImagens();
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
