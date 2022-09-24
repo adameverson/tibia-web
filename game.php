@@ -1613,15 +1613,23 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(verificacaoIdDireita(71)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 73;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] = 74;
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1]+1);
                             }else if(verificacaoIdDireita(72)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] = 73;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 74;
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1]+1);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1);
                             }else if(verificacaoIdDireita(73)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 71;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+1][posicaoDoPersonagemNaMatriz[1]+1] = 72;
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1]+1);
                             }else if(verificacaoIdDireita(74)){
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]-1][posicaoDoPersonagemNaMatriz[1]+1] = 71;
                                 matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]+1] = 72;
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1]+1);
+                                preencherImagens(null, posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1);
                             }
                         }
                         break;
