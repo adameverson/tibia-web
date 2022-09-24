@@ -1760,7 +1760,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 preencherImagens();
             }
 
-            esconderCasa = function(direcao){1
+            esconderCasa = function(direcao){
                 let linhaInicial = posicaoDoPersonagemNaMatriz[0], colunaInicial = posicaoDoPersonagemNaMatriz[1], linha = 0, coluna = 0;
                 switch(direcao){
                     case 0:
