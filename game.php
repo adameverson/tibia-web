@@ -970,6 +970,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var flagFullScreen = false;
             var elem = document.body;
 
+            //mouse
+            var mouseX;
+            var mouseY;
+
             openFullscreen = function () {
                 if(!flagFullScreen){
                     if (elem.requestFullscreen) {
@@ -1107,15 +1111,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     field.onclick = field.ondragover = function(){ 
                         let linhaTela;
                         let colunaTela;
-                        for(let i = 0; i < arrayColunasTela.length; i++){
-                            let indexResult = arrayColunasTela[i].indexOf(this);
-                            if(indexResult != -1){
-                                linhaTela = indexResult;
-                                colunaTela = i;
-                                break;
-                            }
-                        }
-                        //console.log(linhaTela + " " + colunaTela);
+
+                        linhaTela = Math.ceil(mouseY / mover);
+                        colunaTela = Math.ceil(mouseX / mover);
+
                         moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
                     };
 
@@ -6029,13 +6028,24 @@ loop = function() {
                 document.onclick = hideMenu;
                 document.oncontextmenu = rightClick;
 
+                document.onmousemove = function(event){
+                    mouseX = event.clientX;
+                    mouseY = event.clientY;
+                }
+
                 document.addEventListener("dragover", (event) => {
                     event.dataTransfer.dropEffect = "move";
                     event.preventDefault();
+
+                    mouseX = event.clientX;
+                    mouseY = event.clientY;
                 });
                 document.addEventListener("dragenter", (event) => {
                     event.dataTransfer.dropEffect = "move";
                     event.preventDefault();
+
+                    mouseX = event.clientX;
+                    mouseY = event.clientY;
                 });
                 
                 document.body.addEventListener("keypress", function(){
