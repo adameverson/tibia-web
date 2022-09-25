@@ -970,6 +970,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var flagFullScreen = false;
             var elem = document.body;
 
+            //events
+            var flagDrag = false;
+
             openFullscreen = function () {
                 if(!flagFullScreen){
                     if (elem.requestFullscreen) {
@@ -1104,7 +1107,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     field.style.width = "60";
 				    field.style.height = "60";
                     field.style.top = rowTop;
-                    field.onclick = function(){ 
+                    field.onclick = field.ondragover = function(){ 
                         let linhaTela;
                         let colunaTela;
                         for(let i = 0; i < arrayColunasTela.length; i++){
@@ -6028,6 +6031,15 @@ loop = function() {
 
                 document.onclick = hideMenu;
                 document.oncontextmenu = rightClick;
+
+                document.addEventListener("dragover", (event) => {
+                    event.dataTransfer.dropEffect = "move";
+                    event.preventDefault();
+                });
+                document.addEventListener("dragenter", (event) => {
+                    event.dataTransfer.dropEffect = "move";
+                    event.preventDefault();
+                });
                 
                 document.body.addEventListener("keypress", function(){
                     pressKey(event);
