@@ -269,14 +269,14 @@
             <div id='hp' title='hp' style='position: absolute; top: 0; left: 0; margin: 1; width: 44; height: 20; background-color: tomato;'>
                 
             </div>
-            <div id='hpvalor' title='hp' style='position: fixed; top: 39; right: 60; width: 178; height: 20; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
+            <div id='hpvalor' title='hp' style='position: fixed; top: 37; right: 60; width: 178; height: 20; text-align: center; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
                 
             </div>
             <div id='skills' title='skills' style='position: absolute; top: 20; left: 0; margin: 1; width: 176; height: 74;'>
                 <div id='nomeDasSkills' title='skills' style='top: 0; left: 0; margin: 1; padding: 2; width: 170; height: 10; background-color: gray; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: x-small;'>
                     Skills
                 </div>
-                <div id='campoDasSkills1' title='skills' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 62; background-color: gray;'>
+                <div id='campoDasSkills1' title='skills' style='float: left; top: 0; left: 0; margin: 1; width: 174; height: 62; background-color: gray; opacity: 0.9;'>
                     <div id='level' title='level' style='position: fixed; top: 80; right: 60; width: 168; height: 20; text-align: left; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
@@ -301,7 +301,7 @@
                     <div id='speedvalor' title='speed' style='position: fixed; top: 115; right: 67; width: 178; height: 20; text-align: right; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small;'>
 
                     </div>
-                    <img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>
+                    <!--<img id='itemCampoDasSkills1' src='imagens/imagemCampoItem.png' alt='item' title='item' style='width: 100%; height: 100%'></img>-->
                 </div>
             </div>
             <div id='mochila' title='mochila' style='position: absolute; top: 100; left: 0; margin: 1; width: 176; height: 44; visibility: visible;'>
@@ -532,7 +532,7 @@
             var desativarEfeitos;
 
             var moverPersonagem = [0,0];
-            var moverPersonagemReal = [0,0];
+            var flagMoverPersonagem = true;
             var nivelDeSolo = 1;
             var outfit = "P";
 
@@ -1117,7 +1117,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }
                         //console.log(linhaTela + " " + colunaTela);
                         moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
-                        moverPersonagemReal = moverPersonagem.slice();
                     };
 
 					let image = document.createElement("img");
@@ -1461,8 +1460,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     botFree = false;
                 if(verificarPosicaoValidaBot(-1, 0)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
+                    
                     matrizDoMapa[posicaoBot[0]-1][posicaoBot[1]] = 51;
                     posicaoBot[0] = posicaoBot[0]-1;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
                 } 
                 else{
                     if(comando)
@@ -1475,8 +1477,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     botFree = false;
                 if(verificarPosicaoValidaBot(0, 1)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
+
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]+1] = 51;
                     posicaoBot[1] = posicaoBot[1]+1;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
                 }
                 else{
                     if(comando)
@@ -1489,8 +1494,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     botFree = false;
                 if(verificarPosicaoValidaBot(1, 0)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
+
                     matrizDoMapa[posicaoBot[0]+1][posicaoBot[1]] = 51;
                     posicaoBot[0] = posicaoBot[0]+1;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
                 }
                 else{
                     if(comando)
@@ -1503,8 +1511,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     botFree = false;
                 if(verificarPosicaoValidaBot(0, -1)){
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]] = 0;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
+
                     matrizDoMapa[posicaoBot[0]][posicaoBot[1]-1] = 51;
                     posicaoBot[1] = posicaoBot[1]-1;
+                    preencherImagens(null, posicaoBot[0], posicaoBot[1]);
                 }
                 else{
                     if(comando)
@@ -1933,7 +1944,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 document.getElementById('nivelvalor').innerHTML = nivel;
                 document.getElementById('barraxp').style.width = (165 * (nivel - expmin)) / exptotal;
-                document.getElementById('speedvalor').innerHTML = (lvlatual < 490)?(109+lvlatual):'max';
+                document.getElementById('speedvalor').innerHTML = (lvlatual < 950)?(10+(lvlatual * 0.2) | 0):'max';
                 document.getElementById('hpvalor').innerHTML = hp;
                 hpmax = ((lvlatual-1) * 15) + 176;
                 document.getElementById('hp').style.width = (176 * hp) / hpmax;
@@ -3075,6 +3086,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             auxPreencherImagens = function (i, j, caminhoImagem, k, l){
+                console.log(k + " " + l);
                 let baseCampo = arrayColunasTela[l][k].children[0];
                 let imagem1Campo = arrayColunasTela[l][k].children[1];
                 let imagem2Campo = arrayColunasTela[l][k].children[2];
@@ -3554,10 +3566,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 caminhoImagem = "imagens/imagemTetoCaverna.png";
                                 break;
                             case 28:
-                                caminhoImagem = "imagens/imagemTetoCavernaBaixo.png";
+                                caminhoImagem = "imagens/imagemTetoCaverna.png"; //baixo
                                 break;
                             case 29:
-                                caminhoImagem = "imagens/imagemTetoCavernaDireita.png";
+                                caminhoImagem = "imagens/imagemTetoCaverna.png"; //direita
                                 break;
                             case 30:
                                 caminhoImagem = "imagens/imagemTetoCavernaCima.png";
@@ -3785,7 +3797,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1;
 
-                    moverPersonagemReal[0]++;
+                    flagMoverPersonagem = true;
 
                     desativarEfeitos();
 
@@ -3823,7 +3835,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1;
 
-                    moverPersonagemReal[1]--;
+                    flagMoverPersonagem = true;
 
                     desativarEfeitos();
 
@@ -3861,7 +3873,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1;
 
-                    moverPersonagemReal[0]--;
+                    flagMoverPersonagem = true;
 
                     desativarEfeitos();
 
@@ -3899,7 +3911,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1;
 
-                    moverPersonagemReal[1]++;
+                    flagMoverPersonagem = true;
 
                     desativarEfeitos();
 
@@ -4161,8 +4173,9 @@ funcMoverPersonagem = function() {
 
                 if(
                     verificarJogoHabilitado() &&
-                    (moverPersonagemReal[0] == moverPersonagem[0] && moverPersonagemReal[1] == moverPersonagem[1])
+                    flagMoverPersonagem
                 ){
+                    flagMoverPersonagem = false;
                     if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0){
                         datainicioinatividade = new Date();
                         if(moverPersonagem[1] < 0 && verificarPosicaoValida(0, -1)){
@@ -4256,6 +4269,8 @@ funcMoverPersonagem = function() {
                             moverPersonagem[1] += 2;
                             verificacaoDistanciamento();
                             preencherImagens();
+
+                            flagMoverPersonagem = true;
                         }else if(
                             verificacaoIdDireita(74) && 
                             moverPersonagem[1] > 1 && 
@@ -4275,6 +4290,8 @@ funcMoverPersonagem = function() {
                             moverPersonagem[1] -= 2;
                             verificacaoDistanciamento();
                             preencherImagens();
+
+                            flagMoverPersonagem = true;
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
@@ -4302,12 +4319,15 @@ funcMoverPersonagem = function() {
                             }
 
                             moverPersonagem = [0,0];
-                            moverPersonagemReal = [0,0];
+
+                            flagMoverPersonagem = true;
                         }
                     }
                     if(moverPersonagem[0] == 0 && moverPersonagem[1] == 0){
                         escolherOutfit();
                         flagMove = [false,false,false,false];
+
+                        flagMoverPersonagem = true;
                     }
                 }
             },
@@ -6351,6 +6371,9 @@ loop = function() {
             desativarEfeitos = function(){
                 while(listaEfeitos != null && listaEfeitos.length > 0){
                     let itemEfeito = listaEfeitos.shift();
+
+                    if(!verificarJogadorNaTela(itemEfeito[0], itemEfeito[1]))
+                        continue;
 
                     switch(matrizDoMapa[itemEfeito[0]][itemEfeito[1]]){
                         case 9:
