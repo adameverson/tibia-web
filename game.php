@@ -3778,6 +3778,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
                 var esperaPorQuadroInterno = 0;
 
+                flagMoverPersonagem = false;
+
                 while(quadrosDeAnimacaoInterno > 0){
 
                     setTimeout(function(){ moveMap( (mover/quadrosDeAnimacao), 0 ); }, esperaPorQuadroInterno);
@@ -3818,6 +3820,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
                 var esperaPorQuadroInterno = 0;
 
+                flagMoverPersonagem = false;
+
                 while(quadrosDeAnimacaoInterno > 0){
 
                     setTimeout(function(){ moveMap( (mover/quadrosDeAnimacao), 1 ); }, esperaPorQuadroInterno);
@@ -3853,6 +3857,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             baixo = function (){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
                 var esperaPorQuadroInterno = 0;
+
+                flagMoverPersonagem = false;
 
                 while(quadrosDeAnimacaoInterno > 0){
 
@@ -3893,6 +3899,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             esquerda = function (){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
                 var esperaPorQuadroInterno = 0;
+
+                flagMoverPersonagem = false;
 
                 while(quadrosDeAnimacaoInterno > 0){
 
@@ -4172,9 +4180,8 @@ funcMoverPersonagem = function() {
 
                 if(
                     verificarJogoHabilitado() &&
-                    flagMoverPersonagem
+                    flagMoverPersonagem 
                 ){
-                    flagMoverPersonagem = false;
                     if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0){
                         datainicioinatividade = new Date();
                         if(moverPersonagem[1] < 0 && verificarPosicaoValida(0, -1)){
@@ -4268,8 +4275,6 @@ funcMoverPersonagem = function() {
                             moverPersonagem[1] += 2;
                             verificacaoDistanciamento();
                             preencherImagens();
-
-                            flagMoverPersonagem = true;
                         }else if(
                             verificacaoIdDireita(74) && 
                             moverPersonagem[1] > 1 && 
@@ -4289,8 +4294,6 @@ funcMoverPersonagem = function() {
                             moverPersonagem[1] -= 2;
                             verificacaoDistanciamento();
                             preencherImagens();
-
-                            flagMoverPersonagem = true;
                         }else{
                             if(moverPersonagem[0] == -1 && moverPersonagem[1] == 0){
                                 moverCima();
@@ -4318,15 +4321,11 @@ funcMoverPersonagem = function() {
                             }
 
                             moverPersonagem = [0,0];
-
-                            flagMoverPersonagem = true;
                         }
                     }
                     if(moverPersonagem[0] == 0 && moverPersonagem[1] == 0){
                         escolherOutfit();
                         flagMove = [false,false,false,false];
-
-                        flagMoverPersonagem = true;
                     }
                 }
             },
