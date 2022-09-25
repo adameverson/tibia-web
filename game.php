@@ -532,6 +532,7 @@
             var desativarEfeitos;
 
             var moverPersonagem = [0,0];
+            var moverPersonagemReal = [0,0];
             var nivelDeSolo = 1;
             var outfit = "P";
 
@@ -893,6 +894,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             var lvlatual = 0;
             var lvlantigo = 0;
+            var lvlalternativo = 500;
             var mensagem = "";
             var ultimamensagem = "vazio";
             var alertaBoss = false;
@@ -902,8 +904,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var audio3 = false;
             
             var mover = 60;
-            var quadrosDeAnimacao = 9;
-            var esperaPorQuadro = 5;
+            var quadrosDeAnimacao = 10;
+            var esperaPorQuadro = 1;
 
             //Variaveis Animacao Monster Atacando
             var posicaoLinhaCima = 0;
@@ -1115,6 +1117,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         }
                         //console.log(linhaTela + " " + colunaTela);
                         moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
+                        moverPersonagemReal = moverPersonagem.slice();
                     };
 
 					let image = document.createElement("img");
@@ -1953,7 +1956,46 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 document.getElementById('personagem1').title = username + " level: " + lvlatual.toString() + " hp: " + hp.toString();
 
-                (lvlatual < 490)?( esperaPorQuadro = 5 - (lvlatual*0.01) ):(esperaPorQuadro = 0.1);
+                if(lvlatual < 50)
+                    esperaPorQuadro =  20;
+                else if(lvlatual < 100)
+                    esperaPorQuadro =  19;
+                else if(lvlatual < 150)
+                    esperaPorQuadro =  18;
+                else if(lvlatual < 200)
+                    esperaPorQuadro =  17;
+                else if(lvlatual < 250)
+                    esperaPorQuadro =  16;
+                else if(lvlatual < 300)
+                    esperaPorQuadro =  15;
+                else if(lvlatual < 350)
+                    esperaPorQuadro =  14;
+                else if(lvlatual < 400)
+                    esperaPorQuadro =  13;
+                else if(lvlatual < 450)
+                    esperaPorQuadro =  12;
+                else if(lvlatual < 500)
+                    esperaPorQuadro =  11;
+                else if(lvlatual < 550)
+                    esperaPorQuadro =  10;
+                else if(lvlatual < 600)
+                    esperaPorQuadro =  9;
+                else if(lvlatual < 650)
+                    esperaPorQuadro =  8;
+                else if(lvlatual < 700)
+                    esperaPorQuadro =  7;
+                else if(lvlatual < 750)
+                    esperaPorQuadro =  6;
+                else if(lvlatual < 800)
+                    esperaPorQuadro =  5;
+                else if(lvlatual < 850)
+                    esperaPorQuadro =  4;
+                else if(lvlatual < 900)
+                    esperaPorQuadro =  3;
+                else if(lvlatual < 950)
+                    esperaPorQuadro =  2;
+                else
+                    esperaPorQuadro =  1;
 
                 if(lvlantigo && lvlantigo < lvlatual){
                     mensagensDoChatDefault += "\n\nVocê avançou do Level " + lvlantigo + " para o Level " + lvlatual;
@@ -3723,7 +3765,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             cima = function (){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
-                var esperaPorQuadroInterno = esperaPorQuadro;
+                var esperaPorQuadroInterno = 0;
 
                 while(quadrosDeAnimacaoInterno > 0){
 
@@ -3743,6 +3785,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] - 1;
 
+                    moverPersonagemReal[0]++;
+
                     desativarEfeitos();
 
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdBaixo(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
@@ -3761,7 +3805,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             direita = function (){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
-                var esperaPorQuadroInterno = esperaPorQuadro;
+                var esperaPorQuadroInterno = 0;
 
                 while(quadrosDeAnimacaoInterno > 0){
 
@@ -3779,6 +3823,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1;
 
+                    moverPersonagemReal[1]--;
+
                     desativarEfeitos();
 
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdEsquerda(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
@@ -3795,7 +3841,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             baixo = function (){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
-                var esperaPorQuadroInterno = esperaPorQuadro;
+                var esperaPorQuadroInterno = 0;
 
                 while(quadrosDeAnimacaoInterno > 0){
 
@@ -3815,6 +3861,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     posicaoDoPersonagemNaMatriz[0] = posicaoDoPersonagemNaMatriz[0] + 1;
 
+                    moverPersonagemReal[0]--;
+
                     desativarEfeitos();
 
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdCima(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
@@ -3833,7 +3881,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             esquerda = function (){
                 var quadrosDeAnimacaoInterno = quadrosDeAnimacao;
-                var esperaPorQuadroInterno = esperaPorQuadro;
+                var esperaPorQuadroInterno = 0;
 
                 while(quadrosDeAnimacaoInterno > 0){
 
@@ -3850,6 +3898,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     arrayColunasTela.unshift(arrayColunasTela.pop());
 
                     posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1;
+
+                    moverPersonagemReal[1]++;
 
                     desativarEfeitos();
 
@@ -4063,12 +4113,56 @@ funcMoverPersonagem = function() {
                     return;
                 }
 
-                let velocidade = (lvlatual < 490)?(500 - lvlatual):10;
+                let velocidade;
+
+                if(lvlatual < 50)
+                    velocidade =  200;
+                else if(lvlatual < 100)
+                    velocidade =  190;
+                else if(lvlatual < 150)
+                    velocidade =  180;
+                else if(lvlatual < 200)
+                    velocidade =  170;
+                else if(lvlatual < 250)
+                    velocidade =  160;
+                else if(lvlatual < 300)
+                    velocidade =  150;
+                else if(lvlatual < 350)
+                    velocidade =  140;
+                else if(lvlatual < 400)
+                    velocidade =  130;
+                else if(lvlatual < 450)
+                    velocidade =  120;
+                else if(lvlatual < 500)
+                    velocidade =  110;
+                else if(lvlatual < 550)
+                    velocidade =  100;
+                else if(lvlatual < 600)
+                    velocidade =  90;
+                else if(lvlatual < 650)
+                    velocidade =  80;
+                else if(lvlatual < 700)
+                    velocidade =  70;
+                else if(lvlatual < 750)
+                    velocidade =  60;
+                else if(lvlatual < 800)
+                    velocidade =  50;
+                else if(lvlatual < 850)
+                    velocidade =  40;
+                else if(lvlatual < 900)
+                    velocidade =  30;
+                else if(lvlatual < 950)
+                    velocidade =  20;
+                else
+                    velocidade =  10;
 
                 dataMove = new Date();
                 dataMove.setMilliseconds(dataMove.getMilliseconds() + velocidade);
 
-                if(verificarJogoHabilitado()){
+                if(
+                    verificarJogoHabilitado() &&
+                    (moverPersonagemReal[0] == moverPersonagem[0] && moverPersonagemReal[1] == moverPersonagem[1])
+                ){
                     if(moverPersonagem[0] != 0 || moverPersonagem[1] != 0){
                         datainicioinatividade = new Date();
                         if(moverPersonagem[1] < 0 && verificarPosicaoValida(0, -1)){
@@ -4208,6 +4302,7 @@ funcMoverPersonagem = function() {
                             }
 
                             moverPersonagem = [0,0];
+                            moverPersonagemReal = [0,0];
                         }
                     }
                     if(moverPersonagem[0] == 0 && moverPersonagem[1] == 0){

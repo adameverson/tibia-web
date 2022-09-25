@@ -264,8 +264,8 @@
                 document.getElementById("cartaoId").innerHTML = 'Code Web:<br><br><a href="https://github.com/adameverson/tibia-web">Magic Level v2.0.0</a><br><br>Code Android:<br><br><a href="https://github.com/adameverson/tibia-general">Magic Level v0.2.8</a>';
             }
 
-            document.onclick = hideMenu;
-            document.oncontextmenu = rightClick;
+            //document.onclick = hideMenu;
+            //document.oncontextmenu = rightClick;
     
             function hideMenu() {
                 document.getElementById(
