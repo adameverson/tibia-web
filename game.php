@@ -970,9 +970,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var flagFullScreen = false;
             var elem = document.body;
 
-            //events
-            var flagDrag = false;
-
             openFullscreen = function () {
                 if(!flagFullScreen){
                     if (elem.requestFullscreen) {
