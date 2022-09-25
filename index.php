@@ -337,7 +337,7 @@
             <label for="female">Feminino</label>
             <button type='submit' class="button1"><span>Registrar</span></button>
         </form>
-        <form action="game.php" method="post">
+        <form action="https://magiclevel.ml" method="post">
             Apelido: <input name="username" type='text' maxlength="20"></input>
             Senha: <input type="password" name="password" type='text' maxlength="20"></input>
             <button type='submit' class="button2"><span>Entrar</span></button>
@@ -378,6 +378,9 @@
     $outfit = $_POST['gender'];
     $usuarioexistente = false;
 
+    $usernameEnter = $_POST['username'];
+    $passwordEnter = $_POST['password'];
+
     if($username != "" && $password != ""){
 
         $sql = "SELECT `username`, `password` ,`nivel`, `hp` FROM `ottibia` WHERE `username`='" . $username . "'";
@@ -401,6 +404,36 @@
             $conn->query($sql);
 
             echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Usuário registrado com sucesso.</div>";
+
+        }
+
+    } else if($usernameEnter != "" && $passwordEnter != ""){
+
+        $sql = "SELECT `username`, `password` ,`nivel`, `hp` FROM `ottibia` WHERE `username`='" . $usernameEnter . "' and `password`='" . $passwordEnter . "'";
+        
+        $result = $conn->query($sql);
+
+        while($obj = $result->fetch_object()){
+
+            $usuarioexistente = true;
+
+        }
+
+        $result->close();
+        
+        if($usuarioexistente){
+            
+            echo '<form id="myForm" action="game.php" method="post" style="visibility: hidden;">';
+
+            foreach ($_POST as $a => $b) {
+                echo '<input type="hidden" name="'.htmlentities($a).'" value="'.htmlentities($b).'">';
+            }
+
+            echo '</form>';
+
+        }else{
+
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Apelido ou Senha incorretos.</div>";
 
         }
 
@@ -485,9 +518,11 @@
   <!--Your browser does not support the audio tag.-->
 </audio>
 
-<script>
+<script type="text/javascript">
   var audio = document.getElementById("myAudio");
   audio.volume = 0.01;
+
+  if (document.getElementById('myForm') != null) document.getElementById('myForm').submit();
 </script>
 
 <div style="text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;">
