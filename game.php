@@ -3086,7 +3086,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             auxPreencherImagens = function (i, j, caminhoImagem, k, l){
-                console.log(k + " " + l);
                 let baseCampo = arrayColunasTela[l][k].children[0];
                 let imagem1Campo = arrayColunasTela[l][k].children[1];
                 let imagem2Campo = arrayColunasTela[l][k].children[2];
