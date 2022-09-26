@@ -422,6 +422,8 @@
         $result->close();
         
         if($usuarioexistente){
+
+            echo "<div style=\"text-align: center; font-family: 'Lucida Console', 'Courier New', monospace;\">Aguarde...</div>";
             
             echo '<form id="myForm" action="game.php" method="post" style="visibility: hidden;">';
 
