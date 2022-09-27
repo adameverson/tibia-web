@@ -6,6 +6,7 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702297921966374"
      crossorigin="anonymous"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.4/purify.min.js" integrity="sha512-jGh38w63cHRzfBHtyKgEMMkJswUFXDA3YXrDjaE8ptzxV5DDkLDUDjtGUy5tmDkOXHWsItKfFjocaEtj1WuVnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <style>
             *::-webkit-scrollbar {
                 width: 14px;               /* width of the entire scrollbar */
@@ -530,6 +531,7 @@
             var resolucao;
             var alterarTeleport;
             var desativarEfeitos;
+            const sanitize = string => DOMPurify.sanitize(string);
 
             var moverPersonagem = [0,0];
             var flagMoverPersonagem = true;
@@ -3075,7 +3077,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             if(dadosResposta.players[k].mensagem != ""){
                                 let data = new Date();
                                 mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + dadosResposta.players[k].username + " [" + lvl.toString() + "]: " + dadosResposta.players[k].mensagem;
-                                mensagemDivCampo.innerHTML = dadosResposta.players[k].username + " says: " + dadosResposta.players[k].mensagem;
+                                mensagemDivCampo.textContent = dadosResposta.players[k].username + " says: " + sanitize(dadosResposta.players[k].mensagem);
                                 setTimeout(function(){mensagemDivCampo.innerHTML = "";}, 5000);
                                 ultimamensagem.players[k].mensagem = dadosResposta.players[k].mensagem;
                             }
@@ -4862,7 +4864,7 @@ loop = function() {
                             ultim_hp = hp;
                         }
                         if(ultim_mensgem != mensagem){
-                            dados.append('mensagem', mensagem);
+                            dados.append('mensagem', sanitize(mensagem));
                             ultim_mensgem = mensagem;
                         }
                         if(ultim_json != JSON.stringify(dadosJson)){
@@ -5459,8 +5461,8 @@ loop = function() {
                         document.getElementById('mensagemDiv3').style.color = 'red';
                         document.getElementById('mensagemDiv3').style.width = 250;
 
-                        mensagem = document.getElementById('campoDeEscritaInput').value;
-                        document.getElementById('mensagemDiv3').innerHTML = username + " says: " + mensagem;
+                        mensagem = sanitize(document.getElementById('campoDeEscritaInput').value);
+                        document.getElementById('mensagemDiv3').textContent = username + " says: " + sanitize(mensagem);
                         setTimeout(function(){
                             mensagem = ""; document.getElementById('mensagemDiv3').innerHTML = "";
                             document.getElementById('mensagemDiv3').style.textAlign = 'left';
