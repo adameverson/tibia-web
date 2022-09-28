@@ -5988,8 +5988,8 @@ loop = function() {
                 loop();
                 funcMoverPersonagem();
 
-                //document.onclick = hideMenu;
-                //document.oncontextmenu = rightClick;
+                document.onclick = hideMenu;
+                document.oncontextmenu = rightClick;
 
                 document.onmousemove = function(event){
                     mouseX = event.clientX;
@@ -6535,7 +6535,7 @@ loop = function() {
 
             main();
             
-            alert("Servidor em Manutenção!");
+            //alert("Servidor em Manutenção!");
             //alert(window.innerWidth + " x " + window.innerHeight);
             
         </script>
