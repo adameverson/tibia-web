@@ -412,7 +412,7 @@
         <div id='chat' title='chat' style='position: fixed; top: 600; right: 70; width: 278; height:243;'>
             <div id='default' title='chat' style='position: absolute; top: 0; left: 0; margin: 1; width: 276; height: 44;'>
                 <div id='campoDoChat' title='default' style='float: left; top: 0; left: 0; margin: 1; width: 274; height: 100;'>
-                    <textarea id="textareaChat" name="textareaChat" title='default' rows="6" cols="33" style="resize: none;" disabled></textarea>
+                    <textarea id="textareaChat" name="textareaChat" title='default' rows="6" cols="33" style="resize: none;" disabled>Carregando...</textarea>
                 </div>
                 <div id='campoDeEscrita' title='chat' style='float: left; bottom: 0; left: 0; margin: 1; width: 276; height: 22;'>
                     <input type="text" id="campoDeEscritaInput" name="campoDeEscritaInput" title='chat' maxlength="100"  size="31" placeholder="Digite aqui..." style="opacity: 0.6;"></input>
@@ -608,104 +608,41 @@
             var username = "";
             var password = "";
 
-var matrizDoMapaSubsolo = 
+var matrizDoMapaSubsolo4 = 
 [
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
 [32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27],
 [31, 0, 0,41,29,27,31, 0,41, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,45, 0, 0, 0, 0,29],
 [31, 0, 0, 2,29,27,31, 0, 0, 0, 0, 0,45, 0, 0, 0, 0,45, 0, 0, 0,45, 0, 0, 0,29],
 [31, 4, 0, 0,29,27,31, 4, 0, 0, 0, 0, 0, 0, 0,45, 0, 0,45, 0,45, 0, 0, 0, 0,29],
-[27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+[27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27]
+];
+var matrizDoMapaSubsolo3 = 
+[
 [32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27],
 [31, 0, 1, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0,19, 0, 0,19, 0,19, 0, 0, 0, 0,29],
 [31, 0, 7, 8,29,27,31, 4, 0, 0, 0, 0,19, 0, 0, 0, 0,19, 0, 0, 0,19, 0, 0, 0,29],
 [31, 5, 4, 1,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0,19, 0, 0,19, 0,19, 0, 0, 0, 0,29],
 [27,27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+];
+var matrizDoMapaSubsolo2 = 
+[
 [32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27],
 [31, 8, 7, 8,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0,16, 0, 0,16, 0,16, 0, 0, 0, 0,29],
 [31, 1, 0, 7,29,27,31, 5, 0, 0, 0, 0,16, 0, 0, 0, 0,16, 0, 0, 0,16, 0, 0, 0,29],
 [31, 1, 5, 4,29,27,31, 4, 0, 0, 0, 0, 0, 0, 0,16, 0, 0,16, 0,16, 0, 0, 0, 0,29],
 [27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
+];
+var matrizDoMapaSubsolo1 = 
+[
 [32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27],
 [31, 1, 8, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29],
 [31, 8, 7, 4,29,27,31, 0, 4, 0, 0, 0, 8, 0, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0,29],
 [31, 1, 8, 5,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29],
-[27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27],
-[27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27]
+[27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27]
 ];
 
 var matrizDoMapaTerreo = 
 [
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
 [33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35],
 [40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,41,36,40, 2, 7, 7, 7, 7,16, 1, 2, 7, 7, 7, 7, 8, 1, 2, 7, 7, 7,19, 1, 7, 1,36],
 [40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,41,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36],
@@ -743,15 +680,7 @@ var matrizDoMapaTerreo =
 [40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,70,69,69,69,68, 0, 0,55,56, 0, 0,64,63,62,67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
 [39,38,38,38,38,38,38,38,38,38,38,38,38,38,38,83, 0, 0, 0, 7, 0, 0, 0,80,38,38,83, 0,70,69,69,68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,36],
 [26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,39,38,38,38,38,38,38,38,37,26,26,40, 0, 0, 0, 0, 0, 0,80,38,38,38,38,38,38,38,38,37],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,39,38,38,38,38,38,38,37,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26]
+[26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,39,38,38,38,38,38,38,37,26,26,26,26,26,26,26,26,26]
 ];
 
 var matrizDoMapaPvp = 
@@ -760,60 +689,81 @@ var matrizDoMapaPvp =
 [40, 0,36,26,40, 0,36,26,40, 0,36],
 [40, 0,36,26,40, 0,36,26,40, 0,36],
 [39,41,37,26,39,41,37,26,39,41,37],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26],
-[26,26,26,26,26,26,26,26,26,26,26]
 ];
 
 var telaAreaMax = [8, 15];
 
-//Indices Mapa 
-var colunaInicio = telaAreaMax[1];
-var linhaInicioSubsolo = (0 + telaAreaMax[0]); //Mapa subsolo
-var linhaInicioTerreo = (matrizDoMapaSubsolo.length + telaAreaMax[0]); //Mapa terreo
-var linhaInicioPvp = (matrizDoMapaSubsolo.length + matrizDoMapaTerreo.length); //Mapa pvp
-
 var matrizDoMapa = [];
-var matrizDoMapaLength = (
-    matrizDoMapaSubsolo.length + 
-    matrizDoMapaTerreo.length +
-    matrizDoMapaPvp.length
-    );
 
-/*for(let i = 0; i < telaAreaMax[0]; i++){
-    let linhaPreenchimentoDeTela = [];
-    for(let j = 0; j < matrizDoMapaSubsolo[0].length; j++){
-        linhaPreenchimentoDeTela.push(27);
-    }
-    matrizDoMapa.push(linhaPreenchimentoDeTela);
-}*/
-for(let i = 0; i < matrizDoMapaSubsolo.length; i++){
-    matrizDoMapa.push(matrizDoMapaSubsolo[i].slice());
+let linhaPreenchimentoDeTela = [];
+for(let i = 0; i < matrizDoMapaSubsolo4[0].length; i++){
+    linhaPreenchimentoDeTela.push(27);
+}
+for(let i = 0; i < telaAreaMax[0]; i++){
+    matrizDoMapaSubsolo4.unshift(linhaPreenchimentoDeTela.slice());
+    matrizDoMapaSubsolo4.push(linhaPreenchimentoDeTela.slice());
+}
+for(let i = 0; i < matrizDoMapaSubsolo4.length; i++){
+    matrizDoMapa.push(matrizDoMapaSubsolo4[i].slice());
     for(let j = 0; j < telaAreaMax[1]; j++){
         matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
         matrizDoMapa[matrizDoMapa.length - 1].push(27);
     }
 }
-/*for(let i = 0; i < telaAreaMax[0]; i++){
-    let linhaPreenchimentoDeTela = [];
-    for(let j = 0; j < matrizDoMapaSubsolo[0].length; j++){
-        linhaPreenchimentoDeTela.push(27);
+linhaPreenchimentoDeTela = [];
+for(let i = 0; i < matrizDoMapaSubsolo3[0].length; i++){
+    linhaPreenchimentoDeTela.push(27);
+}
+for(let i = 0; i < telaAreaMax[0]; i++){
+    matrizDoMapaSubsolo3.unshift(linhaPreenchimentoDeTela.slice());
+    matrizDoMapaSubsolo3.push(linhaPreenchimentoDeTela.slice());
+}
+for(let i = 0; i < matrizDoMapaSubsolo3.length; i++){
+    matrizDoMapa.push(matrizDoMapaSubsolo3[i].slice());
+    for(let j = 0; j < telaAreaMax[1]; j++){
+        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
+        matrizDoMapa[matrizDoMapa.length - 1].push(27);
     }
-    matrizDoMapa.push(linhaPreenchimentoDeTela);
-}*/
+}
+linhaPreenchimentoDeTela = [];
+for(let i = 0; i < matrizDoMapaSubsolo2[0].length; i++){
+    linhaPreenchimentoDeTela.push(27);
+}
+for(let i = 0; i < telaAreaMax[0]; i++){
+    matrizDoMapaSubsolo2.unshift(linhaPreenchimentoDeTela.slice());
+    matrizDoMapaSubsolo2.push(linhaPreenchimentoDeTela.slice());
+}
+for(let i = 0; i < matrizDoMapaSubsolo2.length; i++){
+    matrizDoMapa.push(matrizDoMapaSubsolo2[i].slice());
+    for(let j = 0; j < telaAreaMax[1]; j++){
+        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
+        matrizDoMapa[matrizDoMapa.length - 1].push(27);
+    }
+}
+linhaPreenchimentoDeTela = [];
+for(let i = 0; i < matrizDoMapaSubsolo1[0].length; i++){
+    linhaPreenchimentoDeTela.push(27);
+}
+for(let i = 0; i < telaAreaMax[0]; i++){
+    matrizDoMapaSubsolo1.unshift(linhaPreenchimentoDeTela.slice());
+    matrizDoMapaSubsolo1.push(linhaPreenchimentoDeTela.slice());
+}
+for(let i = 0; i < matrizDoMapaSubsolo1.length; i++){
+    matrizDoMapa.push(matrizDoMapaSubsolo1[i].slice());
+    for(let j = 0; j < telaAreaMax[1]; j++){
+        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
+        matrizDoMapa[matrizDoMapa.length - 1].push(27);
+    }
+}
 
-/*for(let i = 0; i < telaAreaMax[0]; i++){
-    let linhaPreenchimentoDeTela = [];
-    for(let j = 0; j < matrizDoMapaTerreo[0].length; j++){
-        linhaPreenchimentoDeTela.push(26);
-    }
-    matrizDoMapa.push(linhaPreenchimentoDeTela);
-}*/
+linhaPreenchimentoDeTela = [];
+for(let i = 0; i < matrizDoMapaTerreo[0].length; i++){
+    linhaPreenchimentoDeTela.push(26);
+}
+for(let i = 0; i < telaAreaMax[0]; i++){
+    matrizDoMapaTerreo.unshift(linhaPreenchimentoDeTela.slice());
+    matrizDoMapaTerreo.push(linhaPreenchimentoDeTela.slice());
+}
 for(let i = 0; i < matrizDoMapaTerreo.length; i++){
     matrizDoMapa.push(matrizDoMapaTerreo[i].slice());
     for(let j = 0; j < telaAreaMax[1]; j++){
@@ -821,14 +771,14 @@ for(let i = 0; i < matrizDoMapaTerreo.length; i++){
         matrizDoMapa[matrizDoMapa.length - 1].push(26);
     }
 }
-/*for(let i = 0; i < telaAreaMax[0]; i++){
-    let linhaPreenchimentoDeTela = [];
-    for(let j = 0; j < matrizDoMapaTerreo[0].length; j++){
-        linhaPreenchimentoDeTela.push(26);
-    }
-    matrizDoMapa.push(linhaPreenchimentoDeTela);
-}*/
 
+linhaPreenchimentoDeTela = [];
+for(let i = 0; i < matrizDoMapaPvp[0].length; i++){
+    linhaPreenchimentoDeTela.push(26);
+}
+for(let i = 0; i < telaAreaMax[0]; i++){
+    matrizDoMapaPvp.push(linhaPreenchimentoDeTela.slice());
+}
 for(let i = 0; i < matrizDoMapaPvp.length; i++){
     matrizDoMapa.push(matrizDoMapaPvp[i].slice());
     for(let j = 0; j < telaAreaMax[1]; j++){
@@ -836,13 +786,24 @@ for(let i = 0; i < matrizDoMapaPvp.length; i++){
         matrizDoMapa[matrizDoMapa.length - 1].push(26);
     }
 }
-/*for(let i = 0; i < telaAreaMax[0]; i++){
-    let linhaPreenchimentoDeTela = [];
-    for(let j = 0; j < matrizDoMapaPvp[0].length; j++){
-        linhaPreenchimentoDeTela.push(26);
-    }
-    matrizDoMapa.push(linhaPreenchimentoDeTela);
-}*/
+
+//Indices Mapa 
+var colunaInicio = telaAreaMax[1];
+var linhaInicioSubsolo4 = (0 + telaAreaMax[0]); //Mapa subsolo 4
+var linhaInicioSubsolo3 = (matrizDoMapaSubsolo4.length + telaAreaMax[0]); //Mapa subsolo 3
+var linhaInicioSubsolo2 = (matrizDoMapaSubsolo4.length + matrizDoMapaSubsolo3.length + telaAreaMax[0]); //Mapa subsolo 2
+var linhaInicioSubsolo1 = (matrizDoMapaSubsolo4.length + matrizDoMapaSubsolo3.length + matrizDoMapaSubsolo2.length + telaAreaMax[0]); //Mapa subsolo 1
+var linhaInicioTerreo = (matrizDoMapaSubsolo4.length + matrizDoMapaSubsolo3.length + matrizDoMapaSubsolo2.length + matrizDoMapaSubsolo1.length + telaAreaMax[0]); //Mapa terreo
+var linhaInicioPvp = (matrizDoMapaSubsolo4.length + matrizDoMapaSubsolo3.length + matrizDoMapaSubsolo2.length + matrizDoMapaSubsolo1.length + matrizDoMapaTerreo.length); //Mapa pvp
+
+var matrizDoMapaLength = (
+    matrizDoMapaSubsolo4.length + 
+    matrizDoMapaSubsolo3.length + 
+    matrizDoMapaSubsolo2.length + 
+    matrizDoMapaSubsolo1.length + 
+    matrizDoMapaTerreo.length +
+    matrizDoMapaPvp.length
+    );
 
 var matrizDoMapaOriginal = [];
 
@@ -875,7 +836,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
     }
 }
 
-            var posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo + 2),(colunaInicio + 2)];
+            var posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo4 + 2),(colunaInicio + 2)];
             var resolucaoLarguraAltura = [0, 0];
 
             if(window.innerWidth >= 1900){
@@ -1393,7 +1354,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 strDados = dadosJson.json[3].quests.split(',');
                 if(strDados.length > 0 && parseInt(strDados[0])){
                     questFerramentas = true;
-                    matrizDoMapa[(linhaInicioSubsolo + 2)][(colunaInicio + 3)] = 3;
+                    matrizDoMapa[(linhaInicioSubsolo4 + 2)][(colunaInicio + 3)] = 3;
                     matrizDoMapa[(linhaInicioTerreo + 1)][(colunaInicio + 6)] = 3;
                 }
                 if(strDados.length > 1){
@@ -1923,7 +1884,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             funcPersonagemMorto = function(){
                 hp = 0;
-                posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo + 2),(colunaInicio + 2)];
+                posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo4 + 2),(colunaInicio + 2)];
                 personagemMorto = true;
                 document.getElementById('alertRedId').style.visibility = 'visible';
             }
@@ -2158,13 +2119,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                 if(
                     (
-                        ((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioSubsolo+2) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 3)) ||
+                        ((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioSubsolo4+2) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 3)) ||
                         ((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 6))
                     ) && !questFerramentas
                 ){
                     id = 0;
                     questFerramentas = true;
-                    matrizDoMapa[(linhaInicioSubsolo + 2)][(colunaInicio + 3)] = 3;
+                    matrizDoMapa[(linhaInicioSubsolo4 + 2)][(colunaInicio + 3)] = 3;
                     matrizDoMapa[(linhaInicioTerreo + 1)][(colunaInicio + 6)] = 3;
                 }
                 if((posicaoDoPersonagemNaMatriz[0]+linha) == (linhaInicioTerreo+1) && (posicaoDoPersonagemNaMatriz[1]+coluna) == (colunaInicio + 20)
@@ -4062,7 +4023,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             posicaoInicial = function (linha, coluna){
-                return (linha == (linhaInicioSubsolo + 1)) && (coluna == (colunaInicio + 3));
+                return (linha == (linhaInicioSubsolo4 + 1)) && (coluna == (colunaInicio + 3));
             }
 
             entrarNoPvp = function (){
@@ -4102,7 +4063,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+32); 
                     posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 39); 
                     jangadaPosicaoInicial();
-                }else if((linha == (linhaInicioSubsolo + 1)) && (coluna == (colunaInicio + 8))){
+                }else if((linha == (linhaInicioSubsolo4 + 1)) && (coluna == (colunaInicio + 8))){
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo + 1); 
                     posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 8); 
                 }
@@ -5107,7 +5068,7 @@ loop = function() {
                     }else{
                         //console.log("Ajax desnecessário");
                     }
-                    switch(matrizDoMapa[(linhaInicioSubsolo+1)][(colunaInicio + 3)]){
+                    switch(matrizDoMapa[(linhaInicioSubsolo4+1)][(colunaInicio + 3)]){
                         case 41:
                             alterarTeleport(42);
                             break;
@@ -5449,7 +5410,7 @@ loop = function() {
                         document.getElementById('mensagemDiv2').innerHTML = "Você ainda não sabe esta magia.";
                     }else if(document.getElementById('campoDeEscritaInput').value.toLowerCase() != ""){
                         let data = new Date();
-                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlatual + "]: " + document.getElementById('campoDeEscritaInput').value;
+                        mensagensDoChatDefault += "\n\n" + data.getHours() + ":" + data.getMinutes() + " " + username + " [" + lvlatual + "]: " + sanitize(document.getElementById('campoDeEscritaInput').value);
 
                         if(document.getElementById('campoDeEscritaInput').value.length < 32){
                             document.getElementById('mensagemDiv3').style.textAlign = 'left';
@@ -6027,8 +5988,8 @@ loop = function() {
                 loop();
                 funcMoverPersonagem();
 
-                document.onclick = hideMenu;
-                document.oncontextmenu = rightClick;
+                //document.onclick = hideMenu;
+                //document.oncontextmenu = rightClick;
 
                 document.onmousemove = function(event){
                     mouseX = event.clientX;
@@ -6375,8 +6336,8 @@ loop = function() {
             }
 
             alterarTeleport = function(id) {
-                matrizDoMapa[(linhaInicioSubsolo+1)][(colunaInicio + 3)] = id;
-                matrizDoMapa[(linhaInicioSubsolo+1)][(colunaInicio + 8)] = id;
+                matrizDoMapa[(linhaInicioSubsolo4+1)][(colunaInicio + 3)] = id;
+                matrizDoMapa[(linhaInicioSubsolo4+1)][(colunaInicio + 8)] = id;
                 matrizDoMapa[(linhaInicioTerreo+1)][(colunaInicio + 17)] = id;
                 matrizDoMapa[(linhaInicioTerreo+2)][(colunaInicio + 17)] = id;
                 matrizDoMapa[linhaInicioPvp][(colunaInicio + 1)] = id;
@@ -6538,7 +6499,7 @@ loop = function() {
             }
 
             if(!verificarPosicaoValida(0, 0)){
-                posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo+2),(colunaInicio + 2)];
+                posicaoDoPersonagemNaMatriz = [(linhaInicioSubsolo4+2),(colunaInicio + 2)];
 
                 if(posicaoJangada[0] == (linhaInicioTerreo+28)){
                     matrizDoMapa[posicaoJangada[0]][posicaoJangada[1]] = 26;
@@ -6574,7 +6535,7 @@ loop = function() {
 
             main();
             
-            //alert("Servidor em Manutenção!");
+            alert("Servidor em Manutenção!");
             //alert(window.innerWidth + " x " + window.innerHeight);
             
         </script>
