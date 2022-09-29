@@ -244,13 +244,6 @@
             </ul>
         </div>
 
-        <!--
-        <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
-        <div id='painelCima1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:60; background-color: gray;'></div>
-        -->
-        <div id='painelBaixo1' title='painel' style='position:fixed; top: 660; left: 0; width: 100%; height:100%; background-color: #ccffff;'></div>
-        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 780; width: 100%; height:100%; background-color: #ccffff;'></div>
-
         <div id='conversaLogout' title='logout' style='position: fixed; top: 0; left: 600; width: 178; background-color: lightgray; border-style: solid; border-color: gray; visibility: hidden;'>
             <div id='logoutPergunta1' title='logout' style='top: 0; left: 0; margin: 1; width: 174; height: 44; color: white; font-family: "Lucida Console", "Courier New", monospace; font-size: small; visibility: hidden;'>
                 Você tem certeza que deseja sair?
@@ -439,6 +432,13 @@
         <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: blue; border-style: solid; border-color: white; border-radius: 3px; visibility: hidden;'>
             <textarea id="cmd" name="tablete" title='default' rows="16" cols="21" style="resize: none; opacity: 0.6;" disabled>C:\Acesso negado!</textarea>
         </div>
+
+        <!--
+        <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
+        <div id='painelCima1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:60; background-color: gray;'></div>
+        -->
+        <div id='painelBaixo1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff;'></div>
+        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50;'>Carregando...</div>
 
         <audio id="myAudio" src="" type="audio/mpeg" preload autoplay loop>
             <!--<source id="myAudioSrc" src="musicas/ToPTrack02.mp3" type="audio/mpeg">-->
@@ -6331,8 +6331,6 @@ loop = function() {
                 document.getElementById('mensagemDiv2').style.left = ((Math.trunc(resolucaoLarguraAltura[1] / 3)) * 60);
                 document.getElementById('mensagemDiv1').style.top = ((Math.trunc(resolucaoLarguraAltura[0] / 3) - 1) * 60);
                 document.getElementById('mensagemDiv1').style.left = ((Math.trunc(resolucaoLarguraAltura[1] / 3)) * 60);
-                document.getElementById('painelBaixo1').style.top = ((resolucaoLarguraAltura[0]-2) * 60);
-                document.getElementById('painelDireita1').style.left = ((resolucaoLarguraAltura[1]-2) * 60);
             }
 
             alterarTeleport = function(id) {
@@ -6530,6 +6528,11 @@ loop = function() {
             }
 
             preencherImagens();
+
+            document.getElementById('painelDireita1').innerHTML = "";
+
+            document.getElementById('painelBaixo1').style.top = ((resolucaoLarguraAltura[0]-2) * 60);
+            document.getElementById('painelDireita1').style.left = ((resolucaoLarguraAltura[1]-2) * 60);
 
         }
 
