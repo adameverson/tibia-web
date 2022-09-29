@@ -507,6 +507,8 @@
             var entradaPvp;
             var saidaPvp;
             var entrarNoPvp;
+            var setAndar;
+            var usarCampo;
             var usarTeleporte;
             var moverCimaBot;
             var moverDireitaBot;
@@ -536,6 +538,7 @@
             var moverPersonagem = [0,0];
             var flagMoverPersonagem = true;
             var nivelDeSolo = 1;
+            var nivelDeAndar = -4;
             var outfit = "P";
 
             var  flagEquipamento = false;
@@ -2060,18 +2063,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         break;
                     case 1:
                         if(mochila[1] == 'Corda' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 4){
-                            posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] + (telaAreaMax[0]*2) + 4); 
-                            posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; 
-                            preencherImagens();
+                            usarCampo(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1], 4);
                         }else if(mochila[1] == 'Corda'){ 
                             mensagemDoSistema('Sistema: Aqui não é possível subir.');
                         } 
                         break;
                     case 2:
                         if(mochila[2] == 'Pa' && matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 6){
-                            posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); 
-                            posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; 
-                            preencherImagens();
+                            usarCampo(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1], 6);
                         }else if(mochila[2] == 'Pa'){ 
                             mensagemDoSistema('Sistema: Aqui não é possível cavar.');
                         } 
@@ -4053,17 +4052,143 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 }
             }
 
+            setAndar = function(){
+                if(posicaoDoPersonagemNaMatriz[0] > linhaInicioSubsolo4 && posicaoDoPersonagemNaMatriz[0] < linhaInicioSubsolo3){
+                    nivelDeAndar = -4;
+                }else if(posicaoDoPersonagemNaMatriz[0] > linhaInicioSubsolo3 && posicaoDoPersonagemNaMatriz[0] < linhaInicioSubsolo2){
+                    nivelDeAndar = -3;
+                }else if(posicaoDoPersonagemNaMatriz[0] > linhaInicioSubsolo2 && posicaoDoPersonagemNaMatriz[0] < linhaInicioSubsolo1){
+                    nivelDeAndar = -2;
+                }else if(posicaoDoPersonagemNaMatriz[0] > linhaInicioSubsolo1 && posicaoDoPersonagemNaMatriz[0] < linhaInicioTerreo){
+                    nivelDeAndar = -1;
+                }else if(posicaoDoPersonagemNaMatriz[0] > linhaInicioTerreo){
+                    nivelDeAndar = 0;
+                }
+            }
+
+            usarCampo = function(linha, coluna, campo, x, y){
+
+                switch(campo){
+
+                    case 4:
+                        nivelDeAndar++;
+                        switch(nivelDeAndar){
+                            case -4:
+                                break;
+                            case -3:
+                                linha = linha - linhaInicioSubsolo4;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo3 + linha - 1); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case -2:
+                                linha = linha - linhaInicioSubsolo3;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo2 + linha - 1); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case -1:
+                                linha = linha - linhaInicioSubsolo2;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo1 + linha - 1); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case 0:
+                                linha = linha - linhaInicioSubsolo1;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo + linha - 1); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                        }
+
+                        break;
+
+                    case 5:
+                        nivelDeAndar--;
+                        switch(nivelDeAndar){
+                            case -4:
+                                linha = linha - linhaInicioSubsolo3;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo4 + linha + x); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna + y; 
+
+                                break;
+                            case -3:
+                                linha = linha - linhaInicioSubsolo2;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo3 + linha + x); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna + y; 
+
+                                break;
+                            case -2:
+                                linha = linha - linhaInicioSubsolo1;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo2 + linha + x); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna + y; 
+
+                                break;
+                            case -1:
+                                linha = linha - linhaInicioTerreo;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo1 + linha + x); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna + y; 
+
+                                break;
+                            case 0:
+                                break;
+                        }
+
+                        break;
+
+                    case 6:
+                        nivelDeAndar--;
+                        switch(nivelDeAndar){
+                            case -4:
+                                linha = linha - linhaInicioSubsolo3;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo4 + linha); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case -3:
+                                linha = linha - linhaInicioSubsolo2;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo3 + linha); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case -2:
+                                linha = linha - linhaInicioSubsolo1;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo2 + linha); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case -1:
+                                linha = linha - linhaInicioTerreo;
+                                posicaoDoPersonagemNaMatriz[0] = (linhaInicioSubsolo1 + linha); 
+                                posicaoDoPersonagemNaMatriz[1] = coluna; 
+
+                                break;
+                            case 0:
+                                break;
+                        }
+
+                        break;
+
+                }
+
+                preencherImagens();
+            }
+
             usarTeleporte = function (linha, coluna, direcao){
                 if(entradaPvp(linha, coluna)){
+                    nivelDeAndar = 0;
                     entrarNoPvp();
                 }else if(saidaPvp(linha, coluna)){
+                    nivelDeAndar = 0;
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
                     posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 16); 
                 }else if(posicaoInicial(linha, coluna)){
+                    nivelDeAndar = 0;
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+32); 
                     posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 39); 
                     jangadaPosicaoInicial();
                 }else if((linha == (linhaInicioSubsolo4 + 1)) && (coluna == (colunaInicio + 8))){
+                    nivelDeAndar = 0;
                     posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo + 1); 
                     posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 8); 
                 }
@@ -4071,19 +4196,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             }
 
             moverCima = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(-1, 0)){ cima(); }else if(verificacaoIdCima(2)){recompensaSacola(-1,0);}else if(verificacaoIdCima(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdCima(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 6); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(0)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1], 0); }else{ ataqueCampo(-1, 0); } direcaoDoPersonagem = 0; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(-1, 0)){ cima(); }else if(verificacaoIdCima(2)){recompensaSacola(-1,0);}else if(verificacaoIdCima(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdCima(5)){ usarCampo(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1], 5, -1, 0); }else if(verificacaoIdTeleporte(0)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]-1, posicaoDoPersonagemNaMatriz[1], 0); }else{ ataqueCampo(-1, 0); } direcaoDoPersonagem = 0; }
             }
 
             moverDireita = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); }else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]+1; preencherImagens();}else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); }else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, 1)){ direita(); }else if(verificacaoIdDireita(2)){recompensaSacola(0,1);}else if(verificacaoIdDireita(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdDireita(5)){ usarCampo(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1], 5, 0, 1); }else if(verificacaoIdTeleporte(1)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]+1, 1); }else if(verificacaoIdDireita(54)){moverJangada(0); preencherImagens();}else if(verificacaoIdPorta(1)){ moverPorta(3,1); }else{ ataqueCampo(0, 1); } direcaoDoPersonagem = 1; }
             }
 
             moverBaixo = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(1, 0)){ baixo(); }else if(verificacaoIdBaixo(2)){recompensaSacola(1,0);}else if(verificacaoIdBaixo(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdBaixo(5)){posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 4); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]; preencherImagens();}else if(verificacaoIdTeleporte(2)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1], 2); }else{ ataqueCampo(1, 0); } direcaoDoPersonagem = 2; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1])) && verificarJogoHabilitado()){if(verificarPosicaoValida(1, 0)){ baixo(); }else if(verificacaoIdBaixo(2)){recompensaSacola(1,0);}else if(verificacaoIdBaixo(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdBaixo(5)){ usarCampo(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1], 5, 1, 0); }else if(verificacaoIdTeleporte(2)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0]+1, posicaoDoPersonagemNaMatriz[1], 2); }else{ ataqueCampo(1, 0); } direcaoDoPersonagem = 2; }
             }
 
             moverEsquerda = function (){
-                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); }else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ posicaoDoPersonagemNaMatriz[0] = (posicaoDoPersonagemNaMatriz[0] - (telaAreaMax[0]*2) - 5); posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1]-1; preencherImagens();}else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); }else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
+                if((posicaoDoPersonagemNaMatriz[0] < linhaInicioPvp || saidaPvp(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1)) && verificarJogoHabilitado()){if(verificarPosicaoValida(0, -1)){ esquerda(); }else if(verificacaoIdEsquerda(2)){recompensaSacola(0,-1);}else if(verificacaoIdEsquerda(3)){document.getElementById('fala1').src = 'imagens/imagemFalaItemVazio.png'; setTimeout(function(){ document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 1000);}else if(verificacaoIdEsquerda(5)){ usarCampo(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1], 5, 0, -1); }else if(verificacaoIdTeleporte(3)){ usarTeleporte(posicaoDoPersonagemNaMatriz[0], posicaoDoPersonagemNaMatriz[1]-1, 3); }else if(verificacaoIdEsquerda(53)){moverJangada(2); preencherImagens();}else if(verificacaoIdPorta(3)){ moverPorta(3,3); }else{ ataqueCampo(0, -1); } direcaoDoPersonagem = 3; }
             }
 
 funcMoverPersonagem = function() {
@@ -6526,6 +6651,8 @@ loop = function() {
             if(dadosJson){
                 readDadosJson();
             }
+
+            setAndar();
 
             preencherImagens();
 
