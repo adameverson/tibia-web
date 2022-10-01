@@ -3761,6 +3761,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     flagMoverPersonagem = true;
 
+                    verificacaoDistanciamento();
+
                     desativarEfeitos();
 
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdBaixo(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
@@ -3800,6 +3802,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] + 1;
 
                     flagMoverPersonagem = true;
+
+                    verificacaoDistanciamento();
 
                     desativarEfeitos();
 
@@ -3841,6 +3845,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
                     flagMoverPersonagem = true;
 
+                    verificacaoDistanciamento();
+
                     desativarEfeitos();
 
                     if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]][posicaoDoPersonagemNaMatriz[1]] == 7){nivelDeSolo++; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) - 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) - 10;} if(verificacaoIdCima(7)){nivelDeSolo--; document.getElementById('personagem1').style.top = parseInt(document.getElementById('personagem1').style.top.split('p')[0]) + 10; document.getElementById('personagem1').style.left = parseInt(document.getElementById('personagem1').style.left.split('p')[0]) + 10;}
@@ -3880,6 +3886,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     posicaoDoPersonagemNaMatriz[1] = posicaoDoPersonagemNaMatriz[1] - 1;
 
                     flagMoverPersonagem = true;
+
+                    verificacaoDistanciamento();
 
                     desativarEfeitos();
 
@@ -4288,7 +4296,6 @@ funcMoverPersonagem = function() {
                             }
                             moverEsquerda();
                             moverPersonagem[1]++;
-                            verificacaoDistanciamento();
                         }else if(moverPersonagem[0] < 0 && verificarPosicaoValida(-1, 0)){
                             if(verificacaoIdEsquerda(74)){
                                 esconderCasa(3);
@@ -4306,7 +4313,6 @@ funcMoverPersonagem = function() {
                             }
                             moverCima();
                             moverPersonagem[0]++;
-                            verificacaoDistanciamento();
                         }else if(moverPersonagem[1] > 0 && verificarPosicaoValida(0, 1)){
                             if(verificacaoIdEsquerda(74)){
                                 esconderCasa(3);
@@ -4324,7 +4330,6 @@ funcMoverPersonagem = function() {
                             }
                             moverDireita();
                             moverPersonagem[1]--;
-                            verificacaoDistanciamento();
                         }else if(moverPersonagem[0] > 0 && verificarPosicaoValida(1, 0)){
                             if(verificacaoIdEsquerda(74)){
                                 esconderCasa(3);
@@ -4342,7 +4347,6 @@ funcMoverPersonagem = function() {
                             }
                             moverBaixo();
                             moverPersonagem[0]--;
-                            verificacaoDistanciamento();
                         }else if(
                             verificacaoIdEsquerda(74) && 
                             moverPersonagem[1] < -1 && 
