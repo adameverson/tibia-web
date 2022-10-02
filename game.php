@@ -109,6 +109,13 @@
     </head>
     <!-- load, keypress -->
     <body>
+        <!--
+        <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
+        <div id='painelCima1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:60; background-color: gray;'></div>
+        -->
+        <div id='painelBaixo1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50; z-index: 2;'>Carregando...</div>
+        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50; z-index: 1;'></div>
+
         <div id='map' style="position: fixed; top: 0; left: 0;">
             
         </div>
@@ -432,13 +439,6 @@
         <div id='tablet' title='tablete' style='position: fixed; top: 417; right: 200; width: 178; height:243; background-color: blue; border-style: solid; border-color: white; border-radius: 3px; visibility: hidden;'>
             <textarea id="cmd" name="tablete" title='default' rows="16" cols="21" style="resize: none; opacity: 0.6;" disabled>C:\Acesso negado!</textarea>
         </div>
-
-        <!--
-        <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
-        <div id='painelCima1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:60; background-color: gray;'></div>
-        -->
-        <div id='painelBaixo1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff;'></div>
-        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50;'>Carregando...</div>
 
         <audio id="myAudio" src="" type="audio/mpeg" preload autoplay loop>
             <!--<source id="myAudioSrc" src="musicas/ToPTrack02.mp3" type="audio/mpeg">-->
@@ -939,6 +939,9 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             //mouse
             var mouseX;
             var mouseY;
+
+            //carregamento
+            var flagCarregamento = true;
 
             openFullscreen = function () {
                 if(!flagFullScreen){
@@ -5243,6 +5246,7 @@ loop = function() {
                         document.getElementById('textareaChat').value = mensagensDoChatNpc;
                         break;
                 }
+
                 if(chatScrollHeight != document.getElementById('textareaChat').scrollHeight){
                     document.getElementById('textareaChat').scrollTop = document.getElementById('textareaChat').scrollHeight;
                     chatScrollHeight = document.getElementById('textareaChat').scrollHeight;
@@ -5342,6 +5346,20 @@ loop = function() {
                 }
                 
                 //document.getElementById('campoDeEscritaInput').focus();
+
+                if(flagCarregamento){
+
+                    document.getElementById('painelBaixo1').innerHTML = "";
+
+                    document.getElementById('painelBaixo1').style.top = ((resolucaoLarguraAltura[0]-2) * 60);
+                    document.getElementById('painelDireita1').style.left = ((resolucaoLarguraAltura[1]-2) * 60);
+
+                    document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
+                    setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
+
+                    flagCarregamento = false;
+
+                }
 
             },
         1000
@@ -6197,7 +6215,10 @@ loop = function() {
                     }
                 });
                 document.getElementById('personagem1').addEventListener("click", function(){
-                    document.getElementById('menuopcoes').style.visibility = 'visible';
+                    if(document.getElementById('menuopcoes').style.visibility == 'hidden')
+                        document.getElementById('menuopcoes').style.visibility = 'visible';
+                    else
+                        document.getElementById('menuopcoes').style.visibility = 'hidden';
                 });
                 document.getElementById('outfit1').addEventListener("click", function(){
                     outfit = 'P'; document.getElementById('menuopcoes').style.visibility = 'hidden';
@@ -6604,9 +6625,6 @@ loop = function() {
             taskvalor = 0;
             document.getElementById('taskvalor').innerHTML = taskvalor + "/100";
 
-            document.getElementById('fala1').src = 'imagens/imagemFalaVoceJaTemBless.png';
-            setTimeout(function(){document.getElementById('fala1').src = 'imagens/imagemFalaVazia.png';}, 2000);
-
             calculaLevel();
 
             document.getElementById('textareaChatHistoria').value = mensagensDoChatHistoria1;
@@ -6659,11 +6677,6 @@ loop = function() {
             setAndar();
 
             preencherImagens();
-
-            document.getElementById('painelDireita1').innerHTML = "";
-
-            document.getElementById('painelBaixo1').style.top = ((resolucaoLarguraAltura[0]-2) * 60);
-            document.getElementById('painelDireita1').style.left = ((resolucaoLarguraAltura[1]-2) * 60);
 
         }
 
