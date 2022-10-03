@@ -2624,15 +2624,13 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 document.getElementById('mensagemDiv1').innerHTML = auxText;
             }
 
-            mensagemGanhouExperiencia = function(xpGanha, ataqueLinha, ataqueColuna){
+            mensagemGanhouExperiencia = function(xpGanha){
                 mensagensDoChatServerLog += "\n\nVocê ganhou " + xpGanha + " ponto(s) de experiência."; 
                 document.getElementById('mensagemDiv3').style.color = 'white'; 
                 document.getElementById('mensagemDiv3').style.textAlign = 'center'; 
                 document.getElementById('mensagemDiv3').style.width = 50; 
                 document.getElementById('mensagemDiv3').innerHTML = xpGanha + "Xp"; 
                 setTimeout(function(){ 
-                    if(ataqueLinha != null && ataqueColuna != null)
-                        arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = ""; 
                     document.getElementById('mensagemDiv3').innerHTML = ""; 
                     document.getElementById('mensagemDiv3').style.color = 'red'; 
                     document.getElementById('mensagemDiv3').style.width = 250; 
@@ -3105,11 +3103,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     matrizDoMapa[i][j] == 6 ||
                     matrizDoMapa[i][j] == 7
                 ){
-                    setTimeout(
-                        function(){
-                            mensagemDivCampo.innerHTML = "";
-                        }, 5000
-                    );
 
                     let imagemEfeito = "";
 
@@ -3911,15 +3904,16 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 let ataqueLinha = (posicaoDoPersonagemNaTela[0] + distanciaDoPersonagemLinha);
                 let ataqueColuna = (posicaoDoPersonagemNaTela[1] + distanciaDoPersonagemColuna);
                 let hit = getRandomIntInclusive(Math.ceil(lvlatual*(equipamentos[1]+1)),Math.floor(lvlatual*2*(equipamentos[1]+1))); 
+                let divMensagem = arrayColunasTela[ataqueColuna][ataqueLinha].children[7];
                 
                 if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) ){
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.color = 'red';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.textAlign = 'center';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.width = 50;
+                    divMensagem.style.color = 'red';
+                    divMensagem.style.textAlign = 'center';
+                    divMensagem.style.width = 50;
                 }else{
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.color = 'SpringGreen';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.textAlign = 'center';
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].style.width = 50;
+                    divMensagem.style.color = 'SpringGreen';
+                    divMensagem.style.textAlign = 'center';
+                    divMensagem.style.width = 50;
                 }
                 
                 if( 
@@ -3928,10 +3922,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 { 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] - ((hit*hitDecrescimo) | 0); 
 
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = hit; 
+                    divMensagem.innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + hit + " pontos de vida devido ao seu ataque."; 
                     setTimeout(function(){ 
-                        arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = ""; 
+                        divMensagem.innerHTML = ""; 
                     }, 500);
                 }else if( 
                     posicaoDoPersonagemNaMatriz[0] >= (linhaInicioTerreo + 29) &&
@@ -3939,10 +3933,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 { 
                     matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] + ((hit*hitDecrescimo) | 0); 
 
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = hit; 
+                    divMensagem.innerHTML = hit; 
                     mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " ganhou " + hit + " pontos de vida devido ao seu carinho."; 
                     setTimeout(function(){ 
-                        arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = ""; 
+                        divMensagem.innerHTML = ""; 
                     }, 500);
                 }else{ 
 
@@ -3966,7 +3960,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                             break;
                     }
 
-                    arrayColunasTela[ataqueColuna][ataqueLinha].children[7].innerHTML = (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1; 
+                    divMensagem.innerHTML = (matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1;
+                    setTimeout(function(){ 
+                        divMensagem.innerHTML = ""; 
+                    }, 500);
                     
                     if(posicaoDoPersonagemNaMatriz[0] < (linhaInicioTerreo + 29) ){
                         mensagensDoChatServerLog += "\n\nUm(a) " + nomeCriatura + " perdeu " + ((matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] * hitAcrescimo) + 1) + " pontos de vida devido ao seu ataque.";
@@ -3976,7 +3973,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         matrizCriaturasVida[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = 50; 
                     }
 
-                    mensagemGanhouExperiencia(xp, ataqueLinha, ataqueColuna);
+                    mensagemGanhouExperiencia(xp);
                     matrizDoMapa[posicaoDoPersonagemNaMatriz[0] + distanciaDoPersonagemLinha][posicaoDoPersonagemNaMatriz[1] + distanciaDoPersonagemColuna] = morto; 
                     nivel += xp; 
 
