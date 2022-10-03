@@ -5131,7 +5131,7 @@ loop = function() {
                     desconectar();
                 };
 
-                window.onfocus = function() { 
+                window.onfocus = window.onfocusin = function() { 
                     if(!inativo && !online){
                         conectar();
                     }else if(inativo && document.getElementById('alertRedId').style.visibility == 'hidden'){
