@@ -5127,7 +5127,7 @@ loop = function() {
                     //console.log("conectado!"); 
                 }
 
-                window.onblur = function() { 
+                window.onblur = window.onfocusout = function() { 
                     desconectar();
                 };
 
