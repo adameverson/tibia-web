@@ -943,6 +943,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             //carregamento
             var flagCarregamento = true;
 
+            //conexao
+            var run_ajax;
+            var desconectar;
+            var conectar;
+
             openFullscreen = function () {
                 if(!flagFullScreen){
                     if (elem.requestFullscreen) {
@@ -1077,7 +1082,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     field.style.width = "60";
 				    field.style.height = "60";
                     field.style.top = rowTop;
-                    field.onclick = field.ondragover = function(){ 
+                    field.addEventListener("click", function(){ 
                         let linhaTela;
                         let colunaTela;
 
@@ -1085,7 +1090,16 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                         colunaTela = Math.ceil(mouseX / mover);
 
                         moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
-                    };
+                    });
+                    field.addEventListener("dragover", function(){ 
+                        let linhaTela;
+                        let colunaTela;
+
+                        linhaTela = Math.ceil(mouseY / mover);
+                        colunaTela = Math.ceil(mouseX / mover);
+
+                        moverPersonagem = [(linhaTela-posicaoDoPersonagemNaTela[0]),(colunaTela-posicaoDoPersonagemNaTela[1])]; 
+                    });
 
 					let image = document.createElement("img");
                     field.appendChild(image);
@@ -4897,252 +4911,6 @@ loop = function() {
                     dataAjax.setMilliseconds(dataAjax.getMilliseconds() + 950);
                 }
 
-                var run_ajax = function(){
-
-                    // [INICIO] AJAX
-
-                    var dados = new FormData();
-
-                    if(dadosJson){
-                        updateDadosJson();
-                    }
-
-                    dados.append('x', posicaoDoPersonagemNaMatriz[0]);
-                    dados.append('y', posicaoDoPersonagemNaMatriz[1]);
-
-                    if(
-                        ultim_x != posicaoDoPersonagemNaMatriz[0] ||
-                        ultim_y != posicaoDoPersonagemNaMatriz[1] ||
-                        ultim_direcao != direcaoDoPersonagem ||
-                        ultim_outfit != outfit ||
-                        ultim_nivel != nivel ||
-                        ultim_hp != hp ||
-                        ultim_mensgem != mensagem ||
-                        ultim_json != JSON.stringify(dadosJson) ||
-                        (!online || wakeup)
-                    ){
-                        dados.append('username', username);
-                        dados.append('password', password);
-
-                        if(!online || wakeup){
-                            dados.append('online', online);
-                            if(wakeup)
-                                wakeup = false;
-                        }
-                        if(ultim_x != posicaoDoPersonagemNaMatriz[0]){
-                            dados.append('x', posicaoDoPersonagemNaMatriz[0]);
-                            ultim_x = posicaoDoPersonagemNaMatriz[0];
-                        }
-                        if(ultim_y != posicaoDoPersonagemNaMatriz[1]){
-                            dados.append('y', posicaoDoPersonagemNaMatriz[1]);
-                            ultim_y = posicaoDoPersonagemNaMatriz[1];
-                        }
-                        if(ultim_direcao != direcaoDoPersonagem){
-                            dados.append('direcao', direcaoDoPersonagem);
-                            ultim_direcao = direcaoDoPersonagem;
-                        }
-                        if(ultim_outfit != outfit){
-                            dados.append('outfit', outfit);
-                            ultim_outfit = outfit;
-                        }
-                        if(ultim_nivel != nivel){
-                            dados.append('nivel', nivel);
-                            ultim_nivel = nivel;
-                        }
-                        if(ultim_hp != hp){
-                            dados.append('hp', hp);
-                            ultim_hp = hp;
-                        }
-                        if(ultim_mensgem != mensagem){
-                            dados.append('mensagem', sanitize(mensagem));
-                            ultim_mensgem = mensagem;
-                        }
-                        if(ultim_json != JSON.stringify(dadosJson)){
-                            dados.append('json', JSON.stringify(dadosJson));
-                            ultim_json = JSON.stringify(dadosJson);
-                        }
-                    }
-
-                    $.ajax({
-                        url: 'gameGET.php',
-                        method: 'POST',
-                        data: dados,
-                        processData: false,
-                        contentType: false
-                    }).done(function(resposta){
-
-                        if(dadosResposta != "vazio"){
-                            for(let i = 0; i < dadosResposta.players.length; i++){
-
-                                if(
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 8 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 16 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 19 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 45 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 48 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 9 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 17 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 20 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 46 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 49 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 10 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 18 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 21 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 47 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 50 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 51 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 52 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 57 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 61 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 62 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 63 ||
-                                    dadosResposta.players[i].username == username
-                                ){
-                                    continue;
-                                }
-
-                                if(
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 12 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 13 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 14 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 15 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 22 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 23 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 24 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 25 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 84 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 85 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 86 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 87 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 88 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 89 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 90 ||
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 91
-                                ){
-                                    matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
-                                }
-
-                            }
-                            ultimamensagem = dadosResposta;
-                        }
-
-                        dadosResposta = JSON.parse(resposta);
-                        
-                        for(let i = 0; i < dadosResposta.players.length; i++){
-                            if(
-                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 0 &&
-                                dadosResposta.players[i].username != username
-                            ){
-                                if(dadosResposta.players[i].outfit == "M"){
-                                    switch(dadosResposta.players[i].direcao){
-                                        case 0:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 12;
-                                            break;
-                                        case 1:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 13;
-                                            break;
-                                        case 2:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 14;
-                                            break;
-                                        case 3:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 15;
-                                            break;
-                                    }
-                                }else if(dadosResposta.players[i].outfit == "F"){
-                                    switch(dadosResposta.players[i].direcao){
-                                        case 0:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 22;
-                                            break;
-                                        case 1:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 23;
-                                            break;
-                                        case 2:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 24;
-                                            break;
-                                        case 3:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 25;
-                                            break;
-                                    }
-                                }else if(dadosResposta.players[i].outfit == "P"){
-                                    switch(dadosResposta.players[i].direcao){
-                                        case 0:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 84;
-                                            break;
-                                        case 1:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 85;
-                                            break;
-                                        case 2:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 86;
-                                            break;
-                                        case 3:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 87;
-                                            break;
-                                    }
-                                }else if(dadosResposta.players[i].outfit == "W"){
-                                    switch(dadosResposta.players[i].direcao){
-                                        case 0:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 88;
-                                            break;
-                                        case 1:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 89;
-                                            break;
-                                        case 2:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 90;
-                                            break;
-                                        case 3:
-                                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 91;
-                                            break;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        preencherJogadores();
-
-                    })
-
-                    // [FIM] AJAX
-
-                }
-
-                var desconectar = function() {
-                    online = 0;
-                    if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
-                        posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
-                        posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 16); 
-                    }
-                    run_ajax();
-                    //console.log("desconectado!"); 
-                }
-
-                var conectar = function() {
-                    online =
-                    wakeup = 1;
-                    if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
-                        posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
-                        posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 16); 
-                    }
-                    run_ajax();
-                    //console.log("conectado!"); 
-                }
-
-                window.onblur = window.onfocusout = function() { 
-                    desconectar();
-                };
-
-                window.onfocus = window.onfocusin = function() { 
-                    if(!inativo && !online){
-                        conectar();
-                    }else if(inativo && document.getElementById('alertRedId').style.visibility == 'hidden'){
-                        document.getElementById('alertYellowId').style.visibility = 'visible';
-                    }
-                };
-                
-                window.onunload = window.onbeforeunload = function() {
-                    desconectar();
-                };
-
                 let tempoinativo = 0;
                 let hitTotal = 0;
 
@@ -6132,13 +5900,34 @@ loop = function() {
                 loop();
                 funcMoverPersonagem();
 
-                document.onclick = hideMenu;
-                document.oncontextmenu = rightClick;
+                window.addEventListener("focus", () => {
+                    if(!inativo && !online){
+                        conectar();
+                    }else if(inativo && document.getElementById('alertRedId').style.visibility == 'hidden'){
+                        document.getElementById('alertYellowId').style.visibility = 'visible';
+                    }
+                });
+                window.addEventListener("focusin", () => {
+                    if(!inativo && !online){
+                        conectar();
+                    }else if(inativo && document.getElementById('alertRedId').style.visibility == 'hidden'){
+                        document.getElementById('alertYellowId').style.visibility = 'visible';
+                    }
+                });
 
-                document.onmousemove = function(event){
+                window.addEventListener("blur", desconectar);
+                window.addEventListener("focusout", desconectar);
+
+                window.addEventListener("unload", desconectar);
+                window.addEventListener("beforeunload", desconectar);
+
+                document.addEventListener("click", hideMenu);
+                document.addEventListener("contextmenu", rightClick);
+
+                document.addEventListener("mousemove", (event) => {
                     mouseX = event.clientX;
                     mouseY = event.clientY;
-                }
+                });
 
                 document.addEventListener("dragover", (event) => {
                     event.dataTransfer.dropEffect = "move";
@@ -6520,6 +6309,236 @@ loop = function() {
 
                     preencherImagens(null, itemEfeito[0], itemEfeito[1]);
                 }
+            }
+
+            run_ajax = function(){
+
+                // [INICIO] AJAX
+
+                var dados = new FormData();
+
+                if(dadosJson){
+                    updateDadosJson();
+                }
+
+                dados.append('x', posicaoDoPersonagemNaMatriz[0]);
+                dados.append('y', posicaoDoPersonagemNaMatriz[1]);
+
+                if(
+                    ultim_x != posicaoDoPersonagemNaMatriz[0] ||
+                    ultim_y != posicaoDoPersonagemNaMatriz[1] ||
+                    ultim_direcao != direcaoDoPersonagem ||
+                    ultim_outfit != outfit ||
+                    ultim_nivel != nivel ||
+                    ultim_hp != hp ||
+                    ultim_mensgem != mensagem ||
+                    ultim_json != JSON.stringify(dadosJson) ||
+                    (!online || wakeup)
+                ){
+                    dados.append('username', username);
+                    dados.append('password', password);
+
+                    if(!online || wakeup){
+                        dados.append('online', online);
+                        if(wakeup)
+                            wakeup = false;
+                    }
+                    if(ultim_x != posicaoDoPersonagemNaMatriz[0]){
+                        dados.append('x', posicaoDoPersonagemNaMatriz[0]);
+                        ultim_x = posicaoDoPersonagemNaMatriz[0];
+                    }
+                    if(ultim_y != posicaoDoPersonagemNaMatriz[1]){
+                        dados.append('y', posicaoDoPersonagemNaMatriz[1]);
+                        ultim_y = posicaoDoPersonagemNaMatriz[1];
+                    }
+                    if(ultim_direcao != direcaoDoPersonagem){
+                        dados.append('direcao', direcaoDoPersonagem);
+                        ultim_direcao = direcaoDoPersonagem;
+                    }
+                    if(ultim_outfit != outfit){
+                        dados.append('outfit', outfit);
+                        ultim_outfit = outfit;
+                    }
+                    if(ultim_nivel != nivel){
+                        dados.append('nivel', nivel);
+                        ultim_nivel = nivel;
+                    }
+                    if(ultim_hp != hp){
+                        dados.append('hp', hp);
+                        ultim_hp = hp;
+                    }
+                    if(ultim_mensgem != mensagem){
+                        dados.append('mensagem', sanitize(mensagem));
+                        ultim_mensgem = mensagem;
+                    }
+                    if(ultim_json != JSON.stringify(dadosJson)){
+                        dados.append('json', JSON.stringify(dadosJson));
+                        ultim_json = JSON.stringify(dadosJson);
+                    }
+                }
+
+                $.ajax({
+                    url: 'gameGET.php',
+                    method: 'POST',
+                    data: dados,
+                    processData: false,
+                    contentType: false
+                }).done(function(resposta){
+
+                    if(dadosResposta != "vazio"){
+                        for(let i = 0; i < dadosResposta.players.length; i++){
+
+                            if(
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 8 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 16 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 19 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 45 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 48 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 9 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 17 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 20 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 46 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 49 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 10 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 18 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 21 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 47 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 50 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 51 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 52 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 57 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 61 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 62 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 63 ||
+                                dadosResposta.players[i].username == username
+                            ){
+                                continue;
+                            }
+
+                            if(
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 12 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 13 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 14 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 15 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 22 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 23 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 24 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 25 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 84 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 85 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 86 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 87 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 88 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 89 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 90 ||
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 91
+                            ){
+                                matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 0;
+                            }
+
+                        }
+                        ultimamensagem = dadosResposta;
+                    }
+
+                    dadosResposta = JSON.parse(resposta);
+                    
+                    for(let i = 0; i < dadosResposta.players.length; i++){
+                        if(
+                            matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] == 0 &&
+                            dadosResposta.players[i].username != username
+                        ){
+                            if(dadosResposta.players[i].outfit == "M"){
+                                switch(dadosResposta.players[i].direcao){
+                                    case 0:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 12;
+                                        break;
+                                    case 1:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 13;
+                                        break;
+                                    case 2:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 14;
+                                        break;
+                                    case 3:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 15;
+                                        break;
+                                }
+                            }else if(dadosResposta.players[i].outfit == "F"){
+                                switch(dadosResposta.players[i].direcao){
+                                    case 0:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 22;
+                                        break;
+                                    case 1:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 23;
+                                        break;
+                                    case 2:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 24;
+                                        break;
+                                    case 3:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 25;
+                                        break;
+                                }
+                            }else if(dadosResposta.players[i].outfit == "P"){
+                                switch(dadosResposta.players[i].direcao){
+                                    case 0:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 84;
+                                        break;
+                                    case 1:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 85;
+                                        break;
+                                    case 2:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 86;
+                                        break;
+                                    case 3:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 87;
+                                        break;
+                                }
+                            }else if(dadosResposta.players[i].outfit == "W"){
+                                switch(dadosResposta.players[i].direcao){
+                                    case 0:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 88;
+                                        break;
+                                    case 1:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 89;
+                                        break;
+                                    case 2:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 90;
+                                        break;
+                                    case 3:
+                                        matrizDoMapa[dadosResposta.players[i].x][dadosResposta.players[i].y] = 91;
+                                        break;
+                                }
+                            }
+
+                        }
+                    }
+
+                    preencherJogadores();
+
+                })
+
+                // [FIM] AJAX
+
+            }
+
+            desconectar = function() {
+                online = 0;
+                if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                    posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
+                    posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 16); 
+                }
+                run_ajax();
+                //console.log("desconectado!"); 
+            }
+
+            conectar = function() {
+                online =
+                wakeup = 1;
+                if(posicaoDoPersonagemNaMatriz[0] >= linhaInicioPvp){
+                    posicaoDoPersonagemNaMatriz[0] = (linhaInicioTerreo+2); 
+                    posicaoDoPersonagemNaMatriz[1] = (colunaInicio + 16); 
+                }
+                run_ajax();
+                //console.log("conectado!"); 
             }
 
             <?php
