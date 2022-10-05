@@ -498,6 +498,7 @@
             var mensagemTaskNaoTerminada;
             var mensagemGanhouExperiencia;
             var verificarPosicaoValida;
+            var verificarPosicaoValidaXY;
             var verificarPosicaoValidaBot;
             var verificarJogoHabilitado;
             var verificarJogadorNaTela;
@@ -2415,6 +2416,10 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 return (matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 10 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 18 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 21 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 47 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 50 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 0 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 51 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 52 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 4 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 6 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 7 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 12 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 13 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 14 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 15 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 22 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 23 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 24 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 25 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 84 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 85 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 86 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 87 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 88 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 89 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 90 || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 91);
             }
 
+            verificarPosicaoValidaXY = function(linha, coluna){
+                return (matrizDoMapa[linha][coluna] == 10 || matrizDoMapa[linha][coluna] == 18 || matrizDoMapa[linha][coluna] == 21 || matrizDoMapa[linha][coluna] == 47 || matrizDoMapa[linha][coluna] == 50 || matrizDoMapa[linha][coluna] == 0 || matrizDoMapa[linha][coluna] == 51 || matrizDoMapa[linha][coluna] == 52 || matrizDoMapa[linha][coluna] == 4 || matrizDoMapa[linha][coluna] == 6 || matrizDoMapa[linha][coluna] == 7 || matrizDoMapa[linha][coluna] == 12 || matrizDoMapa[linha][coluna] == 13 || matrizDoMapa[linha][coluna] == 14 || matrizDoMapa[linha][coluna] == 15 || matrizDoMapa[linha][coluna] == 22 || matrizDoMapa[linha][coluna] == 23 || matrizDoMapa[linha][coluna] == 24 || matrizDoMapa[linha][coluna] == 25 || matrizDoMapa[linha][coluna] == 84 || matrizDoMapa[linha][coluna] == 85 || matrizDoMapa[linha][coluna] == 86 || matrizDoMapa[linha][coluna] == 87 || matrizDoMapa[linha][coluna] == 88 || matrizDoMapa[linha][coluna] == 89 || matrizDoMapa[linha][coluna] == 90 || matrizDoMapa[linha][coluna] == 91);
+            }
+
             verificarPosicaoValidaBot = function(linha, coluna){
                 return (matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 0 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 12 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 13 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 14 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 15 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 22 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 23 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 24 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 25 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 84 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 85 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 86 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 87 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 88 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 89 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 90 || matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 91);
             }
@@ -2894,7 +2899,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 for(let k = 0; ultimamensagem != "vazio" && k < ultimamensagem.players.length; k++){
                     if(
                         ultimamensagem.players[k].username == username ||
-                        !verificarJogadorNaTela(ultimamensagem.players[k].x, ultimamensagem.players[k].y) 
+                        !verificarJogadorNaTela(ultimamensagem.players[k].x, ultimamensagem.players[k].y) ||
+                        !verificarPosicaoValidaXY(ultimamensagem.players[k].x, ultimamensagem.players[k].y)
                     )
                         continue;
 
@@ -2920,7 +2926,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 for(let k = 0; dadosResposta != "vazio" && k < dadosResposta.players.length; k++){
                     if(
                         dadosResposta.players[k].username == username ||
-                        !verificarJogadorNaTela(dadosResposta.players[k].x, dadosResposta.players[k].y) 
+                        !verificarJogadorNaTela(dadosResposta.players[k].x, dadosResposta.players[k].y) ||
+                        !verificarPosicaoValidaXY(dadosResposta.players[k].x, dadosResposta.players[k].y)
                     )
                         continue;
 
@@ -2934,13 +2941,18 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     let barraHpVaziaCampo = arrayColunasTela[m][l].children[5];
                     let mensagemDivCampo = arrayColunasTela[m][l].children[7];
                     
-                    imagem2Campo.style.visibility = "hidden";
-                    nomeCampo.style.visibility = "hidden";
-                    barraHpCampo.style.visibility = "hidden";
-                    barraHpVaziaCampo.style.visibility = "hidden";
+                    //imagem2Campo.style.visibility = "hidden";
+                    //nomeCampo.style.visibility = "hidden";
+                    //barraHpCampo.style.visibility = "hidden";
+                    //barraHpVaziaCampo.style.visibility = "hidden";
                     
-                    imagem2Campo.style.top = 5;
-                    imagem2Campo.style.left = 5;
+                    if(matrizDoMapa[dadosResposta.players[k].x][dadosResposta.players[k].y] == 7){
+                        imagem2Campo.style.top = -5;
+                        imagem2Campo.style.left = -5;
+                    }else{
+                        imagem2Campo.style.top = 5;
+                        imagem2Campo.style.left = 5;
+                    }
 
                     let expaux = dadosResposta.players[k].nivel;
                     let lvl=0;
@@ -3029,11 +3041,6 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                                 imagem2Campo.src = "imagens/personF3.png";
                                 break;
                         }
-                    }
-
-                    if(matrizDoMapa[dadosResposta.players[k].x][dadosResposta.players[k].y] == 7){
-                        imagem2Campo.style.top = -5;
-                        imagem2Campo.style.left = -5;
                     }
                     
                     imagem2Campo.style.visibility = "visible";
