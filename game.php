@@ -452,6 +452,7 @@
             var audio = document.getElementById("myAudio");
             audio.volume = 0.02;
 
+            var fillElementField;
             var openFullscreen;
             var funcMoverPersonagem;
             var loop;
@@ -932,6 +933,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var arrayColunasTela = [];
             var arrayLinhasTela;
             var listaEfeitos = [];
+            var elementField = [];
 
             //screen
             var flagFullScreen = false;
@@ -2440,87 +2442,19 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 
             verificarPosicaoValida = function(linha, coluna){
                 return (
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 10 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 18 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 21 ||
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 47 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 50 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 0 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 51 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 52 ||
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 4 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 6 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 7 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 12 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 13 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 14 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 15 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 22 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 23 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 24 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 25 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 84 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 85 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 86 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 87 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 88 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 89 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 90 || 
-                    matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna] == 91
+                    elementField[matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+linha][posicaoDoPersonagemNaMatriz[1]+coluna]][1] == 0
                 );
             }
 
             verificarPosicaoValidaXY = function(linha, coluna){
                 return (
-                    matrizDoMapa[linha][coluna] == 10 || 
-                    matrizDoMapa[linha][coluna] == 18 || 
-                    matrizDoMapa[linha][coluna] == 21 || 
-                    matrizDoMapa[linha][coluna] == 47 || 
-                    matrizDoMapa[linha][coluna] == 50 || 
-                    matrizDoMapa[linha][coluna] == 0 || 
-                    matrizDoMapa[linha][coluna] == 51 || 
-                    matrizDoMapa[linha][coluna] == 52 || 
-                    matrizDoMapa[linha][coluna] == 4 || 
-                    matrizDoMapa[linha][coluna] == 6 || 
-                    matrizDoMapa[linha][coluna] == 7 || 
-                    matrizDoMapa[linha][coluna] == 12 || 
-                    matrizDoMapa[linha][coluna] == 13 || 
-                    matrizDoMapa[linha][coluna] == 14 || 
-                    matrizDoMapa[linha][coluna] == 15 || 
-                    matrizDoMapa[linha][coluna] == 22 || 
-                    matrizDoMapa[linha][coluna] == 23 || 
-                    matrizDoMapa[linha][coluna] == 24 || 
-                    matrizDoMapa[linha][coluna] == 25 || 
-                    matrizDoMapa[linha][coluna] == 84 || 
-                    matrizDoMapa[linha][coluna] == 85 || 
-                    matrizDoMapa[linha][coluna] == 86 || 
-                    matrizDoMapa[linha][coluna] == 87 || 
-                    matrizDoMapa[linha][coluna] == 88 || 
-                    matrizDoMapa[linha][coluna] == 89 || 
-                    matrizDoMapa[linha][coluna] == 90 || 
-                    matrizDoMapa[linha][coluna] == 91
+                    elementField[matrizDoMapa[linha][coluna]][1] == 0
                 );
             }
 
             verificarPosicaoValidaBot = function(linha, coluna){
                 return (
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 0 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 12 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 13 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 14 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 15 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 22 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 23 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 24 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 25 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 84 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 85 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 86 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 87 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 88 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 89 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 90 || 
-                    matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna] == 91
+                    elementField[matrizDoMapa[posicaoBot[0]+linha][posicaoBot[1]+coluna]][2] == 0
                 );
             }
 
@@ -3560,287 +3494,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                 for(var i = posicaoLinhaInicio, k = posicaoLinhaTelaInicio; i < posicaoLinhaFim; i++, k++){
                     for(var j = posicaoColunaInicio, l = posicaoColunaTelaInicio; j < posicaoColunaFim; j++, l++){
 
-                        switch(matrizDoMapa[i][j]){
-                            case 0:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 1:
-                                caminhoImagem = "imagens/imagemCampo.png"; //arvore
-                                break;
-                            case 2:
-                                caminhoImagem = "imagens/imagemCampo.png"; //sacola
-                                break;
-                            case 3:
-                                caminhoImagem = "imagens/imagemCampo.png"; //sacola
-                                break;
-                            case 4:
-                                caminhoImagem = "imagens/imagemCampo.png";//buraco
-                                break;
-                            case 5:
-                                caminhoImagem = "imagens/imagemCampo.png"; //buraco
-                                break;
-                            case 6:
-                                caminhoImagem = "imagens/imagemCampo.png"; //buraco
-                                break;
-                            case 7:
-                                caminhoImagem = "imagens/imagemCampo.png"; //caixa
-                                break;
-                            case 8:
-                                caminhoImagem = "imagens/imagemCampo.png"; //snake
-                                break;
-                            case 9:
-                                caminhoImagem = "imagens/imagemCampo.png"; //snake
-                                break;
-                            case 10:
-                                caminhoImagem = "imagens/imagemCampo.png"; //snake
-                                break;
-                            case 11:
-                                caminhoImagem = "imagens/imagemCampo.png"; //npc
-                                break;
-                            case 12:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 13:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 14:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 15:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 16:
-                                caminhoImagem = "imagens/imagemCampo.png"; //dragon
-                                break;
-                            case 17:
-                                caminhoImagem = "imagens/imagemCampo.png"; //dragon
-                                break;
-                            case 18:
-                                caminhoImagem = "imagens/imagemCampo.png"; //dragon
-                                break;
-                            case 19:
-                                caminhoImagem = "imagens/imagemCampo.png"; //mammoth
-                                break;
-                            case 20:
-                                caminhoImagem = "imagens/imagemCampo.png"; //mammoth
-                                break;
-                            case 21:
-                                caminhoImagem = "imagens/imagemCampo.png"; //mammoth
-                                break;
-                            case 22:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 23:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 24:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 25:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 26:
-                                caminhoImagem = "imagens/imagemAgua.png";
-                                break;
-                            case 27:
-                                caminhoImagem = "imagens/imagemTetoCaverna.png";
-                                break;
-                            case 28:
-                                caminhoImagem = "imagens/imagemTetoCaverna.png"; //baixo
-                                break;
-                            case 29:
-                                caminhoImagem = "imagens/imagemTetoCaverna.png"; //direita
-                                break;
-                            case 30:
-                                caminhoImagem = "imagens/imagemTetoCavernaCima.png";
-                                break;
-                            case 31:
-                                caminhoImagem = "imagens/imagemTetoCavernaEsquerda.png";
-                                break;
-                            case 32:
-                                caminhoImagem = "imagens/imagemTetoCavernaCimaEsquerda.png";
-                                break;
-                            case 33:
-                                caminhoImagem = "imagens/imagemAguaCimaEsquerda.png";
-                                break;
-                            case 34:
-                                caminhoImagem = "imagens/imagemAguaCima.png";
-                                break;
-                            case 35:
-                                caminhoImagem = "imagens/imagemAguaCimaDireita.png";
-                                break;
-                            case 36:
-                                caminhoImagem = "imagens/imagemAguaDireita.png";
-                                break;
-                            case 37:
-                                caminhoImagem = "imagens/imagemAguaBaixoDireita.png";
-                                break;
-                            case 38:
-                                caminhoImagem = "imagens/imagemAguaBaixo.png";
-                                break;
-                            case 39:
-                                caminhoImagem = "imagens/imagemAguaBaixoEsquerda.png";
-                                break;
-                            case 40:
-                                caminhoImagem = "imagens/imagemAguaEsquerda.png";
-                                break;
-                            case 41:
-                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
-                                break;
-                            case 42:
-                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
-                                break;
-                            case 43:
-                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
-                                break;
-                            case 44:
-                                caminhoImagem = "imagens/imagemCampo.png"; //teleport
-                                break;
-                            case 45:
-                                caminhoImagem = "imagens/imagemCampo.png"; //spider
-                                break;
-                            case 46:
-                                caminhoImagem = "imagens/imagemCampo.png"; //spider
-                                break;
-                            case 47:
-                                caminhoImagem = "imagens/imagemCampo.png"; //spider
-                                break;
-                            case 48:
-                                caminhoImagem = "imagens/imagemCampo.png"; //orcshaman
-                                break;
-                            case 49:
-                                caminhoImagem = "imagens/imagemCampo.png"; //orcshaman
-                                break;
-                            case 50:
-                                caminhoImagem = "imagens/imagemCampo.png"; //orcshaman
-                                break;
-                            case 51:
-                                caminhoImagem = "imagens/imagemCampo.png"; //bot
-                                break;
-                            case 52:
-                                caminhoImagem = "imagens/imagemJangada.png";
-                                break;
-                            case 53:
-                                caminhoImagem = "imagens/imagemRemo.png";
-                                break;
-                            case 54:
-                                caminhoImagem = "imagens/imagemRemo2.png";
-                                break;
-                            case 55:
-                                caminhoImagem = "imagens/imagemCampo.png"; //sword
-                                break;
-                            case 56:
-                                caminhoImagem = "imagens/imagemCampo.png"; //shield
-                                break;
-                            case 57:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 58:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 59:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 60:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 61:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 62:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 63:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 64:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 65:
-                                caminhoImagem = "imagens/TetoCasa.png";
-                                break;
-                            case 66:
-                                caminhoImagem = "imagens/CasaUpRight.png";
-                                break;
-                            case 67:
-                                caminhoImagem = "imagens/CasaRight.png";
-                                break;
-                            case 68:
-                                caminhoImagem = "imagens/CasaDownRight.png";
-                                break;
-                            case 69:
-                                caminhoImagem = "imagens/CasaDown.png";
-                                break;
-                            case 70:
-                                caminhoImagem = "imagens/CasaDownLeft.png";
-                                break;
-                            case 71:
-                                caminhoImagem = "imagens/PortaUp.png";
-                                break;
-                            case 72:
-                                caminhoImagem = "imagens/PortaDown.png";
-                                break;
-                            case 73:
-                                caminhoImagem = "imagens/PortaOpenUp.png";
-                                break;
-                            case 74:
-                                caminhoImagem = "imagens/PortaOpenDown.png";
-                                break;
-                            case 75:
-                                caminhoImagem = "imagens/CasaIntoUpLeft.png";
-                                break;
-                            case 76:
-                                caminhoImagem = "imagens/CasaIntoUp.png";
-                                break;
-                            case 77:
-                                caminhoImagem = "imagens/CasaIntoUp.png";
-                                break;
-                            case 78:
-                                caminhoImagem = "imagens/CasaIntoLeft.png";
-                                break;
-                            case 79:
-                                caminhoImagem = "imagens/CasaIntoLeft.png";
-                                break;
-                            case 80:
-                                caminhoImagem = "imagens/imagemAguaBaixoDireita2.png";
-                                break;
-                            case 81:
-                                caminhoImagem = "imagens/imagemAguaCimaEsquerda2.png";
-                                break;
-                            case 82:
-                                caminhoImagem = "imagens/imagemAguaCimaDireita2.png";
-                                break;
-                            case 83:
-                                caminhoImagem = "imagens/imagemAguaBaixoEsquerda2.png";
-                                break;
-                            case 84:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 85:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 86:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 87:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 88:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 89:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 90:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 91:
-                                caminhoImagem = "imagens/imagemCampo.png";
-                                break;
-                            case 92:
-                                caminhoImagem = "imagens/imagemCampo.png"; //tablete
-                                break;
-                        }
+                        caminhoImagem = elementField[matrizDoMapa[i][j]][0];
 
                         if(!flagLinha && !flagColuna)
                             auxPreencherImagens(i, j, caminhoImagem, k, l);
@@ -6751,6 +6405,103 @@ loop = function() {
                 //console.log("conectado!"); 
             }
 
+            fillElementField =  function(){
+                // [imageField, statusPlayer, statusBot]
+                elementField.push(["imagens/imagemCampo.png", 0, 0]);
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //arvore
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //sacola
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //sacola
+                elementField.push(["imagens/imagemCampo.png", 0, 1]);//buraco
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //buraco
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //buraco
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //caixa
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //snake
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //snake
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //snake
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //npc
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //M
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //M
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //M
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //M
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //dragon
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //dragon
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //dragon
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //mammoth
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //mammoth
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //mammoth
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //F
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //F
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //F
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //F
+                elementField.push(["imagens/imagemAgua.png", 1, 1]);
+                elementField.push(["imagens/imagemTetoCaverna.png", 1, 1]);
+                elementField.push(["imagens/imagemTetoCaverna.png", 1, 1]); //baixo
+                elementField.push(["imagens/imagemTetoCaverna.png", 1, 1]); //direita
+                elementField.push(["imagens/imagemTetoCavernaCima.png", 1, 1]);
+                elementField.push(["imagens/imagemTetoCavernaEsquerda.png", 1, 1]);
+                elementField.push(["imagens/imagemTetoCavernaCimaEsquerda.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaCimaEsquerda.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaCima.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaCimaDireita.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaDireita.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaBaixoDireita.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaBaixo.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaBaixoEsquerda.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaEsquerda.png", 1, 1]);
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //teleport
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //teleport
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //teleport
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //teleport
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //spider
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //spider
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //spider
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //orcshaman
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //orcshaman
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //orcshaman
+                elementField.push(["imagens/imagemCampo.png", 0, 1]); //bot
+                elementField.push(["imagens/imagemJangada.png", 0, 1]); //jangada
+                elementField.push(["imagens/imagemRemo.png", 1, 1]);
+                elementField.push(["imagens/imagemRemo2.png", 1, 1]);
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //sword
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //shield
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/TetoCasa.png", 1, 1]);
+                elementField.push(["imagens/CasaUpRight.png", 1, 1]);
+                elementField.push(["imagens/CasaRight.png", 1, 1]);
+                elementField.push(["imagens/CasaDownRight.png", 1, 1]);
+                elementField.push(["imagens/CasaDown.png", 1, 1]);
+                elementField.push(["imagens/CasaDownLeft.png", 1, 1]);
+                elementField.push(["imagens/PortaUp.png", 1, 1]);
+                elementField.push(["imagens/PortaDown.png", 1, 1]);
+                elementField.push(["imagens/PortaOpenUp.png", 1, 1]);
+                elementField.push(["imagens/PortaOpenDown.png", 1, 1]);
+                elementField.push(["imagens/CasaIntoUpLeft.png", 1, 1]);
+                elementField.push(["imagens/CasaIntoUp.png", 1, 1]);
+                elementField.push(["imagens/CasaIntoUp.png", 1, 1]);
+                elementField.push(["imagens/CasaIntoLeft.png", 1, 1]);
+                elementField.push(["imagens/CasaIntoLeft.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaBaixoDireita2.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaCimaEsquerda2.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaCimaDireita2.png", 1, 1]);
+                elementField.push(["imagens/imagemAguaBaixoEsquerda2.png", 1, 1]);
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //P
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //P
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //P
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //P
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //W
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //W
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //W
+                elementField.push(["imagens/imagemCampo.png", 0, 0]); //W
+                elementField.push(["imagens/imagemCampo.png", 1, 1]); //tablete
+            }
+
             <?php
 
                 /*
@@ -6824,6 +6575,8 @@ loop = function() {
             document.body.style.userSelect = "none";
 
             preloadContentImages();
+
+            fillElementField();
 
             window.addEventListener("load", addEventos);
 
