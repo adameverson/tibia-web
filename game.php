@@ -113,8 +113,8 @@
         <div id='painelEsquerda1' title='painel' style='position:fixed; top: 0; left: 0; width: 60; height:100%; background-color: gray;'></div>
         <div id='painelCima1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:60; background-color: gray;'></div>
         -->
-        <div id='painelBaixo1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50; z-index: 2;'>Carregando...</div>
-        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50; z-index: 1;'></div>
+        <div id='painelBaixo1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50; z-index: 3;'>Carregando...</div>
+        <div id='painelDireita1' title='painel' style='position:fixed; top: 0; left: 0; width: 100%; height:100%; background-color: #ccffff; font-family: "Lucida Console", "Courier New", monospace; font-size: small; padding: 50; z-index: 2;'></div>
 
         <div id='map' style="position: fixed; top: 0; left: 0;">
             
@@ -639,18 +639,18 @@ var matrizDoMapaSubsolo2 =
 ];
 var matrizDoMapaSubsolo1 = 
 [
-[32,30,30,30,27,27,32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27],
-[31, 1, 8, 1,29,27,31, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29],
-[31, 8, 7, 4,29,27,31, 0, 4, 0, 0, 0, 8, 0, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0,29],
-[31, 1, 8, 5,29,27,31, 5, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29],
-[27,28,28,28,27,27,27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27]
+[32,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27],
+[31, 1, 8, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29],
+[31, 8, 7, 0, 0, 0, 0, 0, 4, 0, 0, 0, 8, 0, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0,29],
+[31, 1, 8, 5, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 8, 0, 0, 0, 0,29],
+[27,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,27]
 ];
 
 var matrizDoMapaTerreo = 
 [
 [33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,35],
 [40, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,41,36,40, 2, 7, 7, 7, 7,16, 1, 2, 7, 7, 7, 7, 8, 1, 2, 7, 7, 7,19, 1, 7, 1,36],
-[40,11, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,41,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36],
+[40,11, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,41,36,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 2,36],
 [40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,80,38,83, 0, 0,80,37,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36],
 [40, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1,36,26,40, 0, 0,36,26,40, 7, 7,16, 7, 7, 7,19, 7, 7, 7, 8, 7, 7,16, 7, 7,19, 7, 7,19, 7, 0,36],
 [40,19, 7, 0, 0, 0, 0, 0, 0, 0, 7,16,36,26,40, 0, 0,36,26,40, 7, 8, 1, 7, 7,16, 1, 7, 7,19, 1, 7, 8, 1, 7,16, 1, 7,19, 1, 7, 1,36],
@@ -878,14 +878,14 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var posicaoColunaBaixoDireita = 0;
             var posicaoLinhaBaixoEsquerda = 0;
             var posicaoColunaBaixoEsquerda = 0;
-            var esperaRessCima = 3;
-            var esperaRessEsquerda = 3;
-            var esperaRessDireita = 3;
-            var esperaRessBaixo = 3;
-            var esperaRessCimaEsquerda = 3;
-            var esperaRessCimaDireita = 3;
-            var esperaRessBaixoDireita = 3;
-            var esperaRessBaixoEsquerda = 3;
+            var esperaRessCima = 10;
+            var esperaRessEsquerda = 10;
+            var esperaRessDireita = 10;
+            var esperaRessBaixo = 10;
+            var esperaRessCimaEsquerda = 10;
+            var esperaRessCimaDireita = 10;
+            var esperaRessBaixoDireita = 10;
+            var esperaRessBaixoEsquerda = 10;
             var esperaRessCimaContador = 0;
             var esperaRessEsquerdaContador = 0;
             var esperaRessDireitaContador = 0;
@@ -902,7 +902,8 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
             var flagCimaDireita = false;
             var flagBaixoDireita = false;
             var flagBaixoEsquerda = false;
-            var esperaGeral = 100;
+            var esperaGeral = 50;
+            var esperaGeralContador = esperaGeral;
 
             //Variaveis BOT
             var posicaoBot = [(linhaInicioTerreo + 5),(colunaInicio + 6)];
@@ -1202,6 +1203,7 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
 					//message.setAttribute("id", "mensagemDivCampo" + "-" + arrayLinhasTela.indexOf(field) + "-" + arrayColunasElementos.indexOf(column));
 					message.style.position = "absolute";
                     //message.style.position = "fixed";
+                    message.style.zIndex = "1";
 					message.style.top = "15";
 					message.style.left = "5";
 					message.style.width = "250";
@@ -2861,11 +2863,11 @@ for(let i = 0; i < matrizCriaturasVida.length; i++){
                     nomeCampo.style.color = 'mediumseagreen';
                     barraHpCampo.style.background = 'mediumseagreen';
 
-                    if(esperaGeral > 0){
-                        esperaGeral--;
+                    if(esperaGeralContador > 0){
+                        esperaGeralContador--;
                         return;
                     }else{
-                        esperaGeral = 100;
+                        esperaGeralContador = esperaGeral;
                         
                         switch(matrizDoMapa[i][j]){
                             case 10:
@@ -4723,7 +4725,7 @@ funcMoverPersonagem = function() {
                                 funcPersonagemMorto();
                                 return hitTotal;
                             }
-                        }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == atacando || matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == morto){
+                        }else if(matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == atacando /*|| matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] == morto*/){
                             matrizDoMapa[posicaoDoPersonagemNaMatriz[0]+i][posicaoDoPersonagemNaMatriz[1]+j] = normal;
                         }
 
