@@ -700,7 +700,12 @@ var telaAreaMax = [8, 15];
 
 var matrizDoMapa = [];
 
+let linhaPreenchimentoDeTelaLaterais = [];
 let linhaPreenchimentoDeTela = [];
+
+for(let i = 0; i < telaAreaMax[1]; i++){
+    linhaPreenchimentoDeTelaLaterais.push(27);
+}
 for(let i = 0; i < matrizDoMapaSubsolo4[0].length; i++){
     linhaPreenchimentoDeTela.push(27);
 }
@@ -709,11 +714,7 @@ for(let i = 0; i < telaAreaMax[0]; i++){
     matrizDoMapaSubsolo4.push(linhaPreenchimentoDeTela.slice());
 }
 for(let i = 0; i < matrizDoMapaSubsolo4.length; i++){
-    matrizDoMapa.push(matrizDoMapaSubsolo4[i].slice());
-    for(let j = 0; j < telaAreaMax[1]; j++){
-        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
-        matrizDoMapa[matrizDoMapa.length - 1].push(27);
-    }
+    matrizDoMapa.push(linhaPreenchimentoDeTelaLaterais.concat(matrizDoMapaSubsolo4[i].slice()).concat(linhaPreenchimentoDeTelaLaterais));
 }
 linhaPreenchimentoDeTela = [];
 for(let i = 0; i < matrizDoMapaSubsolo3[0].length; i++){
@@ -724,11 +725,7 @@ for(let i = 0; i < telaAreaMax[0]; i++){
     matrizDoMapaSubsolo3.push(linhaPreenchimentoDeTela.slice());
 }
 for(let i = 0; i < matrizDoMapaSubsolo3.length; i++){
-    matrizDoMapa.push(matrizDoMapaSubsolo3[i].slice());
-    for(let j = 0; j < telaAreaMax[1]; j++){
-        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
-        matrizDoMapa[matrizDoMapa.length - 1].push(27);
-    }
+    matrizDoMapa.push(linhaPreenchimentoDeTelaLaterais.concat(matrizDoMapaSubsolo3[i].slice()).concat(linhaPreenchimentoDeTelaLaterais));
 }
 linhaPreenchimentoDeTela = [];
 for(let i = 0; i < matrizDoMapaSubsolo2[0].length; i++){
@@ -739,11 +736,7 @@ for(let i = 0; i < telaAreaMax[0]; i++){
     matrizDoMapaSubsolo2.push(linhaPreenchimentoDeTela.slice());
 }
 for(let i = 0; i < matrizDoMapaSubsolo2.length; i++){
-    matrizDoMapa.push(matrizDoMapaSubsolo2[i].slice());
-    for(let j = 0; j < telaAreaMax[1]; j++){
-        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
-        matrizDoMapa[matrizDoMapa.length - 1].push(27);
-    }
+    matrizDoMapa.push(linhaPreenchimentoDeTelaLaterais.concat(matrizDoMapaSubsolo2[i].slice()).concat(linhaPreenchimentoDeTelaLaterais));
 }
 linhaPreenchimentoDeTela = [];
 for(let i = 0; i < matrizDoMapaSubsolo1[0].length; i++){
@@ -754,14 +747,15 @@ for(let i = 0; i < telaAreaMax[0]; i++){
     matrizDoMapaSubsolo1.push(linhaPreenchimentoDeTela.slice());
 }
 for(let i = 0; i < matrizDoMapaSubsolo1.length; i++){
-    matrizDoMapa.push(matrizDoMapaSubsolo1[i].slice());
-    for(let j = 0; j < telaAreaMax[1]; j++){
-        matrizDoMapa[matrizDoMapa.length - 1].unshift(27);
-        matrizDoMapa[matrizDoMapa.length - 1].push(27);
-    }
+    matrizDoMapa.push(linhaPreenchimentoDeTelaLaterais.concat(matrizDoMapaSubsolo1[i].slice()).concat(linhaPreenchimentoDeTelaLaterais));
 }
 
+linhaPreenchimentoDeTelaLaterais = [];
 linhaPreenchimentoDeTela = [];
+
+for(let i = 0; i < telaAreaMax[1]; i++){
+    linhaPreenchimentoDeTelaLaterais.push(26);
+}
 for(let i = 0; i < matrizDoMapaTerreo[0].length; i++){
     linhaPreenchimentoDeTela.push(26);
 }
@@ -770,11 +764,7 @@ for(let i = 0; i < telaAreaMax[0]; i++){
     matrizDoMapaTerreo.push(linhaPreenchimentoDeTela.slice());
 }
 for(let i = 0; i < matrizDoMapaTerreo.length; i++){
-    matrizDoMapa.push(matrizDoMapaTerreo[i].slice());
-    for(let j = 0; j < telaAreaMax[1]; j++){
-        matrizDoMapa[matrizDoMapa.length - 1].unshift(26);
-        matrizDoMapa[matrizDoMapa.length - 1].push(26);
-    }
+    matrizDoMapa.push(linhaPreenchimentoDeTelaLaterais.concat(matrizDoMapaTerreo[i].slice()).concat(linhaPreenchimentoDeTelaLaterais));
 }
 
 linhaPreenchimentoDeTela = [];
@@ -785,11 +775,7 @@ for(let i = 0; i < telaAreaMax[0]; i++){
     matrizDoMapaPvp.push(linhaPreenchimentoDeTela.slice());
 }
 for(let i = 0; i < matrizDoMapaPvp.length; i++){
-    matrizDoMapa.push(matrizDoMapaPvp[i].slice());
-    for(let j = 0; j < telaAreaMax[1]; j++){
-        matrizDoMapa[matrizDoMapa.length - 1].unshift(26);
-        matrizDoMapa[matrizDoMapa.length - 1].push(26);
-    }
+    matrizDoMapa.push(linhaPreenchimentoDeTelaLaterais.concat(matrizDoMapaPvp[i].slice()).concat(linhaPreenchimentoDeTelaLaterais));
 }
 
 //Indices Mapa 
